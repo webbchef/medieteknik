@@ -1,0 +1,64 @@
+{
+  "styrareContent": [
+    {
+      "name": "Elin Bergström",
+      "responsibility": "Ordförande",
+      "email": "ordforande@medieteknik.nu"
+    },
+    {
+      "name": "Laith Oudah",
+      "responsibility": "Kassör",
+      "email": "kassor@medieteknik.nu"
+    },
+    {
+      "name": "Samuel Rothin",
+      "responsibility": "Sekreterare och AMO",
+      "email": "sekreterare@medieteknik.nu"
+    },
+    {
+      "name": "Josephine Zettervall",
+      "responsibility": "Studienämndsordförande",
+      "email": "snordf@medieteknik.nu"
+    },
+    {
+      "name": "Berkay Orhan Unlu",
+      "responsibility": "Vice SNORDF",
+      "email": "snordf@medieteknik.nu"
+    },
+    {
+      "name": "Amanda Hult",
+      "responsibility": "Webb",
+      "email": "webbchef@medieteknik.nu"
+    },
+    {
+      "name": "Todel Touma",
+      "responsibility": "Alumni och Näringsliv",
+      "email": "naringsliv@medieteknik.nu"
+    },
+    {
+      "name": "Henry Ljung",
+      "responsibility": "Alumni och Näringsliv",
+      "email": "naringsliv@medieteknik.nu"
+    },
+    {
+      "name": "Daniel Laesker",
+      "responsibility": "Festerichef",
+      "email": "festerichef@medieteknik.nu"
+    },
+    {
+      "name": "Gayathri Naranath",
+      "responsibility": "Rekrytering och PR",
+      "email": "rekrytering@medieteknik.nu"
+    },
+    {
+      "name": "Teo Hedelin",
+      "responsibility": "Eventansvarig",
+      "email": "eventansvarig@medieteknik.nu"
+    },
+    {
+      "name": "Tiger",
+      "responsibility": "Maskot",
+      "email": "@mtsektionen"
+    }
+  ]
+}
