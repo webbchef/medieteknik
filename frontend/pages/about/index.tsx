@@ -30,7 +30,7 @@ const PresentationPage: NextPage = () => {
       </Head>
       <Grid container>
         {styrare.map((styr, index) => (
-          <Grid item xs={4} key={index} sx={{ p: "20px" }}>
+          <Grid item xs={4} key={index} sx={{ p: "20px", height: "100%" }}>
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

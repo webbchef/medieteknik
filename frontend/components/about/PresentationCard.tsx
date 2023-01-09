@@ -20,9 +20,11 @@ interface InputProps {
  * @returns
  */
 export default function PresentationCard(props: InputProps) {
-  console.log(require("../../assets/profilePictures/amanda.jpg").default.src);
+  const getLink = (mail: string) => {
+    return `mailto:${mail}`;
+  };
   return (
-    <Card onClick={props.openInfo} sx={{ cursor: "pointer" }}>
+    <Card onClick={props.openInfo} sx={{ cursor: "pointer", height: "100%" }}>
       {props.user.imageName && (
         <CardMedia
           component="img"
@@ -36,7 +38,11 @@ export default function PresentationCard(props: InputProps) {
       )}
       <CardHeader title={props.user.name} align="center" />
       <CardContent>
-        <Typography align="center">{props.user.email}</Typography>
+        <Typography sx={{ fontWeight: "bold" }}>
+          {props.user.responsibility}
+        </Typography>
+
+        <Typography>{props.user.email}</Typography>
       </CardContent>
     </Card>
   );
