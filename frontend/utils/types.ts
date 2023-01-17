@@ -4,3 +4,9 @@ export interface Styrare {
   responsibility: string;
   imageName?: string;
 }
+
+export interface Event {
+  title: string;
+  text: string;
+  month: string;
+}
