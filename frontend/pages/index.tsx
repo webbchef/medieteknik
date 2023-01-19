@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useRef } from "react";
-import tempContent from "./tempContent.json";
 import gruppbild from "../assets/gruppbild.jpg";
 import { motion } from "framer-motion";
 import Navigation from "../components/navigation/Navigation";
@@ -20,7 +19,6 @@ import {
 import { fadeInUp } from "../animations/constants";
 
 const Home: NextPage = () => {
-  const styrare = tempContent.styrareContent;
   const constraintsRef1 = useRef(null);
   const constraintsRef2 = useRef(null);
   const constraintsRef3 = useRef(null);

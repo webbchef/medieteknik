@@ -2,16 +2,16 @@ import Head from "next/head";
 import Image from "next/image";
 import type { NextPage } from "next";
 import { useState } from "react";
-import tempContent from "../tempContent.json";
+import styrareContent from "../../content/styrare.json";
 import { Button, Grid, Typography } from "@mui/material";
 import PresentationModal from "../../components/about/PresentationModal";
 import PresentationCard from "../../components/about/PresentationCard";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../../animations/constants";
 import { Styrare } from "../../utils/types";
-// export default function PresentationPage() {
+
 const PresentationPage: NextPage = () => {
-  const styrare: Styrare[] = tempContent.styrareContent;
+  const styrare: Styrare[] = styrareContent;
   console.log(styrare);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [activeUser, setActiveUser] = useState<number>(0);

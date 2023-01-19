@@ -54,7 +54,7 @@ export default function ImageCarousel() {
 
   return (
     <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
-      <Paper
+      {/* <Paper
         square
         elevation={0}
         sx={{
@@ -66,7 +66,7 @@ export default function ImageCarousel() {
         }}
       >
         <Typography>{images[activeStep].label}</Typography>
-      </Paper>
+      </Paper> */}
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
@@ -79,6 +79,7 @@ export default function ImageCarousel() {
               <Box
                 component="img"
                 sx={{
+                  borderRadius: "10px",
                   height: 255,
                   display: "block",
                   maxWidth: 400,
@@ -102,7 +103,6 @@ export default function ImageCarousel() {
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
           >
-            Next
             {theme.direction === "rtl" ? (
               <KeyboardArrowLeft />
             ) : (
@@ -117,7 +117,6 @@ export default function ImageCarousel() {
             ) : (
               <KeyboardArrowLeft />
             )}
-            Back
           </Button>
         }
       />

@@ -15,7 +15,7 @@ export default function AlternateTimeline() {
   const events: Event[] = eventsContent;
   console.log(events);
   return (
-    <p>temp</p>
+    <p>Events</p>
     // <Grid
     //   className="heje123"
     //   sx={{

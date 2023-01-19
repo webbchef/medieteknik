@@ -7,6 +7,10 @@ import { MobileStateContext } from "../../contexts/MobileContexts";
 // export default function PresentationPage() {
 const PresentationPage: NextPage = () => {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
+  console.log("Mobile " + isMobile);
+  console.log("Ipad " + isIpad);
+  console.log("Desktop " + isDesktop);
+
   return (
     <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
       <Head>
@@ -17,7 +21,11 @@ const PresentationPage: NextPage = () => {
       <Grid container sx={{ marginTop: "100px" }}>
         <Typography variant="h1">OM MT</Typography>
       </Grid>
+      {isMobile ? <p>Mobile</p> : <p>desktop or ipad</p>}
       <Grid container></Grid>
+      <Button variant="contained" color="secondary">
+        Test
+      </Button>
     </motion.div>
   );
 };

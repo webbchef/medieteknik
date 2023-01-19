@@ -121,7 +121,7 @@ export default function Navigation() {
 
           <Drawer
             anchor="right"
-            sx={{ zIndex: 1 }}
+            sx={{ zIndex: 10 }}
             open={isOpen}
             onClose={closeMenu}
             transitionDuration={600}
