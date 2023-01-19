@@ -6,11 +6,8 @@ import {
   List,
   Grid,
   ListItem,
-  IconButton,
-  Avatar,
   Drawer,
   Button,
-  Icon,
 } from "@mui/material";
 import { Sling as Hamburger } from "hamburger-react";
 import Link from "next/link";
@@ -46,25 +43,27 @@ export default function Navigation() {
     >
       {[
         {
-          name: "Hem",
+          name: "HEM",
           to: "/",
         },
-        { name: "Studentliv", to: "/studentliv" },
-        { name: "Om MT", to: "/about" },
-        { name: "Sektionen", to: "/sektionen" },
+        { name: "STUDENTLIV", to: "/studentliv" },
+        { name: "OM MT", to: "/about" },
+        { name: "SEKTIONEN", to: "/sektionen" },
       ].map((link, index) => (
         <ListItem key={index}>
           <Link href={link.to} onClick={closeMenu} legacyBehavior={false}>
-            {link.name}
+            <Typography variant="h4">{link.name}</Typography>
           </Link>
         </ListItem>
       ))}
       <ListItem>
         <LaunchIcon sx={{ fontSize: "14px" }} />
         <Link href="https://www.medieteknikdagen.se/" passHref>
-          <a target="_blank" rel="noopener noreferrer">
-            Mässa
-          </a>
+          <Typography variant="h4">
+            <a target="_blank" rel="noopener noreferrer">
+              MÄSSA
+            </a>
+          </Typography>
         </Link>
       </ListItem>
     </List>
@@ -96,7 +95,7 @@ export default function Navigation() {
           </a>
           {list()}
           <Button variant="outlined" startIcon={<LoginIcon />}>
-            Logga in
+            <Typography variant="h4">LOGGA IN</Typography>
           </Button>
         </Grid>
       ) : (
