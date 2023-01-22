@@ -8,6 +8,8 @@ import { MobileStateContext } from "../../contexts/MobileContexts";
 import Events from "../../components/studentliv/Events";
 import ImageCarousel from "../../components/studentliv/ImageCarousel";
 import gruppbild from "../../assets/gruppbild.jpg";
+import nollePImage from "../../assets/nollep.jpg";
+import Studentkonto from "../../components/studentliv/Studentkonto";
 
 const StudentlivPage: NextPage = () => {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
@@ -96,6 +98,12 @@ const StudentlivPage: NextPage = () => {
             </Button>
           </Grid>
         </Grid>
+        <Grid container>
+          <img
+            src={nollePImage.src}
+            style={{ height: "30vh", width: "100%", objectFit: "cover" }}
+          />
+        </Grid>
 
         <Grid sx={{ textAlign: "center", width: "70%" }}>
           <Typography variant="h2">Nolle-P</Typography>
@@ -108,6 +116,9 @@ const StudentlivPage: NextPage = () => {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Typography>
+        </Grid>
+        <Grid container>
+          <Studentkonto />
         </Grid>
 
         <Grid container sx={{ textAlign: "center" }}>
