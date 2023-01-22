@@ -10,6 +10,7 @@ import ImageCarousel from "../../components/studentliv/ImageCarousel";
 import gruppbild from "../../assets/gruppbild.jpg";
 import nollePImage from "../../assets/nollep.jpg";
 import Studentkonto from "../../components/studentliv/Studentkonto";
+import fiket from "../../assets/fiket.jpg";
 
 const StudentlivPage: NextPage = () => {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
@@ -75,7 +76,7 @@ const StudentlivPage: NextPage = () => {
             sx={{
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
+              alignItems: "center",
               textAlign: "center",
             }}
           >
@@ -98,14 +99,14 @@ const StudentlivPage: NextPage = () => {
             </Button>
           </Grid>
         </Grid>
-        <Grid container>
+        <Grid container sx={{ paddingTop: 3, paddingBottom: 3 }}>
           <img
             src={nollePImage.src}
             style={{ height: "30vh", width: "100%", objectFit: "cover" }}
           />
         </Grid>
 
-        <Grid sx={{ textAlign: "center", width: "70%" }}>
+        <Grid sx={{ textAlign: "center", width: "70%", p: 3 }}>
           <Typography variant="h2">Nolle-P</Typography>
           <Typography>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -117,7 +118,7 @@ const StudentlivPage: NextPage = () => {
             culpa qui officia deserunt mollit anim id est laborum.
           </Typography>
         </Grid>
-        <Grid container>
+        <Grid container sx={{ marginTop: 3, marginBottom: 3 }}>
           <Studentkonto />
         </Grid>
 
@@ -125,7 +126,27 @@ const StudentlivPage: NextPage = () => {
           <Typography variant="h2" sx={{ textAlign: "center", width: "100%" }}>
             Nöjen
           </Typography>
-
+          <Grid item xs={4} sx={{ p: 3 }}>
+            <img
+              src={fiket.src}
+              width="100%"
+              style={{ borderRadius: "10px", objectFit: "contain" }}
+            />
+          </Grid>
+          <Grid item xs={4} sx={{ p: 3 }}>
+            <img
+              src={fiket.src}
+              width="100%"
+              style={{ borderRadius: "10px", objectFit: "contain" }}
+            />
+          </Grid>
+          <Grid item xs={4} sx={{ p: 3 }}>
+            <img
+              src={fiket.src}
+              width="100%"
+              style={{ borderRadius: "10px", objectFit: "contain" }}
+            />
+          </Grid>
           <Typography variant="h3" sx={{ textAlign: "center", width: "100%" }}>
             Sektionens event
           </Typography>

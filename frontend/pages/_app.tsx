@@ -4,6 +4,7 @@ import { MobileStateProvider } from "../contexts/MobileContexts";
 import Navigation from "../components/navigation/Navigation";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./styles.css";
+import Footer from "../components/general/Footer";
 
 let theme = createTheme({
   components: {
@@ -61,6 +62,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <>
           <Navigation />
           <Component {...pageProps} />
+          <Footer />
         </>
       </MobileStateProvider>
     </ThemeProvider>

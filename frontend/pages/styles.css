@@ -66,9 +66,9 @@
 .custom-shape-divider-top-1674383169 svg {
   position: relative;
   display: block;
-  width: calc(158% + 1.3px);
+  width: calc(118% + 1.3px);
   height: 70px;
-  /* transform: rotateY(-180deg); */
+  transform: rotateY(-180deg);
 }
 
 .custom-shape-divider-top-1674383169 .shape-fill {
