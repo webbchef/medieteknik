@@ -4,8 +4,9 @@ import { Grid, Typography } from "@mui/material";
 import gruppbild from "../../assets/gruppbild.jpg";
 
 interface InputProps {
-  pageName: string;
+  pageName?: string;
   imgSrc: string;
+  children?: JSX.Element;
 }
 export default function BackgroundImage(props: InputProps) {
   const events: Event[] = eventsContent;
@@ -28,12 +29,16 @@ export default function BackgroundImage(props: InputProps) {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <Typography
-          variant="h1"
-          sx={{ textAlign: "center", width: "100%", zIndex: 4 }}
-        >
-          {props.pageName}
-        </Typography>
+        {props.pageName ? (
+          <Typography
+            variant="h1"
+            sx={{ textAlign: "center", width: "100%", zIndex: 4 }}
+          >
+            {props.pageName}
+          </Typography>
+        ) : (
+          props.children
+        )}
         <div className="shape">
           <svg
             data-name="Layer 1"
