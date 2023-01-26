@@ -4,6 +4,7 @@ import { Grid, IconButton, Typography } from "@mui/material";
 import logo from "../../assets/logotyp_vit_text.png";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import Link from "next/link";
 
 export default function Footer() {
   const events: Event[] = eventsContent;
@@ -45,6 +46,9 @@ export default function Footer() {
         <Typography variant="h4" color="white">
           Studentlänkar
         </Typography>
+        <Link href="/blog/hello-world">
+          <Typography color="white">TEXT</Typography>
+        </Link>
       </Grid>
     </Grid>
   );

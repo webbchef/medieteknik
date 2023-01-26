@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   ListItemText,
   Box,
@@ -22,6 +22,7 @@ import LaunchIcon from "@mui/icons-material/Launch";
  */
 export default function Navigation() {
   const [isOpen, setOpen] = useState(false);
+  const [bgColor, setBgColor] = useState<boolean>(false);
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
 
   function openMenu() {
@@ -31,6 +32,21 @@ export default function Navigation() {
   function closeMenu() {
     setOpen(false);
   }
+
+  const changeBackground = () => {
+    console.log(window.scrollY);
+    if (window.scrollY >= 66) {
+      setBgColor(true);
+    } else {
+      setBgColor(false);
+    }
+  };
+
+  useEffect(() => {
+    changeBackground();
+    // adding the event when scroll change Logo
+    window.addEventListener("scroll", changeBackground);
+  });
 
   const list = () => (
     <List
@@ -71,16 +87,20 @@ export default function Navigation() {
 
   return (
     <Grid
-      sx={{
-        p: 2,
-        position: "fixed",
-        zIndex: 999,
-        top: 0,
-        width: "100%",
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-      }}
+      sx={[
+        {
+          p: 2,
+          position: "fixed",
+          zIndex: 999,
+          top: 0,
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          transition: "0.5s",
+          alignItems: "center",
+        },
+        bgColor && { backgroundColor: "white" },
+      ]}
     >
       {isDesktop ? (
         <Grid
