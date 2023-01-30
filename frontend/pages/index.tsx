@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.css";
 import { useRef } from "react";
 import tempContent from "./tempContent.json";
 import gruppbild from "../assets/gruppbild.jpg";
+import valueIconImage from "../assets/valueIcon.png"
 import { motion } from "framer-motion";
 import Navigation from "../components/navigation/Navigation";
 import {
@@ -16,8 +17,17 @@ import {
   ListItem,
   Drawer,
   IconButton,
+  Container,
 } from "@mui/material";
 import { fadeInUp } from "../animations/constants";
+import { positions, Stack } from "@mui/system";
+import MtValues from "../components/home/mtValues";
+import studentlivPicture from "../assets/studentlivImage.png"
+
+const groupImage = ((gruppbild as unknown) as HTMLImageElement | null)?.src;
+const valueIcon = ((valueIconImage as unknown) as HTMLImageElement)?.src;
+const studentlivImage = ((studentlivPicture as unknown) as HTMLImageElement)?.src;
+
 
 const Home: NextPage = () => {
   const styrare = tempContent.styrareContent;
@@ -27,13 +37,16 @@ const Home: NextPage = () => {
   const constraintsRef4 = useRef(null);
 
   return (
+    <>
     <motion.div
       style={{
-        backgroundImage: `url(${gruppbild.src})`,
+        backgroundImage: `url(${groupImage})`,
         backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
       animate="animate"
       initial="initial"
+      
     >
       <Head>
         <title>Civilingenjör i Medieteknik</title>
@@ -52,6 +65,7 @@ const Home: NextPage = () => {
         alignItems="center"
         justifyContent="center"
         sx={{ width: "100%", height: "100vh" }}
+        position="relative"
       >
         <Grid
           container
@@ -110,7 +124,44 @@ const Home: NextPage = () => {
           </motion.div>
         </motion.div>
       </Grid>
+      <div className="custom-shape-divider-bottom-1675085725" >
+        <svg style={{verticalAlign: "bottom"}} fill="white" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z" className="shape-fill"></path>
+        </svg>
+      </div>
     </motion.div>
+    <Container  maxWidth={false} style={{background: 'white'}}>
+      <Typography padding="20px 0px" color="black" variant="h1" textAlign="center">Vad är MT?</Typography>
+      <Container maxWidth="xl" style={{paddingBottom: "30px"}}>
+        <Typography variant="h4" color="black" textAlign="center">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+          sed do eiusmod tempor incididunt 
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+          quis nostrud exercitation ullamco laboris nisi ut 
+          aliquip ex ea commodo consequat.
+        </Typography>
+        <Stack marginTop={2} direction="row">
+          <MtValues image={valueIcon} title={"Kreativitet"} description={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+          }/>
+          <MtValues image={valueIcon} title={"Teknik"} description={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+          }/>
+          <MtValues image={valueIcon} title={"Problemlösning"} description={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+          }/>
+        </Stack>
+        <Box display={"flex"} flexDirection="row" alignItems={"center"}>
+          <Box marginTop={20} width={400}>
+            <Typography textAlign="center" variant="h2">Studentliv</Typography>
+            <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Typography>
+          </Box>
+          <Image width={511*0.5} height={658*0.5} src={studentlivImage}/>
+        </Box>
+      </Container>
+      
+    </Container>
+    </>
   );
 };
 
