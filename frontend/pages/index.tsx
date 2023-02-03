@@ -20,7 +20,7 @@ import {
   Container,
 } from "@mui/material";
 import { fadeInUp } from "../animations/constants";
-import { positions, Stack } from "@mui/system";
+import { display, positions, Stack } from "@mui/system";
 import MtValues from "../components/home/mtValues";
 import studentlivPicture from "../assets/studentlivImage.png"
 
@@ -133,14 +133,14 @@ const Home: NextPage = () => {
     <Container  maxWidth={false} style={{background: 'white'}}>
       <Typography padding="20px 0px" color="black" variant="h1" textAlign="center">Vad är MT?</Typography>
       <Container maxWidth="xl" style={{paddingBottom: "30px"}}>
-        <Typography variant="h4" color="black" textAlign="center">
+        <Typography fontSize={20} color="black" textAlign="center">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
           sed do eiusmod tempor incididunt 
           ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
           quis nostrud exercitation ullamco laboris nisi ut 
           aliquip ex ea commodo consequat.
         </Typography>
-        <Stack marginTop={2} direction="row">
+        <Stack marginTop={5} direction="row">
           <MtValues image={valueIcon} title={"Kreativitet"} description={
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
           }/>
@@ -151,13 +151,27 @@ const Home: NextPage = () => {
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
           }/>
         </Stack>
-        <Box display={"flex"} flexDirection="row" alignItems={"center"}>
-          <Box marginTop={20} width={400}>
+        <Box marginTop={17} display={"flex"} flexDirection="row" alignItems={"center"} gap={10}>
+          <Box alignSelf="flex-start" flex={3} width={400}>
             <Typography textAlign="center" variant="h2">Studentliv</Typography>
-            <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Typography>
+            <Typography textAlign="center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+              laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+              laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+              laboris nisi ut aliquip ex ea commodo consequat.
+            </Typography>
           </Box>
-          <Image width={511*0.5} height={658*0.5} src={studentlivImage}/>
+          <Image style={{flex: 1}} width={511*0.4} height={658*0.4} src={studentlivImage}/>
         </Box>
+        <Container maxWidth="xl" sx={{background: "#13283C"}}> {/*TODO: change color to theme color */}
+          <p>Hello</p>
+        </Container>
       </Container>
       
     </Container>
