@@ -1,7 +1,6 @@
 import eventsContent from "../../content/events.json";
 import { Event } from "../../utils/types";
 import { Grid, Typography } from "@mui/material";
-import gruppbild from "../../assets/gruppbild.jpg";
 
 interface InputProps {
   pageName?: string;

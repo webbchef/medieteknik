@@ -10,3 +10,9 @@ export interface Event {
   text: string;
   month: string;
 }
+
+export interface House {
+  label: string;
+  description: string;
+  imgPath: string;
+}

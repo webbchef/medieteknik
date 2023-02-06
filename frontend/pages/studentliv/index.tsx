@@ -49,9 +49,15 @@ const StudentlivPage: NextPage = () => {
               Bostad
             </Typography>
             <Typography sx={{ m: 2 }}>
-              Vi erbjuder dig bostäder med närhet till centrum och Campus
-              Norrköping. Här läser du mer om våra olika studentområden och du
-              kan se på en karta var respektive hus ligger.
+              Som student i Norrköping finns det flera olika boendemöjligheter.
+              Studentbo i Norrköping tillhandahåller flera olika boenden med
+              gångavstång till Campus. Om du funderar på att börja plugga i
+              Norrköping kan du ställa dig i kö direkt.
+              <br />
+              <br />
+              Det finns även bra pendlingsmöjligheter från Linköping.
+              Campusbussen är gratis för alla studenter och åker mellan Campus
+              US, Campus Valla och Campus Norrköping.
             </Typography>
             <Button
               target="_blank"

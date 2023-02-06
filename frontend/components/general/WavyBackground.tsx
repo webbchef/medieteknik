@@ -8,25 +8,16 @@ interface InputProps {
 
 export default function WavyBackground(props: InputProps) {
   return (
-    // <Grid
-    //   container
-    //   spacing={3}
-    //   sx={{
-    //     position: "relative",
-    //     backgroundColor: props.bgColor,
-    //     // p: 3,
-    //   }}
-    // >
     <Grid
       container
       sx={{
         position: "relative",
-        backgroundColor: props.bgColor,
-        p: 4,
         color: props.textColor,
+        marginTop: "69px",
+        marginBottom: "69px",
       }}
     >
-      <div className="custom-shape-divider-top-1674383169">
+      <div className="wavy-background-top">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -36,12 +27,20 @@ export default function WavyBackground(props: InputProps) {
           <path
             d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
             className="shape-fill"
+            fill={props.bgColor}
           ></path>
         </svg>
       </div>
-      {props.children}
+      <Grid
+        container
+        sx={{
+          backgroundColor: props.bgColor,
+        }}
+      >
+        {props.children}
+      </Grid>
 
-      <div className="custom-shape-divider-bottom-1674382091">
+      <div className="wavy-background-bottom">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -51,10 +50,10 @@ export default function WavyBackground(props: InputProps) {
           <path
             d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
             className="shape-fill"
+            fill={props.bgColor}
           ></path>
         </svg>
       </div>
     </Grid>
-    // </Grid>
   );
 }

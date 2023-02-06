@@ -21,13 +21,15 @@ export default function Studentkonto() {
             Studentkonto
           </Typography>
           <Typography sx={{ m: 2, color: "white" }}>
-            Vi erbjuder dig bostäder med närhet till centrum och Campus
-            Norrköping. Här läser du mer om våra olika studentområden och du kan
-            se på en karta var respektive hus ligger.
+            Vill du få en inblick i hur det är att leva som MT-student? Då ska
+            du följa vårat instagramkonto <i>medieteknik_student</i>!
+            <br />
+            <br />
+            Här får du följa med en MT-student ...
           </Typography>
           <Button
             target="_blank"
-            href="https://hyresbostader.se/studentbo"
+            href="https://www.instagram.com/medieteknik_student/?hl=en"
             variant="contained"
             color="secondary"
             sx={{ marginTop: 2, marginBottom: "30px" }}
