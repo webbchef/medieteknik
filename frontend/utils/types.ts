@@ -9,6 +9,7 @@ export interface Event {
   title: string;
   text: string;
   month: string;
+  imgPath: string;
 }
 
 export interface House {

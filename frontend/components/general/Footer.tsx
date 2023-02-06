@@ -10,7 +10,11 @@ export default function Footer() {
   const events: Event[] = eventsContent;
   console.log(events);
   return (
-    <Grid container spacing={3} sx={{ backgroundColor: "black", p: 3 }}>
+    <Grid
+      container
+      spacing={3}
+      sx={{ backgroundColor: "black", p: 3, marginTop: "50px" }}
+    >
       <Grid item xs={4}>
         <Grid container justifyContent="center" alignItems="center">
           <img src={logo.src} height="100px" />

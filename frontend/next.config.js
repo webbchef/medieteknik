@@ -9,6 +9,7 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  // externals: ["react-dom/client"],
 };
 
 module.exports = nextConfig;

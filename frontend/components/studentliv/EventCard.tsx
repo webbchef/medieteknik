@@ -3,12 +3,13 @@ import { Event } from "../../utils/types";
 
 export default function EventCard(item: Event) {
   return (
-    <Card sx={{ marginTop: "-40px" }}>
-      {/* <CardMedia
-        // sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="green iguana"
-      /> */}
+    <Card sx={{ marginTop: "-80px" }}>
+      <CardMedia
+        component="img"
+        height="150"
+        image={item.imgPath}
+        alt={item.title}
+      />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {item.title}
