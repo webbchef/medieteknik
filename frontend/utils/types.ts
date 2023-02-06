@@ -17,3 +17,8 @@ export interface House {
   description: string;
   imgPath: string;
 }
+
+export interface FooterLink {
+  title: string;
+  path: string;
+}

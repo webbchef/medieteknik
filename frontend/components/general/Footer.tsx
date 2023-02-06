@@ -1,13 +1,17 @@
 import eventsContent from "../../content/events.json";
-import { Event } from "../../utils/types";
-import { Grid, IconButton, Typography } from "@mui/material";
+import linksContent from "../../content/footer_links.json";
+import { Event, FooterLink } from "../../utils/types";
+import { Grid, IconButton, Typography, Link } from "@mui/material";
 import logo from "../../assets/logotyp_vit_text.png";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import Link from "next/link";
+import { useContext } from "react";
+import { MobileStateContext } from "../../contexts/MobileContexts";
 
 export default function Footer() {
+  const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
   const events: Event[] = eventsContent;
+  const links: FooterLink[] = linksContent;
   console.log(events);
   return (
     <Grid
@@ -15,44 +19,72 @@ export default function Footer() {
       spacing={3}
       sx={{ backgroundColor: "black", p: 3, marginTop: "50px" }}
     >
-      <Grid item xs={4}>
+      <Grid item xs={12} md={4}>
         <Grid container justifyContent="center" alignItems="center">
           <img src={logo.src} height="100px" />
           <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
-            <IconButton
-              color="secondary"
-              aria-label="upload picture"
-              component="label"
+            <Link
+              target="_blank"
+              rel="noopener"
+              href="https://sv-se.facebook.com/mtsektionen/"
             >
-              <FacebookRoundedIcon />
-            </IconButton>
-            <IconButton
-              color="secondary"
-              aria-label="upload picture"
-              component="label"
+              <IconButton
+                color="secondary"
+                aria-label="upload picture"
+                component="label"
+              >
+                <FacebookRoundedIcon />
+              </IconButton>
+            </Link>
+            <Link
+              target="_blank"
+              rel="noopener"
+              href="https://www.instagram.com/mtsektionen/?hl=en"
             >
-              <InstagramIcon />
-            </IconButton>
+              <IconButton
+                color="secondary"
+                aria-label="upload picture"
+                component="label"
+              >
+                <InstagramIcon />
+              </IconButton>
+            </Link>
           </Grid>
         </Grid>
       </Grid>
-      <Grid item xs={4}>
+      <Grid
+        item
+        xs={isMobile ? 12 : 6}
+        md={4}
+        sx={!isDesktop ? { textAlign: "center" } : { textAlign: "left" }}
+      >
         <Typography variant="h4" color="white">
           Kontakt
         </Typography>
         <Typography color="white">
-          Sektionen för Medieteknik {"\n"}
-          Campus Norrköping {"\n"}
+          Sektionen för Medieteknik <br></br>
+          Campus Norrköping <br></br>
           Sandgatan 31 601 74 Norrköping
         </Typography>
+        <br></br>
+        <Typography color="white">
+          <a href="mailto:info@medieteknik.nu">info@medieteknik.nu</a>
+        </Typography>
       </Grid>
-      <Grid item xs={4}>
+      <Grid
+        item
+        xs={isMobile ? 12 : 6}
+        md={4}
+        sx={!isDesktop ? { textAlign: "center" } : { textAlign: "left" }}
+      >
         <Typography variant="h4" color="white">
           Studentlänkar
         </Typography>
-        <Link href="/blog/hello-world">
-          <Typography color="white">TEXT</Typography>
-        </Link>
+        {links.map((link) => (
+          <Link target="_blank" rel="noopener" href={link.path}>
+            <Typography color="white">{link.title}</Typography>
+          </Link>
+        ))}
       </Grid>
     </Grid>
   );
