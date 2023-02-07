@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { MobileStateProvider } from "../contexts/MobileContexts";
 import Navigation from "../components/navigation/Navigation";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import "./styles.css";
 
 let theme = createTheme({
   components: {
