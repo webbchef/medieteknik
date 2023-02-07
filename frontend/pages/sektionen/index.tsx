@@ -31,9 +31,9 @@ const PresentationPage: NextPage = () => {
       <Grid container sx={{ marginTop: "100px" }}>
         <Typography variant="h1">SEKTIONEN</Typography>
       </Grid>
-      <Grid container>
+      <Grid container sx={{ maxWidth: "1200px", margin: "auto" }}>
         {styrare.map((styr, index) => (
-          <Grid item xs={4} key={index} sx={{ p: "20px", height: "100%" }}>
+          <Grid item xs={6} md={3} key={index} sx={{ p: "20px", height: "100%" }}>
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
