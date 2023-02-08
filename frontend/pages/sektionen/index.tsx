@@ -2,15 +2,16 @@ import Head from "next/head";
 import type { NextPage } from "next";
 import { useState } from "react";
 import tempContent from "../tempContent.json";
-import { Container, Box, Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import PresentationModal from "../../components/about/PresentationModal";
 import PresentationCard from "../../components/about/PresentationCard";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../../animations/constants";
 import { Styrare } from "../../utils/types";
 import ImageWithSummary from "../../components/general/ImageWithSummary";
-import GruppBild from "../../assets/gruppbild.jpg"
+import BannerWithSummary from "../../components/general/BannerWithSummary";
 import WavyBackground from "../../components/general/WavyBackground";
+import Image from "next/image";
 
 // export default function PresentationPage() {
 const PresentationPage: NextPage = () => {
@@ -34,24 +35,26 @@ const PresentationPage: NextPage = () => {
 
       {/* Styrelsen */}
 
+      <BannerWithSummary imageSrc={require("../../assets/gruppbild2.jpg")} title="Styrelsen" text="Hej! Vi är Medietekniksektionens styrelse under perioden 22/23. Vi representerar MT-eleverna gentemot LiU, verkar för en bättre arbetsmiljö för oss studenter och anordnar event för MT:are. Vi anordnar också föreläsningar där företag och alumner berättar om livet efter examen. Om du har ett förbättringsförslag eller om något inte känns rätt med studierna kan du alltid vända dig till oss!"/>
+
       {/* Mette & #3Cant */}
 
-      <WavyBackground bgColor="#EC6610" textColor="#13283c">
-        <Container sx={{ paddingTop: "80px"}}>
-          <ImageWithSummary 
-            direction="row-reverse"
-            imageSrc={GruppBild} 
-            title="3Cant" 
-            text="In sodales turpis ut erat luctus, et cursus tellus imperdiet. Integer ac vehicula augue. Sed in turpis odio. Morbi sed dolor sed nibh molestie viverra at quis metus. Suspendisse vehicula eleifend eros."
-            link="https://www.3cant.com/"
-          />
-          <ImageWithSummary 
-            direction="row"
-            imageSrc={GruppBild} 
-            title="METTE" 
-            text="Morbi rutrum quis odio eu facilisis. Etiam lectus lacus, dapibus vitae dolor vitae, vulputate accumsan ante. Maecenas sodales velit dui, consectetur commodo sapien egestas vitae. Sed a rutrum arcu."
-            link="temp"
-          />
+      <WavyBackground bgColor="#13283c" textColor="#FFF">
+        <Container>
+            <ImageWithSummary 
+              direction="row-reverse"
+              imageSrc={require("../../assets/3cant.jpg")} 
+              title="3Cant" 
+              text="3Cant är festeriet för civilinjengörerna i Norrköping. De arrangerar fester i alla dess slag bla bla bla bla."
+              link="https://www.3cant.com/"
+            />
+            <ImageWithSummary 
+              direction="row"
+              imageSrc={require("../../assets/mette.jpg")} 
+              title="METTE" 
+              text="Mette är sektionens tjejförening som jobbar för att främja gemenskapen mellan alla tjejer och icke-binära på MT-programmet!"
+              link="temp"
+            />
         </Container>
       </WavyBackground>
 
