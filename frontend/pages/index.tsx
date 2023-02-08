@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useRef } from "react";
-import tempContent from "./tempContent.json";
 import gruppbild from "../assets/gruppbild.jpg";
 import valueIconImage from "../assets/valueIcon.png"
 import { motion } from "framer-motion";
@@ -20,9 +19,7 @@ import {
   Container,
 } from "@mui/material";
 import { fadeInUp } from "../animations/constants";
-import { display, positions, Stack } from "@mui/system";
-import MtValues from "../components/home/mtValues";
-import studentlivPicture from "../assets/studentlivImage.png"
+import BackgroundImage from "../components/general/BackgroundImage";
 
 const groupImage = ((gruppbild as unknown) as HTMLImageElement | null)?.src;
 const valueIcon = ((valueIconImage as unknown) as HTMLImageElement)?.src;
@@ -30,7 +27,6 @@ const studentlivImage = ((studentlivPicture as unknown) as HTMLImageElement)?.sr
 
 
 const Home: NextPage = () => {
-  const styrare = tempContent.styrareContent;
   const constraintsRef1 = useRef(null);
   const constraintsRef2 = useRef(null);
   const constraintsRef3 = useRef(null);
@@ -39,11 +35,10 @@ const Home: NextPage = () => {
   return (
     <>
     <motion.div
-      style={{
-        backgroundImage: `url(${groupImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      // style={{
+      //   backgroundImage: `url(${gruppbild.src})`,
+      //   backgroundSize: "cover",
+      // }}
       animate="animate"
       initial="initial"
       
@@ -59,76 +54,75 @@ const Home: NextPage = () => {
           type="video/mp4"
         />
       </video> */}
-      <Grid
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        sx={{ width: "100%", height: "100vh" }}
-        position="relative"
-      >
+      <BackgroundImage imgSrc={gruppbild.src}>
         <Grid
-          container
           display="flex"
+          flexDirection="column"
           alignItems="center"
           justifyContent="center"
+          sx={{ width: "100%", height: "80vh", zIndex: 100 }}
         >
-          <motion.div ref={constraintsRef1} variants={fadeInUp}>
+          <Grid
+            container
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <motion.div ref={constraintsRef1} variants={fadeInUp}>
+              <motion.div
+                drag
+                dragConstraints={constraintsRef1}
+                style={{
+                  backgroundColor: "#EC6610",
+                  width: "150px",
+                  height: "150px",
+                }}
+              />
+            </motion.div>
+            <div style={{ margin: "20px" }}></div>
+            <motion.div ref={constraintsRef2}>
+              <motion.div
+                drag
+                dragConstraints={constraintsRef2}
+                style={{
+                  backgroundColor: "#3b484f",
+                  width: "150px",
+                  height: "150px",
+                }}
+              />
+            </motion.div>
+          </Grid>
+          <div style={{ margin: "10px" }}></div>
+          <motion.div ref={constraintsRef3}>
             <motion.div
               drag
-              dragConstraints={constraintsRef1}
+              dragConstraints={constraintsRef3}
               style={{
-                backgroundColor: "#EC6610",
-                width: "150px",
-                height: "150px",
+                fontFamily: "Lato",
+                fontSize: "45px",
               }}
-            />
+            >
+              CIVILINGENJÖR
+            </motion.div>
           </motion.div>
-          <div style={{ margin: "20px" }}></div>
-          <motion.div ref={constraintsRef2}>
+          <motion.div ref={constraintsRef4}>
             <motion.div
               drag
-              dragConstraints={constraintsRef2}
+              dragConstraints={constraintsRef4}
               style={{
-                backgroundColor: "#3b484f",
-                width: "150px",
-                height: "150px",
+                fontFamily: "Barlow",
+                fontWeight: "bold",
+                fontSize: "64px",
               }}
-            />
+            >
+              MEDIETEKNIK
+            </motion.div>
           </motion.div>
         </Grid>
-        <div style={{ margin: "10px" }}></div>
-        <motion.div ref={constraintsRef3}>
-          <motion.div
-            drag
-            dragConstraints={constraintsRef3}
-            style={{
-              fontFamily: "Lato",
-              fontSize: "45px",
-            }}
-          >
-            CIVILINGENJÖR
-          </motion.div>
-        </motion.div>
-        <motion.div ref={constraintsRef4}>
-          <motion.div
-            drag
-            dragConstraints={constraintsRef4}
-            style={{
-              fontFamily: "Barlow",
-              fontWeight: "bold",
-              fontSize: "64px",
-            }}
-          >
-            MEDIETEKNIK
-          </motion.div>
-        </motion.div>
-      </Grid>
-      <div className="custom-shape-divider-bottom-1675085725" >
-        <svg style={{verticalAlign: "bottom"}} fill="white" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z" className="shape-fill"></path>
-        </svg>
-      </div>
+      </BackgroundImage>
+      <Typography variant="h1" sx={{ p: "60px" }}>
+        Hem
+      </Typography>
     </motion.div>
     <Container  maxWidth={false} style={{background: 'white'}}>
       <Typography padding="20px 0px" color="black" variant="h1" textAlign="center">Vad är MT?</Typography>

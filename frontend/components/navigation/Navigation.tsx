@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   ListItemText,
   Box,
@@ -6,11 +6,8 @@ import {
   List,
   Grid,
   ListItem,
-  IconButton,
-  Avatar,
   Drawer,
   Button,
-  Icon,
 } from "@mui/material";
 import { Sling as Hamburger } from "hamburger-react";
 import Link from "next/link";
@@ -25,6 +22,7 @@ import LaunchIcon from "@mui/icons-material/Launch";
  */
 export default function Navigation() {
   const [isOpen, setOpen] = useState(false);
+  const [bgColor, setBgColor] = useState<boolean>(false);
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
 
   function openMenu() {
@@ -34,6 +32,21 @@ export default function Navigation() {
   function closeMenu() {
     setOpen(false);
   }
+
+  const changeBackground = () => {
+    console.log(window.scrollY);
+    if (window.scrollY >= 66) {
+      setBgColor(true);
+    } else {
+      setBgColor(false);
+    }
+  };
+
+  useEffect(() => {
+    changeBackground();
+    // adding the event when scroll change Logo
+    window.addEventListener("scroll", changeBackground);
+  });
 
   const list = () => (
     <List
@@ -46,25 +59,27 @@ export default function Navigation() {
     >
       {[
         {
-          name: "Hem",
+          name: "HEM",
           to: "/",
         },
-        { name: "Studentliv", to: "/studentliv" },
-        { name: "Om MT", to: "/about" },
-        { name: "Sektionen", to: "/sektionen" },
+        { name: "STUDENTLIV", to: "/studentliv" },
+        { name: "OM MT", to: "/about" },
+        { name: "SEKTIONEN", to: "/sektionen" },
       ].map((link, index) => (
         <ListItem key={index}>
           <Link href={link.to} onClick={closeMenu} legacyBehavior={false}>
-            {link.name}
+            <Typography variant="h4">{link.name}</Typography>
           </Link>
         </ListItem>
       ))}
       <ListItem>
         <LaunchIcon sx={{ fontSize: "14px" }} />
         <Link href="https://www.medieteknikdagen.se/" passHref>
-          <a target="_blank" rel="noopener noreferrer">
-            Mässa
-          </a>
+          <Typography variant="h4">
+            <a target="_blank" rel="noopener noreferrer">
+              MÄSSA
+            </a>
+          </Typography>
         </Link>
       </ListItem>
     </List>
@@ -72,16 +87,20 @@ export default function Navigation() {
 
   return (
     <Grid
-      sx={{
-        p: 2,
-        position: "fixed",
-        zIndex: 999,
-        top: 0,
-        width: "100%",
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-      }}
+      sx={[
+        {
+          p: 2,
+          position: "fixed",
+          zIndex: 999,
+          top: 0,
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          transition: "0.5s",
+          alignItems: "center",
+        },
+        bgColor && { backgroundColor: "white" },
+      ]}
     >
       {isDesktop ? (
         <Grid
@@ -96,7 +115,7 @@ export default function Navigation() {
           </a>
           {list()}
           <Button variant="outlined" startIcon={<LoginIcon />}>
-            Logga in
+            <Typography variant="h4">LOGGA IN</Typography>
           </Button>
         </Grid>
       ) : (
@@ -121,7 +140,7 @@ export default function Navigation() {
 
           <Drawer
             anchor="right"
-            sx={{ zIndex: 1 }}
+            sx={{ zIndex: 10 }}
             open={isOpen}
             onClose={closeMenu}
             transitionDuration={600}
