@@ -9,8 +9,9 @@ import { motion } from "framer-motion";
 import { fadeInUp } from "../../animations/constants";
 import { Styrare } from "../../utils/types";
 import ImageWithSummary from "../../components/general/ImageWithSummary";
-import Image from "next/image";
 import WavyBackground from "../../components/general/WavyBackground";
+import BackgroundImage from "../../components/general/BackgroundImage";
+import gruppbild from "../../assets/gruppbild.jpg";
 
 // export default function PresentationPage() {
 const PresentationPage: NextPage = () => {
@@ -32,20 +33,21 @@ const PresentationPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" /> 
       </Head>
 
+      <BackgroundImage pageName="SEKTIONEN" imgSrc={gruppbild.src} />
+
       {/* Styrelsen */}
 
-      <Container maxWidth="sm" sx={{ width: "70vw" }}>
-        <Image style={{ borderRadius: "20px"}} src={require("../../assets/gruppbild2.jpg")} />
-      </Container>
-      <Container maxWidth="md"  sx={{ width: "70vw", margin: "auto", padding: "20px 0 40px 0" }}>
-        <Typography variant="h2" align="center" sx={{ color: "inherit" }} >STYRELSEN</Typography>
-        <Typography variant="body1" align="center" sx={{ color: "inherit", fontSize: "24px"}}>Hej! Vi är Medietekniksektionens styrelse under perioden 22/23. Vi representerar MT-eleverna gentemot LiU, verkar för en bättre arbetsmiljö för oss studenter och anordnar event för MT:are. Vi anordnar också föreläsningar där företag och alumner berättar om livet efter examen.</Typography>
+      <Container maxWidth="lg"  sx={{ width: "70vw", margin: "auto", padding: "20px 0 100px 0" }}>
+        <Typography variant="h1" align="center" sx={{ margin: "40px 0", color: "inherit" }} >STYRELSEN</Typography>
+        <Typography variant="body1" align="center" sx={{ marginBottom: "40px", fontSize: "24px"}}>Hej! Vi är Medietekniksektionens styrelse under perioden 22/23. Vi representerar MT-eleverna gentemot LiU, verkar för en bättre arbetsmiljö för oss studenter och anordnar event för MT:are. Vi anordnar också föreläsningar där företag och alumner berättar om livet efter examen.</Typography>
+        <Typography variant="body1" align="center" sx={{ fontSize: "24px"}}>Protokoll, stadgar och annat skoj från styrelsen hittar du här.</Typography>
+        <Typography variant="body1" align="center" sx={{ fontSize: "24px"}}>Allmäna frågor till sektionen skickas till info@medieteknik.nu.</Typography>
       </Container>
 
       {/* Mette & #3Cant */}
 
       <WavyBackground bgColor="#13283c" textColor="#FFF">
-        <Container>
+        <Container maxWidth="lg">
             <ImageWithSummary imageSrc={require("../../assets/3cant.jpg")} direction="row-reverse">
               <Stack>
                 <Typography variant="h2" align="center" sx={{ color: "inherit" }} >3CANT</Typography>
@@ -65,7 +67,7 @@ const PresentationPage: NextPage = () => {
 
       {/* Styrelse-Grid*/}
 
-      <Grid container sx={{ maxWidth: "1200px", margin: "auto", padding: "50px 0"}}
+      <Grid container maxWidth="lg" sx={{ margin: "auto", padding: "50px 0"}}
       >
         {styrare.map((styr, index) => (
           <Grid item xs={6} md={3} key={index} sx={{ p: "20px", height: "100%" }}>
