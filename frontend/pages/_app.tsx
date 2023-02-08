@@ -4,13 +4,14 @@ import { MobileStateProvider } from "../contexts/MobileContexts";
 import Navigation from "../components/navigation/Navigation";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./styles.css";
+import Footer from "../components/general/Footer";
 
 let theme = createTheme({
   components: {
     MuiTypography: {
       defaultProps: {
         fontFamily: "Lato, sans-serif",
-        color: "#3A3A3C",
+        color: "black",
         // fontWeight: 500,
       },
     },
@@ -43,7 +44,7 @@ let theme = createTheme({
       main: "#3A3A3C",
     },
     secondary: {
-      main: "#44A247",
+      main: "#EC6610",
     },
     info: {
       // Gray color
@@ -61,6 +62,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <>
           <Navigation />
           <Component {...pageProps} />
+          <Footer />
         </>
       </MobileStateProvider>
     </ThemeProvider>
