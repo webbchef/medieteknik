@@ -8,13 +8,14 @@ import {
   ListItem,
   Drawer,
   Button,
+  Link,
 } from "@mui/material";
 import { Sling as Hamburger } from "hamburger-react";
-import Link from "next/link";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 import LoginIcon from "@mui/icons-material/Login";
 import logo from "../../assets/logotyp_svart_text.png";
 import LaunchIcon from "@mui/icons-material/Launch";
+import NextLink from "next/Link";
 
 /**
  * Component for menu
@@ -66,19 +67,19 @@ export default function Navigation() {
         { name: "SEKTIONEN", to: "/sektionen" },
       ].map((link, index) => (
         <ListItem key={index}>
-          <Link href={link.to} onClick={closeMenu} legacyBehavior={false}>
+          <NextLink href={link.to} onClick={closeMenu} legacyBehavior={false}>
             <Typography variant="h4">{link.name}</Typography>
-          </Link>
+          </NextLink>
         </ListItem>
       ))}
       <ListItem>
         <LaunchIcon sx={{ fontSize: "14px" }} />
-        <Link href="https://www.medieteknikdagen.se/" passHref>
-          <Typography variant="h4">
-            <a target="_blank" rel="noopener noreferrer">
-              MÄSSA
-            </a>
-          </Typography>
+        <Link
+          target="_blank"
+          rel="noopener"
+          href="https://www.medieteknikdagen.se/"
+        >
+          <Typography variant="h4">MÄSSA</Typography>
         </Link>
       </ListItem>
     </List>
@@ -113,9 +114,15 @@ export default function Navigation() {
             <img alt="MT LOGO" src={logo.src} width="70px" />
           </a>
           {list()}
-          <Button variant="outlined" startIcon={<LoginIcon />}>
-            <Typography variant="h4">LOGGA IN</Typography>
-          </Button>
+          <Link
+            href="https://old.medieteknik.nu/forum_cookie"
+            target="_blank"
+            rel="noopener"
+          >
+            <Button variant="outlined" startIcon={<LoginIcon />}>
+              <Typography variant="h4">LOGGA IN</Typography>
+            </Button>
+          </Link>
         </Grid>
       ) : (
         <>
