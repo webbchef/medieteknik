@@ -140,7 +140,7 @@ const Home: NextPage = () => {
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
             } />
           </Stack>
-          <Box marginTop={17} display={"flex"} flexDirection="row" alignItems={"center"} gap={10}>
+          <Box marginTop={12} marginBottom={20} display={"flex"} flexDirection="row" alignItems={"center"} gap={10}>
             <Box alignSelf="flex-start" flex={3} width={400}>
               <Typography textAlign="center" variant="h2">Studentliv</Typography>
               <Typography textAlign="center">
