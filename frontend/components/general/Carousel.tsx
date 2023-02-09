@@ -1,8 +1,10 @@
-import { AccessTimeFilled, ArrowBackIos, ArrowBackIosNew, ArrowForwardIos, Circle, CircleOutlined } from "@mui/icons-material";
+import { ArrowBackIosNew, ArrowForwardIos, Circle, CircleOutlined } from "@mui/icons-material";
 import { IconButton, Typography } from "@mui/material";
-import { Container } from "@mui/system";
+import { Box, Container } from "@mui/system";
+import { LayoutGroup, motion, useAnimationControls } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+
 
 type CarouselProps = {
     titles?: string[];
@@ -16,7 +18,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
     const [imagesToRender, setImagesToRender] = useState([""]);
     const amountOfImages: number = props.images.length;
 
-
+    const controls = useAnimationControls();
 
     const clickBack = () => {
         if (activeImage === 0) {
@@ -25,6 +27,9 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         } else {
             setActiveImage(activeImage - 1);
         }
+        controls.start({
+            x: 10,            
+        });
     }
 
     const clickForward = () => {
@@ -34,6 +39,9 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         else {
             setActiveImage(activeImage + 1);
         }
+        controls.start({
+            x: -10,
+        });
     }
 
     useEffect(() => {
@@ -64,7 +72,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
                 temp.unshift(props.images[amountOfImages - 1]);
             }
             else if (activeImage === amountOfImages - 1) {
-                temp = props.images.slice(activeImage - 2);
+                temp = props.images.slice(activeImage - 1);
                 temp.push(props.images[0]);
 
             }
@@ -74,43 +82,41 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             setImagesToRender(temp);
         }
 
-
+        
     }, [activeImage])
 
     //TODO: Add animations to carousel. Framer motion : component={motion.div} etc
     return (
-        <Container sx={{ display: "flex", alignContent: "center", justifyContent: "center", flexDirection: "column" }} maxWidth={'lg'}>
+        <Box overflow={"hidden"}>
             <Typography marginBottom={2} textAlign={"center"} variant="h3">{props.titles![activeImage]}</Typography>
-            <Container sx={{ display: "flex", justifyContent: "center", flexDirection: "row", gap: 5 }}>
-                {imagesToRender.map((image, i) => {
-                    if (activeImage === 0) {
-                        return <Image key={i} style={{ borderRadius: 5 }} src={props.images[amountOfImages - 1]} width={250} height={20}></Image> && <Image key={i} style={{ borderRadius: 5 }} src={image} width={250} height={180}></Image>
-                    }
-                    else if (i === activeImage || i === activeImage - 1 || i === activeImage + 1) {
-                        if (activeImage === i) {
-                            return <Image key={i} style={{ borderRadius: 5 }} src={image} width={300} height={180}></Image>
+            <Box marginLeft={-10} marginRight={-10} justifyContent='center' display={'flex'} gap={1}>
+                
+                <LayoutGroup>
+                    {imagesToRender.map((image, i) => {
+                        if (i === 1) {
+                            return <motion.div style={{display: "inline-block"}} layout key={image+i} ><Image style={{ borderRadius: 5 }} src={image} width={400} height={180}></Image></motion.div>
                         }
                         else {
-                            return <Image key={i} style={{ borderRadius: 5 }} src={image} width={250} height={180}></Image>
+                            return <motion.div style={{display: "inline-block"}} layout key={image+i} onLayoutAnimationStart={()=> console.log(1)}><Image style={{ borderRadius: 5 }} src={image} width={250} height={180}></Image></motion.div>
                         }
-                    }
-                })}
-            </Container>
+                    })}
+                </LayoutGroup>
+            </Box>
             <Container sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}>
                 <IconButton onClick={clickBack}>
                     <ArrowBackIosNew />
                 </IconButton>
                 {props.images.map((image, i) => {
                     if (activeImage === i) {
-                        return <IconButton onClick={() => { setActiveImage(i) }} key={i}><Circle /></IconButton>
+                        return <IconButton onClick={() => { setActiveImage(i) }} key={image}><Circle /></IconButton>
                     }
-                    return <IconButton onClick={() => { setActiveImage(i) }} key={i}><CircleOutlined /></IconButton>
+                    return <IconButton onClick={() => { setActiveImage(i) }} key={image}><CircleOutlined /></IconButton>
                 })}
                 <IconButton onClick={clickForward}>
                     <ArrowForwardIos />
                 </IconButton>
             </Container>
-        </Container>
+        </Box>
     );
 }
 
