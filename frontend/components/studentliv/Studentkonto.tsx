@@ -37,9 +37,29 @@ export default function Studentkonto() {
             Till kontot!
           </Button>
         </Grid>
-        <Grid item xs={6} sx={{ display: "flex", justifyContent: "center" }}>
+        <Grid
+          item
+          xs={6}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           {/* <ImageCarousel /> */}
-          <p>Instagram</p>
+          {/* <!-- SnapWidget --> */}
+          <script src="https://snapwidget.com/js/snapwidget.js"></script>
+          <iframe
+            src="https://snapwidget.com/embed/1024502"
+            className="snapwidget-widget"
+            allowTransparency={true}
+            style={{
+              border: "none",
+              overflow: "hidden",
+              width: "50%",
+              borderRadius: "10px",
+            }}
+          ></iframe>
         </Grid>
       </Grid>
     </WavyBackground>

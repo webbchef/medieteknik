@@ -35,7 +35,7 @@ export default function ImageCarousel() {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
+    <Box sx={{ maxWidth: 400, flexGrow: 1, borderRadius: "10px" }}>
       {/* <Paper
         square
         elevation={0}
@@ -54,6 +54,7 @@ export default function ImageCarousel() {
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents
+        style={{ borderRadius: "10px" }}
       >
         {houses.map((step, index) => (
           <div key={index}>
