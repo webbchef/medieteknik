@@ -87,20 +87,20 @@ const Carousel: React.FC<CarouselProps> = (props) => {
 
     //TODO: Add animations to carousel. Framer motion : component={motion.div} etc
     return (
-        <Box overflow={"hidden"}>
+        <Box overflow={"hidden"} minWidth={"100%"}>
             <Typography marginBottom={2} textAlign={"center"} variant="h3">{props.titles![activeImage]}</Typography>
-            <Box marginLeft={-10} marginRight={-10} justifyContent='center' display={'flex'} gap={1}>
-                
+            <Box  justifyContent="space-between" display={'flex'} >
                 <LayoutGroup>
                     {imagesToRender.map((image, i) => {
                         if (i === 1) {
-                            return <motion.div style={{display: "inline-block"}} layout key={image+i} ><Image style={{ borderRadius: 5 }} src={image} width={400} height={180}></Image></motion.div>
+                            return <motion.div layout key={image} ><Image style={{ borderRadius: 5 }} src={image} width={400} height={180}></Image></motion.div>
                         }
                         else {
-                            return <motion.div style={{display: "inline-block"}} layout key={image+i} onLayoutAnimationStart={()=> console.log(1)}><Image style={{ borderRadius: 5 }} src={image} width={250} height={180}></Image></motion.div>
+                            return <motion.div layout key={image}><Image style={{ borderRadius: 5 }} src={image} width={250} height={180}></Image></motion.div>
                         }
                     })}
                 </LayoutGroup>
+
             </Box>
             <Container sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}>
                 <IconButton onClick={clickBack}>
