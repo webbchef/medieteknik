@@ -7,7 +7,8 @@ export default function Studentkonto() {
       <Grid container spacing={3}>
         <Grid
           item
-          xs={6}
+          xs={12}
+          md={6}
           sx={{
             display: "flex",
             paddingTop: "90px !important",
@@ -39,7 +40,8 @@ export default function Studentkonto() {
         </Grid>
         <Grid
           item
-          xs={6}
+          xs={12}
+          md={6}
           sx={{
             display: "flex",
             justifyContent: "center",
