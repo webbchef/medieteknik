@@ -10,3 +10,10 @@ export interface Event {
   text: string;
   month: string;
 }
+
+export interface Alumn {
+  name: string;
+  post: string;
+  work: string;
+  imageName?: string;
+}

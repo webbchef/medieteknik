@@ -1,12 +1,24 @@
 import Head from "next/head";
 import type { NextPage } from "next";
 import { useState, useContext } from "react";
-import { Button, Grid, Icon, IconButton, Typography } from "@mui/material";
+import { Button, Grid, Icon, IconButton, Typography, Box } from "@mui/material";
 import { motion } from "framer-motion";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 import BackgroundImage from "../../components/general/BackgroundImage";
 import gruppbild from "../../assets/gruppbild.jpg";
 import { display } from "@mui/system";
+
+import { Alumn } from "../../utils/types";
+import alumnContent from "../../content/alumn.json";
+import { fadeInUp } from "../../animations/constants";
+import PresentationAlumn from "../../components/about/PresentationAlumn";
+
+
+
+
+
+import {Card, CardContent, CardMedia, CardActionArea} from '@mui/material';
+
 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -20,6 +32,16 @@ const PresentationPage: NextPage = () => {
   // console.log("Mobile " + isMobile);
   // console.log("Ipad " + isIpad);
   // console.log("Desktop " + isDesktop);
+
+  const alumn: Alumn[] = alumnContent;
+  console.log(alumn);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [activeUser, setActiveUser] = useState<number>(0);
+
+  function handleUserClick(index: number) {
+    setActiveUser(index);
+    setModalOpen(true);
+  }
 
   return (
     <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
@@ -281,14 +303,73 @@ const PresentationPage: NextPage = () => {
         {/* ----------Alumner ------------*/}
         <Grid
           container
-          spacing={1}
-          sx={{ padding: 6, justifyContent: "center", background: "blue" }}
+          spacing={1} 
+          sx={{ padding: 6, justifyContent: "center", background: "#DEDEDE" }}
         >
           <Grid sx={{ textAlign: "center", margin: 2 }}>
             <Typography variant="h3">Alumner</Typography>
             <Typography>sdnos idgo dbgodf ibgodbf oigbod fibgo</Typography>
+
+            <Grid container>
+            {alumn.map((alumn, index) => (
+          <Grid item xs={3} key={index} sx={{ p: "20px", height: "100%" }}>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              variants={fadeInUp}
+            >
+              <PresentationAlumn
+                user={alumn}
+                openInfo={() => handleUserClick(index)}
+              />
+            </motion.div>
           </Grid>
+        ))}
+
+            </Grid>
+
+
+          </Grid>
+
+
+
+
         </Grid>
+
+        <Grid container sx={{background: "white"}}>
+
+          <Grid item xs={7} sx={{m: 7, marginLeft: 9 , display: "flex", flexDirection: "column", borderLeft: 3, borderColor: "#e27743"}}>
+            <Grid item sx={{marginLeft: 7}}>
+                  <Typography variant="h6" sx={{ fontWeight: "bold", paddingBottom: 2 }}> 
+                      För dig som är alumn
+                  </Typography>
+                  <Typography>
+                    Hollywoodfilmer, virtuella möbler för IKEA och spelutveckling.
+                    Medieteknikområdet handlar om tekniken bakom medierna och om.               
+                    Hollywoodfilmer, virtuella möbler för IKEA och spelutveckling.
+                  </Typography>
+
+                  <Grid item sx={{marginTop: 3}}>
+                    <Button variant="contained" size="small">
+                      Anmäl
+                    </Button>
+                  </Grid>
+
+                  
+            </Grid>    
+          </Grid>
+
+          <Grid item xs={2} sx={{m: 7, display: "flex", justifyContent: "right", }}>
+            <img
+              src={gruppbild.src}
+              style={{ height: "100%", width: "100%", objectFit: "contain" }}
+            />
+          </Grid>
+
+          </Grid>
+
+
+
       </Grid>
     </motion.div>
   );
