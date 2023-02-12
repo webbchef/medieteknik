@@ -119,9 +119,9 @@ const Home: NextPage = () => {
           </Grid>
         </BackgroundImage>
       </motion.div>
-      <Container maxWidth={false} style={{ background: 'white' }}>
+      <Container disableGutters maxWidth={false} style={{ background: 'white' }}>
         <Typography padding="20px 0px" color="black" variant="h1" textAlign="center">Vad är MT?</Typography>
-        <Container maxWidth="xl" style={{ paddingBottom: "30px" }}>
+        <Container disableGutters maxWidth={false} style={{ paddingBottom: "30px" }}>
           <Typography fontSize={20} color="black" textAlign="center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt
@@ -158,12 +158,12 @@ const Home: NextPage = () => {
             </Box>
             <Image style={{ flex: 1 }} width={511 * 0.4} height={658 * 0.4} src={studentlivImage} />
           </Box>
+        </Container>
           <WavyBackground bgColor={"#008081"} textColor={""}>
             <Carousel titles={["Sektionen", "3Cant", "Mette"]} images={[groupImage!, groupImage2!, nollepImage!]} />
           </WavyBackground>
-        </Container>
-
       </Container>
+        
     </>
   );
 };

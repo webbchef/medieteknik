@@ -16,23 +16,33 @@ const Carousel: React.FC<CarouselProps> = (props) => {
     // const [imagesToRender, setImagesToRender] = useState([""]);
     // const amountOfImages: number = props.images.length;
     const [width, setWidth] = useState(0);
-    const carousel = useRef();
+    const carousel = useRef<HTMLDivElement>();
 
     useEffect(() => {
-        console.log(carousel.current)
-        setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+        if(carousel.current) {
+            setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+        }
     }, []);
 
     return (
         
         <Box ref={carousel} className="carousel" component={motion.div} overflow="hidden" sx={{cursor: "grab"}} whileTap={{cursor: "grabbing"}}>
-            <Box className="innerCarousel" component={motion.div} drag="x" dragConstraints={{right: 0, left: -width}} display="flex" >
-                {props.images.map((image) => {
-                    return (
-                        <Box className="item" width={400} height={200} padding={1} position="relative" key={image} component={motion.div}>
-                            <Image draggable="false" width={300} height={200} src={image} alt=""/>
-                        </Box>
-                    );
+            <Box className="innerCarousel" component={motion.div} drag="x" dragConstraints={{right: 0, left: -width}} display="flex" alignItems={"center"}>
+                {props.images.map((image, i) => {
+                    if(i === 1) {
+                        return (
+                            <Box className="item" width={"50%"} height={400} padding={1} position="relative" key={image} component={motion.div}>
+                                <Image draggable="false" width={300} height={200} src={image} alt=""/>
+                            </Box>
+                        );
+                    }
+                    else {
+                        return (
+                            <Box className="item" width={"33%"} height={200} padding={1} position="relative" key={image} component={motion.div}>
+                                <Image draggable="false" width={"100%"} height={"100%"} src={image} alt=""/>
+                            </Box>
+                        );
+                    }
                 })}
 
             </Box>
