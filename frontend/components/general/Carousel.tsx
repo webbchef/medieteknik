@@ -27,19 +27,19 @@ const Carousel: React.FC<CarouselProps> = (props) => {
     return (
         
         <Box ref={carousel} className="carousel" component={motion.div} overflow="hidden" sx={{cursor: "grab"}} whileTap={{cursor: "grabbing"}}>
-            <Box className="innerCarousel" component={motion.div} drag="x" dragConstraints={{right: 0, left: -width}} display="flex" alignItems={"center"}>
+            <Box className="innerCarousel" component={motion.div} drag="x" dragConstraints={{right: 0, left: -width}} display="flex" alignItems={"center"} gap={10} width="120vw">
                 {props.images.map((image, i) => {
                     if(i === 1) {
                         return (
-                            <Box className="item" width={"50%"} height={400} padding={1} position="relative" key={image} component={motion.div}>
-                                <Image draggable="false" width={300} height={200} src={image} alt=""/>
+                            <Box className="item" width={"50%"} height={300} padding={1} position="relative" key={image} component={motion.div}>
+                                <Image draggable="false" layout="fill" src={image} alt=""/>
                             </Box>
                         );
                     }
                     else {
                         return (
                             <Box className="item" width={"33%"} height={200} padding={1} position="relative" key={image} component={motion.div}>
-                                <Image draggable="false" width={"100%"} height={"100%"} src={image} alt=""/>
+                                <Image draggable="false" layout="fill" src={image} alt=""/>
                             </Box>
                         );
                     }
