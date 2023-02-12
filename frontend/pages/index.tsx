@@ -1,16 +1,18 @@
 import {
-  Box, Container, Grid, Stack, Typography
+  Box, Button, Container, Grid, Stack, Typography
 } from "@mui/material";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import { fadeInUp } from "../animations/constants";
 import gruppbild from "../assets/gruppbild.jpg";
 import gruppbild2 from "../assets/gruppbild2.jpg";
 import nollep from "../assets/nollep.jpg";
 import studentlivPicture from "../assets/studentlivImage.png";
+import studentlivPicture2 from "../assets/studentlivImage2.png";
 import valueIconImage from "../assets/valueIcon.png";
 import BackgroundImage from "../components/general/BackgroundImage";
 import Carousel from "../components/general/Carousel";
@@ -21,6 +23,7 @@ const groupImage = ((gruppbild as unknown) as HTMLImageElement | null)?.src;
 const groupImage2 = ((gruppbild2 as unknown) as HTMLImageElement | null)?.src;
 const valueIcon = ((valueIconImage as unknown) as HTMLImageElement)?.src;
 const studentlivImage = ((studentlivPicture as unknown) as HTMLImageElement)?.src;
+const studentlivImage2 = ((studentlivPicture2 as unknown) as HTMLImageElement)?.src;
 const nollepImage = ((nollep as unknown) as HTMLImageElement)?.src;
 
 
@@ -119,9 +122,9 @@ const Home: NextPage = () => {
           </Grid>
         </BackgroundImage>
       </motion.div>
-      <Container maxWidth={false} style={{ background: 'white' }}>
+      <Container disableGutters maxWidth={false} style={{ background: 'white' }}>
         <Typography padding="20px 0px" color="black" variant="h1" textAlign="center">Vad är MT?</Typography>
-        <Container maxWidth="xl" style={{ paddingBottom: "30px" }}>
+        <Container disableGutters maxWidth={false} style={{ paddingBottom: "30px" }}>
           <Typography fontSize={20} color="black" textAlign="center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt
@@ -140,8 +143,8 @@ const Home: NextPage = () => {
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
             } />
           </Stack>
-          <Box marginTop={12} marginBottom={20} display={"flex"} flexDirection="row" alignItems={"center"} gap={10}>
-            <Box alignSelf="flex-start" flex={3} width={400}>
+          <Box marginTop={15} paddingBottom={8} display={"flex"} flexDirection="row" alignItems={"center"} gap={10}>
+            <Box paddingRight={5} display="flex" alignItems="center" flexDirection="column" flex={3}>
               <Typography textAlign="center" variant="h2">Studentliv</Typography>
               <Typography textAlign="center">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -155,14 +158,33 @@ const Home: NextPage = () => {
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco
                 laboris nisi ut aliquip ex ea commodo consequat.
               </Typography>
+              <Button fullWidth={false} variant="contained" color={"secondary"} sx={{ marginTop: 3 }} component={"a"} LinkComponent={Link} href="/studentliv">Läs mer här</Button>
             </Box>
-            <Image style={{ flex: 1 }} width={511 * 0.4} height={658 * 0.4} src={studentlivImage} />
+            <Image style={{ flex: 1 }} width={511 * 0.5} height={658 * 0.5} src={studentlivImage} alt="Bild på studenter" />
           </Box>
-          <WavyBackground bgColor={"#008081"} textColor={""}>
-            <Carousel titles={["Sektionen", "3Cant", "Mette"]} images={[groupImage!, groupImage2!, nollepImage!]} />
-          </WavyBackground>
         </Container>
-
+        <WavyBackground bgColor={"#008081"} textColor={""}>
+          <Carousel titles={["Sektionen", "3Cant", "Mette"]} images={[groupImage!, groupImage2!, nollepImage!]} />
+        </WavyBackground>
+        <Box marginTop={15} paddingBottom={10} display={"flex"} flexDirection="row" alignItems={"center"} gap={10}>
+            <Image style={{ flex: 1 }} width={511 * 0.5} height={658 * 0.5} src={studentlivImage2} alt="Bild på studenter"/>
+            <Box paddingLeft={5} display="flex" alignItems="center" flexDirection="column" flex={3} width={400}>
+              <Typography textAlign="center" variant="h2">Medieteknikdagen</Typography>
+              <Typography textAlign="center">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat.
+              </Typography>
+              <Button fullWidth={false} variant="contained" color={"secondary"} sx={{marginTop: 3}}>Läs mer här</Button>
+            </Box>
+          </Box>
       </Container>
     </>
   );

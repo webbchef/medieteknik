@@ -1,122 +1,53 @@
-import { ArrowBackIosNew, ArrowForwardIos, Circle, CircleOutlined } from "@mui/icons-material";
-import { IconButton, Typography } from "@mui/material";
-import { Box, Container } from "@mui/system";
-import { LayoutGroup, motion, useAnimationControls } from "framer-motion";
+import { Box } from "@mui/system";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
 
 
 type CarouselProps = {
-    titles?: string[];
+    titles?: string[]; //TODO: Combine title and image string to object for map
     images: string[];
 }
 
 // A carousel that takes titles and images as props. Minimum 3 images in carousel
 const Carousel: React.FC<CarouselProps> = (props) => {
 
-    const [activeImage, setActiveImage] = useState(1);
-    const [imagesToRender, setImagesToRender] = useState([""]);
-    const amountOfImages: number = props.images.length;
-
-    const controls = useAnimationControls();
-
-    const clickBack = () => {
-        if (activeImage === 0) {
-            setActiveImage(amountOfImages - 1);
-
-        } else {
-            setActiveImage(activeImage - 1);
-        }
-        controls.start({
-            x: 10,            
-        });
-    }
-
-    const clickForward = () => {
-        if (activeImage === amountOfImages - 1) {
-            setActiveImage(0);
-        }
-        else {
-            setActiveImage(activeImage + 1);
-        }
-        controls.start({
-            x: -10,
-        });
-    }
+    // const [activeImage, setActiveImage] = useState(1);
+    // const [imagesToRender, setImagesToRender] = useState([""]);
+    // const amountOfImages: number = props.images.length;
+    const [width, setWidth] = useState(0);
+    const carousel = useRef<HTMLDivElement>();
 
     useEffect(() => {
-        let temp = [];
-        if (amountOfImages < 3) {
-            if (activeImage === 0) {
-                temp = props.images.slice(activeImage, activeImage + 2);
-                temp.unshift(props.images[amountOfImages - 1]);
-            } else if (activeImage === amountOfImages - 2) {
-                temp = props.images.slice(activeImage - 1, activeImage + 2);
-                temp.unshift(props.images[0]);
-                temp.push(props.images[amountOfImages - 1]);
-            }
-            else if (activeImage === amountOfImages - 1) {
-                temp = props.images.slice(activeImage - 2);
-                temp.unshift(props.images[activeImage - 2]);
-                temp.push(props.images[0]);
-            }
-            else {
-                temp = props.images.slice(activeImage - 1, activeImage + 3);
-            }
-            setImagesToRender(temp);
+        if(carousel.current) {
+            setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
         }
-        //if there are 3 images in props
-        else {
-            if (activeImage === 0) {
-                temp = props.images.slice(activeImage, activeImage + 2);
-                temp.unshift(props.images[amountOfImages - 1]);
-            }
-            else if (activeImage === amountOfImages - 1) {
-                temp = props.images.slice(activeImage - 1);
-                temp.push(props.images[0]);
+    }, []);
 
-            }
-            else {
-                temp = props.images.slice(activeImage - 1, activeImage + 2);
-            }
-            setImagesToRender(temp);
-        }
-
-        
-    }, [activeImage])
-
-    //TODO: Add animations to carousel. Framer motion : component={motion.div} etc
     return (
-        <Box overflow={"hidden"} minWidth={"100%"}>
-            <Typography marginBottom={2} textAlign={"center"} variant="h3">{props.titles![activeImage]}</Typography>
-            <Box  justifyContent="space-between" display={'flex'} >
-                <LayoutGroup>
-                    {imagesToRender.map((image, i) => {
-                        if (i === 1) {
-                            return <motion.div layout key={image} ><Image style={{ borderRadius: 5 }} src={image} width={400} height={180}></Image></motion.div>
-                        }
-                        else {
-                            return <motion.div layout key={image}><Image style={{ borderRadius: 5 }} src={image} width={250} height={180}></Image></motion.div>
-                        }
-                    })}
-                </LayoutGroup>
+        
+        <Box ref={carousel} className="carousel" component={motion.div} overflow="hidden" sx={{cursor: "grab"}} whileTap={{cursor: "grabbing"}}>
+            <Box className="innerCarousel" component={motion.div} drag="x" dragConstraints={{right: 0, left: -width}} display="flex" alignItems={"center"} gap={10} width="120vw">
+                {props.images.map((image, i) => {
+                    if(i === 1) {
+                        return (
+                            <Box className="item" width={"50%"} height={300} padding={1} position="relative" key={image} component={motion.div}>
+                                <Image draggable="false" layout="fill" src={image} alt=""/>
+                            </Box>
+                        );
+                    }
+                    else {
+                        return (
+                            <Box className="item" width={"33%"} height={200} padding={1} position="relative" key={image} component={motion.div}>
+                                <Image draggable="false" layout="fill" src={image} alt=""/>
+                            </Box>
+                        );
+                    }
+                })}
 
             </Box>
-            <Container sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}>
-                <IconButton onClick={clickBack}>
-                    <ArrowBackIosNew />
-                </IconButton>
-                {props.images.map((image, i) => {
-                    if (activeImage === i) {
-                        return <IconButton onClick={() => { setActiveImage(i) }} key={image}><Circle /></IconButton>
-                    }
-                    return <IconButton onClick={() => { setActiveImage(i) }} key={image}><CircleOutlined /></IconButton>
-                })}
-                <IconButton onClick={clickForward}>
-                    <ArrowForwardIos />
-                </IconButton>
-            </Container>
         </Box>
+       
     );
 }
 
