@@ -38,7 +38,7 @@ const PresentationPage: NextPage = () => {
       {/* Styrelsen */}
 
       <Container maxWidth="lg"  sx={{ width: "70vw", margin: "auto", padding: "20px 0 100px 0" }}>
-        <Typography variant="h1" align="center" sx={{ margin: "40px 0", color: "inherit" }} >STYRELSEN</Typography>
+        <Typography variant="h2" align="center" sx={{ margin: "40px 0", color: "inherit" }} >STYRELSEN</Typography>
         <Typography variant="body1" align="center" sx={{ marginBottom: "40px", fontSize: "24px"}}>Hej! Vi är Medietekniksektionens styrelse under perioden 22/23. Vi representerar MT-eleverna gentemot LiU, verkar för en bättre arbetsmiljö för oss studenter och anordnar event för MT:are. Vi anordnar också föreläsningar där företag och alumner berättar om livet efter examen.</Typography>
         <Typography variant="body1" align="center" sx={{ fontSize: "24px"}}>Protokoll, stadgar och annat skoj från styrelsen hittar du här.</Typography>
         <Typography variant="body1" align="center" sx={{ fontSize: "24px"}}>Allmäna frågor till sektionen skickas till info@medieteknik.nu.</Typography>
