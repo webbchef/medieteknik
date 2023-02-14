@@ -42,6 +42,7 @@ const Home: NextPage = () => {
         // }}
         animate="animate"
         initial="initial"
+        style={{overflow: "hidden"}}
 
       >
         <Head>
