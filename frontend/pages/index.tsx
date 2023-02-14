@@ -125,7 +125,7 @@ const Home: NextPage = () => {
       <Container disableGutters maxWidth={false} style={{ background: 'white' }}>
         <Typography padding="20px 0px" color="black" variant="h1" textAlign="center">Vad är MT?</Typography>
         <Container disableGutters maxWidth={false} style={{ paddingBottom: "30px" }}>
-          <Typography fontSize={20} color="black" textAlign="center">
+          <Typography marginLeft={3} marginRight={3}fontSize={20} color="black" textAlign="center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt
             ut labore et dolore magna aliqua. Ut enim ad minim veniam,

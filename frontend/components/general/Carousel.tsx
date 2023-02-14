@@ -1,70 +1,69 @@
-import { Box } from "@mui/system";
-import { AnimatePresence, motion, PanInfo } from "framer-motion";
-import React, { createRef, useEffect, useRef, useState } from "react";
+import { AccessTimeFilled, ArrowBackIos, ArrowBackIosNew, ArrowForwardIos, Circle, CircleOutlined } from "@mui/icons-material";
+import { IconButton, Typography } from "@mui/material";
+import { Container } from "@mui/system";
 import Image from "next/image";
-import { Grid } from "@mui/material";
-
+import React, { useEffect, useState } from "react";
 
 type CarouselProps = {
-    titles?: string[]; //TODO: Combine title and image string to object for map
-    images: string[];
+    titles?: string[];
+    images: string [];
 }
 
-// A carousel that takes titles and images as props. Minimum 3 images in carousel
 const Carousel: React.FC<CarouselProps> = (props) => {
 
-    // const [activeImage, setActiveImage] = useState(1);
-    // const [imagesToRender, setImagesToRender] = useState([""]);
-    // const amountOfImages: number = props.images.length;
-    const [width, setWidth] = useState(0);
-    const carousel = useRef<HTMLDivElement>();
+    const [activeImage, setActiveImage] = useState(1);
+    const amountOfImages: number = props.images.length;
+    console.log(activeImage);
+    const clickBack = () => {
+        if(activeImage === 0) {
+            setActiveImage(amountOfImages - 1);
 
-    const imagesRef = useRef(props.images.map(() => createRef()));
+        } else {
+            setActiveImage(activeImage - 1);
+        }       
+    }
 
-    useEffect(() => {
-        if (carousel.current) {
-            setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    const clickForward = () => {
+        if(activeImage === amountOfImages - 1) {
+            setActiveImage(0);
         }
-    }, []);
-
-    const handlePan = (event: any, info: PanInfo) => {
-        
+        else {
+            setActiveImage(activeImage + 1);
+        }
     }
 
-    const handlePanEnd = (event: any, info: PanInfo) => {
-
-    }
-
+    //TODO: Images should swap place
+    //TODO: Add animations to carousel. Framer motion : component={motion.div} etc
+    
     return (
-
-        <Box ref={carousel} className="carousel" component={motion.div} overflow="hidden" sx={{cursor: "grab"}} whileTap={{cursor: "grabbing"}}>
-            <Box className="innerCarousel" component={motion.div} drag="x" dragConstraints={{right: 0, left: -width}} display="flex" alignItems={"center"} gap={10} width="120vw" onPan={handlePan} onPanEnd={handlePanEnd}>
-                {props.images.map((image, i) => {
-                    if(i === 1) {
-                        return (
-                            <Box className="item" ref={imagesRef.current[i]} width={"33%"} height={200} padding={1} position="relative" key={image} component={motion.div}>
-                                <Image draggable="false" layout="fill" src={image} alt=""/>
-                            </Box>
-                        );
+    <Container sx={{display: "flex", alignContent: "center", justifyContent: "center", flexDirection: "column"}} maxWidth={'lg'}>
+        <Typography marginBottom={2} textAlign={"center"} variant="h3">{props.titles![activeImage]}</Typography>
+        <Container sx={{display: "flex", justifyContent: "center", flexDirection: "row", gap: 5}}>
+            {props.images.map((image, i) => {
+                if (activeImage === i) {
+                    return <Image key={i} style={{borderRadius: 5}} src={image} width={300} height={180}></Image>
+                }
+                else {
+                    return <Image key={i} style={{borderRadius: 5}} src={image} width={250} height={20}></Image>
+                }
+            })}
+        </Container>
+        <Container sx={{ marginTop: 2, display: "flex", justifyContent: "center"}}>
+            <IconButton onClick={clickBack}>
+                <ArrowBackIosNew/>
+            </IconButton>
+            {props.images.map((image, i) => {
+                    if(activeImage === i) {
+                        return <IconButton onClick={() => {setActiveImage(i)}} key={i}><Circle/></IconButton>    
                     }
-                    else {
-
-                        return (
-                            <Box className="item" ref={imagesRef.current[i]} width={"33%"} height={200} padding={1} position="relative" key={image} component={motion.div}>
-                                <Image draggable="false" layout="fill" src={image} alt=""/>
-                            </Box>
-                        );
-                    }
+                    return <IconButton onClick={() => {setActiveImage(i)}} key={i}><CircleOutlined /></IconButton>
                 })}
-
-            </Box>
-        </Box>
-        
+            <IconButton onClick={clickForward}>
+                <ArrowForwardIos/>
+            </IconButton>
+        </Container>
+    </Container>
     );
 }
-
-
-
-
 
 export default Carousel;
