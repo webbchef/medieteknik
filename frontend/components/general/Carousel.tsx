@@ -1,7 +1,8 @@
 import { Box } from "@mui/system";
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, PanInfo } from "framer-motion";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { Grid } from "@mui/material";
 
 
 type CarouselProps = {
@@ -18,27 +19,38 @@ const Carousel: React.FC<CarouselProps> = (props) => {
     const [width, setWidth] = useState(0);
     const carousel = useRef<HTMLDivElement>();
 
+    const imagesRef = useRef(props.images.map(() => createRef()));
+
     useEffect(() => {
-        if(carousel.current) {
+        if (carousel.current) {
             setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
         }
     }, []);
 
-    return (
+    const handlePan = (event: any, info: PanInfo) => {
         
+    }
+
+    const handlePanEnd = (event: any, info: PanInfo) => {
+
+    }
+
+    return (
+
         <Box ref={carousel} className="carousel" component={motion.div} overflow="hidden" sx={{cursor: "grab"}} whileTap={{cursor: "grabbing"}}>
-            <Box className="innerCarousel" component={motion.div} drag="x" dragConstraints={{right: 0, left: -width}} display="flex" alignItems={"center"} gap={10} width="120vw">
+            <Box className="innerCarousel" component={motion.div} drag="x" dragConstraints={{right: 0, left: -width}} display="flex" alignItems={"center"} gap={10} width="120vw" onPan={handlePan} onPanEnd={handlePanEnd}>
                 {props.images.map((image, i) => {
                     if(i === 1) {
                         return (
-                            <Box className="item" width={"50%"} height={300} padding={1} position="relative" key={image} component={motion.div}>
+                            <Box className="item" ref={imagesRef.current[i]} width={"33%"} height={200} padding={1} position="relative" key={image} component={motion.div}>
                                 <Image draggable="false" layout="fill" src={image} alt=""/>
                             </Box>
                         );
                     }
                     else {
+
                         return (
-                            <Box className="item" width={"33%"} height={200} padding={1} position="relative" key={image} component={motion.div}>
+                            <Box className="item" ref={imagesRef.current[i]} width={"33%"} height={200} padding={1} position="relative" key={image} component={motion.div}>
                                 <Image draggable="false" layout="fill" src={image} alt=""/>
                             </Box>
                         );
@@ -47,7 +59,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
 
             </Box>
         </Box>
-       
+        
     );
 }
 

@@ -143,7 +143,7 @@ const Home: NextPage = () => {
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
             } />
           </Stack>
-          <Box marginTop={15} paddingBottom={8} display={"flex"} flexDirection="row" alignItems={"center"} gap={10}>
+          <Box marginTop={15} paddingBottom={8} paddingLeft={10} display={"flex"} flexDirection="row" alignItems={"center"} gap={10}>
             <Box paddingRight={5} display="flex" alignItems="center" flexDirection="column" flex={3}>
               <Typography textAlign="center" variant="h2">Studentliv</Typography>
               <Typography textAlign="center">
@@ -166,9 +166,9 @@ const Home: NextPage = () => {
         <WavyBackground bgColor={"#008081"} textColor={""}>
           <Carousel titles={["Sektionen", "3Cant", "Mette"]} images={[groupImage!, groupImage2!, nollepImage!]} />
         </WavyBackground>
-        <Box marginTop={15} paddingBottom={10} display={"flex"} flexDirection="row" alignItems={"center"} gap={10}>
+        <Box marginTop={15} paddingBottom={10}  paddingRight={10} display={"flex"} flexDirection="row" alignItems={"center"} gap={10}>
             <Image style={{ flex: 1 }} width={511 * 0.5} height={658 * 0.5} src={studentlivImage2} alt="Bild på studenter"/>
-            <Box paddingLeft={5} display="flex" alignItems="center" flexDirection="column" flex={3} width={400}>
+            <Box display="flex" alignItems="center" flexDirection="column" flex={3} width={400}>
               <Typography textAlign="center" variant="h2">Medieteknikdagen</Typography>
               <Typography textAlign="center">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -182,7 +182,7 @@ const Home: NextPage = () => {
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco
                 laboris nisi ut aliquip ex ea commodo consequat.
               </Typography>
-              <Button fullWidth={false} variant="contained" color={"secondary"} sx={{marginTop: 3}}>Läs mer här</Button>
+              <Button fullWidth={false} variant="contained" component={"a"} LinkComponent={Link} href="https://www.medieteknikdagen.se/" color={"secondary"} sx={{marginTop: 3}}>Läs mer här</Button>
             </Box>
           </Box>
       </Container>
