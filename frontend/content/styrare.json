@@ -1,64 +1,85 @@
-{
-  "styrareContent": [
-    {
-      "name": "Elin Bergström",
-      "responsibility": "Ordförande",
-      "email": "ordforande@medieteknik.nu"
-    },
-    {
-      "name": "Laith Oudah",
-      "responsibility": "Kassör",
-      "email": "kassor@medieteknik.nu"
-    },
-    {
-      "name": "Samuel Rothin",
-      "responsibility": "Sekreterare och AMO",
-      "email": "sekreterare@medieteknik.nu"
-    },
-    {
-      "name": "Josephine Zettervall",
-      "responsibility": "Studienämndsordförande",
-      "email": "snordf@medieteknik.nu"
-    },
-    {
-      "name": "Berkay Orhan Unlu",
-      "responsibility": "Vice SNORDF",
-      "email": "snordf@medieteknik.nu"
-    },
-    {
-      "name": "Amanda Hult",
-      "responsibility": "Webb",
-      "email": "webbchef@medieteknik.nu"
-    },
-    {
-      "name": "Todel Touma",
-      "responsibility": "Alumni och Näringsliv",
-      "email": "naringsliv@medieteknik.nu"
-    },
-    {
-      "name": "Henry Ljung",
-      "responsibility": "Alumni och Näringsliv",
-      "email": "naringsliv@medieteknik.nu"
-    },
-    {
-      "name": "Daniel Laesker",
-      "responsibility": "Festerichef",
-      "email": "festerichef@medieteknik.nu"
-    },
-    {
-      "name": "Gayathri Naranath",
-      "responsibility": "Rekrytering och PR",
-      "email": "rekrytering@medieteknik.nu"
-    },
-    {
-      "name": "Teo Hedelin",
-      "responsibility": "Eventansvarig",
-      "email": "eventansvarig@medieteknik.nu"
-    },
-    {
-      "name": "Tiger",
-      "responsibility": "Maskot",
-      "email": "@mtsektionen"
-    }
-  ]
-}
+[
+  {
+    "name": "Elin Bergström",
+    "responsibility": "Ordförande",
+    "email": "ordforande@medieteknik.nu",
+    "imageName": "elin",
+    "text": "Ordförande har det yttersta ansvaret för sektionsstyrelsens arbete och behöver därför ha insikt i vad som behöver göras och vilka uppgifter som måste prioriteras och håller i alla möten."
+  },
+  {
+    "name": "Amanda Bigelius",
+    "responsibility": "Kassör",
+    "email": "kassor@medieteknik.nu",
+    "imageName": "amanda_b",
+    "text": "Som kassör har man huvudansvar för sektionens ekonomi, detta innefattar bland annat att se över sektionens ekonomiska tillgångar, gör bokslut samt ser till att budgeten följs. Man ansvarar också för alla in- och utbetalningar och därtill även bokföringen. Allting som på ett eller annat vis rör pengar är man också någorlunda delaktig i och har koll på. Tillsammans med ordförande är man också firmatecknare för sektionen, vilket innebär att man kan ingå avtal i sektionens namn."
+  },
+  {
+    "name": "Samuel Rothin",
+    "responsibility": "Sekreterare och AMO",
+    "email": "sekreterare@medieteknik.nu",
+    "imageName": "samuel",
+    "text": "Som sekreterare har man ansvar över sektionens dokument, skriver protokoll under möte och har hand om sektionens medlemssystem. {\n} Som arbetsmiljöombud jobbar man med studiesociala och arbetsmiljörelaterade frågor som påverkar studenternas studiemiljö. De studiesociala och arbetsmiljörelaterade frågorna kan handla om studieplatser, luftkonditionering, psykisk hälsa mm."
+  },
+  {
+    "name": "Josephine Zettervall",
+    "responsibility": "Studienämndsordförande",
+    "email": "snordf@medieteknik.nu",
+    "imageName": "josephine",
+    "text": "Som SnOrdf är man ordförande för studienämnden som består av alla klassrepresentanter från MT. Studienämndens uppdrag är att se till att kurser utvärderas för att de ska bli bättre, och för att det ska hända så görs kursutvärderingar och examinatorsmöten. SnOrdfarna sitter även med i UtbildningsRådet, som består av alla SnOrdfar på tekniska fakulteten. UR har några möten per termin och där får vi massor med saftig inside information om vad som pågår på LiU. Det är väldigt najs. Utöver detta sitter vi med i Programplanegruppen och DM-nämnden där ännu mer juicy news om LiU och MT diskuteras. Vid deltagande på DM-nämndmöten blir SnOrdfen arvoderad, ka-ching rätt ner i fickan."
+  },
+  {
+    "name": "Berkay Orhan Unlu",
+    "responsibility": "Vice SNORDF",
+    "email": "snordf@medieteknik.nu",
+    "imageName": "berkay",
+    "text": "Som SnOrdf är man ordförande för studienämnden som består av alla klassrepresentanter från MT. Studienämndens uppdrag är att se till att kurser utvärderas för att de ska bli bättre, och för att det ska hända så görs kursutvärderingar och examinatorsmöten. SnOrdfarna sitter även med i UtbildningsRådet, som består av alla SnOrdfar på tekniska fakulteten. UR har några möten per termin och där får vi massor med saftig inside information om vad som pågår på LiU. Det är väldigt najs. Utöver detta sitter vi med i Programplanegruppen och DM-nämnden där ännu mer juicy news om LiU och MT diskuteras. Vid deltagande på DM-nämndmöten blir SnOrdfen arvoderad, ka-ching rätt ner i fickan."
+  },
+  {
+    "name": "Amanda Hult",
+    "responsibility": "Webb",
+    "email": "webbchef@medieteknik.nu",
+    "imageName": "amanda",
+    "text": "Som webbansvarig har jag hand om den här fina webbplatsen som du är inne och tittar på just nu. Jag ansvarar både för underhåll och vidareutveckling av den. Det innebär att jag jobbar en hel del full-stack och knackar kod i bland annat PHP och JavaScript. Jättekul och lärorikt om man intresserar sig för webbutveckling! Utöver det agerar jag också som administratör för sektionens mejl. {\n} Så om du har problem med att logga in på forumet eller något annat som strular här på medieteknik.nu så är det mig du vill kontakta."
+  },
+  {
+    "name": "Todel Touma",
+    "responsibility": "Alumni och Näringsliv",
+    "email": "naringsliv@medieteknik.nu",
+    "imageName": "todel",
+    "text": "Som Alumni- och Näringslivsansvariga fungerar jag som en brygga mellan student- och arbetsliv. Jag skapar event med företag och alumner för att ge studenterna en inblick i livet efter plugget och hjälpa till att skapa kontakter för framtida anställnings-, sommarjobbs- eller exjobbsmöjligheter. Eventen kan variera mellan allt ifrån föreläsningar och studiebesök till case-kvällar och pluggstugor. Jag driver även MT:s mentorskapsprogram där vi för samman studenter och mentorer i ett ömsesidigt utbyte av erfarenheter och kunskap. Om du har några frågor som rör alumner eller näringsliv, tveka inte att höra av dig!"
+  },
+  {
+    "name": "Henry Ljung",
+    "responsibility": "Alumni och Näringsliv",
+    "email": "naringsliv@medieteknik.nu",
+    "imageName": "henry",
+    "text": "Som Alumni- och Näringslivsansvariga fungerar jag som en brygga mellan student- och arbetsliv. Jag skapar event med företag och alumner för att ge studenterna en inblick i livet efter plugget och hjälpa till att skapa kontakter för framtida anställnings-, sommarjobbs- eller exjobbsmöjligheter. Eventen kan variera mellan allt ifrån föreläsningar och studiebesök till case-kvällar och pluggstugor. Jag driver även MT:s mentorskapsprogram där vi för samman studenter och mentorer i ett ömsesidigt utbyte av erfarenheter och kunskap. Om du har några frågor som rör alumner eller näringsliv, tveka inte att höra av dig!"
+  },
+  {
+    "name": "Daniel Laesker",
+    "responsibility": "Festerichef",
+    "email": "festerichef@medieteknik.nu",
+    "imageName": "laesker",
+    "text": "Den årliga och otroligt roliga Midsommarphesten samt Femmans fest tillsammans med de två andra festericheferna(ED & KTS) är festerichefens huvudansvar i MT-styrelsen. Som festerichef är man även med i civilingenjörernas festeri 3Cant."
+  },
+  {
+    "name": "Gayathri Naranath",
+    "responsibility": "Rekrytering och PR",
+    "email": "rekrytering@medieteknik.nu",
+    "imageName": "gayathri",
+    "text": "Jag är Styrelsens ansikte utåt när det kommer till att synas på de platser där sökande, till vårt fina program, kan tänkas vara. Mässor och gymnasier är två exempel på sådana platser. {\n} Till detta passar ganska naturligt även ”PR” in i bilden. Det handlar i stort sett om att vara Medietekniks digitala ansikte utåt åt alla tänkbara håll; studenter, icke-studenter, företag och föreningar. Jag ser till att det material som ska ut på våra plattformar hamnar där, helt enkelt."
+  },
+  {
+    "name": "Teo Hedelin",
+    "responsibility": "Eventansvarig",
+    "email": "eventansvarig@medieteknik.nu",
+    "imageName": "teo",
+    "text": "Det är jag som ansvarar för planering av alla våra egna event under året. Till min hjälp har jag ett eventutskott som hjälper mig att bland annat arrangera MTs mycket efterlängtade kräftskiva. Det är också jag tillsammans med GDK-sektionens eventansvarig som arrangerar MT <3 GDK-sittningen."
+  },
+  {
+    "name": "Tiger",
+    "responsibility": "Maskot",
+    "email": "@mtsektionen",
+    "text": "Tiger är MT-styrelsens maskot"
+  }
+]

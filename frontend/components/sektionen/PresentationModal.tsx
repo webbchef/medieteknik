@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { fadeInUp } from "../../animations/constants";
 
 import CloseIcon from "@mui/icons-material/Close";
+import { Styrare } from "../../utils/types";
 
 /** STYLE */
 const closeButtonStyle = {
@@ -26,8 +27,14 @@ const style = {
   boxShadow: 24,
   p: 4,
   maxHeight: "80vh",
-  overflow: "scroll",
+  // overflowY: "scroll",
 };
+
+interface InputProps {
+  open: boolean;
+  handleClose: () => void;
+  user: Styrare;
+}
 
 /**
  * @param open - modal open or not
@@ -36,7 +43,7 @@ const style = {
  * Modal holding information about styrare
  * @returns
  */
-export default function PresentationModal(props) {
+export default function PresentationModal(props: InputProps) {
   return (
     <motion.div animate="animate" initial="initial" exit={{ opacity: 0 }}>
       <Modal
@@ -61,8 +68,11 @@ export default function PresentationModal(props) {
           >
             <CloseIcon color="primary" sx={{ fontSize: 40 }} />
           </IconButton>
-          <CardContent sx={{ p: 0 }}>
-            <motion.h1 variants={fadeInUp}>{props.user.name}</motion.h1>
+          <CardContent sx={{ p: 0, textAlign: "center" }}>
+            {/* <motion.h1 variants={fadeInUp}>{props.user.name}</motion.h1> */}
+            <Typography variant="h4">{props.user.responsibility}</Typography>
+            <br></br>
+            <Typography>{props.user.text}</Typography>
           </CardContent>
         </Card>
       </Modal>
