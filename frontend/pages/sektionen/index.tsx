@@ -13,7 +13,6 @@ import WavyBackground from "../../components/general/WavyBackground";
 import BackgroundImage from "../../components/general/BackgroundImage";
 import gruppbild from "../../assets/gruppbild.jpg";
 
-// export default function PresentationPage() {
 const PresentationPage: NextPage = () => {
   console.log(content);
   const styrare: Styrare[] = content;
@@ -63,7 +62,6 @@ const PresentationPage: NextPage = () => {
         <Typography variant="body1" align="center" sx={{ fontSize: "24px" }}>
           Protokoll, stadgar och annat skoj från styrelsen hittar du{" "}
           <a
-            style={{ color: "#ffffff" }}
             href="https://drive.google.com/drive/folders/1xyIUmboYlJ3GJC0i6G_nVXaQTA34b2Iz?usp=sharing"
             target="blank"
           >
@@ -71,7 +69,8 @@ const PresentationPage: NextPage = () => {
           </a>
         </Typography>
         <Typography variant="body1" align="center" sx={{ fontSize: "24px" }}>
-          Allmäna frågor till sektionen skickas till info@medieteknik.nu.
+          Allmäna frågor till sektionen skickas till{" "}
+          <a href="mailto:info@medieteknik.nu">info@medieteknik.nu.</a>
         </Typography>
       </Container>
 
