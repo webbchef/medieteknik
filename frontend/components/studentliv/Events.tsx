@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useContext } from "react";
 import { Timeline } from "@mui/lab";
 // import ReactDOM from "react-dom/client";
 import TimelineItem from "@mui/lab/TimelineItem";
@@ -11,11 +12,12 @@ import eventsContent from "../../content/events.json";
 import EventCard from "./EventCard";
 import { Event } from "../../utils/types";
 import { Grid } from "@mui/material";
-var ReactDOM = require("react-dom");
+import { MobileStateContext } from "../../contexts/MobileContexts";
 
 export default function AlternateTimeline() {
+  const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
   const events: Event[] = eventsContent;
-  console.log(ReactDOM);
+
   return (
     // <p>Events</p>
     <Grid
@@ -28,13 +30,13 @@ export default function AlternateTimeline() {
     >
       <Timeline
         sx={{ marginTop: "125px", alignItems: "center" }}
-        position="alternate"
+        position={isMobile ? "left" : "alternate"}
         nonce={undefined}
         onResize={undefined}
         onResizeCapture={undefined}
       >
         {events.map((item, index) => (
-          <TimelineItem key={index} sx={{ width: "70%" }}>
+          <TimelineItem key={index} sx={{ width: "100%" }}>
             <TimelineOppositeContent>{item.month}</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot />

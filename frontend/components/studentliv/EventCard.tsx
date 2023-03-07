@@ -3,11 +3,13 @@ import { Event } from "../../utils/types";
 
 export default function EventCard(item: Event) {
   return (
-    <Card sx={{ marginTop: "-80px" }}>
+    <Card sx={{ marginTop: "-80px", width: "100%" }}>
       <CardMedia
         component="img"
         height="150"
-        image={item.imgPath}
+        image={
+          require(`../../assets/eventPictures/${item.imgPath}.jpg`).default.src
+        }
         alt={item.title}
       />
       <CardContent>

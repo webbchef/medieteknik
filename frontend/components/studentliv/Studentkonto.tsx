@@ -11,10 +11,12 @@ export default function Studentkonto() {
           md={6}
           sx={{
             display: "flex",
-            paddingTop: "90px !important",
+            paddingTop: "70px !important",
             paddingBottom: "70px",
+            minHeight: "600px",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
             textAlign: "center",
           }}
         >
@@ -55,10 +57,11 @@ export default function Studentkonto() {
             src="https://snapwidget.com/embed/1024502"
             className="snapwidget-widget"
             allowTransparency={true}
+            height="100%"
             style={{
               border: "none",
-              overflow: "hidden",
-              width: "50%",
+              // overflow: "hidden",
+              width: "40%",
               borderRadius: "10px",
             }}
           ></iframe>
