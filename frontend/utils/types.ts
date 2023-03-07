@@ -36,3 +36,8 @@ export type CarouselItem = {
   title: string;
   image: string;
 };
+
+export interface FooterLink {
+  title: string;
+  path: string;
+}
