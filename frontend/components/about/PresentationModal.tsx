@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { fadeInUp } from "../../animations/constants";
-
+import { Styrare } from "../../utils/types";
 import CloseIcon from "@mui/icons-material/Close";
 
 /** STYLE */
@@ -29,6 +29,12 @@ const style = {
   overflow: "scroll",
 };
 
+interface InputProps {
+  open: boolean;
+  handleClose: () => {};
+  user: Styrare;
+}
+
 /**
  * @param open - modal open or not
  * @param handleClose - close modal
@@ -36,7 +42,7 @@ const style = {
  * Modal holding information about styrare
  * @returns
  */
-export default function PresentationModal(props) {
+export default function PresentationModal(props: InputProps) {
   return (
     <motion.div animate="animate" initial="initial" exit={{ opacity: 0 }}>
       <Modal

@@ -13,12 +13,7 @@ import alumnContent from "../../content/alumn.json";
 import { fadeInUp } from "../../animations/constants";
 import PresentationAlumn from "../../components/about/PresentationAlumn";
 
-
-
-
-
-import {Card, CardContent, CardMedia, CardActionArea} from '@mui/material';
-
+import { Card, CardContent, CardMedia, CardActionArea } from "@mui/material";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -65,7 +60,6 @@ const PresentationPage: NextPage = () => {
         container
         sx={{
           justifyContent: "center",
-          background: "red",
           marginBottom: "20px",
         }}
       >
@@ -303,7 +297,7 @@ const PresentationPage: NextPage = () => {
         {/* ----------Alumner ------------*/}
         <Grid
           container
-          spacing={1} 
+          spacing={1}
           sx={{ padding: 6, justifyContent: "center", background: "#DEDEDE" }}
         >
           <Grid sx={{ textAlign: "center", margin: 2 }}>
@@ -311,65 +305,74 @@ const PresentationPage: NextPage = () => {
             <Typography>sdnos idgo dbgodf ibgodbf oigbod fibgo</Typography>
 
             <Grid container>
-            {alumn.map((alumn, index) => (
-          <Grid item xs={3} key={index} sx={{ p: "20px", height: "100%" }}>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              variants={fadeInUp}
-            >
-              <PresentationAlumn
-                user={alumn}
-                openInfo={() => handleUserClick(index)}
-              />
-            </motion.div>
-          </Grid>
-        ))}
-
+              {alumn.map((alumn, index) => (
+                <Grid
+                  item
+                  xs={3}
+                  key={index}
+                  sx={{ p: "20px", height: "100%" }}
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    variants={fadeInUp}
+                  >
+                    <PresentationAlumn
+                      user={alumn}
+                      openInfo={() => handleUserClick(index)}
+                    />
+                  </motion.div>
+                </Grid>
+              ))}
             </Grid>
-
-
           </Grid>
-
-
-
-
         </Grid>
 
-        <Grid container sx={{background: "white"}}>
+        <Grid container sx={{ background: "white" }}>
+          <Grid
+            item
+            xs={7}
+            sx={{
+              m: 7,
+              marginLeft: 9,
+              display: "flex",
+              flexDirection: "column",
+              borderLeft: 3,
+              borderColor: "#e27743",
+            }}
+          >
+            <Grid item sx={{ marginLeft: 7 }}>
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "bold", paddingBottom: 2 }}
+              >
+                För dig som är alumn
+              </Typography>
+              <Typography>
+                Hollywoodfilmer, virtuella möbler för IKEA och spelutveckling.
+                Medieteknikområdet handlar om tekniken bakom medierna och om.
+                Hollywoodfilmer, virtuella möbler för IKEA och spelutveckling.
+              </Typography>
 
-          <Grid item xs={7} sx={{m: 7, marginLeft: 9 , display: "flex", flexDirection: "column", borderLeft: 3, borderColor: "#e27743"}}>
-            <Grid item sx={{marginLeft: 7}}>
-                  <Typography variant="h6" sx={{ fontWeight: "bold", paddingBottom: 2 }}> 
-                      För dig som är alumn
-                  </Typography>
-                  <Typography>
-                    Hollywoodfilmer, virtuella möbler för IKEA och spelutveckling.
-                    Medieteknikområdet handlar om tekniken bakom medierna och om.               
-                    Hollywoodfilmer, virtuella möbler för IKEA och spelutveckling.
-                  </Typography>
-
-                  <Grid item sx={{marginTop: 3}}>
-                    <Button variant="contained" size="small">
-                      Anmäl
-                    </Button>
-                  </Grid>
-
-                  
-            </Grid>    
+              <Grid item sx={{ marginTop: 3 }}>
+                <Button variant="contained" size="small">
+                  Anmäl
+                </Button>
+              </Grid>
+            </Grid>
           </Grid>
 
-          <Grid item xs={2} sx={{m: 7, display: "flex", justifyContent: "right", }}>
+          <Grid
+            item
+            xs={2}
+            sx={{ m: 7, display: "flex", justifyContent: "right" }}
+          >
             <img
               src={gruppbild.src}
               style={{ height: "100%", width: "100%", objectFit: "contain" }}
             />
           </Grid>
-
-          </Grid>
-
-
-
+        </Grid>
       </Grid>
     </motion.div>
   );
