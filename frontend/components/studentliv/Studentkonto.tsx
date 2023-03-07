@@ -1,5 +1,6 @@
 import { Grid, Button, Typography } from "@mui/material";
 import WavyBackground from "../general/WavyBackground";
+import Script from "next/script";
 
 export default function Studentkonto() {
   return (
@@ -52,7 +53,7 @@ export default function Studentkonto() {
         >
           {/* <ImageCarousel /> */}
           {/* <!-- SnapWidget --> */}
-          <script src="https://snapwidget.com/js/snapwidget.js"></script>
+          <Script src="https://snapwidget.com/js/snapwidget.js" />
           <iframe
             src="https://snapwidget.com/embed/1024502"
             className="snapwidget-widget"

@@ -60,7 +60,7 @@ const PresentationPage: NextPage = () => {
           efter examen.
         </Typography>
         <Typography variant="body1" align="center" sx={{ fontSize: "24px" }}>
-          Protokoll, stadgar och annat skoj från styrelsen hittar du{" "}
+          Protokoll, stadgar och annat skoj från styrelsen hittar du
           <a
             href="https://drive.google.com/drive/folders/1xyIUmboYlJ3GJC0i6G_nVXaQTA34b2Iz?usp=sharing"
             target="blank"
@@ -69,7 +69,7 @@ const PresentationPage: NextPage = () => {
           </a>
         </Typography>
         <Typography variant="body1" align="center" sx={{ fontSize: "24px" }}>
-          Allmäna frågor till sektionen skickas till{" "}
+          Allmäna frågor till sektionen skickas till
           <a href="mailto:info@medieteknik.nu">info@medieteknik.nu.</a>
         </Typography>
       </Container>
@@ -92,7 +92,7 @@ const PresentationPage: NextPage = () => {
                 sx={{ color: "inherit", fontSize: "24px" }}
               >
                 3Cant är festeriet för civilinjengörerna i Norrköping. De
-                arrangerar fester i alla dess slag bla bla bla bla."
+                arrangerar fester i alla dess slag bla bla bla bla.
               </Typography>
               <Button
                 href="https://www.3cant.com/"
@@ -125,7 +125,7 @@ const PresentationPage: NextPage = () => {
                 gemenskapen mellan alla tjejer och icke-binära på MT-programmet!
               </Typography>
               <Button
-                href=""
+                href="/"
                 variant="contained"
                 size="large"
                 sx={{

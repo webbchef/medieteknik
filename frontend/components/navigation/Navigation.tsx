@@ -8,14 +8,14 @@ import {
   ListItem,
   Drawer,
   Button,
-  Link,
 } from "@mui/material";
 import { Sling as Hamburger } from "hamburger-react";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 import LoginIcon from "@mui/icons-material/Login";
 import logo from "../../assets/logotyp_svart_text.png";
 import LaunchIcon from "@mui/icons-material/Launch";
-import NextLink from "next/Link";
+import Link from "next/link";
+import Image from "next/image";
 import SocialMediaIcons from "../general/SocialMediaIcons";
 
 /**
@@ -68,14 +68,14 @@ export default function Navigation() {
         { name: "SEKTIONEN", to: "/sektionen" },
       ].map((link, index) => (
         <ListItem key={index} sx={isMobile ? { m: "10px" } : {}}>
-          <NextLink href={link.to} onClick={closeMenu} legacyBehavior={false}>
+          <Link href={link.to} onClick={closeMenu} legacyBehavior={false}>
             <Typography
               variant="h4"
               sx={isMobile ? { color: "white" } : { color: "black" }}
             >
               {link.name}
             </Typography>
-          </NextLink>
+          </Link>
         </ListItem>
       ))}
       <ListItem sx={isMobile ? { m: "10px" } : {}}>
@@ -121,9 +121,9 @@ export default function Navigation() {
             justifyContent: "space-between",
           }}
         >
-          <a href="/">
+          <Link href="/">
             <img alt="MT LOGO" src={logo.src} width="70px" />
-          </a>
+          </Link>
           {list()}
           <Link
             href="https://old.medieteknik.nu/forum_cookie"
@@ -175,7 +175,7 @@ export default function Navigation() {
             >
               {list()}
               <Grid item>
-                <img alt="MT LOGO" src={logo.src} width="70px" />
+                <Image alt="MT LOGO" src={logo.src} width="70px" />
                 <SocialMediaIcons />
               </Grid>
             </Grid>
