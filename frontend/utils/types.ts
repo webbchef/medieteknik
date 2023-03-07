@@ -17,3 +17,9 @@ export interface House {
   description: string;
   imgPath: string;
 }
+
+export type Value = {
+  title: string;
+  description: string;
+  image: string;
+}

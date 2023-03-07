@@ -1,30 +1,18 @@
-import {
-  Box, Button, Container, Grid, Stack, Typography
-} from "@mui/material";
+import { Typography } from "@mui/material";
+
+import Grid from "@mui/material/Unstable_Grid2";
+
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
+import type { Value } from "../utils/types";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import { useRef } from "react";
 import { fadeInUp } from "../animations/constants";
 import gruppbild from "../assets/gruppbild.jpg";
-import gruppbild2 from "../assets/gruppbild2.jpg";
-import nollep from "../assets/nollep.jpg";
-import studentlivPicture from "../assets/studentlivImage.png";
-import studentlivPicture2 from "../assets/studentlivImage2.png";
-import valueIconImage from "../assets/valueIcon.png";
 import BackgroundImage from "../components/general/BackgroundImage";
-import Carousel from "../components/general/Carousel";
-import WavyBackground from "../components/general/WavyBackground";
+import jsonValues from "../content/values.json";
 import MtValues from "../components/home/mtValues";
 
-const groupImage = ((gruppbild as unknown) as HTMLImageElement | null)?.src;
-const groupImage2 = ((gruppbild2 as unknown) as HTMLImageElement | null)?.src;
-const valueIcon = ((valueIconImage as unknown) as HTMLImageElement)?.src;
-const studentlivImage = ((studentlivPicture as unknown) as HTMLImageElement)?.src;
-const studentlivImage2 = ((studentlivPicture2 as unknown) as HTMLImageElement)?.src;
-const nollepImage = ((nollep as unknown) as HTMLImageElement)?.src;
 
 
 const Home: NextPage = () => {
@@ -32,6 +20,8 @@ const Home: NextPage = () => {
   const constraintsRef2 = useRef(null);
   const constraintsRef3 = useRef(null);
   const constraintsRef4 = useRef(null);
+
+  const values: Value[] = jsonValues;
 
   return (
     <>
@@ -42,7 +32,7 @@ const Home: NextPage = () => {
         // }}
         animate="animate"
         initial="initial"
-        style={{overflow: "hidden"}}
+        style={{ overflow: "hidden" }}
 
       >
         <Head>
@@ -57,6 +47,9 @@ const Home: NextPage = () => {
         />
       </video> */}
         <BackgroundImage imgSrc={gruppbild.src}>
+          {
+            //TODO: This grid should cover entire page and contian all child grids 
+          }
           <Grid
             display="flex"
             flexDirection="column"
@@ -122,71 +115,27 @@ const Home: NextPage = () => {
             </motion.div>
           </Grid>
         </BackgroundImage>
+        <Grid container spacing={2} bgcolor={"white"}>
+        <Grid xs={12}>
+          <Typography textAlign={"center"} fontSize={34}>Vad är MT?</Typography>
+        </Grid>
+      </Grid>
+      <Grid container padding={5} alignItems={"center"} spacing={6} columns={{ xs: 4, sm: 8, md: 12 }} bgcolor="white">
+        {values.map((value, index) => (
+          <Grid
+            xs={4} 
+            sm={4}
+            md={4} 
+            key={index}
+            alignItems="center"
+            justifyContent="center"
+          >
+            {/* TODO: center last item when screen is smaller*/}
+            <MtValues description={value.description} title={value.title} image={value.image} />
+          </Grid>
+        ))}
+      </Grid>
       </motion.div>
-      <Container disableGutters maxWidth={false} style={{ background: 'white' }}>
-        <Typography padding="20px 0px" color="black" variant="h1" textAlign="center">Vad är MT?</Typography>
-        <Container disableGutters maxWidth={false} style={{ paddingBottom: "30px" }}>
-          <Typography marginLeft={3} marginRight={3}fontSize={20} color="black" textAlign="center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Typography>
-          <Stack marginTop={5} direction="row">
-            <MtValues image={valueIcon} title={"Kreativitet"} description={
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-            } />
-            <MtValues image={valueIcon} title={"Teknik"} description={
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-            } />
-            <MtValues image={valueIcon} title={"Problemlösning"} description={
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-            } />
-          </Stack>
-          <Box marginTop={15} paddingBottom={8} paddingLeft={10} display={"flex"} flexDirection="row" alignItems={"center"} gap={10}>
-            <Box paddingRight={5} display="flex" alignItems="center" flexDirection="column" flex={3}>
-              <Typography textAlign="center" variant="h2">Studentliv</Typography>
-              <Typography textAlign="center">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-              </Typography>
-              <Button fullWidth={false} variant="contained" color={"secondary"} sx={{ marginTop: 3 }} component={"a"} LinkComponent={Link} href="/studentliv">Läs mer här</Button>
-            </Box>
-            <Image style={{ flex: 1 }} width={511 * 0.5} height={658 * 0.5} src={studentlivImage} alt="Bild på studenter" />
-          </Box>
-        </Container>
-        <WavyBackground bgColor={"#008081"} textColor={""}>
-          <Carousel titles={["Sektionen", "3Cant", "Mette"]} images={[groupImage!, groupImage2!, nollepImage!]} />
-        </WavyBackground>
-        <Box marginTop={15} paddingBottom={10}  paddingRight={10} display={"flex"} flexDirection="row" alignItems={"center"} gap={10}>
-            <Image style={{ flex: 1 }} width={511 * 0.5} height={658 * 0.5} src={studentlivImage2} alt="Bild på studenter"/>
-            <Box display="flex" alignItems="center" flexDirection="column" flex={3} width={400}>
-              <Typography textAlign="center" variant="h2">Medieteknikdagen</Typography>
-              <Typography textAlign="center">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-              </Typography>
-              <Button fullWidth={false} variant="contained" component={"a"} LinkComponent={Link} href="https://www.medieteknikdagen.se/" color={"secondary"} sx={{marginTop: 3}}>Läs mer här</Button>
-            </Box>
-          </Box>
-      </Container>
     </>
   );
 };
