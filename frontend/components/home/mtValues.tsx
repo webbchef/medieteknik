@@ -10,10 +10,10 @@ type Props = {
 
 const MtValues: React.FC<Props> = (Props) => {
   return (
-    <Box display={"flex"} flexDirection={"column"} width="33%" alignItems={"center"} justifyContent={"center"}>
+    <Box display={"flex"} flexDirection={"column"}  alignItems={"center"} justifyContent={"center"}>
       <Image width={180} height={200} src={Props.image}></Image>
       <Typography textAlign={"center"} variant="h3">{Props.title}</Typography>
-      <Typography marginTop={2} width={180} textAlign={"center"}>{Props.description}</Typography>
+      <Typography marginTop={2} textAlign={"center"}>{Props.description}</Typography>
     </Box>
   );
 }
