@@ -17,3 +17,10 @@ export interface House {
   description: string;
   imgPath: string;
 }
+
+export interface Alumn {
+  name: string;
+  post: string;
+  work: string;
+  imageName?: string;
+}
