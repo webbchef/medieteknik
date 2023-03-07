@@ -34,7 +34,7 @@ export default function Navigation() {
   }
 
   const changeBackground = () => {
-    console.log(window.scrollY);
+    //console.log(window.scrollY);
     if (window.scrollY >= 66) {
       setBgColor(true);
     } else {

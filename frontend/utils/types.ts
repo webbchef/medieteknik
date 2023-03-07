@@ -25,3 +25,14 @@ export interface Alumn {
   work: string;
   imageName?: string;
 }
+
+export type Value = {
+  title: string;
+  description: string;
+  image: string;
+};
+
+export type CarouselItem = {
+  title: string;
+  image: string;
+};
