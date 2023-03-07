@@ -23,3 +23,8 @@ export type Value = {
   description: string;
   image: string;
 }
+
+export type CarouselItem = {
+  title: string;
+  image: string;
+}

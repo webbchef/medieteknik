@@ -4,10 +4,10 @@ import { Box, Container } from "@mui/system";
 import { motion, useAnimationControls } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { CarouselItem } from "../../utils/types";
 
 type CarouselProps = {
-    titles?: string[];
-    images: string[];
+    carouselItems: CarouselItem[];
 }
 
 // A carousel that takes titles and images as props. Minimum 3 images in carousel
@@ -17,7 +17,10 @@ const Carousel: React.FC<CarouselProps> = (props) => {
     const [activeImage, setActiveImage] = useState(1);
     const [buttonClicked, setButtonClicked] = useState("");
     const [imagesToRender, setImagesToRender] = useState([""]);
-    const amountOfImages: number = props.images.length;
+    const amountOfImages: number = props.carouselItems.length;
+
+    const images: string[] = props.carouselItems.map(item => item.image);
+    const titles: string[] = props.carouselItems.map(item => item.title);
 
 
     const controls = useAnimationControls();
@@ -41,28 +44,28 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             setActiveImage(activeImage + 1);
         }
     }
-    
+
     //creates what images to render based on active image
     //TODO: make rendering dynamic, now supports 3 images
     useEffect(() => {
         let temp: string[] = [];
 
         if (activeImage === 0) {
-            temp = props.images.slice(activeImage, activeImage + 2);
-            temp.unshift(props.images[amountOfImages - 1]);
+            temp = images.slice(activeImage, activeImage + 2);
+            temp.unshift(images[amountOfImages - 1]);
         }
         else if (activeImage === amountOfImages - 1) {
-            temp = props.images.slice(activeImage - 1);
-            temp.push(props.images[0]);
+            temp = images.slice(activeImage - 1);
+            temp.push(images[0]);
 
         }
         else {
-            temp = props.images.slice(activeImage - 1, activeImage + 2);
+            temp = images.slice(activeImage - 1, activeImage + 2);
         }
         setImagesToRender(temp);
 
 
-    }, [activeImage, amountOfImages, props.images])
+    }, [activeImage, amountOfImages])
 
     //animating carousel
     //TODO: fix animation when clicking on icon
@@ -86,21 +89,21 @@ const Carousel: React.FC<CarouselProps> = (props) => {
     }, [buttonClicked, controls, imagesToRender])
 
     return (
-        <Box width={"100vw"} display={"flex"} flexDirection="column" alignItems="center" overflow="hidden">
-            <Typography marginBottom={2} textAlign={"center"} variant="h3">{props.titles![activeImage]}</Typography>
-            <Box width="120vw" component={motion.div} animate={controls} initial={false} display="flex" gap={10} justifyContent="center" flexWrap="nowrap" overflow="hidden">
+        <Box display={"flex"} flexDirection="column" alignItems="center" justifyContent="center" overflow="hidden">
+            <Typography marginBottom={2} textAlign={"center"} variant="h3">{titles![activeImage]}</Typography>
+            <Box width="100vw" component={motion.div} animate={controls} initial={false} display="flex" gap={10} justifyContent="center" alignItems="center" flexWrap="nowrap" overflow="hidden">
                 {imagesToRender.map((image, i) => {
-                    if(i === 1) {
-                        return <CarouselItem key={i} src={image} width={450} height={180} />
+                    if (i === 1) {
+                        return <CarouselImage key={i} src={image} isActive={true} />
                     }
-                    return <CarouselItem key={i} src={image} width={250} height={180} />
+                    return <CarouselImage key={i} src={image} isActive={false} />
                 })}
             </Box>
             <Container sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}>
                 <IconButton onClick={clickBack}>
                     <ArrowBackIosNew />
                 </IconButton>
-                {props.images.map((image, i) => {
+                {images.map((image, i) => {
                     if (activeImage === i) {
                         return <IconButton onClick={() => { setActiveImage(i) }} key={i}><Circle /></IconButton>
                     }
@@ -114,21 +117,29 @@ const Carousel: React.FC<CarouselProps> = (props) => {
     );
 }
 
-type CarouselItemProps = {
+type CarouselImageProps = {
     key?: React.Key | undefined | null;
     src: string;
-    width: string | number;
-    height: string | number;
+    isActive: boolean;
 
 };
 
-const CarouselItem: React.FC<CarouselItemProps> = (props) => {
+const CarouselImage: React.FC<CarouselImageProps> = (props) => {
+    const [ratio, setRatio] = useState(16/9);
+    if (!props.isActive) {
+        return (
+            <Box key={props.key} position="relative" width="30%" height="20%">
+                <Image width="100%" height="56.25%" style={{ borderRadius: 5 }} src={props.src} layout="responsive" alt="Image in carousel" />
+            </Box>
+        );
+    }
 
     return (
-        <Box key={props.key} position="relative" width={props.width} height={props.height}>
-            <Image style={{ borderRadius: 5 }} src={props.src} layout="fill" alt="Image in carousel" />
+        <Box key={props.key} position="relative" width="50%" height="33%">
+            <Image width="100%" height="56.25%" style={{ borderRadius: 5 }} src={props.src} layout="responsive" alt="Image in carousel" />
         </Box>
     );
+
 }
 
 
