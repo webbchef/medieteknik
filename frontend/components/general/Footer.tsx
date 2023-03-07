@@ -80,8 +80,8 @@ export default function Footer() {
         <Typography variant="h4" color="white">
           Studentlänkar
         </Typography>
-        {links.map((link) => (
-          <Link target="_blank" rel="noopener" href={link.path}>
+        {links.map((link, index) => (
+          <Link target="_blank" rel="noopener" href={link.path} key={index}>
             <Typography color="white">{link.title}</Typography>
           </Link>
         ))}

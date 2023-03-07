@@ -8,13 +8,15 @@ import {
   ListItem,
   Drawer,
   Button,
+  Link,
 } from "@mui/material";
 import { Sling as Hamburger } from "hamburger-react";
-import Link from "next/link";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 import LoginIcon from "@mui/icons-material/Login";
 import logo from "../../assets/logotyp_svart_text.png";
 import LaunchIcon from "@mui/icons-material/Launch";
+import NextLink from "next/Link";
+import SocialMediaIcons from "../general/SocialMediaIcons";
 
 /**
  * Component for menu
@@ -53,7 +55,7 @@ export default function Navigation() {
         { display: "flex" },
         isDesktop
           ? { flexDirection: "row", width: "70%" }
-          : { flexDirection: "column", width: "100%" },
+          : { flexDirection: "column", width: "100%", marginTop: "60px" },
       ]}
     >
       {[
@@ -65,19 +67,29 @@ export default function Navigation() {
         { name: "OM MT", to: "/about" },
         { name: "SEKTIONEN", to: "/sektionen" },
       ].map((link, index) => (
-        <ListItem key={index}>
-          <Link href={link.to} onClick={closeMenu} legacyBehavior={false}>
-            <Typography variant="h4">{link.name}</Typography>
-          </Link>
+        <ListItem key={index} sx={isMobile ? { m: "10px" } : {}}>
+          <NextLink href={link.to} onClick={closeMenu} legacyBehavior={false}>
+            <Typography
+              variant="h4"
+              sx={isMobile ? { color: "white" } : { color: "black" }}
+            >
+              {link.name}
+            </Typography>
+          </NextLink>
         </ListItem>
       ))}
-      <ListItem>
+      <ListItem sx={isMobile ? { m: "10px" } : {}}>
         <LaunchIcon sx={{ fontSize: "14px" }} />
-        <Link href="https://www.medieteknikdagen.se/" passHref>
-          <Typography variant="h4">
-            <a target="_blank" rel="noopener noreferrer">
-              MÄSSA
-            </a>
+        <Link
+          target="_blank"
+          rel="noopener"
+          href="https://www.medieteknikdagen.se/"
+        >
+          <Typography
+            variant="h4"
+            sx={isMobile ? { color: "white" } : { color: "black" }}
+          >
+            MÄSSA
           </Typography>
         </Link>
       </ListItem>
@@ -88,7 +100,7 @@ export default function Navigation() {
     <Grid
       sx={[
         {
-          p: 2,
+          // p: 2,
           position: "fixed",
           zIndex: 999,
           top: 0,
@@ -113,9 +125,15 @@ export default function Navigation() {
             <img alt="MT LOGO" src={logo.src} width="70px" />
           </a>
           {list()}
-          <Button variant="outlined" startIcon={<LoginIcon />}>
-            <Typography variant="h4">LOGGA IN</Typography>
-          </Button>
+          <Link
+            href="https://old.medieteknik.nu/forum_cookie"
+            target="_blank"
+            rel="noopener"
+          >
+            <Button variant="outlined" startIcon={<LoginIcon />}>
+              <Typography variant="h4">LOGGA IN</Typography>
+            </Button>
+          </Link>
         </Grid>
       ) : (
         <>
@@ -139,24 +157,27 @@ export default function Navigation() {
 
           <Drawer
             anchor="right"
-            sx={{ zIndex: 10 }}
+            sx={{ zIndex: 101 }}
             open={isOpen}
             onClose={closeMenu}
             transitionDuration={600}
             PaperProps={{
-              sx: { width: "30%", backgroundColor: "#3b484f" },
+              sx: { width: "100%", backgroundColor: "#3b484f" },
             }}
           >
             <Grid
               container
               sx={{ height: "100%" }}
               display="flex"
-              flexDirection="column"
+              flexDirection="row"
               justifyContent="center"
               alignItems="center"
             >
-              <Grid sx={{ height: "100px" }} />
               {list()}
+              <Grid item>
+                <img alt="MT LOGO" src={logo.src} width="70px" />
+                <SocialMediaIcons />
+              </Grid>
             </Grid>
           </Drawer>
         </>
