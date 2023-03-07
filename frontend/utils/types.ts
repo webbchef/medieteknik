@@ -3,6 +3,7 @@ export interface Styrare {
   email: string;
   responsibility: string;
   imageName?: string;
+  text: string;
 }
 
 export interface Event {

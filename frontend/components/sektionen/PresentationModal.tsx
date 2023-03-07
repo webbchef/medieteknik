@@ -26,12 +26,12 @@ const style = {
   boxShadow: 24,
   p: 4,
   maxHeight: "80vh",
-  overflow: "scroll",
+  // overflowY: "scroll",
 };
 
 interface InputProps {
   open: boolean;
-  handleClose: () => {};
+  handleClose: () => void;
   user: Styrare;
 }
 
@@ -67,8 +67,11 @@ export default function PresentationModal(props: InputProps) {
           >
             <CloseIcon color="primary" sx={{ fontSize: 40 }} />
           </IconButton>
-          <CardContent sx={{ p: 0 }}>
-            <motion.h1 variants={fadeInUp}>{props.user.name}</motion.h1>
+          <CardContent sx={{ p: 0, textAlign: "center" }}>
+            {/* <motion.h1 variants={fadeInUp}>{props.user.name}</motion.h1> */}
+            <Typography variant="h4">{props.user.responsibility}</Typography>
+            <br></br>
+            <Typography>{props.user.text}</Typography>
           </CardContent>
         </Card>
       </Modal>
