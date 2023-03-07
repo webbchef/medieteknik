@@ -43,6 +43,7 @@ interface InputProps {
  * @returns
  */
 export default function PresentationModal(props: InputProps) {
+  console.log("test");
   return (
     <motion.div animate="animate" initial="initial" exit={{ opacity: 0 }}>
       <Modal
