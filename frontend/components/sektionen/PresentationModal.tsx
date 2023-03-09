@@ -10,6 +10,8 @@ import { motion } from "framer-motion";
 import { fadeInUp } from "../../animations/constants";
 import { Styrare } from "../../utils/types";
 import CloseIcon from "@mui/icons-material/Close";
+import { useState } from "react";
+import CopyText from "../general/CopyText";
 
 /** STYLE */
 const closeButtonStyle = {
@@ -43,7 +45,6 @@ interface InputProps {
  * @returns
  */
 export default function PresentationModal(props: InputProps) {
-  console.log("test");
   return (
     <motion.div animate="animate" initial="initial" exit={{ opacity: 0 }}>
       <Modal
@@ -71,7 +72,9 @@ export default function PresentationModal(props: InputProps) {
           <CardContent sx={{ p: 0, textAlign: "center" }}>
             {/* <motion.h1 variants={fadeInUp}>{props.user.name}</motion.h1> */}
             <Typography variant="h4">{props.user.responsibility}</Typography>
+            <CopyText text={props.user.email}></CopyText>
             <br></br>
+
             <Typography>{props.user.text}</Typography>
           </CardContent>
         </Card>

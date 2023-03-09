@@ -7,6 +7,7 @@ import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { useContext } from "react";
 import { MobileStateContext } from "../../contexts/MobileContexts";
+import CopyText from "./CopyText";
 
 export default function Footer() {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
@@ -67,9 +68,10 @@ export default function Footer() {
           Sandgatan 31 601 74 Norrköping
         </Typography>
         <br></br>
-        <Typography color="white">
+        {/* <Typography color="white">
           <a href="mailto:info@medieteknik.nu">info@medieteknik.nu</a>
-        </Typography>
+        </Typography> */}
+        <CopyText text="info@medieteknikdagen.se" color="white" />
       </Grid>
       <Grid
         item

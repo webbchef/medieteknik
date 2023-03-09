@@ -11,6 +11,7 @@ import nollePImage from "../../assets/nollep.jpg";
 import Studentkonto from "../../components/studentliv/Studentkonto";
 import fiket from "../../assets/fiket.jpg";
 import BackgroundImage from "../../components/general/BackgroundImage";
+import Image from "next/image";
 
 const StudentlivPage: NextPage = () => {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
@@ -84,7 +85,7 @@ const StudentlivPage: NextPage = () => {
           </Grid>
         </Grid>
         <Grid container sx={{ paddingTop: 3, paddingBottom: 3 }}>
-          <img
+          <Image
             src={nollePImage.src}
             style={{ height: "30vh", width: "100%", objectFit: "cover" }}
           />
@@ -129,7 +130,7 @@ const StudentlivPage: NextPage = () => {
             alignItems="center"
           >
             <Grid item xs={4} sx={{ p: 3 }}>
-              <img
+              <Image
                 src={fiket.src}
                 width="100%"
                 style={{
@@ -140,7 +141,7 @@ const StudentlivPage: NextPage = () => {
               />
             </Grid>
             <Grid item xs={4} sx={{ p: 3 }}>
-              <img
+              <Image
                 src={fiket.src}
                 width="100%"
                 style={{
@@ -151,7 +152,7 @@ const StudentlivPage: NextPage = () => {
               />
             </Grid>
             <Grid item xs={4} sx={{ p: 3 }}>
-              <img
+              <Image
                 src={fiket.src}
                 width="100%"
                 style={{

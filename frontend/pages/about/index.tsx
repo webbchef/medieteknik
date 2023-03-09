@@ -20,6 +20,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
+import Image from "next/image";
 
 // export default function PresentationPage() {
 const PresentationPage: NextPage = () => {
@@ -120,7 +121,7 @@ const PresentationPage: NextPage = () => {
           </Grid>
 
           <Grid item xs={6} sx={{ display: "flex", justifyContent: "right" }}>
-            <img
+            <Image
               src={gruppbild.src}
               style={{ height: "90%", width: "80%", objectFit: "contain" }}
             />
@@ -256,7 +257,7 @@ const PresentationPage: NextPage = () => {
           sx={{ padding: 9, paddingBottom: 2, background: "white" }}
         >
           <Grid item xs={6} sx={{ display: "flex", justifyContent: "right" }}>
-            <img
+            <Image
               src={gruppbild.src}
               style={{ height: "90%", width: "80%", objectFit: "contain" }}
             />
@@ -367,7 +368,7 @@ const PresentationPage: NextPage = () => {
             xs={2}
             sx={{ m: 7, display: "flex", justifyContent: "right" }}
           >
-            <img
+            <Image
               src={gruppbild.src}
               style={{ height: "100%", width: "100%", objectFit: "contain" }}
             />
