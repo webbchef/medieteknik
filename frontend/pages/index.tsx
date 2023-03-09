@@ -1,4 +1,11 @@
-import { Box, Button, Link, Typography, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Box,
+  Button,
+  Link,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import Image from "next/image";
 import Grid from "@mui/material/Unstable_Grid2";
 
@@ -14,9 +21,7 @@ import jsonValues from "../content/values.json";
 import MtValues from "../components/home/mtValues";
 import WavyBackground from "../components/general/WavyBackground";
 import Carousel from "../components/general/Carousel";
-import carouselImages from "../content/carouselItems.json"
-
-
+import carouselImages from "../content/carouselItems.json";
 
 const Home: NextPage = () => {
   const theme = useTheme();
@@ -26,8 +31,8 @@ const Home: NextPage = () => {
   const constraintsRef3 = useRef(null);
   const constraintsRef4 = useRef(null);
 
-  const matchesSm = useMediaQuery(theme.breakpoints.down('md'));
-  const notSm= useMediaQuery(theme.breakpoints.not('sm'));
+  const matchesSm = useMediaQuery(theme.breakpoints.down("md"));
+  const notSm = useMediaQuery(theme.breakpoints.not("sm"));
 
   const values: Value[] = jsonValues;
   const carouselItems: CarouselItem[] = carouselImages;
@@ -55,7 +60,7 @@ const Home: NextPage = () => {
       </video> */}
       <BackgroundImage imgSrc={gruppbild.src}>
         {
-          //TODO: This grid should cover entire page and contian all child grids 
+          //TODO: This grid should cover entire page and contian all child grids
         }
         <Grid
           display="flex"
@@ -122,19 +127,38 @@ const Home: NextPage = () => {
           </motion.div>
         </Grid>
       </BackgroundImage>
-      <Grid container spacing={2} paddingLeft={{ xs: 3, lg: 15 }} paddingRight={{ xs: 3, lg: 15 }}>
+      <Grid
+        container
+        spacing={2}
+        paddingLeft={{ xs: 3, lg: 15 }}
+        paddingRight={{ xs: 3, lg: 15 }}
+      >
         <Grid xs={12}>
-          <Typography paddingTop={5} color="black" variant="h2" textAlign="center">Vad är MT?</Typography>
-          <Typography fontSize={20} color="black" textAlign="center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut
+          <Typography
+            paddingTop={5}
+            color="black"
+            variant="h2"
+            textAlign="center"
+          >
+            Vad är MT?
+          </Typography>
+          <Typography color="black" textAlign="center">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </Typography>
         </Grid>
       </Grid>
-      <Grid container padding={5} alignItems={"center"} paddingLeft={{ xs: 3, lg: 15 }} paddingRight={{ xs: 3, lg: 15 }} spacing={6} columns={{ xs: 4, sm: 8, md: 12 }}>
+      <Grid
+        container
+        padding={5}
+        alignItems={"center"}
+        paddingLeft={{ xs: 3, lg: 15 }}
+        paddingRight={{ xs: 3, lg: 15 }}
+        spacing={6}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
         {values.map((value, index) => {
           if (notSm) {
             return (
@@ -147,12 +171,15 @@ const Home: NextPage = () => {
                 justifyContent="center"
               >
                 {/* TODO: center last item when screen is smaller*/}
-                <MtValues description={value.description} title={value.title} image={value.image} />
+                <MtValues
+                  description={value.description}
+                  title={value.title}
+                  image={value.image}
+                />
               </Grid>
             );
-          }
-          else {
-            if(index !== values.length - 1) {
+          } else {
+            if (index !== values.length - 1) {
               return (
                 <Grid
                   xs={4}
@@ -163,7 +190,11 @@ const Home: NextPage = () => {
                   justifyContent="center"
                 >
                   {/* TODO: center last item when screen is smaller*/}
-                  <MtValues description={value.description} title={value.title} image={value.image} />
+                  <MtValues
+                    description={value.description}
+                    title={value.title}
+                    image={value.image}
+                  />
                 </Grid>
               );
             } else {
@@ -177,62 +208,119 @@ const Home: NextPage = () => {
                   paddingLeft={23}
                 >
                   {/* TODO: center last item when screen is smaller*/}
-                  <MtValues description={value.description} title={value.title} image={value.image} />
+                  <MtValues
+                    description={value.description}
+                    title={value.title}
+                    image={value.image}
+                  />
                 </Grid>
               );
             }
           }
-
-        }
-
-
-
-        )}
+        })}
       </Grid>
       <Grid container paddingTop={9} paddingBottom={9}>
-        {matchesSm ?
-          <Grid md={9} paddingLeft={{ xs: 3, lg: 15 }} paddingRight={{ xs: 3, lg: 15 }} display="flex" flexDirection="column" alignItems="center">
-            <Typography textAlign="center" variant="h2">Studentliv</Typography>
-            <Image style={{ flex: 1 }} width={511 * 0.5} height={658 * 0.5} src={"/images/studentlivImage.png"} alt="Bild på studenter" />
-            <Typography marginTop={3} textAlign="center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat.
+        {matchesSm ? (
+          <Grid
+            md={9}
+            paddingLeft={{ xs: 3, lg: 15 }}
+            paddingRight={{ xs: 3, lg: 15 }}
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+          >
+            <Typography textAlign="center" variant="h2">
+              Studentliv
             </Typography>
-            <Button variant="contained" color={"secondary"} component={"a"} LinkComponent={Link} href="/studentliv" sx={{ marginTop: 3 }}>Läs mer här</Button>
+            <Image
+              style={{ flex: 1 }}
+              width={511 * 0.5}
+              height={658 * 0.5}
+              src={"/images/studentlivImage.png"}
+              alt="Bild på studenter"
+            />
+            <Typography marginTop={3} textAlign="center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.
+            </Typography>
+            <Button
+              variant="contained"
+              color={"secondary"}
+              component={"a"}
+              LinkComponent={Link}
+              href="/studentliv"
+              sx={{ marginTop: 3 }}
+            >
+              Läs mer här
+            </Button>
           </Grid>
-          :
+        ) : (
           <>
-            <Grid md={9} paddingLeft={{ md: 8, lg: 15 }} display="flex" flexDirection="column" alignItems="center">
-              <Typography textAlign="center" variant="h2">Studentliv</Typography>
-              <Typography textAlign="center">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
+            <Grid
+              md={9}
+              paddingLeft={{ md: 8, lg: 15 }}
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+            >
+              <Typography textAlign="center" variant="h2">
+                Studentliv
               </Typography>
-              <Button variant="contained" color={"secondary"} component={"a"} LinkComponent={Link} href="/studentliv" sx={{ marginTop: 3 }}>Läs mer här</Button>
+              <Typography textAlign="center">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.
+              </Typography>
+              <Button
+                variant="contained"
+                color={"secondary"}
+                component={"a"}
+                LinkComponent={Link}
+                href="/studentliv"
+                sx={{ marginTop: 3 }}
+              >
+                Läs mer här
+              </Button>
             </Grid>
-            <Grid md={3} display="flex" justifyContent="flex-end" alignItems="center">
-              <Box position="relative" width={{ sm: 511 * 0.3, md: 511 * 0.4, lg: 511 * 0.5 }} height={{ sm: 658 * 0.3, md: 658 * 0.4, lg: 658 * 0.5 }}>
-                <Image layout="fill" src={"/images/studentlivImage.png"} alt="Bild på studenter" />
+            <Grid
+              md={3}
+              display="flex"
+              justifyContent="flex-end"
+              alignItems="center"
+            >
+              <Box
+                position="relative"
+                width={{ sm: 511 * 0.3, md: 511 * 0.4, lg: 511 * 0.5 }}
+                height={{ sm: 658 * 0.3, md: 658 * 0.4, lg: 658 * 0.5 }}
+              >
+                <Image
+                  layout="fill"
+                  src={"/images/studentlivImage.png"}
+                  alt="Bild på studenter"
+                />
               </Box>
             </Grid>
           </>
-        }
+        )}
       </Grid>
       <Grid md={12} display="flex" justifyContent="center">
         <WavyBackground bgColor={"#008081"} textColor={""}>
@@ -240,53 +328,110 @@ const Home: NextPage = () => {
         </WavyBackground>
       </Grid>
       <Grid container paddingTop={9} paddingBottom={9}>
-        {
-          matchesSm ?
-            <Grid md={9} paddingLeft={{ xs: 3, lg: 15 }} paddingRight={{ xs: 3, lg: 15 }} display="flex" flexDirection="column" alignItems="center">
-              <Typography textAlign="center" variant="h2">Medieteknikdagen</Typography>
-              <Image style={{ flex: 1 }} width={511 * 0.5} height={658 * 0.5} src={"/images/studentlivImage2.png"} alt="Bild på studenter" />
-              <Typography marginTop={3} textAlign="center">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-              </Typography>
-              <Button variant="contained" component={"a"} LinkComponent={Link} href="https://www.medieteknikdagen.se/" color={"secondary"} sx={{ marginTop: 3 }}>Läs mer här</Button>
+        {matchesSm ? (
+          <Grid
+            md={9}
+            paddingLeft={{ xs: 3, lg: 15 }}
+            paddingRight={{ xs: 3, lg: 15 }}
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+          >
+            <Typography textAlign="center" variant="h2">
+              Medieteknikdagen
+            </Typography>
+            <Image
+              style={{ flex: 1 }}
+              width={511 * 0.5}
+              height={658 * 0.5}
+              src={"/images/studentlivImage2.png"}
+              alt="Bild på studenter"
+            />
+            <Typography marginTop={3} textAlign="center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.
+            </Typography>
+            <Button
+              variant="contained"
+              component={"a"}
+              LinkComponent={Link}
+              href="https://www.medieteknikdagen.se/"
+              color={"secondary"}
+              sx={{ marginTop: 3 }}
+            >
+              Läs mer här
+            </Button>
+          </Grid>
+        ) : (
+          <>
+            <Grid
+              md={3}
+              spacing={6}
+              display="flex"
+              justifyContent="flex-start"
+              alignItems="center"
+            >
+              <Box
+                position="relative"
+                width={{ sm: 511 * 0.3, md: 511 * 0.4, lg: 511 * 0.5 }}
+                height={{ sm: 658 * 0.3, md: 658 * 0.4, lg: 658 * 0.5 }}
+              >
+                <Image
+                  layout="fill"
+                  src={"/images/studentlivImage2.png"}
+                  alt="Bild på studenter"
+                />
+              </Box>
             </Grid>
-            :
-            <>
-              <Grid md={3} spacing={6} display="flex" justifyContent="flex-start" alignItems="center">
-                <Box position="relative" width={{ sm: 511 * 0.3, md: 511 * 0.4, lg: 511 * 0.5 }} height={{ sm: 658 * 0.3, md: 658 * 0.4, lg: 658 * 0.5 }}>
-                  <Image layout="fill" src={"/images/studentlivImage2.png"} alt="Bild på studenter" />
-                </Box>
-              </Grid>
-              <Grid md={9} paddingRight={{ md: 8, lg: 15 }} display="flex" flexDirection="column" alignItems="center">
-                <Typography textAlign="center" variant="h2">Medieteknikdagen</Typography>
-                <Typography textAlign="center">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </Typography>
-                <Button variant="contained" component={"a"} LinkComponent={Link} href="https://www.medieteknikdagen.se/" color={"secondary"} sx={{ marginTop: 3 }}>Läs mer här</Button>
-              </Grid>
-            </>
-        }
+            <Grid
+              md={9}
+              paddingRight={{ md: 8, lg: 15 }}
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+            >
+              <Typography textAlign="center" variant="h2">
+                Medieteknikdagen
+              </Typography>
+              <Typography textAlign="center">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.
+              </Typography>
+              <Button
+                variant="contained"
+                component={"a"}
+                LinkComponent={Link}
+                href="https://www.medieteknikdagen.se/"
+                color={"secondary"}
+                sx={{ marginTop: 3 }}
+              >
+                Läs mer här
+              </Button>
+            </Grid>
+          </>
+        )}
       </Grid>
-
-    </motion.div >
+    </motion.div>
   );
 };
 

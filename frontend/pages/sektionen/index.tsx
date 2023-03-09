@@ -12,6 +12,7 @@ import ImageWithSummary from "../../components/general/ImageWithSummary";
 import WavyBackground from "../../components/general/WavyBackground";
 import BackgroundImage from "../../components/general/BackgroundImage";
 import gruppbild from "../../assets/gruppbild.jpg";
+import CopyText from "../../components/general/CopyText";
 
 const PresentationPage: NextPage = () => {
   console.log(content);
@@ -39,10 +40,10 @@ const PresentationPage: NextPage = () => {
 
       <Container
         maxWidth="lg"
-        sx={{ width: "70vw", margin: "auto", padding: "20px 0 100px 0" }}
+        sx={{ width: "70vw", margin: "auto", padding: "20px 0 10px 0" }}
       >
         <Typography
-          variant="h1"
+          variant="h2"
           align="center"
           sx={{ margin: "40px 0", color: "inherit" }}
         >
@@ -51,7 +52,7 @@ const PresentationPage: NextPage = () => {
         <Typography
           variant="body1"
           align="center"
-          sx={{ marginBottom: "40px", fontSize: "24px" }}
+          sx={{ marginBottom: "40px" }}
         >
           Hej! Vi är Medietekniksektionens styrelse under perioden 22/23. Vi
           representerar MT-eleverna gentemot LiU, verkar för en bättre
@@ -59,8 +60,8 @@ const PresentationPage: NextPage = () => {
           anordnar också föreläsningar där företag och alumner berättar om livet
           efter examen.
         </Typography>
-        <Typography variant="body1" align="center" sx={{ fontSize: "24px" }}>
-          Protokoll, stadgar och annat skoj från styrelsen hittar du
+        <Typography variant="body1" align="center">
+          Protokoll, stadgar och annat skoj från styrelsen hittar du{" "}
           <a
             href="https://drive.google.com/drive/folders/1xyIUmboYlJ3GJC0i6G_nVXaQTA34b2Iz?usp=sharing"
             target="blank"
@@ -68,78 +69,11 @@ const PresentationPage: NextPage = () => {
             här.
           </a>
         </Typography>
-        <Typography variant="body1" align="center" sx={{ fontSize: "24px" }}>
-          Allmäna frågor till sektionen skickas till
-          <a href="mailto:info@medieteknik.nu">info@medieteknik.nu.</a>
+        <Typography variant="body1" align="center">
+          Allmäna frågor till sektionen skickas till:
+          <CopyText text="info@medieteknik.nu" />
         </Typography>
       </Container>
-
-      {/* Mette & #3Cant */}
-
-      <WavyBackground bgColor="#13283c" textColor="#FFF">
-        <Container maxWidth="lg">
-          <ImageWithSummary
-            imageSrc={require("../../assets/3cant.jpg")}
-            direction="row-reverse"
-          >
-            <Stack>
-              <Typography variant="h2" align="center" sx={{ color: "inherit" }}>
-                3CANT
-              </Typography>
-              <Typography
-                variant="body1"
-                align="center"
-                sx={{ color: "inherit", fontSize: "24px" }}
-              >
-                3Cant är festeriet för civilinjengörerna i Norrköping. De
-                arrangerar fester i alla dess slag bla bla bla bla.
-              </Typography>
-              <Button
-                href="https://www.3cant.com/"
-                variant="contained"
-                size="large"
-                sx={{
-                  margin: "20px auto",
-                  backgroundColor: "#EC6610",
-                  color: "inherit",
-                }}
-              >
-                Läs Mer
-              </Button>
-            </Stack>
-          </ImageWithSummary>
-          <ImageWithSummary
-            imageSrc={require("../../assets/mette.jpg")}
-            direction="row"
-          >
-            <Stack>
-              <Typography variant="h2" align="center" sx={{ color: "inherit" }}>
-                METTE
-              </Typography>
-              <Typography
-                variant="body1"
-                align="center"
-                sx={{ color: "inherit", fontSize: "24px" }}
-              >
-                Mette är sektionens tjejförening som jobbar för att främja
-                gemenskapen mellan alla tjejer och icke-binära på MT-programmet!
-              </Typography>
-              <Button
-                href="/"
-                variant="contained"
-                size="large"
-                sx={{
-                  margin: "20px auto",
-                  backgroundColor: "#EC6610",
-                  color: "inherit",
-                }}
-              >
-                Läs Mer
-              </Button>
-            </Stack>
-          </ImageWithSummary>
-        </Container>
-      </WavyBackground>
 
       {/* Styrelse-Grid*/}
 
@@ -165,6 +99,95 @@ const PresentationPage: NextPage = () => {
           </Grid>
         ))}
       </Grid>
+
+      {/* Mette & #3Cant */}
+
+      <WavyBackground bgColor="#13283c" textColor="#FFF">
+        <Container maxWidth="lg" sx={{ p: 3 }}>
+          <ImageWithSummary
+            imageSrc={require("../../assets/mette.jpg")}
+            direction="row"
+          >
+            <Stack>
+              <Typography
+                variant="h3"
+                align="center"
+                sx={{ color: "inherit", m: 2 }}
+              >
+                METTE
+              </Typography>
+              <Typography
+                variant="body1"
+                align="center"
+                sx={{ color: "inherit" }}
+              >
+                Hej! Det är vi som är Medieteknikprogrammets tjejförening Mette!
+                Vi är en förening för alla som identifierar sig som tjej eller
+                icke-binär och studerar Medieteknik på Linköpings Universitet,
+                campus Norrköping. Vi jobbar för att främja gemenskapen mellan
+                alla tjejer och icke-binära på MT-programmet. Vi anordnar olika
+                roliga aktiviteter, vissa är enbart för tjejer och icke-binära
+                medan andra aktiviteter är till för alla som pluggar MT. Följ
+                oss på Instagram och Facebook för att bli uppdaterad om våra
+                kommande aktiviteter.
+              </Typography>
+              <Button
+                href="/"
+                variant="contained"
+                size="large"
+                sx={{
+                  margin: "20px auto",
+                  backgroundColor: "#EC6610",
+                  color: "inherit",
+                }}
+              >
+                Läs Mer
+              </Button>
+            </Stack>
+          </ImageWithSummary>
+        </Container>
+      </WavyBackground>
+      <Container maxWidth="lg" sx={{ p: 3 }}>
+        <ImageWithSummary
+          imageSrc={require("../../assets/3cant.jpg")}
+          direction="row-reverse"
+        >
+          <Stack>
+            <Typography
+              variant="h3"
+              align="center"
+              sx={{ color: "inherit", m: 2 }}
+            >
+              3CANT
+            </Typography>
+            <Typography
+              variant="body1"
+              align="center"
+              sx={{ color: "inherit" }}
+            >
+              Hej! Det är vi som är 3Cant och vi är civilingenjörernas festeri!
+              Vi består av 11 glada individer från antingen MT, ED eller KTS som
+              är klädda i rosa skjorta och svarta hängselbyxor! Under vårt år
+              arrangerar vi fester på trappan, framförallt vår stora
+              Halloween-fest, men också inför våren en bal! Följ oss på sociala
+              medier för att hänga med på vår resa, vi finns på Facebook,
+              Instagram och på vår hemsida.
+            </Typography>
+            <Button
+              href="https://www.3cant.com/"
+              variant="contained"
+              size="large"
+              sx={{
+                margin: "20px auto",
+                backgroundColor: "#EC6610",
+                color: "inherit",
+              }}
+            >
+              Läs Mer
+            </Button>
+          </Stack>
+        </ImageWithSummary>
+      </Container>
 
       {modalOpen && (
         <PresentationModal

@@ -85,7 +85,7 @@ const StudentlivPage: NextPage = () => {
           </Grid>
         </Grid>
         <Grid container sx={{ paddingTop: 3, paddingBottom: 3 }}>
-          <Image
+          <img
             src={nollePImage.src}
             style={{ height: "30vh", width: "100%", objectFit: "cover" }}
           />
@@ -130,7 +130,7 @@ const StudentlivPage: NextPage = () => {
             alignItems="center"
           >
             <Grid item xs={4} sx={{ p: 3 }}>
-              <Image
+              <img
                 src={fiket.src}
                 width="100%"
                 style={{
@@ -141,7 +141,7 @@ const StudentlivPage: NextPage = () => {
               />
             </Grid>
             <Grid item xs={4} sx={{ p: 3 }}>
-              <Image
+              <img
                 src={fiket.src}
                 width="100%"
                 style={{
@@ -152,7 +152,7 @@ const StudentlivPage: NextPage = () => {
               />
             </Grid>
             <Grid item xs={4} sx={{ p: 3 }}>
-              <Image
+              <img
                 src={fiket.src}
                 width="100%"
                 style={{

@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 import BackgroundImage from "../../components/general/BackgroundImage";
 import gruppbild from "../../assets/gruppbild.jpg";
-import { display } from "@mui/system";
 
 import { Alumn } from "../../utils/types";
 import alumnContent from "../../content/alumn.json";
@@ -21,6 +20,7 @@ import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import Image from "next/image";
+import SocialMediaIcons from "../../components/general/SocialMediaIcons";
 
 // export default function PresentationPage() {
 const PresentationPage: NextPage = () => {
@@ -98,7 +98,7 @@ const PresentationPage: NextPage = () => {
               Hollywoodfilmer, virtuella möbler för IKEA och spelutveckling.
               Medieteknikområdet handlar om tekniken bakom medierna och om
             </Typography>
-            <Grid
+            {/* <Grid
               item
               xs={12}
               sx={{ display: "flex", justifyContent: "center" }}
@@ -117,11 +117,12 @@ const PresentationPage: NextPage = () => {
               >
                 <InstagramIcon />
               </IconButton>
-            </Grid>
+            </Grid> */}
+            <SocialMediaIcons />
           </Grid>
 
           <Grid item xs={6} sx={{ display: "flex", justifyContent: "right" }}>
-            <Image
+            <img
               src={gruppbild.src}
               style={{ height: "90%", width: "80%", objectFit: "contain" }}
             />
@@ -257,7 +258,7 @@ const PresentationPage: NextPage = () => {
           sx={{ padding: 9, paddingBottom: 2, background: "white" }}
         >
           <Grid item xs={6} sx={{ display: "flex", justifyContent: "right" }}>
-            <Image
+            <img
               src={gruppbild.src}
               style={{ height: "90%", width: "80%", objectFit: "contain" }}
             />
@@ -368,7 +369,7 @@ const PresentationPage: NextPage = () => {
             xs={2}
             sx={{ m: 7, display: "flex", justifyContent: "right" }}
           >
-            <Image
+            <img
               src={gruppbild.src}
               style={{ height: "100%", width: "100%", objectFit: "contain" }}
             />

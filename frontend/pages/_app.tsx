@@ -12,6 +12,7 @@ let theme = createTheme({
       defaultProps: {
         fontFamily: "Lato, sans-serif",
         color: "black",
+        fontSize: "12",
         // fontWeight: 500,
       },
     },
@@ -32,6 +33,7 @@ let theme = createTheme({
       fontSize: "30px",
       fontWeight: "bold !important",
       fontFamily: "Barlow, sans-serif !important",
+      margin: "20px 0",
     },
     // Navigation
     h4: {
@@ -41,7 +43,7 @@ let theme = createTheme({
   },
   palette: {
     background: {
-      default: "FFFFFF"
+      default: "FFFFFF",
     },
     primary: {
       main: "#3A3A3C",
