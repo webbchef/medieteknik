@@ -49,18 +49,14 @@ const PresentationPage: NextPage = () => {
         >
           STYRELSEN
         </Typography>
-        <Typography
-          variant="body1"
-          align="center"
-          sx={{ marginBottom: "40px" }}
-        >
+        <Typography align="center" sx={{ marginBottom: "40px" }}>
           Hej! Vi är Medietekniksektionens styrelse under perioden 22/23. Vi
           representerar MT-eleverna gentemot LiU, verkar för en bättre
           arbetsmiljö för oss studenter och anordnar event för MT:are. Vi
           anordnar också föreläsningar där företag och alumner berättar om livet
           efter examen.
         </Typography>
-        <Typography variant="body1" align="center">
+        <Typography align="center">
           Protokoll, stadgar och annat skoj från styrelsen hittar du{" "}
           <a
             href="https://drive.google.com/drive/folders/1xyIUmboYlJ3GJC0i6G_nVXaQTA34b2Iz?usp=sharing"
@@ -69,7 +65,7 @@ const PresentationPage: NextPage = () => {
             här.
           </a>
         </Typography>
-        <Typography variant="body1" align="center">
+        <Typography align="center">
           Allmäna frågor till sektionen skickas till:
           <CopyText text="info@medieteknik.nu" />
         </Typography>
@@ -110,17 +106,13 @@ const PresentationPage: NextPage = () => {
           >
             <Stack>
               <Typography
-                variant="h3"
+                variant="h2"
                 align="center"
                 sx={{ color: "inherit", m: 2 }}
               >
                 METTE
               </Typography>
-              <Typography
-                variant="body1"
-                align="center"
-                sx={{ color: "inherit" }}
-              >
+              <Typography align="center" sx={{ color: "inherit" }}>
                 Hej! Det är vi som är Medieteknikprogrammets tjejförening Mette!
                 Vi är en förening för alla som identifierar sig som tjej eller
                 icke-binär och studerar Medieteknik på Linköpings Universitet,
@@ -154,17 +146,13 @@ const PresentationPage: NextPage = () => {
         >
           <Stack>
             <Typography
-              variant="h3"
+              variant="h2"
               align="center"
               sx={{ color: "inherit", m: 2 }}
             >
               3CANT
             </Typography>
-            <Typography
-              variant="body1"
-              align="center"
-              sx={{ color: "inherit" }}
-            >
+            <Typography align="center" sx={{ color: "inherit" }}>
               Hej! Det är vi som är 3Cant och vi är civilingenjörernas festeri!
               Vi består av 11 glada individer från antingen MT, ED eller KTS som
               är klädda i rosa skjorta och svarta hängselbyxor! Under vårt år

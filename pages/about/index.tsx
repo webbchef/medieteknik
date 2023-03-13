@@ -87,7 +87,7 @@ const PresentationPage: NextPage = () => {
               textAlign: "center",
             }}
           >
-            <Typography variant="h3" sx={{ margin: 2 }}>
+            <Typography variant="h2" sx={{ margin: 2 }}>
               Civilingejör i Medieteknik
             </Typography>
 
@@ -160,7 +160,7 @@ const PresentationPage: NextPage = () => {
 
                 <Grid sx={{ display: "flex", paddingLeft: 3 }}>
                   <Typography
-                    variant="h6"
+                    variant="h3"
                     sx={{ fontWeight: "bold", paddingBottom: 2 }}
                   >
                     KURSER
@@ -194,7 +194,7 @@ const PresentationPage: NextPage = () => {
 
                 <Grid sx={{ display: "flex", paddingLeft: 3 }}>
                   <Typography
-                    variant="h6"
+                    variant="h3"
                     sx={{ fontWeight: "bold", paddingBottom: 2 }}
                   >
                     Masterkurser
@@ -228,7 +228,7 @@ const PresentationPage: NextPage = () => {
 
                 <Grid sx={{ paddingLeft: 3 }}>
                   <Typography
-                    variant="h6"
+                    variant="h3"
                     sx={{ fontWeight: "bold", paddingBottom: 2 }}
                   >
                     Studievägledare
@@ -274,7 +274,7 @@ const PresentationPage: NextPage = () => {
               textAlign: "center",
             }}
           >
-            <Typography variant="h3" sx={{ margin: 2 }}>
+            <Typography variant="h2" sx={{ margin: 2 }}>
               Utlandsstudier
             </Typography>
 
@@ -303,7 +303,7 @@ const PresentationPage: NextPage = () => {
           sx={{ padding: 6, justifyContent: "center", background: "#DEDEDE" }}
         >
           <Grid sx={{ textAlign: "center", margin: 2 }}>
-            <Typography variant="h3">Alumner</Typography>
+            <Typography variant="h2">Alumner</Typography>
             <Typography>sdnos idgo dbgodf ibgodbf oigbod fibgo</Typography>
 
             <Grid container>
@@ -345,7 +345,7 @@ const PresentationPage: NextPage = () => {
           >
             <Grid item sx={{ marginLeft: 7 }}>
               <Typography
-                variant="h6"
+                variant="h3"
                 sx={{ fontWeight: "bold", paddingBottom: 2 }}
               >
                 För dig som är alumn
