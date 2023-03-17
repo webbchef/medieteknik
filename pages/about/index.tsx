@@ -21,6 +21,7 @@ import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import Image from "next/image";
 import SocialMediaIcons from "../../components/general/SocialMediaIcons";
+import StyledButton from "../../components/general/StyledButton";
 
 // export default function PresentationPage() {
 const PresentationPage: NextPage = () => {
@@ -174,9 +175,12 @@ const PresentationPage: NextPage = () => {
                 tidigare studenter jobbar med bland annat specialeffekter i
                 Hollywoodfilmer
               </Typography>
-              <Button variant="contained" size="small">
+              {/* <Button variant="contained" size="small">
                 Läs mer
-              </Button>
+              </Button> */}
+              <StyledButton src="/" external={true}>
+                Läs mer
+              </StyledButton>
             </Grid>
 
             <Grid
@@ -208,9 +212,12 @@ const PresentationPage: NextPage = () => {
                 tidigare studenter jobbar med bland annat specialeffekter i
                 Hollywoodfilmer
               </Typography>
-              <Button variant="contained" size="small">
+              {/* <Button variant="contained" size="small">
                 Läs mer
-              </Button>
+              </Button> */}
+              <StyledButton src="/" external={true}>
+                Läs mer
+              </StyledButton>
             </Grid>
 
             <Grid
@@ -243,9 +250,12 @@ const PresentationPage: NextPage = () => {
                 Hollywoodfilmer
               </Typography>
 
-              <Button variant="contained" size="small">
+              {/* <Button variant="contained" size="small">
                 Läs mer
-              </Button>
+              </Button> */}
+              <StyledButton src="/" external={true}>
+                Läs mer
+              </StyledButton>
             </Grid>
           </Grid>
         </Grid>
@@ -290,7 +300,10 @@ const PresentationPage: NextPage = () => {
               xs={12}
               sx={{ display: "flex", justifyContent: "center", m: 4 }}
             >
-              <Button variant="contained"> Läs mer</Button>
+              {/* <Button variant="contained"> Läs mer</Button> */}
+              <StyledButton src="/" external={true}>
+                Läs mer
+              </StyledButton>
             </Grid>
           </Grid>
         </Grid>
@@ -357,9 +370,10 @@ const PresentationPage: NextPage = () => {
               </Typography>
 
               <Grid item sx={{ marginTop: 3 }}>
-                <Button variant="contained" size="small">
+                {/* <Button variant="contained" size="small">
                   Anmäl
-                </Button>
+                </Button> */}
+                <StyledButton src="/">Anmäl</StyledButton>
               </Grid>
             </Grid>
           </Grid>

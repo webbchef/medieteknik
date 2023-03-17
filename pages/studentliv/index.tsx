@@ -12,6 +12,7 @@ import Studentkonto from "../../components/studentliv/Studentkonto";
 import fiket from "../../assets/fiket.jpg";
 import BackgroundImage from "../../components/general/BackgroundImage";
 import Image from "next/image";
+import StyledButton from "../../components/general/StyledButton";
 
 const StudentlivPage: NextPage = () => {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
@@ -73,15 +74,19 @@ const StudentlivPage: NextPage = () => {
               Campusbussen är gratis för alla studenter och åker mellan Campus
               US, Campus Valla och Campus Norrköping.
             </Typography>
-            <Button
+            {/* <Button
               target="_blank"
               href="https://hyresbostader.se/studentbo"
               variant="contained"
               color="secondary"
               sx={{ marginTop: 2, marginBottom: "30px" }}
+            ></Button> */}
+            <StyledButton
+              src="https://hyresbostader.se/studentbo"
+              external={true}
             >
               Till studentbo.se
-            </Button>
+            </StyledButton>
           </Grid>
         </Grid>
         <Grid container sx={{ paddingTop: 3, paddingBottom: 3 }}>

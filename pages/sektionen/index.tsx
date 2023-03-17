@@ -13,6 +13,7 @@ import WavyBackground from "../../components/general/WavyBackground";
 import BackgroundImage from "../../components/general/BackgroundImage";
 import gruppbild from "../../assets/gruppbild.jpg";
 import CopyText from "../../components/general/CopyText";
+import StyledButton from "../../components/general/StyledButton";
 
 const PresentationPage: NextPage = () => {
   console.log(content);
@@ -123,7 +124,7 @@ const PresentationPage: NextPage = () => {
                 oss på Instagram och Facebook för att bli uppdaterad om våra
                 kommande aktiviteter.
               </Typography>
-              <Button
+              {/* <Button
                 href="/"
                 variant="contained"
                 size="large"
@@ -134,7 +135,10 @@ const PresentationPage: NextPage = () => {
                 }}
               >
                 Läs Mer
-              </Button>
+              </Button> */}
+              <StyledButton src="https://mette.nu/" external={true}>
+                Läs mer
+              </StyledButton>
             </Stack>
           </ImageWithSummary>
         </Container>
@@ -161,7 +165,7 @@ const PresentationPage: NextPage = () => {
               medier för att hänga med på vår resa, vi finns på Facebook,
               Instagram och på vår hemsida.
             </Typography>
-            <Button
+            {/* <Button
               href="https://www.3cant.com/"
               variant="contained"
               size="large"
@@ -172,7 +176,8 @@ const PresentationPage: NextPage = () => {
               }}
             >
               Läs Mer
-            </Button>
+            </Button> */}
+            <StyledButton src="https://www.3cant.com/">Läs mer</StyledButton>
           </Stack>
         </ImageWithSummary>
       </Container>

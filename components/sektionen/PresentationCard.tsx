@@ -20,7 +20,6 @@ interface InputProps {
  * @returns
  */
 export default function PresentationCard(props: InputProps) {
-  console.log("test");
   const getLink = (mail: string) => {
     return `mailto:${mail}`;
   };

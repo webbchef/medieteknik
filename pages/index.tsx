@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   Box,
   Button,
@@ -8,7 +9,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Grid from "@mui/material/Unstable_Grid2";
-
+import { MobileStateContext } from "../contexts/MobileContexts";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import type { CarouselItem, Value } from "../utils/types";
@@ -22,8 +23,11 @@ import MtValues from "../components/home/mtValues";
 import WavyBackground from "../components/general/WavyBackground";
 import Carousel from "../components/general/Carousel";
 import carouselImages from "../content/carouselItems.json";
+import StyledButton from "../components/general/StyledButton";
 
 const Home: NextPage = () => {
+  const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
+
   const theme = useTheme();
 
   const constraintsRef1 = useRef(null);
@@ -220,18 +224,19 @@ const Home: NextPage = () => {
         })}
       </Grid>
       <Grid container paddingTop={9} paddingBottom={9}>
-        {matchesSm ? (
-          <Grid
-            md={9}
-            paddingLeft={{ xs: 3, lg: 15 }}
-            paddingRight={{ xs: 3, lg: 15 }}
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-          >
-            <Typography textAlign="center" variant="h2">
-              Studentliv
-            </Typography>
+        {/* {matchesSm ? ( */}
+        <Grid
+          md={9}
+          paddingLeft={{ xs: 3, lg: 15, md: 8 }}
+          paddingRight={{ xs: 3, lg: 15 }}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+        >
+          <Typography textAlign="center" variant="h2">
+            Studentliv
+          </Typography>
+          {isMobile && (
             <Image
               style={{ flex: 1 }}
               width={511 * 0.5}
@@ -239,87 +244,41 @@ const Home: NextPage = () => {
               src={"/images/studentlivImage.png"}
               alt="Bild på studenter"
             />
-            <Typography marginTop={3} textAlign="center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-              ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </Typography>
-            <Button
-              variant="contained"
-              color={"secondary"}
-              component={"a"}
-              LinkComponent={Link}
-              href="/studentliv"
-              sx={{ marginTop: 3 }}
+          )}
+          <Typography marginTop={3} textAlign="center">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.
+          </Typography>
+          <StyledButton src="/studentliv">Läs mer här</StyledButton>
+        </Grid>
+        {!isMobile && (
+          <Grid
+            md={3}
+            display="flex"
+            justifyContent="flex-end"
+            alignItems="center"
+          >
+            <Box
+              position="relative"
+              width={{ sm: 511 * 0.3, md: 511 * 0.4, lg: 511 * 0.5 }}
+              height={{ sm: 658 * 0.3, md: 658 * 0.4, lg: 658 * 0.5 }}
             >
-              Läs mer här
-            </Button>
+              <Image
+                layout="fill"
+                src={"/images/studentlivImage.png"}
+                alt="Bild på studenter"
+              />
+            </Box>
           </Grid>
-        ) : (
-          <>
-            <Grid
-              md={9}
-              paddingLeft={{ md: 8, lg: 15 }}
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-            >
-              <Typography textAlign="center" variant="h2">
-                Studentliv
-              </Typography>
-              <Typography textAlign="center">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-              </Typography>
-              <Button
-                variant="contained"
-                color={"secondary"}
-                component={"a"}
-                LinkComponent={Link}
-                href="/studentliv"
-                sx={{ marginTop: 3 }}
-              >
-                Läs mer här
-              </Button>
-            </Grid>
-            <Grid
-              md={3}
-              display="flex"
-              justifyContent="flex-end"
-              alignItems="center"
-            >
-              <Box
-                position="relative"
-                width={{ sm: 511 * 0.3, md: 511 * 0.4, lg: 511 * 0.5 }}
-                height={{ sm: 658 * 0.3, md: 658 * 0.4, lg: 658 * 0.5 }}
-              >
-                <Image
-                  layout="fill"
-                  src={"/images/studentlivImage.png"}
-                  alt="Bild på studenter"
-                />
-              </Box>
-            </Grid>
-          </>
         )}
       </Grid>
       <Grid md={12} display="flex" justifyContent="center">
@@ -361,7 +320,7 @@ const Home: NextPage = () => {
               exercitation ullamco laboris nisi ut aliquip ex ea commodo
               consequat.
             </Typography>
-            <Button
+            {/* <Button
               variant="contained"
               component={"a"}
               LinkComponent={Link}
@@ -370,7 +329,13 @@ const Home: NextPage = () => {
               sx={{ marginTop: 3 }}
             >
               Läs mer här
-            </Button>
+            </Button> */}
+            <StyledButton
+              external={true}
+              src="https://www.medieteknikdagen.se/"
+            >
+              Läs mer här
+            </StyledButton>
           </Grid>
         ) : (
           <>
@@ -417,16 +382,20 @@ const Home: NextPage = () => {
                 nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                 commodo consequat.
               </Typography>
-              <Button
+              {/* <Button
                 variant="contained"
                 component={"a"}
                 LinkComponent={Link}
-                href="https://www.medieteknikdagen.se/"
                 color={"secondary"}
                 sx={{ marginTop: 3 }}
+              ></Button> */}
+
+              <StyledButton
+                external={true}
+                src="https://www.medieteknikdagen.se/"
               >
                 Läs mer här
-              </Button>
+              </StyledButton>
             </Grid>
           </>
         )}

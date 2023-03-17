@@ -1,6 +1,7 @@
 import { Grid, Button, Typography } from "@mui/material";
 import WavyBackground from "../general/WavyBackground";
 import Script from "next/script";
+import StyledButton from "../general/StyledButton";
 
 export default function Studentkonto() {
   return (
@@ -31,7 +32,7 @@ export default function Studentkonto() {
             <br />
             Här får du följa med en MT-student ...
           </Typography>
-          <Button
+          {/* <Button
             target="_blank"
             href="https://www.instagram.com/medieteknik_student/?hl=en"
             variant="contained"
@@ -39,7 +40,13 @@ export default function Studentkonto() {
             sx={{ marginTop: 2, marginBottom: "30px" }}
           >
             Till kontot!
-          </Button>
+          </Button> */}
+          <StyledButton
+            external={true}
+            src="https://www.instagram.com/medieteknik_student/?hl=en"
+          >
+            Till kontot!
+          </StyledButton>
         </Grid>
         <Grid
           item
