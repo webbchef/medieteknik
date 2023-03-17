@@ -156,17 +156,18 @@ const PresentationPage: NextPage = () => {
                 padding: 2,
               }}
             >
-              <Grid sx={{ display: "flex", justifyContent: "center" }}>
+              <Grid
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
                 <CreateOutlinedIcon color="secondary" fontSize="large" />
 
-                <Grid sx={{ display: "flex", paddingLeft: 3 }}>
-                  <Typography
-                    variant="h3"
-                    sx={{ fontWeight: "bold", paddingBottom: 2 }}
-                  >
-                    KURSER
-                  </Typography>
-                </Grid>
+                <Typography variant="h3" sx={{ fontWeight: "bold", m: 2 }}>
+                  Programsida
+                </Typography>
               </Grid>
 
               <Typography sx={{ marginBottom: 5 }}>
@@ -175,10 +176,11 @@ const PresentationPage: NextPage = () => {
                 tidigare studenter jobbar med bland annat specialeffekter i
                 Hollywoodfilmer
               </Typography>
-              {/* <Button variant="contained" size="small">
-                Läs mer
-              </Button> */}
-              <StyledButton src="/" external={true}>
+
+              <StyledButton
+                src="https://liu.se/utbildning/program/6cmen"
+                external={true}
+              >
                 Läs mer
               </StyledButton>
             </Grid>
@@ -193,17 +195,18 @@ const PresentationPage: NextPage = () => {
                 padding: 2,
               }}
             >
-              <Grid sx={{ display: "flex", justifyContent: "center" }}>
+              <Grid
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
                 <SchoolOutlinedIcon color="secondary" fontSize="large" />
 
-                <Grid sx={{ display: "flex", paddingLeft: 3 }}>
-                  <Typography
-                    variant="h3"
-                    sx={{ fontWeight: "bold", paddingBottom: 2 }}
-                  >
-                    Masterkurser
-                  </Typography>
-                </Grid>
+                <Typography variant="h3" sx={{ fontWeight: "bold", m: 2 }}>
+                  Kurser
+                </Typography>
               </Grid>
 
               <Typography sx={{ marginBottom: 5 }}>
@@ -212,10 +215,11 @@ const PresentationPage: NextPage = () => {
                 tidigare studenter jobbar med bland annat specialeffekter i
                 Hollywoodfilmer
               </Typography>
-              {/* <Button variant="contained" size="small">
-                Läs mer
-              </Button> */}
-              <StyledButton src="/" external={true}>
+
+              <StyledButton
+                src="https://studieinfo.liu.se/program/6CMEN"
+                external={true}
+              >
                 Läs mer
               </StyledButton>
             </Grid>
@@ -230,17 +234,18 @@ const PresentationPage: NextPage = () => {
                 padding: 2,
               }}
             >
-              <Grid sx={{ display: "flex", justifyContent: "center" }}>
+              <Grid
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
                 <PeopleAltOutlinedIcon color="secondary" fontSize="medium" />
 
-                <Grid sx={{ paddingLeft: 3 }}>
-                  <Typography
-                    variant="h3"
-                    sx={{ fontWeight: "bold", paddingBottom: 2 }}
-                  >
-                    Studievägledare
-                  </Typography>
-                </Grid>
+                <Typography variant="h3" sx={{ fontWeight: "bold", m: 2 }}>
+                  Studievägledare
+                </Typography>
               </Grid>
 
               <Typography sx={{ marginBottom: 5 }}>
@@ -250,10 +255,10 @@ const PresentationPage: NextPage = () => {
                 Hollywoodfilmer
               </Typography>
 
-              {/* <Button variant="contained" size="small">
-                Läs mer
-              </Button> */}
-              <StyledButton src="/" external={true}>
+              <StyledButton
+                src="https://www.lith.liu.se/studievagledning/om-studievagledningen?l=sv"
+                external={true}
+              >
                 Läs mer
               </StyledButton>
             </Grid>
@@ -295,16 +300,13 @@ const PresentationPage: NextPage = () => {
               Hollywoodfilmer, virtuella möbler för IKEA och spelutveckling.
               Medieteknikområdet handlar om tekniken bakom medierna och om
             </Typography>
-            <Grid
-              item
-              xs={12}
-              sx={{ display: "flex", justifyContent: "center", m: 4 }}
+
+            <StyledButton
+              src="https://liu.se/artikel/utlandsstudier"
+              external={true}
             >
-              {/* <Button variant="contained"> Läs mer</Button> */}
-              <StyledButton src="/" external={true}>
-                Läs mer
-              </StyledButton>
-            </Grid>
+              Läs mer
+            </StyledButton>
           </Grid>
         </Grid>
         {/* ----------END Utlandsstudier ------------*/}
@@ -369,12 +371,7 @@ const PresentationPage: NextPage = () => {
                 Hollywoodfilmer, virtuella möbler för IKEA och spelutveckling.
               </Typography>
 
-              <Grid item sx={{ marginTop: 3 }}>
-                {/* <Button variant="contained" size="small">
-                  Anmäl
-                </Button> */}
-                <StyledButton src="/">Anmäl</StyledButton>
-              </Grid>
+              <StyledButton src="/">Anmäl</StyledButton>
             </Grid>
           </Grid>
 
