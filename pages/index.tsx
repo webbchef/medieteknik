@@ -282,7 +282,7 @@ const Home: NextPage = () => {
         )}
       </Grid>
       <Grid md={12} display="flex" justifyContent="center">
-        <WavyBackground bgColor={"#008081"} textColor={""}>
+        <WavyBackground bgColor={"#13283c"} textColor={""}>
           <Carousel carouselItems={carouselItems} />
         </WavyBackground>
       </Grid>

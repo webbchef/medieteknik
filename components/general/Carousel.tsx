@@ -8,11 +8,12 @@ import {
   ControlPointSharp,
 } from "@mui/icons-material";
 import { IconButton, Typography } from "@mui/material";
-import { Box, Container } from "@mui/system";
+import { alpha, Box, Container } from "@mui/system";
 import { motion, useAnimationControls } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { CarouselItem } from "../../utils/types";
+import { useTheme } from '@mui/material/styles';
 
 type CarouselProps = {
   carouselItems: CarouselItem[];
@@ -28,6 +29,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
 
   const images: string[] = props.carouselItems.map((item) => item.image);
   const titles: string[] = props.carouselItems.map((item) => item.title);
+  const descriptions: string[] = props.carouselItems.map((item) => item.description);
 
   const controls = useAnimationControls();
 
@@ -92,7 +94,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
       justifyContent="center"
       overflow="hidden"
     >
-      <Typography marginBottom={2} textAlign={"center"} variant="h2">
+      <Typography color={"#FFF"} marginBottom={2} textAlign={"center"} variant="h2">
         {titles![activeImage]}
       </Typography>
       <Box
@@ -103,7 +105,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         display="flex"
         gap={10}
         justifyContent="center"
-        alignItems="baseline"
+        alignItems="center"
         flexWrap="nowrap"
         overflow="hidden"
       >
@@ -111,19 +113,21 @@ const Carousel: React.FC<CarouselProps> = (props) => {
           if (i === 1) {
             return <CarouselImage key={i} src={image} isActive={true} />;
           }
-          return <CarouselImage key={i} src={image} isActive={false} />;
+
+          return <CarouselImage  key={i} src={image} isActive={false} handleClick={i == 0 ? clickBack : clickForward} />;
         })}
       </Box>
+      <Typography color={"#FFF"}  textAlign={"center"} variant="h3">{descriptions![activeImage]}</Typography>
       <Container
         sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}
       >
-        <IconButton onClick={clickBack}>
+        <IconButton color="secondary" onClick={clickBack}>
           <ArrowBackIosNew />
         </IconButton>
         {images.map((image, i) => {
           if (activeImage === i) {
             return (
-              <IconButton
+              <IconButton color="secondary"
                 onClick={() => {
                   setActiveImage(i);
                 }}
@@ -134,7 +138,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             );
           }
           return (
-            <IconButton
+            <IconButton color="secondary"
               onClick={() => {
                 setActiveImage(i);
               }}
@@ -144,7 +148,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             </IconButton>
           );
         })}
-        <IconButton onClick={clickForward}>
+        <IconButton color="secondary" onClick={clickForward}>
           <ArrowForwardIos />
         </IconButton>
       </Container>
@@ -156,13 +160,58 @@ type CarouselImageProps = {
   key?: React.Key | undefined | null;
   src: string;
   isActive: boolean;
+  handleClick?: React.MouseEventHandler<HTMLDivElement> | undefined;
 };
 
 const CarouselImage: React.FC<CarouselImageProps> = (props) => {
+  
+  const [isHovered, setIsHovered] = useState(false);
   const [ratio, setRatio] = useState(16 / 9);
+  const theme = useTheme();
+  const handleClick = props.handleClick;
+
+  
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    
+  };
+  
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   if (!props.isActive) {
     return (
-      <Box key={props.key} position="relative" width="30%" height="20%">
+      <Box key={props.key} position="relative" width="30%" 
+        onClick={handleClick} onMouseEnter={handleMouseEnter} 
+        onMouseLeave={handleMouseLeave}
+        >
+        <Box position='absolute' display={"flex"} alignItems={'center'}  justifyContent={'center'} borderRadius={1} width='100%' height="100%" zIndex={2} sx={[
+            isHovered ? {backgroundColor: alpha('#13283c', 0.5), cursor: "pointer",visibility: "visible"} : {visibility: "hidden"}
+          ]}/>
+        <Image
+          width="100%"
+          height="56.25%"
+          style={{ borderRadius: 5}}
+          src={props.src}
+          layout="responsive"
+          alt="Image in carousel"
+          
+        />
+      </Box>
+    );
+  } else {
+
+    return (
+      <Box key={props.key} position="relative" width="50%" 
+        onClick={handleClick} onMouseEnter={handleMouseEnter} 
+        onMouseLeave={handleMouseLeave}
+      >
+        <Box position='absolute' display={"flex"} alignItems={'center'}  justifyContent={'center'} borderRadius={1} width='100%' height="100%" zIndex={2} sx={[
+            isHovered ? {backgroundColor: alpha('#13283c', 0.5), cursor: "pointer",visibility: "visible"} : {visibility: "hidden"}
+          ]}>
+            <Typography variant="h2" color={"#FFF"}>Klicka här för att läsa mer om oss</Typography>
+        </Box>
         <Image
           width="100%"
           height="56.25%"
@@ -175,18 +224,6 @@ const CarouselImage: React.FC<CarouselImageProps> = (props) => {
     );
   }
 
-  return (
-    <Box key={props.key} position="relative" width="50%" height="33%">
-      <Image
-        width="100%"
-        height="56.25%"
-        style={{ borderRadius: 5 }}
-        src={props.src}
-        layout="responsive"
-        alt="Image in carousel"
-      />
-    </Box>
-  );
 };
 
 export default Carousel;

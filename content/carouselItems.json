@@ -1,14 +1,17 @@
 [
   {
     "title": "Styrelsen",
-    "image": "/images/gruppbild2.jpg"
+    "image": "/images/gruppbild2.jpg",
+    "description": "Det är vi som är sektionsstyrelsen"
   },
   {
     "title": "3Cant",
-    "image": "/images/3cant.jpg"
+    "image": "/images/3cant.jpg",
+    "description": "Civilingenjörernas festeri"
   },
   {
     "title": "Mette",
-    "image": "/images/mette.jpg"
+    "image": "/images/mette.jpg",
+    "description": "Medietekniks tjejförening"
   }
 ]
