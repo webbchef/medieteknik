@@ -103,7 +103,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         display="flex"
         gap={10}
         justifyContent="center"
-        alignItems="center"
+        alignItems="baseline"
         flexWrap="nowrap"
         overflow="hidden"
       >
