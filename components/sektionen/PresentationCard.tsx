@@ -8,7 +8,7 @@ import {
 import { motion } from "framer-motion";
 import { fadeInUp } from "../../animations/constants";
 import { Styrare } from "../../utils/types";
-import amanda from "../../assets/profilePictures/amanda.jpg";
+
 interface InputProps {
   user: Styrare;
   openInfo: () => void;
@@ -29,10 +29,7 @@ export default function PresentationCard(props: InputProps) {
         <CardMedia
           component="img"
           height="30%"
-          image={
-            require(`../../assets/profilePictures/${props.user.imageName}.jpg`)
-              .default.src
-          }
+          image={`images//profilePictures/${props.user.imageName}.jpg`}
           alt={props.user.name}
         />
       )}

@@ -12,12 +12,11 @@ import {
 import { Sling as Hamburger } from "hamburger-react";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 import LoginIcon from "@mui/icons-material/Login";
-import logo from "../../assets/logotyp_svart_text.png";
 import LaunchIcon from "@mui/icons-material/Launch";
 import Link from "next/link";
 import Image from "next/image";
 import SocialMediaIcons from "../general/SocialMediaIcons";
-
+import styles from "./Navigation.module.css";
 /**
  * Component for menu
  * @returns
@@ -68,7 +67,12 @@ export default function Navigation() {
         { name: "SEKTIONEN", to: "/sektionen" },
       ].map((link, index) => (
         <ListItem key={index} sx={isMobile ? { m: "10px" } : {}}>
-          <Link href={link.to} onClick={closeMenu} legacyBehavior={false}>
+          <Link
+            href={link.to}
+            onClick={closeMenu}
+            legacyBehavior={false}
+            className={styles.link}
+          >
             <Typography
               variant="h4"
               sx={isMobile ? { color: "white" } : { color: "black" }}
@@ -78,12 +82,13 @@ export default function Navigation() {
           </Link>
         </ListItem>
       ))}
-      <ListItem sx={isMobile ? { m: "10px" } : {}}>
-        <LaunchIcon sx={{ fontSize: "14px" }} />
-        <Link
+      <ListItem sx={isMobile ? { m: "10px" } : { cursor: "pointer" }}>
+        {/* <LaunchIcon sx={{ fontSize: "14px" }} /> */}
+        <a
           target="_blank"
-          rel="noopener"
+          rel="noreferrer"
           href="https://www.medieteknikdagen.se/"
+          className={styles.link}
         >
           <Typography
             variant="h4"
@@ -91,7 +96,7 @@ export default function Navigation() {
           >
             MÄSSA
           </Typography>
-        </Link>
+        </a>
       </ListItem>
     </List>
   );
@@ -100,7 +105,7 @@ export default function Navigation() {
     <Grid
       sx={[
         {
-          // p: 2,
+          p: 2,
           position: "fixed",
           zIndex: 999,
           top: 0,
@@ -110,7 +115,7 @@ export default function Navigation() {
           transition: "0.5s",
           alignItems: "center",
         },
-        bgColor && { backgroundColor: "white" },
+        bgColor && { backgroundColor: "white", boxShadow: 1 },
       ]}
     >
       {isDesktop ? (
@@ -122,7 +127,13 @@ export default function Navigation() {
           }}
         >
           <Link href="/">
-            <img alt="MT LOGO" src={logo.src} width="70px" />
+            <Image
+              alt="MT LOGO"
+              src="/images/logotyp_svart_text.png"
+              style={{ cursor: "pointer" }}
+              width="80px"
+              height="50px"
+            />
           </Link>
           {list()}
           <Link
@@ -130,8 +141,10 @@ export default function Navigation() {
             target="_blank"
             rel="noopener"
           >
-            <Button variant="outlined" startIcon={<LoginIcon />}>
-              <Typography variant="h4">LOGGA IN</Typography>
+            <Button startIcon={<LoginIcon />}>
+              <Typography variant="h4" sx={{ fontSize: "15px" }}>
+                LOGGA IN
+              </Typography>
             </Button>
           </Link>
         </Grid>
@@ -162,12 +175,14 @@ export default function Navigation() {
             onClose={closeMenu}
             transitionDuration={600}
             PaperProps={{
-              sx: { width: "100%", backgroundColor: "#3b484f" },
+              sx: isMobile
+                ? { width: "100%", backgroundColor: "#dbdbdb" }
+                : { width: "50%", backgroundColor: "#dbdbdb" },
             }}
           >
             <Grid
               container
-              sx={{ height: "100%" }}
+              sx={{ height: "100%", p: 3 }}
               display="flex"
               flexDirection="row"
               justifyContent="center"
@@ -175,7 +190,12 @@ export default function Navigation() {
             >
               {list()}
               <Grid item>
-                <Image alt="MT LOGO" src={logo.src} width="70px" />
+                <Image
+                  alt="MT LOGO"
+                  src="/images/logotyp_svart_text.png"
+                  width="110px"
+                  height="70px"
+                />
                 <SocialMediaIcons />
               </Grid>
             </Grid>

@@ -5,7 +5,7 @@ import { Button, Grid, Icon, IconButton, Typography, Box } from "@mui/material";
 import { motion } from "framer-motion";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 import BackgroundImage from "../../components/general/BackgroundImage";
-import gruppbild from "../../assets/gruppbild.jpg";
+import gruppbild from "../../public/images/gruppbild.jpg";
 
 import { Alumn } from "../../utils/types";
 import alumnContent from "../../content/alumn.json";

@@ -16,7 +16,7 @@ import type { CarouselItem, Value } from "../utils/types";
 import Head from "next/head";
 import { useRef } from "react";
 import { fadeInUp } from "../animations/constants";
-import gruppbild from "../assets/gruppbild.jpg";
+import gruppbild from "../public/images/gruppbild.jpg";
 import BackgroundImage from "../components/general/BackgroundImage";
 import jsonValues from "../content/values.json";
 import MtValues from "../components/home/mtValues";

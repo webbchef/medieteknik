@@ -29,10 +29,7 @@ export default function PresentationCard(props: InputProps) {
         <CardMedia
           component="img"
           height="250"
-          image={
-            require(`../../assets/profilePictures/${props.user.imageName}.jpg`)
-              .default.src
-          }
+          image={`/images/profilePictures/${props.user.imageName}.jpg`}
           alt={props.user.name}
         />
       )}

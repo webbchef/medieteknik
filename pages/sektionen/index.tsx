@@ -11,7 +11,7 @@ import { Styrare } from "../../utils/types";
 import ImageWithSummary from "../../components/general/ImageWithSummary";
 import WavyBackground from "../../components/general/WavyBackground";
 import BackgroundImage from "../../components/general/BackgroundImage";
-import gruppbild from "../../assets/gruppbild.jpg";
+import gruppbild from "../../public/images/gruppbild.jpg";
 import CopyText from "../../components/general/CopyText";
 import StyledButton from "../../components/general/StyledButton";
 
@@ -68,8 +68,8 @@ const PresentationPage: NextPage = () => {
         </Typography>
         <Typography align="center">
           Allmäna frågor till sektionen skickas till:
-          <CopyText text="info@medieteknik.nu" />
         </Typography>
+        <CopyText text="info@medieteknik.nu" />
       </Container>
 
       {/* Styrelse-Grid*/}
@@ -101,10 +101,7 @@ const PresentationPage: NextPage = () => {
 
       <WavyBackground bgColor="#13283c" textColor="#FFF">
         <Container maxWidth="lg" sx={{ p: 3 }}>
-          <ImageWithSummary
-            imageSrc={require("../../assets/mette.jpg")}
-            direction="row"
-          >
+          <ImageWithSummary imageSrc={"/images/mette.jpg"} direction="row">
             <Stack>
               <Typography
                 variant="h2"
@@ -145,7 +142,7 @@ const PresentationPage: NextPage = () => {
       </WavyBackground>
       <Container maxWidth="lg" sx={{ p: 3 }}>
         <ImageWithSummary
-          imageSrc={require("../../assets/3cant.jpg")}
+          imageSrc={"/images/3cant.jpg"}
           direction="row-reverse"
         >
           <Stack>

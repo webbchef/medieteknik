@@ -3,7 +3,7 @@ import { Stack, GridDirection } from "@mui/system";
 import Image, { StaticImageData } from "next/image";
 
 interface InputProps {
-  imageSrc: StaticImageData;
+  imageSrc: string;
   direction: GridDirection;
   children: JSX.Element;
 }
@@ -18,7 +18,13 @@ export default function ImageWithSummary(props: InputProps) {
       sx={{ padding: "20px 0" }}
     >
       <Grid item xs={7} md={4}>
-        <Image style={{ borderRadius: "20px" }} src={props.imageSrc} alt="" />
+        <Image
+          style={{ borderRadius: "20px" }}
+          height="100px"
+          width="100px"
+          src={props.imageSrc}
+          alt=""
+        />
       </Grid>
       <Grid item xs={7} md={1} />
       <Grid item xs={9} md={5}>
