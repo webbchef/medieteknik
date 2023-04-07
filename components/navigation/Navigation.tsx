@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useRouter } from "next/router";
+
 import {
   ListItemText,
   Box,
@@ -26,6 +28,10 @@ export default function Navigation() {
   const [bgColor, setBgColor] = useState<boolean>(false);
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
 
+  const router = useRouter();
+  const currentRoute = router.pathname;
+
+  console.log(currentRoute);
   function openMenu() {
     setOpen(true);
   }
@@ -71,14 +77,10 @@ export default function Navigation() {
             href={link.to}
             onClick={closeMenu}
             legacyBehavior={false}
-            className={styles.link}
+            // className={styles.link}
+            className={currentRoute === link.to ? styles.active : styles.link}
           >
-            <Typography
-              variant="h4"
-              sx={isMobile ? { color: "white" } : { color: "black" }}
-            >
-              {link.name}
-            </Typography>
+            <Typography variant="h4">{link.name}</Typography>
           </Link>
         </ListItem>
       ))}
@@ -90,14 +92,24 @@ export default function Navigation() {
           href="https://www.medieteknikdagen.se/"
           className={styles.link}
         >
-          <Typography
-            variant="h4"
-            sx={isMobile ? { color: "white" } : { color: "black" }}
-          >
-            MÄSSA
-          </Typography>
+          <Typography variant="h4">MÄSSA</Typography>
         </a>
       </ListItem>
+      {!isDesktop && (
+        <ListItem>
+          <Link
+            href="https://old.medieteknik.nu/forum_cookie"
+            target="_blank"
+            rel="noopener"
+            onClick={closeMenu}
+            className={styles.link}
+          >
+            <Button startIcon={<LoginIcon />}>
+              <Typography variant="h4">LOGGA IN</Typography>
+            </Button>
+          </Link>
+        </ListItem>
+      )}
     </List>
   );
 
@@ -189,6 +201,7 @@ export default function Navigation() {
               alignItems="center"
             >
               {list()}
+
               <Grid item>
                 <Image
                   alt="MT LOGO"
