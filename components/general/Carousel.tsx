@@ -92,7 +92,12 @@ const Carousel: React.FC<CarouselProps> = (props) => {
       justifyContent="center"
       overflow="hidden"
     >
-      <Typography marginBottom={2} textAlign={"center"} variant="h2">
+      <Typography
+        marginBottom={2}
+        textAlign={"center"}
+        variant="h2"
+        color="#FFFFFF"
+      >
         {titles![activeImage]}
       </Typography>
       <Box

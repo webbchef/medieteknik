@@ -24,6 +24,7 @@ import WavyBackground from "../components/general/WavyBackground";
 import Carousel from "../components/general/Carousel";
 import carouselImages from "../content/carouselItems.json";
 import StyledButton from "../components/general/StyledButton";
+import ImageWithSummary from "../components/general/ImageWithSummary";
 
 const Home: NextPage = () => {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
@@ -147,10 +148,20 @@ const Home: NextPage = () => {
             Vad är MT?
           </Typography>
           <Typography color="black" textAlign="center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Hej! Välkommen till sidan om Medieteknik, eller MT som vi kallar
+            det. I videon ovanför ser du några projekt som vi MT:are har gjort i
+            olika kurser. Vår utbildning heter Medieteknik eftersom den handlar
+            om tekniken bakom de olika medierna, d.v.s. ljud, bild, video, spel,
+            m.m. Det låter väldigt brett, men i praktiken specialiserar vi oss
+            på 3D-grafik och att visualisera information. Medietekniks logotyp
+            är två kvadrater (men vi brukar kalla dem kuber): Den orangea kuben,
+            som representerar kreativitet och de mjuka ämnena i medieteknik, och
+            den grå kuben som representerar teknik och de hårda ämnena. Bland de
+            kreativa kurserna tas ämnen som design, videoproduktion,
+            användarvänlighet och interaktion mellan människa och teknik upp.
+            Oftast är det programmering vi använder för att förverkliga våra
+            idéer och programmeringen blir en av våra viktigaste färdigheter på
+            arbetsmarknaden.
           </Typography>
         </Grid>
       </Grid>
@@ -246,17 +257,13 @@ const Home: NextPage = () => {
             />
           )}
           <Typography marginTop={3} textAlign="center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
+            Under din studietid kommer det finnas gott om liv utanför skolan.
+            LiU är välkänt för sitt studentliv och när du inte räknar
+            flödesintegraler och mappar texturer kan du engagera dig i någon av
+            våra många föreningar och styrelser eller kanske starta din egen.
+            Vill du bygga ett spel? Springa marathon? Lira irländsk folkmusik?
+            Du märker snabbt att MT alltid har gott om folk som vill engagera
+            sig i ett kul projekt.
           </Typography>
           <StyledButton src="/studentliv">Läs mer här</StyledButton>
         </Grid>
@@ -282,43 +289,38 @@ const Home: NextPage = () => {
         )}
       </Grid>
       <Grid md={12} display="flex" justifyContent="center">
-        <WavyBackground bgColor={"#008081"} textColor={""}>
+        <WavyBackground bgColor="#13283c">
           <Carousel carouselItems={carouselItems} />
         </WavyBackground>
       </Grid>
       <Grid container paddingTop={9} paddingBottom={9}>
-        {matchesSm ? (
+        {/* <Grid
+          md={9}
+          paddingLeft={{ xs: 3, lg: 15 }}
+          paddingRight={{ xs: 3, lg: 15 }}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+        > */}
+        <ImageWithSummary imageSrc="/images/mtd.jpg" direction="row">
           <Grid
-            md={9}
-            paddingLeft={{ xs: 3, lg: 15 }}
-            paddingRight={{ xs: 3, lg: 15 }}
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
             <Typography textAlign="center" variant="h2">
               Medieteknikdagen
             </Typography>
-            <Image
-              style={{ flex: 1 }}
-              width={511 * 0.5}
-              height={658 * 0.5}
-              src={"/images/studentlivImage2.png"}
-              alt="Bild på studenter"
-            />
             <Typography marginTop={3} textAlign="center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-              ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
+              Medieteknikdagen är ett ideellt arrangemang drivet av och för
+              studenter. Syftet är att knyta kontakter mellan studenter,
+              medietekniker ute i arbetslivet och företagen inom branschen. I år
+              har vi bytt namn från Medieteknikdagarna till Medieteknikdagen.
+              MTD är ett tillfälle för företag och studenter att inspirera,
+              informera och integrera med varandra. Såväl företag som studenter
+              får här en chans att visa det allra senaste inom medieteknik.
             </Typography>
             {/* <Button
               variant="contained"
@@ -337,8 +339,17 @@ const Home: NextPage = () => {
               Läs mer här
             </StyledButton>
           </Grid>
-        ) : (
-          <>
+        </ImageWithSummary>
+        {/* <Image
+            style={{ flex: 1 }}
+            width={511 * 0.5}
+            height={658 * 0.5}
+            src={"/images/mtd.jpg"}
+            alt="Bild på studenter"
+          /> */}
+        {/* </Grid> */}
+
+        {/* <>
             <Grid
               md={3}
               spacing={6}
@@ -353,7 +364,7 @@ const Home: NextPage = () => {
               >
                 <Image
                   layout="fill"
-                  src={"/images/studentlivImage2.png"}
+                  src={"/images/mtd.jpg"}
                   alt="Bild på studenter"
                 />
               </Box>
@@ -382,14 +393,7 @@ const Home: NextPage = () => {
                 nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                 commodo consequat.
               </Typography>
-              {/* <Button
-                variant="contained"
-                component={"a"}
-                LinkComponent={Link}
-                color={"secondary"}
-                sx={{ marginTop: 3 }}
-              ></Button> */}
-
+             
               <StyledButton
                 external={true}
                 src="https://www.medieteknikdagen.se/"
@@ -397,8 +401,7 @@ const Home: NextPage = () => {
                 Läs mer här
               </StyledButton>
             </Grid>
-          </>
-        )}
+          </> */}
       </Grid>
     </motion.div>
   );

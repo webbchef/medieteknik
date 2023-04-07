@@ -17,11 +17,13 @@ export default function ImageWithSummary(props: InputProps) {
       alignItems="center"
       sx={{ padding: "20px 0" }}
     >
-      <Grid item xs={7} md={4}>
+      <Grid item xs={7} md={4} sx={{ width: "100%" }}>
         <Image
           style={{ borderRadius: "20px" }}
-          height="100px"
-          width="100px"
+          width="100% !important"
+          // position="relative !important"
+          height="100% !important"
+          objectFit="contain"
           src={props.imageSrc}
           alt=""
         />

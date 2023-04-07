@@ -102,7 +102,13 @@ const PresentationPage: NextPage = () => {
       <WavyBackground bgColor="#13283c" textColor="#FFF">
         <Container maxWidth="lg" sx={{ p: 3 }}>
           <ImageWithSummary imageSrc={"/images/mette.jpg"} direction="row">
-            <Stack>
+            <Grid
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
               <Typography
                 variant="h2"
                 align="center"
@@ -136,7 +142,7 @@ const PresentationPage: NextPage = () => {
               <StyledButton src="https://mette.nu/" external={true}>
                 Läs mer
               </StyledButton>
-            </Stack>
+            </Grid>
           </ImageWithSummary>
         </Container>
       </WavyBackground>
@@ -145,7 +151,13 @@ const PresentationPage: NextPage = () => {
           imageSrc={"/images/3cant.jpg"}
           direction="row-reverse"
         >
-          <Stack>
+          <Grid
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <Typography
               variant="h2"
               align="center"
@@ -175,7 +187,7 @@ const PresentationPage: NextPage = () => {
               Läs Mer
             </Button> */}
             <StyledButton src="https://www.3cant.com/">Läs mer</StyledButton>
-          </Stack>
+          </Grid>
         </ImageWithSummary>
       </Container>
 

@@ -104,13 +104,15 @@ const StudentlivPage: NextPage = () => {
         >
           <Typography variant="h2">Nolle-P</Typography>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            De flesta som pluggar här flyttar hemifrån för att komma till
+            Norrköping och det kan kännas rätt läskigt att lämna allt man vuxit
+            upp med. Men oroa dig inte, det som väntar här är vad de flesta på
+            MT minns som den bästa delen av deras studietid: Nolleperioden,
+            eller Nolle-P. Nolle-P heter så eftersom de nya eleverna inte börjar
+            ettan innan sista dagen på Nolle-P. Under Nolle-P får du lära känna
+            alla andra MT:are, göra stela lära-känna-varandra-aktiviteter,
+            festa, fräscha upp gymnasiematten, och bekanta dig med LiUs
+            studentkultur och -traditioner.
           </Typography>
         </Grid>
         <Grid container sx={{ marginTop: 3, marginBottom: 3 }}>

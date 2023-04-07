@@ -6,7 +6,14 @@ import StyledButton from "../general/StyledButton";
 export default function Studentkonto() {
   return (
     <WavyBackground bgColor="#13283c" textColor="#FFFFFF">
-      <Grid container spacing={3}>
+      <Grid
+        container
+        spacing={3}
+        maxWidth="lg"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
         <Grid
           item
           xs={12}
