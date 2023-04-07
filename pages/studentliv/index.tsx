@@ -47,7 +47,12 @@ const StudentlivPage: NextPage = () => {
               alignItems: "center",
             }}
           >
-            <ImageCarousel />
+            {/* <ImageCarousel /> */}
+            <Image
+              src="/images/eventPictures/midsommar.jpg"
+              height="100px"
+              width="100px"
+            />
           </Grid>
           <Grid
             item

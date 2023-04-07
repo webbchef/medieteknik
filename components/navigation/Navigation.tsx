@@ -138,15 +138,15 @@ export default function Navigation() {
             justifyContent: "space-between",
           }}
         >
-          <Link href="/">
-            <Image
-              alt="MT LOGO"
-              src="/images/logotyp_svart_text.png"
-              style={{ cursor: "pointer" }}
-              width="80px"
-              height="50px"
-            />
-          </Link>
+          {/* <Link href="/"> */}
+          <Image
+            alt="MT LOGO"
+            src="/images/logotyp_svart_text.png"
+            style={{ cursor: "pointer" }}
+            width="80px"
+            height="50px"
+          />
+          {/* </Link> */}
           {list()}
           <Link
             href="https://old.medieteknik.nu/forum_cookie"

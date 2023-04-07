@@ -7,8 +7,9 @@ import { MobileStateContext } from "../../contexts/MobileContexts";
 import BackgroundImage from "../../components/general/BackgroundImage";
 import gruppbild from "../../public/images/gruppbild.jpg";
 
-import { Alumn } from "../../utils/types";
+import { Alumn, ExternalPagesMT } from "../../utils/types";
 import alumnContent from "../../content/alumn.json";
+import externalPagesContent from "../../content/external_pages_mt.json";
 import { fadeInUp } from "../../animations/constants";
 import PresentationAlumn from "../../components/about/PresentationAlumn";
 
@@ -31,7 +32,8 @@ const PresentationPage: NextPage = () => {
   // console.log("Desktop " + isDesktop);
 
   const alumn: Alumn[] = alumnContent;
-  console.log(alumn);
+  const externalPages: ExternalPagesMT[] = externalPagesContent;
+
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [activeUser, setActiveUser] = useState<number>(0);
 
@@ -73,14 +75,17 @@ const PresentationPage: NextPage = () => {
           spacing={1}
           sx={{
             marginTop: "50px",
+            marginBottom: "50px",
             padding: 9,
             paddingBottom: 2,
             background: "white",
           }}
+          alignItems="center"
+          justifyContent="center"
         >
           <Grid
             item
-            xs={6}
+            xs={isDesktop ? 6 : 12}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -99,30 +104,15 @@ const PresentationPage: NextPage = () => {
               Hollywoodfilmer, virtuella möbler för IKEA och spelutveckling.
               Medieteknikområdet handlar om tekniken bakom medierna och om
             </Typography>
-            {/* <Grid
-              item
-              xs={12}
-              sx={{ display: "flex", justifyContent: "center" }}
-            >
-              <IconButton
-                color="secondary"
-                aria-label="upload picture"
-                component="label"
-              >
-                <FacebookIcon />
-              </IconButton>
-              <IconButton
-                color="secondary"
-                aria-label="upload picture"
-                component="label"
-              >
-                <InstagramIcon />
-              </IconButton>
-            </Grid> */}
+
             <SocialMediaIcons />
           </Grid>
 
-          <Grid item xs={6} sx={{ display: "flex", justifyContent: "right" }}>
+          <Grid
+            item
+            xs={isDesktop ? 6 : 12}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
             <img
               src={gruppbild.src}
               style={{ height: "90%", width: "80%", objectFit: "contain" }}
@@ -138,150 +128,71 @@ const PresentationPage: NextPage = () => {
         >
           <Grid
             container
-            sx={{
-              marginTop: 5,
-              marginBottom: 5,
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-            }}
+            sx={[
+              {
+                padding: 3,
+                marginTop: 5,
+                marginBottom: 5,
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+              },
+              isIpad ? { width: "70%" } : {},
+            ]}
           >
-            <Grid
-              item
-              xs={4}
-              md={3}
-              sx={{
-                alignItems: "center",
-                textAlign: "center",
-                padding: 2,
-              }}
-            >
+            {externalPages.map((item, index) => (
               <Grid
+                item
+                key={index}
+                xs={12}
+                lg={4}
                 sx={{
-                  display: "flex",
-                  justifyContent: "center",
                   alignItems: "center",
+                  textAlign: "center",
+                  padding: 2,
                 }}
               >
-                <CreateOutlinedIcon color="secondary" fontSize="large" />
+                <Grid
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <CreateOutlinedIcon color="secondary" fontSize="large" />
 
-                <Typography variant="h3" sx={{ fontWeight: "bold", m: 2 }}>
-                  Programsida
-                </Typography>
+                  <Typography variant="h3" sx={{ fontWeight: "bold", m: 2 }}>
+                    {item.title}
+                  </Typography>
+                </Grid>
+
+                <Typography sx={{ marginBottom: 5 }}>{item.text}</Typography>
+
+                <StyledButton src={item.link} external={true}>
+                  Läs mer
+                </StyledButton>
               </Grid>
-
-              <Typography sx={{ marginBottom: 5 }}>
-                Medieteknikområdet handlar om tekniken bakom medierna och om att
-                omvandla informationsflöden så att de passar våra sinnen. Våra
-                tidigare studenter jobbar med bland annat specialeffekter i
-                Hollywoodfilmer
-              </Typography>
-
-              <StyledButton
-                src="https://liu.se/utbildning/program/6cmen"
-                external={true}
-              >
-                Läs mer
-              </StyledButton>
-            </Grid>
-
-            <Grid
-              item
-              xs={4}
-              md={3}
-              sx={{
-                alignItems: "center",
-                textAlign: "center",
-                padding: 2,
-              }}
-            >
-              <Grid
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <SchoolOutlinedIcon color="secondary" fontSize="large" />
-
-                <Typography variant="h3" sx={{ fontWeight: "bold", m: 2 }}>
-                  Kurser
-                </Typography>
-              </Grid>
-
-              <Typography sx={{ marginBottom: 5 }}>
-                Medieteknikområdet handlar om tekniken bakom medierna och om att
-                omvandla informationsflöden så att de passar våra sinnen. Våra
-                tidigare studenter jobbar med bland annat specialeffekter i
-                Hollywoodfilmer
-              </Typography>
-
-              <StyledButton
-                src="https://studieinfo.liu.se/program/6CMEN"
-                external={true}
-              >
-                Läs mer
-              </StyledButton>
-            </Grid>
-
-            <Grid
-              item
-              xs={4}
-              md={3}
-              sx={{
-                alignItems: "center",
-                textAlign: "center",
-                padding: 2,
-              }}
-            >
-              <Grid
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <PeopleAltOutlinedIcon color="secondary" fontSize="medium" />
-
-                <Typography variant="h3" sx={{ fontWeight: "bold", m: 2 }}>
-                  Studievägledare
-                </Typography>
-              </Grid>
-
-              <Typography sx={{ marginBottom: 5 }}>
-                Medieteknikområdet handlar om tekniken bakom medierna och om att
-                omvandla informationsflöden så att de passar våra sinnen. Våra
-                tidigare studenter jobbar med bland annat specialeffekter i
-                Hollywoodfilmer
-              </Typography>
-
-              <StyledButton
-                src="https://www.lith.liu.se/studievagledning/om-studievagledningen?l=sv"
-                external={true}
-              >
-                Läs mer
-              </StyledButton>
-            </Grid>
+            ))}
           </Grid>
         </Grid>
         {/* ----------END Kurser, masterkurser, studievägledare ------------*/}
 
         {/* ----------Utlandsstudier ------------*/}
-        <Grid
-          container
-          spacing={1}
-          sx={{ padding: 9, paddingBottom: 2, background: "white" }}
-        >
-          <Grid item xs={6} sx={{ display: "flex", justifyContent: "right" }}>
+        <Grid container spacing={1} sx={{ padding: 9, background: "white" }}>
+          {/* <Grid
+            item
+            xs={isDesktop ? 6 : 12}
+            sx={{ display: "flex", justifyContent: "right" }}
+          >
             <img
               src={gruppbild.src}
               style={{ height: "90%", width: "80%", objectFit: "contain" }}
             />
-          </Grid>
+          </Grid> */}
 
           <Grid
             item
-            xs={6}
+            xs={isDesktop ? 8 : 12}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -325,7 +236,9 @@ const PresentationPage: NextPage = () => {
               {alumn.map((alumn, index) => (
                 <Grid
                   item
-                  xs={3}
+                  xs={12}
+                  md={6}
+                  lg={3}
                   key={index}
                   sx={{ p: "20px", height: "100%" }}
                 >
@@ -348,7 +261,8 @@ const PresentationPage: NextPage = () => {
         <Grid container sx={{ background: "white" }}>
           <Grid
             item
-            xs={7}
+            xs={12}
+            md={7}
             sx={{
               m: 7,
               marginLeft: 9,
@@ -375,7 +289,7 @@ const PresentationPage: NextPage = () => {
             </Grid>
           </Grid>
 
-          <Grid
+          {/* <Grid
             item
             xs={2}
             sx={{ m: 7, display: "flex", justifyContent: "right" }}
@@ -384,7 +298,7 @@ const PresentationPage: NextPage = () => {
               src={gruppbild.src}
               style={{ height: "100%", width: "100%", objectFit: "contain" }}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
     </motion.div>

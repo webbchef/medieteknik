@@ -186,7 +186,9 @@ const PresentationPage: NextPage = () => {
             >
               Läs Mer
             </Button> */}
-            <StyledButton src="https://www.3cant.com/">Läs mer</StyledButton>
+            <StyledButton src="https://www.3cant.com/" external={true}>
+              Läs mer
+            </StyledButton>
           </Grid>
         </ImageWithSummary>
       </Container>
