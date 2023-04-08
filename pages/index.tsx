@@ -139,7 +139,14 @@ const Home: NextPage = () => {
         paddingRight={{ xs: 3, lg: 15 }}
         sx={{ marginBottom: 4 }}
       >
-        <Grid xs={12}>
+        <Grid
+          xs={12}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <Typography
             paddingTop={5}
             color="black"
@@ -150,20 +157,15 @@ const Home: NextPage = () => {
           </Typography>
           <Typography color="black" textAlign="center">
             Hej! Välkommen till sidan om Medieteknik, eller MT som vi kallar
-            det. I videon ovanför ser du några projekt som vi MT:are har gjort i
-            olika kurser. Vår utbildning heter Medieteknik eftersom den handlar
-            om tekniken bakom de olika medierna, d.v.s. ljud, bild, video, spel,
-            m.m. Det låter väldigt brett, men i praktiken specialiserar vi oss
-            på 3D-grafik och att visualisera information. Medietekniks logotyp
-            är två kvadrater (men vi brukar kalla dem kuber): Den orangea kuben,
-            som representerar kreativitet och de mjuka ämnena i medieteknik, och
-            den grå kuben som representerar teknik och de hårda ämnena. Bland de
-            kreativa kurserna tas ämnen som design, videoproduktion,
-            användarvänlighet och interaktion mellan människa och teknik upp.
-            Oftast är det programmering vi använder för att förverkliga våra
-            idéer och programmeringen blir en av våra viktigaste färdigheter på
-            arbetsmarknaden.
+            det. Vår utbildning heter Medieteknik eftersom den handlar om
+            tekniken bakom de olika medierna, d.v.s. ljud, bild, video, spel,
+            m.m. Medietekniks logotyp är två kvadrater (men vi brukar kalla dem
+            kuber). Den orangea kuben representerar kreativitet och de mjuka
+            ämnena i medieteknik, och den grå kuben representerar teknik och de
+            hårda ämnena. Utöver detta är det stort fokus på problemlösning,
+            vilket är en viktig förmåga som civilingejör.
           </Typography>
+          <StyledButton src="/about">Läs mer</StyledButton>
         </Grid>
       </Grid>
       <Grid
@@ -237,7 +239,7 @@ const Home: NextPage = () => {
       </Grid>
       <Grid container paddingTop={9} paddingBottom={9}>
         <ImageWithSummary
-          imageSrc="/images/studentlivImage.png"
+          imageSrc="/images/nollep6.jpg"
           direction="row"
           imgHeight="500px"
           imgWidth="700px"
@@ -253,13 +255,20 @@ const Home: NextPage = () => {
               Studentliv
             </Typography>
             <Typography marginTop={3} textAlign="center">
-              Under din studietid kommer det finnas gott om liv utanför skolan.
-              LiU är välkänt för sitt studentliv och när du inte räknar
-              flödesintegraler och mappar texturer kan du engagera dig i någon
-              av våra många föreningar och styrelser eller kanske starta din
-              egen. Vill du bygga ett spel? Springa marathon? Lira irländsk
-              folkmusik? Du märker snabbt att MT alltid har gott om folk som
-              vill engagera sig i ett kul projekt.
+              De flesta som pluggar här flyttar hemifrån för att komma till
+              Norrköping och det kan kännas rätt läskigt att lämna allt man
+              vuxit upp med. Men oroa dig inte, det som väntar här är vad de
+              flesta på MT minns som den bästa delen av deras studietid:
+              Nolleperioden, eller Nolle-P. Nolle-P heter så eftersom de nya
+              eleverna inte börjar ettan innan sista dagen på Nolle-P. Efter
+              Nolle-P finns det "oändligt" med{" "}
+              <a
+                href="https://studentlivet.se/orbi-associations/"
+                style={{ color: "blue" }}
+              >
+                föreningar
+              </a>{" "}
+              att engagera sig i för att främja studentlivet.
             </Typography>
             <StyledButton src="/studentliv">Läs mer här</StyledButton>
           </Grid>
@@ -288,13 +297,13 @@ const Home: NextPage = () => {
               Medieteknikdagen
             </Typography>
             <Typography marginTop={3} textAlign="center">
-              Medieteknikdagen är ett ideellt arrangemang drivet av och för
-              studenter. Syftet är att knyta kontakter mellan studenter,
-              medietekniker ute i arbetslivet och företagen inom branschen. I år
-              har vi bytt namn från Medieteknikdagarna till Medieteknikdagen.
-              MTD är ett tillfälle för företag och studenter att inspirera,
-              informera och integrera med varandra. Såväl företag som studenter
-              får här en chans att visa det allra senaste inom medieteknik.
+              Medieteknikdagen är våran arbetsmarknadsdag och är ett ideellt
+              arrangemang drivet av och för studenter. Syftet är att knyta
+              kontakter mellan studenter, medietekniker ute i arbetslivet och
+              företagen inom branschen. MTD är ett tillfälle för företag och
+              studenter att inspirera, informera och integrera med varandra.
+              Såväl företag som studenter får här en chans att visa det allra
+              senaste inom medieteknik.
             </Typography>
 
             <StyledButton

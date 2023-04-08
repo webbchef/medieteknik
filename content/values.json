@@ -1,17 +1,17 @@
 [
   {
     "title": "Kreativitet",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "description": "Bland de kreativa kurserna tas ämnen som design, videoproduktion, användarvänlighet och interaktion mellan människa och teknik upp. ",
     "image": "/images/icons/creativity.png"
   },
   {
     "title": "Teknik",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "description": "Oftast använder vi programmering för att förverkliga våra idéer och programmeringen blir en av våra viktigaste färdigheter på arbetsmarknaden.",
     "image": "/images/icons/graphic-tools.png"
   },
   {
     "title": "Problemlösning",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "description": "Nyckeln till att bli civilingenjör är att kunna lösa problem. Problemlösning finns med i de allra flesta delar av MT vilket ger utmärkta problemlösare. ",
     "image": "/images/icons/idea.png"
   }
 ]
