@@ -4,15 +4,17 @@ import Image, { StaticImageData } from "next/image";
 
 interface InputProps {
   imageSrc: string;
-  direction: GridDirection;
+  direction?: GridDirection;
   children: JSX.Element;
+  imgWidth: string;
+  imgHeight: string;
 }
 
 export default function ImageWithSummary(props: InputProps) {
   return (
     <Grid
       container
-      direction={props.direction}
+      direction={props.direction ? props.direction : "row"}
       justifyContent="center"
       alignItems="center"
       sx={{ padding: "20px 0" }}
@@ -20,9 +22,9 @@ export default function ImageWithSummary(props: InputProps) {
       <Grid item xs={7} md={4} sx={{ width: "100%" }}>
         <Image
           style={{ borderRadius: "20px" }}
-          width="100% !important"
+          width={props.imgWidth}
           // position="relative !important"
-          height="100% !important"
+          height={props.imgHeight}
           objectFit="contain"
           src={props.imageSrc}
           alt=""

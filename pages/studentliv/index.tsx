@@ -13,6 +13,7 @@ import fiket from "../../public/images/fiket.jpg";
 import BackgroundImage from "../../components/general/BackgroundImage";
 import Image from "next/image";
 import StyledButton from "../../components/general/StyledButton";
+import ImageWithSummary from "../../components/general/ImageWithSummary";
 
 const StudentlivPage: NextPage = () => {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
@@ -26,7 +27,7 @@ const StudentlivPage: NextPage = () => {
       <Grid container sx={{ justifyContent: "center" }}>
         <BackgroundImage pageName="STUDENTLIV" imgSrc={gruppbild.src} />
 
-        <Grid
+        {/* <Grid
           container
           spacing={3}
           sx={[
@@ -46,8 +47,7 @@ const StudentlivPage: NextPage = () => {
               justifyContent: "center",
               alignItems: "center",
             }}
-          >
-            {/* <ImageCarousel /> */}
+          >            
             <Image
               src="/images/eventPictures/midsommar.jpg"
               height="100px"
@@ -79,13 +79,6 @@ const StudentlivPage: NextPage = () => {
               Campusbussen är gratis för alla studenter och åker mellan Campus
               US, Campus Valla och Campus Norrköping.
             </Typography>
-            {/* <Button
-              target="_blank"
-              href="https://hyresbostader.se/studentbo"
-              variant="contained"
-              color="secondary"
-              sx={{ marginTop: 2, marginBottom: "30px" }}
-            ></Button> */}
             <StyledButton
               src="https://hyresbostader.se/studentbo"
               external={true}
@@ -93,7 +86,43 @@ const StudentlivPage: NextPage = () => {
               Till studentbo.se
             </StyledButton>
           </Grid>
-        </Grid>
+        </Grid> */}
+        <ImageWithSummary
+          imageSrc="/images/eventPictures/midsommar.jpg"
+          imgWidth="700px"
+          imgHeight="700px"
+          direction="row"
+        >
+          <Grid
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+            }}
+          >
+            <Typography variant="h2" sx={{ m: 2 }}>
+              Bostad
+            </Typography>
+            <Typography sx={{ m: 2 }}>
+              Som student i Norrköping finns det flera olika boendemöjligheter.
+              Studentbo i Norrköping tillhandahåller flera olika boenden med
+              gångavstång till Campus. Om du funderar på att börja plugga i
+              Norrköping kan du ställa dig i kö direkt.
+              <br />
+              <br />
+              Det finns även bra pendlingsmöjligheter från Linköping.
+              Campusbussen är gratis för alla studenter och åker mellan Campus
+              US, Campus Valla och Campus Norrköping.
+            </Typography>
+            <StyledButton
+              src="https://hyresbostader.se/studentbo"
+              external={true}
+            >
+              Till studentbo.se
+            </StyledButton>
+          </Grid>
+        </ImageWithSummary>
         <Grid container sx={{ paddingTop: 3, paddingBottom: 3 }}>
           <img
             src={nollePImage.src}

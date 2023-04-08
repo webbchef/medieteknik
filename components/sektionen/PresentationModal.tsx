@@ -72,7 +72,7 @@ export default function PresentationModal(props: InputProps) {
           <CardContent sx={{ p: 0, textAlign: "center" }}>
             {/* <motion.h1 variants={fadeInUp}>{props.user.name}</motion.h1> */}
             <Typography variant="h4">{props.user.responsibility}</Typography>
-            <CopyText text={props.user.email}></CopyText>
+            <CopyText text={props.user.email} align="center" />
             <br></br>
 
             <Typography>{props.user.text}</Typography>

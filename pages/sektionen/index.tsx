@@ -62,6 +62,7 @@ const PresentationPage: NextPage = () => {
           <a
             href="https://drive.google.com/drive/folders/1xyIUmboYlJ3GJC0i6G_nVXaQTA34b2Iz?usp=sharing"
             target="blank"
+            style={{ color: "blue" }}
           >
             här.
           </a>
@@ -69,7 +70,7 @@ const PresentationPage: NextPage = () => {
         <Typography align="center">
           Allmäna frågor till sektionen skickas till:
         </Typography>
-        <CopyText text="info@medieteknik.nu" />
+        <CopyText text="info@medieteknik.nu" align="center" />
       </Container>
 
       {/* Styrelse-Grid*/}
@@ -101,7 +102,11 @@ const PresentationPage: NextPage = () => {
 
       <WavyBackground bgColor="#13283c" textColor="#FFF">
         <Container maxWidth="lg" sx={{ p: 3 }}>
-          <ImageWithSummary imageSrc={"/images/mette.jpg"} direction="row">
+          <ImageWithSummary
+            imageSrc={"/images/mette.jpg"}
+            imgWidth="700px"
+            imgHeight="500px"
+          >
             <Grid
               sx={{
                 display: "flex",
@@ -127,18 +132,6 @@ const PresentationPage: NextPage = () => {
                 oss på Instagram och Facebook för att bli uppdaterad om våra
                 kommande aktiviteter.
               </Typography>
-              {/* <Button
-                href="/"
-                variant="contained"
-                size="large"
-                sx={{
-                  margin: "20px auto",
-                  backgroundColor: "#EC6610",
-                  color: "inherit",
-                }}
-              >
-                Läs Mer
-              </Button> */}
               <StyledButton src="https://mette.nu/" external={true}>
                 Läs mer
               </StyledButton>
@@ -150,6 +143,8 @@ const PresentationPage: NextPage = () => {
         <ImageWithSummary
           imageSrc={"/images/3cant.jpg"}
           direction="row-reverse"
+          imgWidth="700px"
+          imgHeight="500px"
         >
           <Grid
             sx={{

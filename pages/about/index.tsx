@@ -23,6 +23,7 @@ import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import Image from "next/image";
 import SocialMediaIcons from "../../components/general/SocialMediaIcons";
 import StyledButton from "../../components/general/StyledButton";
+import ImageWithSummary from "../../components/general/ImageWithSummary";
 
 // export default function PresentationPage() {
 const PresentationPage: NextPage = () => {
@@ -70,7 +71,7 @@ const PresentationPage: NextPage = () => {
         <BackgroundImage pageName="OM MT" imgSrc={gruppbild.src} />
 
         {/* ----------Civilingengör i Medieteknik ------------*/}
-        <Grid
+        {/* <Grid
           container
           spacing={1}
           sx={{
@@ -118,7 +119,36 @@ const PresentationPage: NextPage = () => {
               style={{ height: "90%", width: "80%", objectFit: "contain" }}
             />
           </Grid>
-        </Grid>
+        </Grid> */}
+        <ImageWithSummary
+          imageSrc={gruppbild.src}
+          direction="row-reverse"
+          imgWidth="700px"
+          imgHeight="700px"
+        >
+          <Grid
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+            }}
+          >
+            <Typography variant="h2" sx={{ margin: 2 }}>
+              Civilingejör i Medieteknik
+            </Typography>
+
+            <Typography sx={{ margin: 2 }}>
+              Medieteknikområdet handlar om tekniken bakom medierna och om att
+              omvandla informationsflöden så att de passar våra sinnen. Våra
+              tidigare studenter jobbar med bland annat specialeffekter i
+              Hollywoodfilmer, virtuella möbler för IKEA och spelutveckling.
+              Medieteknikområdet handlar om tekniken bakom medierna och om
+            </Typography>
+
+            <SocialMediaIcons />
+          </Grid>
+        </ImageWithSummary>
         {/* ----------END Civilingengör i Medieteknik ------------*/}
 
         {/* ----------Kurser, masterkurser, studievägledare ------------*/}
@@ -216,6 +246,7 @@ const PresentationPage: NextPage = () => {
             </Typography>
 
             <Typography sx={{ margin: 2 }}>
+              LiU har samarbeten med flera olika universitet världen över.
               Medieteknikområdet handlar om tekniken bakom medierna och om att
               omvandla informationsflöden så att de passar våra sinnen. Våra
               tidigare studenter jobbar med bland annat specialeffekter i

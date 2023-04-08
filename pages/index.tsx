@@ -137,6 +137,7 @@ const Home: NextPage = () => {
         spacing={2}
         paddingLeft={{ xs: 3, lg: 15 }}
         paddingRight={{ xs: 3, lg: 15 }}
+        sx={{ marginBottom: 4 }}
       >
         <Grid xs={12}>
           <Typography
@@ -235,58 +236,34 @@ const Home: NextPage = () => {
         })}
       </Grid>
       <Grid container paddingTop={9} paddingBottom={9}>
-        {/* {matchesSm ? ( */}
-        <Grid
-          md={9}
-          paddingLeft={{ xs: 3, lg: 15, md: 8 }}
-          paddingRight={{ xs: 3, lg: 15 }}
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
+        <ImageWithSummary
+          imageSrc="/images/studentlivImage.png"
+          direction="row"
+          imgHeight="500px"
+          imgWidth="700px"
         >
-          <Typography textAlign="center" variant="h2">
-            Studentliv
-          </Typography>
-          {isMobile && (
-            <Image
-              style={{ flex: 1 }}
-              width={511 * 0.5}
-              height={658 * 0.5}
-              src={"/images/studentlivImage.png"}
-              alt="Bild på studenter"
-            />
-          )}
-          <Typography marginTop={3} textAlign="center">
-            Under din studietid kommer det finnas gott om liv utanför skolan.
-            LiU är välkänt för sitt studentliv och när du inte räknar
-            flödesintegraler och mappar texturer kan du engagera dig i någon av
-            våra många föreningar och styrelser eller kanske starta din egen.
-            Vill du bygga ett spel? Springa marathon? Lira irländsk folkmusik?
-            Du märker snabbt att MT alltid har gott om folk som vill engagera
-            sig i ett kul projekt.
-          </Typography>
-          <StyledButton src="/studentliv">Läs mer här</StyledButton>
-        </Grid>
-        {!isMobile && (
           <Grid
-            md={3}
-            display="flex"
-            justifyContent="flex-end"
-            alignItems="center"
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
-            <Box
-              position="relative"
-              width={{ sm: 511 * 0.3, md: 511 * 0.4, lg: 511 * 0.5 }}
-              height={{ sm: 658 * 0.3, md: 658 * 0.4, lg: 658 * 0.5 }}
-            >
-              <Image
-                layout="fill"
-                src={"/images/studentlivImage.png"}
-                alt="Bild på studenter"
-              />
-            </Box>
+            <Typography textAlign="center" variant="h2">
+              Studentliv
+            </Typography>
+            <Typography marginTop={3} textAlign="center">
+              Under din studietid kommer det finnas gott om liv utanför skolan.
+              LiU är välkänt för sitt studentliv och när du inte räknar
+              flödesintegraler och mappar texturer kan du engagera dig i någon
+              av våra många föreningar och styrelser eller kanske starta din
+              egen. Vill du bygga ett spel? Springa marathon? Lira irländsk
+              folkmusik? Du märker snabbt att MT alltid har gott om folk som
+              vill engagera sig i ett kul projekt.
+            </Typography>
+            <StyledButton src="/studentliv">Läs mer här</StyledButton>
           </Grid>
-        )}
+        </ImageWithSummary>
       </Grid>
       <Grid md={12} display="flex" justifyContent="center">
         <WavyBackground bgColor="#13283c">
@@ -294,15 +271,12 @@ const Home: NextPage = () => {
         </WavyBackground>
       </Grid>
       <Grid container paddingTop={9} paddingBottom={9}>
-        {/* <Grid
-          md={9}
-          paddingLeft={{ xs: 3, lg: 15 }}
-          paddingRight={{ xs: 3, lg: 15 }}
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-        > */}
-        <ImageWithSummary imageSrc="/images/mtd.jpg" direction="row">
+        <ImageWithSummary
+          imageSrc="/images/mtd.jpg"
+          direction="row-reverse"
+          imgWidth={"500px"}
+          imgHeight={"500px"}
+        >
           <Grid
             sx={{
               display: "flex",
@@ -322,16 +296,7 @@ const Home: NextPage = () => {
               informera och integrera med varandra. Såväl företag som studenter
               får här en chans att visa det allra senaste inom medieteknik.
             </Typography>
-            {/* <Button
-              variant="contained"
-              component={"a"}
-              LinkComponent={Link}
-              href="https://www.medieteknikdagen.se/"
-              color={"secondary"}
-              sx={{ marginTop: 3 }}
-            >
-              Läs mer här
-            </Button> */}
+
             <StyledButton
               external={true}
               src="https://www.medieteknikdagen.se/"
@@ -340,68 +305,6 @@ const Home: NextPage = () => {
             </StyledButton>
           </Grid>
         </ImageWithSummary>
-        {/* <Image
-            style={{ flex: 1 }}
-            width={511 * 0.5}
-            height={658 * 0.5}
-            src={"/images/mtd.jpg"}
-            alt="Bild på studenter"
-          /> */}
-        {/* </Grid> */}
-
-        {/* <>
-            <Grid
-              md={3}
-              spacing={6}
-              display="flex"
-              justifyContent="flex-start"
-              alignItems="center"
-            >
-              <Box
-                position="relative"
-                width={{ sm: 511 * 0.3, md: 511 * 0.4, lg: 511 * 0.5 }}
-                height={{ sm: 658 * 0.3, md: 658 * 0.4, lg: 658 * 0.5 }}
-              >
-                <Image
-                  layout="fill"
-                  src={"/images/mtd.jpg"}
-                  alt="Bild på studenter"
-                />
-              </Box>
-            </Grid>
-            <Grid
-              md={9}
-              paddingRight={{ md: 8, lg: 15 }}
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-            >
-              <Typography textAlign="center" variant="h2">
-                Medieteknikdagen
-              </Typography>
-              <Typography textAlign="center">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-              </Typography>
-             
-              <StyledButton
-                external={true}
-                src="https://www.medieteknikdagen.se/"
-              >
-                Läs mer här
-              </StyledButton>
-            </Grid>
-          </> */}
       </Grid>
     </motion.div>
   );

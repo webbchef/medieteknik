@@ -4,6 +4,7 @@ import { MouseEventHandler, useState } from "react";
 interface InputProps {
   text: string;
   color?: string;
+  align?: string;
 }
 export default function CopyText(props: InputProps) {
   const [copied, setCopied] = useState<boolean>(false);
@@ -23,7 +24,8 @@ export default function CopyText(props: InputProps) {
       onClick={handleCopy}
       sx={[
         { cursor: "pointer" },
-        props.color ? { color: props.color } : { color: "black" },
+        props.color ? { color: props.color } : { color: "blue" },
+        props.align ? { textAlign: props.align } : { textAlign: "left" },
       ]}
     >
       {copied ? "Kopierad!" : props.text}
