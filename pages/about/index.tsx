@@ -178,7 +178,18 @@ const PresentationPage: NextPage = () => {
         {/* ----------END Kurser, masterkurser, studievägledare ------------*/}
 
         {/* ----------Utlandsstudier ------------*/}
-        <Grid container spacing={1} sx={{ padding: 9, background: "white" }}>
+        <Grid
+          container
+          spacing={1}
+          sx={{
+            padding: 9,
+            background: "white",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
           {/* <Grid
             item
             xs={isDesktop ? 6 : 12}
@@ -265,7 +276,6 @@ const PresentationPage: NextPage = () => {
             md={7}
             sx={{
               m: 7,
-              marginLeft: 9,
               display: "flex",
               flexDirection: "column",
               borderLeft: 3,
@@ -280,12 +290,19 @@ const PresentationPage: NextPage = () => {
                 För dig som är alumn
               </Typography>
               <Typography>
-                Hollywoodfilmer, virtuella möbler för IKEA och spelutveckling.
-                Medieteknikområdet handlar om tekniken bakom medierna och om.
-                Hollywoodfilmer, virtuella möbler för IKEA och spelutveckling.
+                Vi i styrelsen välkomnar varmt alla alumner som vill fortsätta
+                att hålla kontakt med sektionen! På{" "}
+                <a href="https://alumni.liu.se/" style={{ color: "blue" }}>
+                  LiUs alumninätverk
+                </a>{" "}
+                kan du registrera dig och få regelbunden information. Vill du
+                komma hit och föreläsa? Du är varmt välkommen! Kontakta vår
+                alumniansvarig.
               </Typography>
 
-              <StyledButton src="/">Anmäl</StyledButton>
+              <StyledButton src="mailto:naringsliv@medieteknik.nu">
+                Kontakta alumniansvarig
+              </StyledButton>
             </Grid>
           </Grid>
 

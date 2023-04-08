@@ -87,6 +87,29 @@ export default function Footer() {
           </Link>
         ))}
       </Grid>
+      <Grid>
+        <a
+          href="https://www.flaticon.com/free-icons/work-in-progress"
+          title="work in progress icons"
+          style={{ color: "white" }}
+        >
+          Work in progress icons created by Eucalyp - Flaticon
+        </a>
+        <a
+          href="https://www.flaticon.com/free-icons/initiative"
+          title="initiative icons"
+          style={{ color: "white" }}
+        >
+          Initiative icons created by Eucalyp - Flaticon
+        </a>
+        <a
+          href="https://www.flaticon.com/free-icons/work"
+          title="work icons"
+          style={{ color: "white" }}
+        >
+          Work icons created by Eucalyp - Flaticon
+        </a>
+      </Grid>
     </Grid>
   );
 }

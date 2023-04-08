@@ -2,16 +2,16 @@
   {
     "title": "Kreativitet",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "image": "/images/valueIcon.png"
+    "image": "/images/icons/creativity.png"
   },
   {
     "title": "Teknik",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "image": "/images/valueIcon.png"
+    "image": "/images/icons/graphic-tools.png"
   },
   {
     "title": "Problemlösning",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "image": "/images/valueIcon.png"
+    "image": "/images/icons/idea.png"
   }
 ]
