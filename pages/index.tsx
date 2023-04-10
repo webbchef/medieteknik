@@ -276,7 +276,16 @@ const Home: NextPage = () => {
       </Grid>
       <Grid md={12} display="flex" justifyContent="center">
         <WavyBackground bgColor="#13283c">
-          <Carousel carouselItems={carouselItems} />
+          <Grid
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Carousel carouselItems={carouselItems} />
+            <StyledButton src="/sektionen">Läs mer här</StyledButton>
+          </Grid>
         </WavyBackground>
       </Grid>
       <Grid container paddingTop={9} paddingBottom={9}>
