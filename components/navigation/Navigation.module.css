@@ -1,0 +1,33 @@
+/* Fade in */
+.link {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #000;
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  margin: -2px;
+}
+
+.link:hover::before {
+  transform: scaleX(1);
+}
+
+.active {
+  border-bottom: 2.5px solid black;
+  line-height: 1;
+}

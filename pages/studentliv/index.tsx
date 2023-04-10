@@ -6,13 +6,14 @@ import { motion } from "framer-motion";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 import Events from "../../components/studentliv/Events";
 import ImageCarousel from "../../components/studentliv/ImageCarousel";
-import gruppbild from "../../assets/gruppbild.jpg";
-import nollePImage from "../../assets/nollep.jpg";
+import gruppbild from "../../public/images/gruppbild.jpg";
+import nollePImage from "../../public/images/nollep.jpg";
 import Studentkonto from "../../components/studentliv/Studentkonto";
-import fiket from "../../assets/fiket.jpg";
+import fiket from "../../public/images/fiket.jpg";
 import BackgroundImage from "../../components/general/BackgroundImage";
 import Image from "next/image";
 import StyledButton from "../../components/general/StyledButton";
+import ImageWithSummary from "../../components/general/ImageWithSummary";
 
 const StudentlivPage: NextPage = () => {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
@@ -26,7 +27,7 @@ const StudentlivPage: NextPage = () => {
       <Grid container sx={{ justifyContent: "center" }}>
         <BackgroundImage pageName="STUDENTLIV" imgSrc={gruppbild.src} />
 
-        <Grid
+        {/* <Grid
           container
           spacing={3}
           sx={[
@@ -46,8 +47,12 @@ const StudentlivPage: NextPage = () => {
               justifyContent: "center",
               alignItems: "center",
             }}
-          >
-            <ImageCarousel />
+          >            
+            <Image
+              src="/images/eventPictures/midsommar.jpg"
+              height="100px"
+              width="100px"
+            />
           </Grid>
           <Grid
             item
@@ -74,13 +79,6 @@ const StudentlivPage: NextPage = () => {
               Campusbussen är gratis för alla studenter och åker mellan Campus
               US, Campus Valla och Campus Norrköping.
             </Typography>
-            {/* <Button
-              target="_blank"
-              href="https://hyresbostader.se/studentbo"
-              variant="contained"
-              color="secondary"
-              sx={{ marginTop: 2, marginBottom: "30px" }}
-            ></Button> */}
             <StyledButton
               src="https://hyresbostader.se/studentbo"
               external={true}
@@ -88,7 +86,43 @@ const StudentlivPage: NextPage = () => {
               Till studentbo.se
             </StyledButton>
           </Grid>
-        </Grid>
+        </Grid> */}
+        <ImageWithSummary
+          imageSrc="/images/eventPictures/midsommar.jpg"
+          imgWidth="700px"
+          imgHeight="700px"
+          direction="row"
+        >
+          <Grid
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+            }}
+          >
+            <Typography variant="h2" sx={{ m: 2 }}>
+              Bostad
+            </Typography>
+            <Typography sx={{ m: 2 }}>
+              Som student i Norrköping finns det flera olika boendemöjligheter.
+              Studentbo i Norrköping tillhandahåller flera olika boenden med
+              gångavstång till Campus. Om du funderar på att börja plugga i
+              Norrköping kan du ställa dig i kö direkt.
+              <br />
+              <br />
+              Det finns även bra pendlingsmöjligheter från Linköping.
+              Campusbussen är gratis för alla studenter och åker mellan Campus
+              US, Campus Valla och Campus Norrköping.
+            </Typography>
+            <StyledButton
+              src="https://hyresbostader.se/studentbo"
+              external={true}
+            >
+              Till studentbo.se
+            </StyledButton>
+          </Grid>
+        </ImageWithSummary>
         <Grid container sx={{ paddingTop: 3, paddingBottom: 3 }}>
           <img
             src={nollePImage.src}
@@ -104,13 +138,15 @@ const StudentlivPage: NextPage = () => {
         >
           <Typography variant="h2">Nolle-P</Typography>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            De flesta som pluggar här flyttar hemifrån för att komma till
+            Norrköping och det kan kännas rätt läskigt att lämna allt man vuxit
+            upp med. Men oroa dig inte, det som väntar här är vad de flesta på
+            MT minns som den bästa delen av deras studietid: Nolleperioden,
+            eller Nolle-P. Nolle-P heter så eftersom de nya eleverna inte börjar
+            ettan innan sista dagen på Nolle-P. Under Nolle-P får du lära känna
+            alla andra MT:are, göra stela lära-känna-varandra-aktiviteter,
+            festa, fräscha upp gymnasiematten, och bekanta dig med LiUs
+            studentkultur och -traditioner.
           </Typography>
         </Grid>
         <Grid container sx={{ marginTop: 3, marginBottom: 3 }}>

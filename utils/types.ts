@@ -26,6 +26,11 @@ export interface Alumn {
   imageName?: string;
 }
 
+export interface ExternalPagesMT {
+  title: string;
+  text: string;
+  link: string;
+}
 export type Value = {
   title: string;
   description: string;

@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useRouter } from "next/router";
+
 import {
   ListItemText,
   Box,
@@ -12,12 +14,11 @@ import {
 import { Sling as Hamburger } from "hamburger-react";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 import LoginIcon from "@mui/icons-material/Login";
-import logo from "../../assets/logotyp_svart_text.png";
 import LaunchIcon from "@mui/icons-material/Launch";
 import Link from "next/link";
 import Image from "next/image";
 import SocialMediaIcons from "../general/SocialMediaIcons";
-
+import styles from "./Navigation.module.css";
 /**
  * Component for menu
  * @returns
@@ -27,6 +28,10 @@ export default function Navigation() {
   const [bgColor, setBgColor] = useState<boolean>(false);
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
 
+  const router = useRouter();
+  const currentRoute = router.pathname;
+
+  console.log(currentRoute);
   function openMenu() {
     setOpen(true);
   }
@@ -68,31 +73,43 @@ export default function Navigation() {
         { name: "SEKTIONEN", to: "/sektionen" },
       ].map((link, index) => (
         <ListItem key={index} sx={isMobile ? { m: "10px" } : {}}>
-          <Link href={link.to} onClick={closeMenu} legacyBehavior={false}>
-            <Typography
-              variant="h4"
-              sx={isMobile ? { color: "white" } : { color: "black" }}
-            >
-              {link.name}
-            </Typography>
+          <Link
+            href={link.to}
+            onClick={closeMenu}
+            legacyBehavior={false}
+            // className={styles.link}
+            className={currentRoute === link.to ? styles.active : styles.link}
+          >
+            <Typography variant="h4">{link.name}</Typography>
           </Link>
         </ListItem>
       ))}
-      <ListItem sx={isMobile ? { m: "10px" } : {}}>
-        <LaunchIcon sx={{ fontSize: "14px" }} />
-        <Link
+      <ListItem sx={isMobile ? { m: "10px" } : { cursor: "pointer" }}>
+        {/* <LaunchIcon sx={{ fontSize: "14px" }} /> */}
+        <a
           target="_blank"
-          rel="noopener"
+          rel="noreferrer"
           href="https://www.medieteknikdagen.se/"
+          className={styles.link}
         >
-          <Typography
-            variant="h4"
-            sx={isMobile ? { color: "white" } : { color: "black" }}
-          >
-            MÄSSA
-          </Typography>
-        </Link>
+          <Typography variant="h4">MÄSSA</Typography>
+        </a>
       </ListItem>
+      {!isDesktop && (
+        <ListItem>
+          <Link
+            href="https://old.medieteknik.nu/forum_cookie"
+            target="_blank"
+            rel="noopener"
+            onClick={closeMenu}
+            className={styles.link}
+          >
+            <Button startIcon={<LoginIcon />}>
+              <Typography variant="h4">LOGGA IN</Typography>
+            </Button>
+          </Link>
+        </ListItem>
+      )}
     </List>
   );
 
@@ -100,7 +117,7 @@ export default function Navigation() {
     <Grid
       sx={[
         {
-          // p: 2,
+          p: 2,
           position: "fixed",
           zIndex: 999,
           top: 0,
@@ -110,7 +127,7 @@ export default function Navigation() {
           transition: "0.5s",
           alignItems: "center",
         },
-        bgColor && { backgroundColor: "white" },
+        bgColor && { backgroundColor: "white", boxShadow: 1 },
       ]}
     >
       {isDesktop ? (
@@ -121,17 +138,25 @@ export default function Navigation() {
             justifyContent: "space-between",
           }}
         >
-          <Link href="/">
-            <img alt="MT LOGO" src={logo.src} width="70px" />
-          </Link>
+          {/* <Link href="/"> */}
+          <Image
+            alt="MT LOGO"
+            src="/images/logotyp_svart_text.png"
+            style={{ cursor: "pointer" }}
+            width="80px"
+            height="50px"
+          />
+          {/* </Link> */}
           {list()}
           <Link
             href="https://old.medieteknik.nu/forum_cookie"
             target="_blank"
             rel="noopener"
           >
-            <Button variant="outlined" startIcon={<LoginIcon />}>
-              <Typography variant="h4">LOGGA IN</Typography>
+            <Button startIcon={<LoginIcon />}>
+              <Typography variant="h4" sx={{ fontSize: "15px" }}>
+                LOGGA IN
+              </Typography>
             </Button>
           </Link>
         </Grid>
@@ -162,20 +187,28 @@ export default function Navigation() {
             onClose={closeMenu}
             transitionDuration={600}
             PaperProps={{
-              sx: { width: "100%", backgroundColor: "#3b484f" },
+              sx: isMobile
+                ? { width: "100%", backgroundColor: "#dbdbdb" }
+                : { width: "50%", backgroundColor: "#dbdbdb" },
             }}
           >
             <Grid
               container
-              sx={{ height: "100%" }}
+              sx={{ height: "100%", p: 3 }}
               display="flex"
               flexDirection="row"
               justifyContent="center"
               alignItems="center"
             >
               {list()}
+
               <Grid item>
-                <Image alt="MT LOGO" src={logo.src} width="70px" />
+                <Image
+                  alt="MT LOGO"
+                  src="/images/logotyp_svart_text.png"
+                  width="110px"
+                  height="70px"
+                />
                 <SocialMediaIcons />
               </Grid>
             </Grid>

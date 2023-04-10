@@ -2,7 +2,6 @@ import eventsContent from "../../content/events.json";
 import linksContent from "../../content/footer_links.json";
 import { Event, FooterLink } from "../../utils/types";
 import { Grid, IconButton, Typography, Link } from "@mui/material";
-import logo from "../../assets/logotyp_vit_text.png";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { useContext } from "react";
@@ -22,7 +21,7 @@ export default function Footer() {
     >
       <Grid item xs={12} md={4}>
         <Grid container justifyContent="center" alignItems="center">
-          <img src={logo.src} height="100px" />
+          <img src="/images/logotyp_vit_text.png" height="100px" />
           <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
             <Link
               target="_blank"
@@ -87,6 +86,29 @@ export default function Footer() {
             <Typography color="white">{link.title}</Typography>
           </Link>
         ))}
+      </Grid>
+      <Grid>
+        <a
+          href="https://www.flaticon.com/free-icons/work-in-progress"
+          title="work in progress icons"
+          style={{ color: "white" }}
+        >
+          Work in progress icons created by Eucalyp - Flaticon
+        </a>
+        <a
+          href="https://www.flaticon.com/free-icons/initiative"
+          title="initiative icons"
+          style={{ color: "white" }}
+        >
+          Initiative icons created by Eucalyp - Flaticon
+        </a>
+        <a
+          href="https://www.flaticon.com/free-icons/work"
+          title="work icons"
+          style={{ color: "white" }}
+        >
+          Work icons created by Eucalyp - Flaticon
+        </a>
       </Grid>
     </Grid>
   );

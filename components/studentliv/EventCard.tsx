@@ -7,9 +7,7 @@ export default function EventCard(item: Event) {
       <CardMedia
         component="img"
         height="150"
-        image={
-          require(`../../assets/eventPictures/${item.imgPath}.jpg`).default.src
-        }
+        image={`/images/eventPictures/${item.imgPath}.jpg`}
         alt={item.title}
       />
       <CardContent>

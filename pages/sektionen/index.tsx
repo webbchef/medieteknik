@@ -11,7 +11,7 @@ import { Styrare } from "../../utils/types";
 import ImageWithSummary from "../../components/general/ImageWithSummary";
 import WavyBackground from "../../components/general/WavyBackground";
 import BackgroundImage from "../../components/general/BackgroundImage";
-import gruppbild from "../../assets/gruppbild.jpg";
+import gruppbild from "../../public/images/gruppbild.jpg";
 import CopyText from "../../components/general/CopyText";
 import StyledButton from "../../components/general/StyledButton";
 
@@ -62,14 +62,15 @@ const PresentationPage: NextPage = () => {
           <a
             href="https://drive.google.com/drive/folders/1xyIUmboYlJ3GJC0i6G_nVXaQTA34b2Iz?usp=sharing"
             target="blank"
+            style={{ color: "blue" }}
           >
             här.
           </a>
         </Typography>
         <Typography align="center">
           Allmäna frågor till sektionen skickas till:
-          <CopyText text="info@medieteknik.nu" />
         </Typography>
+        <CopyText text="info@medieteknik.nu" align="center" />
       </Container>
 
       {/* Styrelse-Grid*/}
@@ -102,10 +103,17 @@ const PresentationPage: NextPage = () => {
       <WavyBackground bgColor="#13283c" textColor="#FFF">
         <Container maxWidth="lg" sx={{ p: 3 }}>
           <ImageWithSummary
-            imageSrc={require("../../assets/mette.jpg")}
-            direction="row"
+            imageSrc={"/images/mette.jpg"}
+            imgWidth="700px"
+            imgHeight="500px"
           >
-            <Stack>
+            <Grid
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
               <Typography
                 variant="h2"
                 align="center"
@@ -124,31 +132,27 @@ const PresentationPage: NextPage = () => {
                 oss på Instagram och Facebook för att bli uppdaterad om våra
                 kommande aktiviteter.
               </Typography>
-              {/* <Button
-                href="/"
-                variant="contained"
-                size="large"
-                sx={{
-                  margin: "20px auto",
-                  backgroundColor: "#EC6610",
-                  color: "inherit",
-                }}
-              >
-                Läs Mer
-              </Button> */}
               <StyledButton src="https://mette.nu/" external={true}>
                 Läs mer
               </StyledButton>
-            </Stack>
+            </Grid>
           </ImageWithSummary>
         </Container>
       </WavyBackground>
       <Container maxWidth="lg" sx={{ p: 3 }}>
         <ImageWithSummary
-          imageSrc={require("../../assets/3cant.jpg")}
+          imageSrc={"/images/3cant.jpg"}
           direction="row-reverse"
+          imgWidth="700px"
+          imgHeight="500px"
         >
-          <Stack>
+          <Grid
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <Typography
               variant="h2"
               align="center"
@@ -177,8 +181,10 @@ const PresentationPage: NextPage = () => {
             >
               Läs Mer
             </Button> */}
-            <StyledButton src="https://www.3cant.com/">Läs mer</StyledButton>
-          </Stack>
+            <StyledButton src="https://www.3cant.com/" external={true}>
+              Läs mer
+            </StyledButton>
+          </Grid>
         </ImageWithSummary>
       </Container>
 

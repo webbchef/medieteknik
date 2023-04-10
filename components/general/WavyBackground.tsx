@@ -3,19 +3,21 @@ import { Grid, Button, Typography } from "@mui/material";
 interface InputProps {
   bgColor: string;
   children: JSX.Element;
-  textColor: string;
+  textColor?: string;
 }
 
 export default function WavyBackground(props: InputProps) {
   return (
     <Grid
       container
-      sx={{
-        position: "relative",
-        color: props.textColor,
-        marginTop: "69px",
-        marginBottom: "69px",
-      }}
+      sx={[
+        {
+          position: "relative",
+          marginTop: "69px",
+          marginBottom: "69px",
+        },
+        props.textColor ? { color: props.textColor } : {},
+      ]}
     >
       <div className="wavy-background-top">
         <svg
@@ -35,6 +37,10 @@ export default function WavyBackground(props: InputProps) {
         container
         sx={{
           backgroundColor: props.bgColor,
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+          justifyContent: "center",
         }}
       >
         {props.children}

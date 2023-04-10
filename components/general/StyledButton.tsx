@@ -22,7 +22,7 @@ export default function StyledButton(props: InputProps) {
       <Typography
         sx={[
           props.color ? { color: props.color } : { color: "white" },
-          { paddingRight: 1, paddingLeft: 1 },
+          { paddingRight: 1, paddingLeft: 1, textAlign: "center" },
         ]}
       >
         {props.children}
