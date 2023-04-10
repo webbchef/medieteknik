@@ -1,0 +1,26 @@
+[
+  {
+    "title": "MT<3GDK",
+    "text": "aasdasdasdasd",
+    "month": "Februari",
+    "imgPath": "mtgdk"
+  },
+  {
+    "title": "Julapthon",
+    "text": "aasdasdasdasd",
+    "month": "Augusti",
+    "imgPath": "julaphton"
+  },
+  {
+    "title": "Kräftskivan",
+    "text": "aasdasdasdasd",
+    "month": "September",
+    "imgPath": "kraftskiva"
+  },
+  {
+    "title": "Midsommarphesten",
+    "text": "aasdasdasdasd",
+    "month": "November/December",
+    "imgPath": "midsommar"
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.10.6",
+    "@mui/lab": "^5.0.0-alpha.118",
+    "@mui/material": "^5.11.12",
+    "@mui/styled-engine": "^5.10.8",
+    "@mui/system": "^5.10.8",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "framer-motion": "^7.5.3",
+    "hamburger-react": "^2.5.0",
+    "next": "^12.3.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-swipeable-views": "^0.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.8.3",
+    "@types/react-swipeable-views-utils": "^0.13.4",
+    "eslint": "8.24.0",
+    "eslint-config-next": "12.3.1",
+    "typescript": "4.8.4"
+  }
+}
