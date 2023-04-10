@@ -99,7 +99,6 @@ const PresentationPage: NextPage = () => {
       {/* Mette & #3Cant */}
 
       <WavyBackground bgColor="#13283c" textColor="#FFF">
-        <Container maxWidth="lg" sx={{ p: 3 }}>
           <ImageWithSummary
             imageSrc={"/images/mette.jpg"}
             imgWidth="700px"
@@ -135,9 +134,7 @@ const PresentationPage: NextPage = () => {
               </StyledButton>
             </Grid>
           </ImageWithSummary>
-        </Container>
       </WavyBackground>
-      <Container maxWidth="lg" sx={{ p: 3 }}>
         <ImageWithSummary
           imageSrc={"/images/3cant.jpg"}
           direction="row-reverse"
@@ -172,7 +169,6 @@ const PresentationPage: NextPage = () => {
             </StyledButton>
           </Grid>
         </ImageWithSummary>
-      </Container>
 
       {modalOpen && (
         <PresentationModal
