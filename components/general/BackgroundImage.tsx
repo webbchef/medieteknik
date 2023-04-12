@@ -9,7 +9,7 @@ interface InputProps {
 }
 export default function BackgroundImage(props: InputProps) {
   const events: Event[] = eventsContent;
-  console.log(events);
+  
   return (
     <>
       <Grid

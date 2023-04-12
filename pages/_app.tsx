@@ -11,9 +11,7 @@ let theme = createTheme({
     MuiTypography: {
       defaultProps: {
         fontFamily: "Lato, sans-serif",
-        color: "black",
-        fontSize: "12",
-        // fontWeight: 500,
+        color: "black",        // fontWeight: 500,
       },
     },
   },
@@ -40,6 +38,11 @@ let theme = createTheme({
       fontSize: "20px",
       fontWeight: "bold !important",
     },
+
+    body1: {
+      fontSize: 20,
+      fontFamily: "Barlow, sans-serif !important",
+    }
   },
   palette: {
     background: {
