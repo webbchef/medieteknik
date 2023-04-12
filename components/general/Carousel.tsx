@@ -96,7 +96,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         marginBottom={2}
         textAlign={"center"}
         variant="h2"
-        color="#FFFFFF"
+        color="#FFF"
       >
         {titles![activeImage]}
       </Typography>
@@ -111,6 +111,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         alignItems="baseline"
         flexWrap="nowrap"
         overflow="hidden"
+        padding="30px"
       >
         {imagesToRender.map((image, i) => {
           if (i === 1) {
@@ -122,13 +123,13 @@ const Carousel: React.FC<CarouselProps> = (props) => {
       <Container
         sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}
       >
-        <IconButton onClick={clickBack}>
+        <IconButton sx={{ color: "#FFF" }}  onClick={clickBack}>
           <ArrowBackIosNew />
         </IconButton>
         {images.map((image, i) => {
           if (activeImage === i) {
             return (
-              <IconButton
+              <IconButton sx={{ color: "#FFF" }} 
                 onClick={() => {
                   setActiveImage(i);
                 }}
@@ -139,7 +140,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             );
           }
           return (
-            <IconButton
+            <IconButton sx={{ color: "#FFF" }} 
               onClick={() => {
                 setActiveImage(i);
               }}
@@ -149,7 +150,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             </IconButton>
           );
         })}
-        <IconButton onClick={clickForward}>
+        <IconButton sx={{ color: "#FFF" }} onClick={clickForward}>
           <ArrowForwardIos />
         </IconButton>
       </Container>
@@ -181,7 +182,7 @@ const CarouselImage: React.FC<CarouselImageProps> = (props) => {
   }
 
   return (
-    <Box key={props.key} position="relative" width="50%" height="33%">
+    <Box key={props.key} position="relative" width="45%" height="30%">
       <Image
         width="100%"
         height="56.25%"

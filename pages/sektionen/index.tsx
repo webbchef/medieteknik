@@ -2,7 +2,7 @@ import Head from "next/head";
 import type { NextPage } from "next";
 import { useState } from "react";
 import content from "../../content/styrare.json";
-import { Container, Grid, Stack, Button, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import PresentationModal from "../../components/sektionen/PresentationModal";
 import PresentationCard from "../../components/sektionen/PresentationCard";
 import { motion } from "framer-motion";
@@ -46,13 +46,9 @@ const PresentationPage: NextPage = () => {
 
       <Container
         maxWidth="lg"
-        sx={{ width: "70vw", margin: "auto", padding: "20px 0 10px 0" }}
+        sx={{ width: "90%", margin: "auto", padding: "30px 0" }}
       >
-        <Typography
-          variant="h2"
-          align="center"
-          sx={{ margin: "40px 0", color: "inherit" }}
-        >
+        <Typography variant="h2" align="center">
           STYRELSEN
         </Typography>
         <Typography align="center" sx={{ marginBottom: "40px" }}>
@@ -80,14 +76,16 @@ const PresentationPage: NextPage = () => {
 
       {/* Styrelse-Grid*/}
 
-      <Grid container maxWidth="lg" sx={{ margin: "auto", padding: "50px 0" }}>
-        {styrare.map((styr, index) => (
+      <Grid container maxWidth="lg" sx={{ margin: "auto", padding: "0 20px 80px 20px" }}>
+        {styrare.map((styr, index) => ( 
           <Grid
             item
-            xs={6}
-            md={3}
+            xs={10}
+            sm={6}
+            md={4}
+            lg={3}
             key={index}
-            sx={{ p: "20px", height: "100%" }}
+            sx={{ margin: "auto", p: "20px", height: "100%" }}
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -106,7 +104,6 @@ const PresentationPage: NextPage = () => {
       {/* Mette & #3Cant */}
 
       <WavyBackground bgColor="#13283c" textColor="#FFF">
-        <Container maxWidth="lg" sx={{ p: 3 }}>
           <ImageWithSummary
             imageSrc={"/images/mette.jpg"}
             imgWidth="700px"
@@ -142,9 +139,7 @@ const PresentationPage: NextPage = () => {
               </StyledButton>
             </Grid>
           </ImageWithSummary>
-        </Container>
       </WavyBackground>
-      <Container maxWidth="lg" sx={{ p: 3 }}>
         <ImageWithSummary
           imageSrc={"/images/3cant.jpg"}
           direction="row-reverse"
@@ -174,24 +169,11 @@ const PresentationPage: NextPage = () => {
               medier för att hänga med på vår resa, vi finns på Facebook,
               Instagram och på vår hemsida.
             </Typography>
-            {/* <Button
-              href="https://www.3cant.com/"
-              variant="contained"
-              size="large"
-              sx={{
-                margin: "20px auto",
-                backgroundColor: "#EC6610",
-                color: "inherit",
-              }}
-            >
-              Läs Mer
-            </Button> */}
             <StyledButton src="https://www.3cant.com/" external={true}>
               Läs mer
             </StyledButton>
           </Grid>
         </ImageWithSummary>
-      </Container>
 
       {modalOpen && (
         <PresentationModal
