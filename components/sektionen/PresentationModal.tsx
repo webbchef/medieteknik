@@ -57,7 +57,12 @@ export default function PresentationModal(props: InputProps) {
         <Card sx={style}>
           <CardHeader
             title={
-              <Typography variant="h3" margin="10px 0" fontSize={{ sm: "30px", xs: "24px" }} align="center">
+              <Typography
+                variant="h3"
+                margin="10px 0"
+                fontSize={{ sm: "30px", xs: "24px" }}
+                align="center"
+              >
                 {props.user.name}
               </Typography>
             }
@@ -72,11 +77,17 @@ export default function PresentationModal(props: InputProps) {
           </IconButton>
           <CardContent sx={{ p: 0, textAlign: "center" }}>
             {/* <motion.h1 variants={fadeInUp}>{props.user.name}</motion.h1> */}
-            <Typography variant="h4" fontSize={{ sm: "20px", xs: "18px" }}>{props.user.responsibility}</Typography>
+            <Typography variant="h4" fontSize={{ sm: "20px", xs: "18px" }}>
+              {props.user.responsibility}
+            </Typography>
             <CopyText text={props.user.email} align="center" />
             <br></br>
 
-            <Typography fontSize={{ sm: "16px", xs: "14px" }}>{props.user.text}</Typography>
+            <Typography
+              fontSize={{ sm: "16px", xs: "14px", whiteSpace: "pre-line" }}
+            >
+              {props.user.text}
+            </Typography>
           </CardContent>
         </Card>
       </Modal>

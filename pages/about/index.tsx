@@ -73,11 +73,14 @@ const PresentationPage: NextPage = () => {
           marginBottom: "20px",
         }}
       >
-        <BackgroundImage pageName="OM MT" imgSrc={gruppbild.src} />
+        <BackgroundImage
+          pageName="OM MT"
+          imgSrc="/images/axels/styrelsen-4.jpg"
+        />
 
         {/* ----------Civilingengör i Medieteknik ------------*/}
         <ImageWithSummary
-          imageSrc={gruppbild.src}
+          imageSrc="/images/axels/styrelsen-1.jpg"
           direction="row-reverse"
           imgWidth="700px"
           imgHeight="700px"
@@ -203,16 +206,16 @@ const PresentationPage: NextPage = () => {
               m: "50px",
             }}
           >
-            <Typography variant="h2" sx={{ margin: 2 }}>
+            <Typography variant="h2" sx={{ margin: 1 }}>
               Utlandsstudier
             </Typography>
 
             <Typography sx={{ margin: 2 }}>
-              Varje år åker ca 600 studenter från Linköpings universitet till
+              {/* Varje år åker ca 600 studenter från Linköpings universitet till
               ett av de 400 universiteten i över 50 länder som LiU har
               utbytesavtal med.
               <br></br>
-              <br></br>
+              <br></br> */}
               Att studera utomlands som student från Linköpings Universitet kan
               vara en mycket berikande upplevelse. Det ger dig möjlighet att
               uppleva en annan kultur, förbättra dina språkkunskaper och få en

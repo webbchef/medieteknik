@@ -2,7 +2,7 @@ import Head from "next/head";
 import type { NextPage } from "next";
 import { useState } from "react";
 import content from "../../content/styrare.json";
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Stack, Button, Typography } from "@mui/material";
 import PresentationModal from "../../components/sektionen/PresentationModal";
 import PresentationCard from "../../components/sektionen/PresentationCard";
 import { motion } from "framer-motion";
@@ -16,9 +16,8 @@ import CopyText from "../../components/general/CopyText";
 import StyledButton from "../../components/general/StyledButton";
 
 const PresentationPage: NextPage = () => {
-  console.log(content);
   const styrare: Styrare[] = content;
-  console.log(styrare);
+
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [activeUser, setActiveUser] = useState<number>(0);
 
@@ -40,15 +39,19 @@ const PresentationPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <BackgroundImage pageName="SEKTIONEN" imgSrc={gruppbild.src} />
+      <BackgroundImage pageName="" imgSrc="/images/axels/styrelsen-3.jpg" />
 
       {/* Styrelsen */}
 
       <Container
         maxWidth="lg"
-        sx={{ width: "90%", margin: "auto", padding: "30px 0" }}
+        sx={{ width: "70vw", margin: "auto", padding: "20px 0 10px 0" }}
       >
-        <Typography variant="h2" align="center">
+        <Typography
+          variant="h2"
+          align="center"
+          sx={{ margin: "40px 0", color: "black" }}
+        >
           STYRELSEN
         </Typography>
         <Typography align="center" sx={{ marginBottom: "40px" }}>
@@ -63,7 +66,7 @@ const PresentationPage: NextPage = () => {
           <a
             href="https://drive.google.com/drive/folders/1xyIUmboYlJ3GJC0i6G_nVXaQTA34b2Iz?usp=sharing"
             target="blank"
-            style={{ color: "blue" }}
+            style={{ color: "#EC6610", textDecoration: "underline" }}
           >
             här.
           </a>
@@ -76,16 +79,14 @@ const PresentationPage: NextPage = () => {
 
       {/* Styrelse-Grid*/}
 
-      <Grid container maxWidth="lg" sx={{ margin: "auto", padding: "0 20px 80px 20px" }}>
-        {styrare.map((styr, index) => ( 
+      <Grid container maxWidth="lg" sx={{ margin: "auto", padding: "50px 0" }}>
+        {styrare.map((styr, index) => (
           <Grid
             item
-            xs={10}
-            sm={6}
-            md={4}
-            lg={3}
+            xs={6}
+            md={3}
             key={index}
-            sx={{ margin: "auto", p: "20px", height: "100%" }}
+            sx={{ p: "20px", height: "100%" }}
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -104,6 +105,7 @@ const PresentationPage: NextPage = () => {
       {/* Mette & #3Cant */}
 
       <WavyBackground bgColor="#13283c" textColor="#FFF">
+        <Container maxWidth="lg" sx={{ p: 3 }}>
           <ImageWithSummary
             imageSrc={"/images/mette.jpg"}
             imgWidth="700px"
@@ -139,7 +141,9 @@ const PresentationPage: NextPage = () => {
               </StyledButton>
             </Grid>
           </ImageWithSummary>
+        </Container>
       </WavyBackground>
+      <Container maxWidth="lg" sx={{ p: 3 }}>
         <ImageWithSummary
           imageSrc={"/images/3cant.jpg"}
           direction="row-reverse"
@@ -156,11 +160,11 @@ const PresentationPage: NextPage = () => {
             <Typography
               variant="h2"
               align="center"
-              sx={{ color: "inherit", m: 2 }}
+              sx={{ color: "black", m: 2 }}
             >
               3CANT
             </Typography>
-            <Typography align="center" sx={{ color: "inherit" }}>
+            <Typography align="center" sx={{ color: "black" }}>
               Hej! Det är vi som är 3Cant och vi är civilingenjörernas festeri!
               Vi består av 11 glada individer från antingen MT, ED eller KTS som
               är klädda i rosa skjorta och svarta hängselbyxor! Under vårt år
@@ -169,11 +173,24 @@ const PresentationPage: NextPage = () => {
               medier för att hänga med på vår resa, vi finns på Facebook,
               Instagram och på vår hemsida.
             </Typography>
+            {/* <Button
+              href="https://www.3cant.com/"
+              variant="contained"
+              size="large"
+              sx={{
+                margin: "20px auto",
+                backgroundColor: "#EC6610",
+                color: "inherit",
+              }}
+            >
+              Läs Mer
+            </Button> */}
             <StyledButton src="https://www.3cant.com/" external={true}>
               Läs mer
             </StyledButton>
           </Grid>
         </ImageWithSummary>
+      </Container>
 
       {modalOpen && (
         <PresentationModal

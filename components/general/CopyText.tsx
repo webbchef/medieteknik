@@ -23,8 +23,8 @@ export default function CopyText(props: InputProps) {
     <Typography
       onClick={handleCopy}
       sx={[
-        { cursor: "pointer" },
-        props.color ? { color: props.color } : { color: "blue" },
+        { cursor: "pointer", textDecoration: "underline" },
+        props.color ? { color: props.color } : { color: "#EC6610" },
         props.align ? { textAlign: props.align } : { textAlign: "left" },
       ]}
     >

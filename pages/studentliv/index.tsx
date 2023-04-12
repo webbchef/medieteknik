@@ -30,7 +30,10 @@ const StudentlivPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Grid container sx={{ justifyContent: "center" }}>
-        <BackgroundImage pageName="STUDENTLIV" imgSrc={gruppbild.src} />
+        <BackgroundImage
+          pageName="STUDENTLIV"
+          imgSrc="/images/axels/styrelsen-5.jpg"
+        />
 
         {/* <Grid
           container
@@ -133,6 +136,9 @@ const StudentlivPage: NextPage = () => {
             src={"/images/nollep5.jpg"}
             style={{ height: "40vh", width: "100%", objectFit: "cover" }}
           />
+          <Typography sx={{ textAlign: "right", width: "100%" }}>
+            Foto: Sofia Krantz
+          </Typography>
         </Grid>
 
         <Grid

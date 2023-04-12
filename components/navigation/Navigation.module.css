@@ -9,6 +9,11 @@
   color: #000;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 .link::before {
   content: "";
   position: absolute;

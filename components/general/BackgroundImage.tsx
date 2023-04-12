@@ -17,12 +17,12 @@ export default function BackgroundImage(props: InputProps) {
         className="imageContainer"
         sx={{
           opacity: 1,
-          height: "70vh",
+          height: "80vh",
           position: "relative !important",
           backgroundImage: `url(${props.imgSrc})`,
           backgroundSize: "cover",
           backgroundColor: "rgba(0, 0, 0, 0.5)",
-          backgroundPosition: "center",
+          backgroundPosition: "50% 75%",
           alignItems: "center",
           justifyContent: "center",
           backgroundAttachment: "fixed",

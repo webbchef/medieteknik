@@ -63,7 +63,7 @@ const Home: NextPage = () => {
           type="video/mp4"
         />
       </video> */}
-      <BackgroundImage imgSrc={gruppbild.src}>
+      <BackgroundImage imgSrc="/images/axels/styrelsen-6.jpg">
         {
           //TODO: This grid should cover entire page and contian all child grids
         }
@@ -290,7 +290,7 @@ const Home: NextPage = () => {
       </Grid>
       <Grid container paddingTop={9} paddingBottom={9}>
         <ImageWithSummary
-          imageSrc="/images/mtd.jpg"
+          imageSrc="/images/mtd2.jpg"
           direction="row-reverse"
           imgWidth={"500px"}
           imgHeight={"500px"}
