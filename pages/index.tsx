@@ -112,6 +112,7 @@ const Home: NextPage = () => {
               style={{
                 fontFamily: "Lato",
                 fontSize: "45px",
+                color: "white",
               }}
             >
               CIVILINGENJÖR
@@ -122,9 +123,10 @@ const Home: NextPage = () => {
               drag
               dragConstraints={constraintsRef4}
               style={{
-                fontFamily: "Barlow",
+                fontFamily: "Barlow, sans-serif !important",
                 fontWeight: "bold",
                 fontSize: "64px",
+                color: "white",
               }}
             >
               MEDIETEKNIK

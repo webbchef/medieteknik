@@ -22,7 +22,7 @@
   height: 2.5px;
   bottom: 0;
   left: 0;
-  background-color: #000;
+  background-color: white;
   transform: scaleX(0);
   transition: transform 0.3s ease;
   margin: -2px;
@@ -33,6 +33,6 @@
 }
 
 .active {
-  border-bottom: 2.5px solid black;
+  border-bottom: 2.5px solid white;
   line-height: 1;
 }

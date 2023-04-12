@@ -230,7 +230,7 @@ const StudentlivPage: NextPage = () => {
             Utöver allmänna event anordrar styrelsen under året event för endast
             MT-studenter. Flera av dessa event anordas med hjälp av olika
             utskott som består av engagerade MT-studenter. Exempel på utskott är
-            event- och midsommarutskottet
+            event- och midsommarutskottet.
           </Typography>
           <Events />
         </Grid>

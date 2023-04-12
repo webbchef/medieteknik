@@ -39,6 +39,7 @@ let theme = createTheme({
     h4: {
       fontSize: "20px",
       fontWeight: "bold !important",
+      color: "white !important",
     },
   },
   palette: {
