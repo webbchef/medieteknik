@@ -6,14 +6,7 @@ import StyledButton from "../general/StyledButton";
 export default function Studentkonto() {
   return (
     <WavyBackground bgColor="#13283c" textColor="#FFFFFF">
-      <Grid
-        container
-        spacing={3}
-        maxWidth="lg"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-      >
+      <Grid container spacing={3} maxWidth="lg">
         <Grid
           item
           xs={12}
@@ -22,7 +15,7 @@ export default function Studentkonto() {
             display: "flex",
             paddingTop: "70px !important",
             paddingBottom: "70px",
-            minHeight: "600px",
+            minHeight: "380px",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
@@ -33,11 +26,13 @@ export default function Studentkonto() {
             Studentkonto
           </Typography>
           <Typography sx={{ m: 2, color: "white" }}>
-            Vill du få en inblick i hur det är att leva som MT-student? Då ska
-            du följa vårat instagramkonto <i>medieteknik_student</i>!
+            Vill du få en inblick i hur det är att leva som en MT-student eller
+            hur studentlivet är här i Norrköping?
             <br />
             <br />
-            Här får du följa med en MT-student ...
+            Då ska du följa vårat instagramkonto <i>medieteknik_student</i> där
+            du varje vecka får du följa med en MT-student som delar med sig av
+            sin vardag!
           </Typography>
           {/* <Button
             target="_blank"
@@ -76,7 +71,7 @@ export default function Studentkonto() {
             style={{
               border: "none",
               // overflow: "hidden",
-              width: "40%",
+              width: "52%",
               borderRadius: "10px",
             }}
           ></iframe>

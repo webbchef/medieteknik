@@ -1,7 +1,7 @@
 import eventsContent from "../../content/events.json";
 import linksContent from "../../content/footer_links.json";
 import { Event, FooterLink } from "../../utils/types";
-import { Grid, IconButton, Typography, Link } from "@mui/material";
+import { Grid, IconButton, Typography, Link, Divider } from "@mui/material";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { useContext } from "react";
@@ -17,7 +17,13 @@ export default function Footer() {
     <Grid
       container
       spacing={3}
-      sx={{ backgroundColor: "black", p: 3, marginTop: "50px" }}
+      sx={{
+        backgroundColor: "black",
+        p: 3,
+        marginTop: "10px",
+        display: "flex",
+        justifyContent: "center",
+      }}
     >
       <Grid item xs={12} md={4}>
         <Grid container justifyContent="center" alignItems="center">
@@ -67,10 +73,8 @@ export default function Footer() {
           Sandgatan 31 601 74 Norrköping
         </Typography>
         <br></br>
-        {/* <Typography color="white">
-          <a href="mailto:info@medieteknik.nu">info@medieteknik.nu</a>
-        </Typography> */}
-        <CopyText text="info@medieteknikdagen.se" color="white" />
+
+        <CopyText text="info@medieteknikdagen.se" color="#EC6610" />
       </Grid>
       <Grid
         item
@@ -87,25 +91,37 @@ export default function Footer() {
           </Link>
         ))}
       </Grid>
-      <Grid>
+      <Grid
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "40%",
+          borderTop: "1px solid white",
+          padding: 1,
+          m: 2,
+        }}
+      >
         <a
           href="https://www.flaticon.com/free-icons/work-in-progress"
           title="work in progress icons"
-          style={{ color: "white" }}
+          style={{ color: "gray", fontSize: "11px", display: "inline" }}
         >
-          Work in progress icons created by Eucalyp - Flaticon
+          Work in progress icons,&nbsp;
         </a>
+
         <a
           href="https://www.flaticon.com/free-icons/initiative"
           title="initiative icons"
-          style={{ color: "white" }}
+          style={{ color: "gray", fontSize: "11px", display: "inline" }}
         >
-          Initiative icons created by Eucalyp - Flaticon
+          Initiative icons and&nbsp;
         </a>
         <a
           href="https://www.flaticon.com/free-icons/work"
           title="work icons"
-          style={{ color: "white" }}
+          style={{ color: "gray", fontSize: "11px", display: "inline" }}
         >
           Work icons created by Eucalyp - Flaticon
         </a>

@@ -104,7 +104,7 @@ export default function Navigation() {
             onClick={closeMenu}
             className={styles.link}
           >
-            <Button startIcon={<LoginIcon />}>
+            <Button variant="outlined" startIcon={<LoginIcon />}>
               <Typography variant="h4">LOGGA IN</Typography>
             </Button>
           </Link>
@@ -153,7 +153,7 @@ export default function Navigation() {
             target="_blank"
             rel="noopener"
           >
-            <Button startIcon={<LoginIcon />}>
+            <Button variant="outlined" startIcon={<LoginIcon />}>
               <Typography variant="h4" sx={{ fontSize: "15px" }}>
                 LOGGA IN
               </Typography>

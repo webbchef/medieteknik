@@ -261,10 +261,10 @@ const Home: NextPage = () => {
               flesta på MT minns som den bästa delen av deras studietid:
               Nolleperioden, eller Nolle-P. Nolle-P heter så eftersom de nya
               eleverna inte börjar ettan innan sista dagen på Nolle-P. Efter
-              Nolle-P finns det "oändligt" med{" "}
+              Nolle-P finns det massor av{" "}
               <a
                 href="https://studentlivet.se/orbi-associations/"
-                style={{ color: "blue" }}
+                style={{ color: "#EC6610", textDecoration: "underline" }}
               >
                 föreningar
               </a>{" "}
