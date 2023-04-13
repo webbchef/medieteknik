@@ -12,32 +12,32 @@ let theme = createTheme({
       defaultProps: {
         fontFamily: "Lato, sans-serif",
         color: "black",
-        fontSize: "12",
+        fontSize: "18px",
         // fontWeight: 500,
       },
     },
   },
   typography: {
     h1: {
-      fontSize: "60px",
+      fontSize: "60px !important",
       fontFamily: "Barlow, sans-serif !important",
       fontWeight: 700,
     },
     h2: {
-      fontSize: "40px",
+      fontSize: "40px !important",
       fontWeight: "bold !important",
       fontFamily: "Barlow, sans-serif !important",
       margin: "20px 0",
     },
     h3: {
-      fontSize: "30px",
+      fontSize: "30px !important",
       fontWeight: "bold !important",
       fontFamily: "Barlow, sans-serif !important",
       margin: "20px 0",
     },
     // Navigation
     h4: {
-      fontSize: "20px",
+      fontSize: "20px !important",
       fontWeight: "bold !important",
       color: "white !important",
     },

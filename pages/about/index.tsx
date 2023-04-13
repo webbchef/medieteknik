@@ -75,7 +75,7 @@ const PresentationPage: NextPage = () => {
       >
         <BackgroundImage
           pageName="OM MT"
-          imgSrc="/images/axels/styrelsen-4.jpg"
+          imgSrc="/images/axels/styrelsen-5.jpg"
         />
 
         {/* ----------Civilingengör i Medieteknik ------------*/}

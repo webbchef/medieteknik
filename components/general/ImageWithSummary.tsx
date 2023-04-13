@@ -21,7 +21,15 @@ export default function ImageWithSummary(props: InputProps) {
       sx={{ padding: "40px 0" }}
       margin="auto"
     >
-      <Grid item xs={7} md={4} sx={{ width: "100%", overflow: "hidden" }}>
+      <Grid
+        item
+        xs={7}
+        md={4}
+        sx={{
+          width: "100%",
+          overflow: "hidden",
+        }}
+      >
         <Image
           style={{ borderRadius: "30px" }}
           width={props.imgWidth}

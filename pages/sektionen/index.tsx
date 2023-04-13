@@ -39,7 +39,10 @@ const PresentationPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <BackgroundImage pageName="" imgSrc="/images/axels/styrelsen-3.jpg" />
+      <BackgroundImage
+        pageName="SEKTIONEN"
+        imgSrc="/images/axels/styrelsen-4.jpg"
+      />
 
       {/* Styrelsen */}
 
@@ -54,6 +57,7 @@ const PresentationPage: NextPage = () => {
         >
           STYRELSEN
         </Typography>
+
         <Typography align="center" sx={{ marginBottom: "40px" }}>
           Hej! Vi är Medietekniksektionens styrelse under perioden 22/23. Vi
           representerar MT-eleverna gentemot LiU, verkar för en bättre
@@ -61,6 +65,18 @@ const PresentationPage: NextPage = () => {
           anordnar också föreläsningar där företag och alumner berättar om livet
           efter examen.
         </Typography>
+        <Grid
+          item
+          xs={10}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: "30px",
+          }}
+        >
+          <img src="/images/axels/styrelsen-3.jpg" width="70%" />
+        </Grid>
         <Typography align="center">
           Protokoll, stadgar och annat skoj från styrelsen hittar du{" "}
           <a
