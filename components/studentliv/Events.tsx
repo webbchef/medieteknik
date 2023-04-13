@@ -37,7 +37,7 @@ export default function AlternateTimeline() {
           justifyContent="center"
         >
           {events.map((item, index) => (
-            <Grid item sx={{ m: "40px", width: "70%" }}>
+            <Grid item sx={{ m: "40px", width: "70%" }} key={index}>
               <EventCard {...item} />
             </Grid>
           ))}

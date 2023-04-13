@@ -44,7 +44,7 @@ let theme = createTheme({
   },
   palette: {
     background: {
-      default: "FFFFFF",
+      default: "#FFFFFF",
     },
     primary: {
       main: "#3A3A3C",

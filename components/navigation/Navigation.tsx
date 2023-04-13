@@ -14,7 +14,6 @@ import {
 import { Sling as Hamburger } from "hamburger-react";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 import LoginIcon from "@mui/icons-material/Login";
-import LaunchIcon from "@mui/icons-material/Launch";
 import Link from "next/link";
 import Image from "next/image";
 import SocialMediaIcons from "../general/SocialMediaIcons";
@@ -28,6 +27,7 @@ export default function Navigation() {
   const [bgColor, setBgColor] = useState<boolean>(false);
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
 
+  console.log(bgColor);
   const router = useRouter();
   const currentRoute = router.pathname;
 
@@ -36,9 +36,14 @@ export default function Navigation() {
   }
 
   const changeBackground = () => {
-    if (window.scrollY >= 66) {
-      setBgColor(true);
+    if (isDesktop) {
+      if (window.scrollY >= 66) {
+        setBgColor(true);
+      } else {
+        setBgColor(false);
+      }
     } else {
+      // No background in mobile
       setBgColor(false);
     }
   };
@@ -116,10 +121,7 @@ export default function Navigation() {
             onClick={closeMenu}
             className={styles.link}
           >
-            <Button
-              variant="outlined"
-              startIcon={<LoginIcon sx={{ color: "black" }} />}
-            >
+            <Button startIcon={<LoginIcon sx={{ color: "white" }} />}>
               <Typography
                 variant="h4"
                 className={bgColor ? styles.blackText : styles.whiteText}
@@ -209,7 +211,7 @@ export default function Navigation() {
             }}
           >
             <Grid sx={{ zIndex: 99999 }}>
-              <Hamburger toggled={isOpen} toggle={setOpen} color="black" />
+              <Hamburger toggled={isOpen} toggle={setOpen} color="#EC6610" />
             </Grid>
           </Box>
 
