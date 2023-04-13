@@ -28,7 +28,13 @@ export default function BackgroundImage(props: InputProps) {
         }}
         className={styles.container}
       >
-        <Image src={props.imgSrc} objectFit="cover" layout="fill" priority />
+        <Image
+          src={props.imgSrc}
+          objectFit="cover"
+          layout="fill"
+          priority={true}
+          loading="eager"
+        />
         {props.pageName ? (
           <Typography
             variant="h1"
