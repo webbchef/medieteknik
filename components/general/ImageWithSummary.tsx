@@ -23,6 +23,7 @@ export default function ImageWithSummary(props: InputProps) {
             layout="fill"
             objectFit="cover"
             src={props.imageSrc}
+            alt=""
           />
        
       </Grid>
