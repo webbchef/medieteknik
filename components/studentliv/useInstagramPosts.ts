@@ -11,8 +11,8 @@ interface InstagramPost {
 
 const useInstagramPosts = (
     accessToken: string,
-    count: number = 30, 
-    refreshInterval: number = 300000
+    count: number = 600, 
+    refreshInterval: number = 3600000
 ): InstagramPost[] => {
     const [posts, setPosts] = useState<InstagramPost[]>([]);
 

@@ -55,7 +55,7 @@ export default function Studentkonto() {
                         alignItems: "center",
                     }}
                 >
-                    {posts && <ImageCarousel posts={posts} />}
+                    {posts && <ImageCarousel />}
                 </Grid>
             </Grid>
         </WavyBackground>

@@ -40,17 +40,19 @@ export default function ImageCarousel() {
                                 onMouseLeave={() => setHover(false)}
                                 sx={{
                                     borderRadius: "10px",
-                                    height: 255,
+                                    height: 350,
                                     display: "block",
-                                    maxWidth: 400,
+                                    maxWidth: 500,
                                     overflow: "hidden",
                                     width: "100%",
                                     backgroundImage: `url(${post.media_url})`,
-                                    backgroundRepeat: "none",
+                                    backgroundRepeat: "no-repeat",
                                     backgroundSize: "cover",
+                                    backgroundPosition: "center", // Add this line
                                     position: "relative",
                                 }}
                             ></Grid>
+
                         ) : null}
                     </div>
                 ))}
