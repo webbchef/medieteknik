@@ -1,6 +1,7 @@
-import { Grid, Button, Typography } from "@mui/material";
-import { Stack, GridDirection } from "@mui/system";
+import { Button, Typography } from "@mui/material";
+import { Stack, GridDirection, Box } from "@mui/system";
 import Image, { StaticImageData } from "next/image";
+import Grid from "@mui/system/Unstable_Grid/Grid";
 
 interface InputProps {
   imageSrc: string;
@@ -16,22 +17,18 @@ export default function ImageWithSummary(props: InputProps) {
       container
       direction={props.direction ? props.direction : "row"}
       justifyContent="center"
-      alignItems="center"
       sx={{ padding: "20px 0" }}
     >
-      <Grid item xs={7} md={4} sx={{ width: "100%" }}>
-        <Image
-          style={{ borderRadius: "20px" }}
-          width={props.imgWidth}
-          // position="relative !important"
-          height={props.imgHeight}
-          objectFit="contain"
-          src={props.imageSrc}
-          alt=""
-        />
+      <Grid xs={7} md={4} sx={{position: "relative"}}>
+          <Image
+            layout="fill"
+            objectFit="contain"
+            src={props.imageSrc}
+          />
+       
       </Grid>
-      <Grid item xs={7} md={1} />
-      <Grid item xs={9} md={5}>
+      <Grid xs={7} md={1} />
+      <Grid xs={9} md={5}>
         {props.children}
       </Grid>
     </Grid>

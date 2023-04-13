@@ -135,8 +135,8 @@ const Home: NextPage = () => {
       <Grid
         container
         spacing={2}
-        paddingLeft={{ xs: 3, lg: 15 }}
-        paddingRight={{ xs: 3, lg: 15 }}
+        paddingLeft={{ xs: 3, lg: 30 }}
+        paddingRight={{ xs: 3, lg: 30 }}
         sx={{ marginBottom: 4 }}
       >
         <Grid
@@ -155,7 +155,7 @@ const Home: NextPage = () => {
           >
             Vad är MT?
           </Typography>
-          <Typography color="black" textAlign="center">
+          <Typography color="black" >
             Hej! Välkommen till sidan om Medieteknik, eller MT som vi kallar
             det. Vår utbildning heter Medieteknik eftersom den handlar om
             tekniken bakom de olika medierna, d.v.s. ljud, bild, video, spel,
@@ -172,8 +172,8 @@ const Home: NextPage = () => {
         container
         padding={5}
         alignItems={"center"}
-        paddingLeft={{ xs: 3, lg: 15 }}
-        paddingRight={{ xs: 3, lg: 15 }}
+        paddingLeft={{ xs: 3, lg: 30 }}
+        paddingRight={{ xs: 3, lg: 30 }}
         spacing={6}
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
@@ -237,7 +237,11 @@ const Home: NextPage = () => {
           }
         })}
       </Grid>
-      <Grid container paddingTop={9} paddingBottom={9}>
+      <Grid 
+        container paddingTop={9} paddingBottom={9}
+        paddingLeft={{ xs: 3, lg: 10 }}
+          paddingRight={{ xs: 3, lg: 10 }}
+      >
         <ImageWithSummary
           imageSrc="/images/nollep6.jpg"
           direction="row"
@@ -245,6 +249,7 @@ const Home: NextPage = () => {
           imgWidth="700px"
         >
           <Grid
+          
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -279,12 +284,16 @@ const Home: NextPage = () => {
           <Carousel carouselItems={carouselItems} />
         </WavyBackground>
       </Grid>
-      <Grid container paddingTop={9} paddingBottom={9}>
+      <Grid
+        container paddingTop={9}
+        paddingBottom={9}
+       
+      >
         <ImageWithSummary
           imageSrc="/images/mtd.jpg"
           direction="row-reverse"
-          imgWidth={"500px"}
-          imgHeight={"500px"}
+          imgWidth={"400px"}
+          imgHeight={"400px"}
         >
           <Grid
             sx={{
