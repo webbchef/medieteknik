@@ -1,26 +1,15 @@
 import Head from "next/head";
 import type { NextPage } from "next";
 import { useState, useContext } from "react";
-import { Button, Grid, Icon, IconButton, Typography, Box } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 import BackgroundImage from "../../components/general/BackgroundImage";
-import gruppbild from "../../public/images/gruppbild.jpg";
 import Link from "next/link";
 import { Alumn, ExternalPagesMT } from "../../utils/types";
 import alumnContent from "../../content/alumn.json";
 import externalPagesContent from "../../content/external_pages_mt.json";
-import { fadeInUp } from "../../animations/constants";
-import PresentationAlumn from "../../components/about/PresentationAlumn";
-
-import { Card, CardContent, CardMedia, CardActionArea } from "@mui/material";
-
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
-import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
-import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
-import Image from "next/image";
 import SocialMediaIcons from "../../components/general/SocialMediaIcons";
 import StyledButton from "../../components/general/StyledButton";
 import ImageWithSummary from "../../components/general/ImageWithSummary";
@@ -75,12 +64,12 @@ const PresentationPage: NextPage = () => {
       >
         <BackgroundImage
           pageName="OM MT"
-          imgSrc="/images/axels/styrelsen-5.jpg"
+          imgSrc="/images/axels/styrelsen-5.webp"
         />
 
         {/* ----------Civilingengör i Medieteknik ------------*/}
         <ImageWithSummary
-          imageSrc="/images/axels/styrelsen-1.jpg"
+          imageSrc="/images/axels/styrelsen-1.webp"
           direction="row-reverse"
           imgWidth="700px"
           imgHeight="700px"

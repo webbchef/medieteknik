@@ -20,6 +20,12 @@ let theme = createTheme({
   typography: {
     h1: {
       fontSize: "60px !important",
+      "@media (max-width:768px)": {
+        fontSize: "40px !important",
+      },
+      "@media (max-width:768px & min-width:1212px)": {
+        fontSize: "50px !important",
+      },
       fontFamily: "Barlow, sans-serif !important",
       fontWeight: 700,
     },

@@ -1,4 +1,3 @@
-import { WindowRounded } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 
 const initialState: MobileState = {
