@@ -108,6 +108,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         alignItems="center"
         flexWrap="nowrap"
         overflow="hidden"
+        padding="30px"
       >
         {imagesToRender.map((image, i) => {
           if (i === 1) {

@@ -1,6 +1,7 @@
 import eventsContent from "../../content/events.json";
 import { Event } from "../../utils/types";
 import { Grid, Typography } from "@mui/material";
+import styles from "./BackgroundImage.module.css";
 
 interface InputProps {
   pageName?: string;
@@ -8,30 +9,34 @@ interface InputProps {
   children?: JSX.Element;
 }
 export default function BackgroundImage(props: InputProps) {
-  const events: Event[] = eventsContent;
-  
   return (
     <>
       <Grid
         container
-        className="imageContainer"
+        // className="imageContainer"
         sx={{
-          // opacity: 0.3,
-          height: "70vh",
+          opacity: 1,
+          height: "80vh",
           position: "relative !important",
           backgroundImage: `url(${props.imgSrc})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "50% 75%",
           alignItems: "center",
           justifyContent: "center",
           backgroundAttachment: "fixed",
           backgroundRepeat: "no-repeat",
         }}
+        className={styles.container}
       >
         {props.pageName ? (
           <Typography
             variant="h1"
-            sx={{ textAlign: "center", width: "100%", zIndex: 4 }}
+            sx={{
+              textAlign: "center",
+              width: "100%",
+              zIndex: 4,
+              color: "white",
+            }}
           >
             {props.pageName}
           </Typography>

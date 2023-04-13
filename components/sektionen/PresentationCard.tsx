@@ -28,14 +28,13 @@ export default function PresentationCard(props: InputProps) {
       {props.user.imageName && (
         <CardMedia
           component="img"
-          height="30%"
           image={`images//profilePictures/${props.user.imageName}.jpg`}
           alt={props.user.name}
         />
       )}
       <CardHeader title={props.user.name} align="center" />
       <CardContent>
-        <Typography sx={{ fontWeight: "bold" }}>
+        <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
           {props.user.responsibility}
         </Typography>
 

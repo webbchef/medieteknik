@@ -1,26 +1,26 @@
 [
   {
     "title": "MT<3GDK",
-    "text": "aasdasdasdasd",
+    "text": "Ett event tillsammans med vårat systerprogram GDK. Detta anordnas av MTs och GDKs eventustkott och brukar vara en pub och sittning.",
     "month": "Februari",
     "imgPath": "mtgdk"
   },
   {
     "title": "Julapthon",
-    "text": "aasdasdasdasd",
+    "text": "Konstigt nog firar vi Julaphton i Augusti. Detta är en av eventen under Nolle-P som anordnas av styrelsen.",
     "month": "Augusti",
     "imgPath": "julaphton"
   },
   {
     "title": "Kräftskivan",
-    "text": "aasdasdasdasd",
+    "text": "MTs egna kräftskiva! En rolig sittning som innehåller kräftor, snaps och snapsvisor. ",
     "month": "September",
     "imgPath": "kraftskiva"
   },
   {
     "title": "Midsommarphesten",
-    "text": "aasdasdasdasd",
-    "month": "November/December",
+    "text": "Eftersom vi firar Julaphton i augusti firar vi självklart midsommar i december med en fulsittning för MT-studenter.  ",
+    "month": "December",
     "imgPath": "midsommar"
   }
 ]

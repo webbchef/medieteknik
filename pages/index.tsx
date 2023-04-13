@@ -63,7 +63,7 @@ const Home: NextPage = () => {
           type="video/mp4"
         />
       </video> */}
-      <BackgroundImage imgSrc={gruppbild.src}>
+      <BackgroundImage imgSrc="/images/axels/styrelsen-6.jpg">
         {
           //TODO: This grid should cover entire page and contian all child grids
         }
@@ -110,8 +110,9 @@ const Home: NextPage = () => {
               drag
               dragConstraints={constraintsRef3}
               style={{
-                fontFamily: "Lato",
+                fontFamily: "Lato, sans-serif !important",
                 fontSize: "45px",
+                color: "white",
               }}
             >
               CIVILINGENJÖR
@@ -122,9 +123,10 @@ const Home: NextPage = () => {
               drag
               dragConstraints={constraintsRef4}
               style={{
-                fontFamily: "Barlow",
+                fontFamily: "Barlow, sans-serif !important",
                 fontWeight: "bold",
                 fontSize: "64px",
+                color: "white",
               }}
             >
               MEDIETEKNIK
@@ -134,38 +136,46 @@ const Home: NextPage = () => {
       </BackgroundImage>
       <Grid
         container
-        spacing={2}
-        paddingLeft={{ xs: 3, lg: 30 }}
-        paddingRight={{ xs: 3, lg: 30 }}
-        sx={{ marginBottom: 4 }}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
       >
         <Grid
-          xs={12}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
+          container
+          maxWidth="lg"
+          spacing={2}
+          // paddingLeft={{ xs: 3, lg: 15 }}
+          // paddingRight={{ xs: 3, lg: 15 }}
+          sx={{ marginBottom: 4 }}
         >
-          <Typography
-            paddingTop={5}
-            color="black"
-            variant="h2"
-            textAlign="center"
+          <Grid
+            xs={12}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
-            Vad är MT?
-          </Typography>
-          <Typography color="black" >
-            Hej! Välkommen till sidan om Medieteknik, eller MT som vi kallar
-            det. Vår utbildning heter Medieteknik eftersom den handlar om
-            tekniken bakom de olika medierna, d.v.s. ljud, bild, video, spel,
-            m.m. Medietekniks logotyp är två kvadrater (men vi brukar kalla dem
-            kuber). Den orangea kuben representerar kreativitet och de mjuka
-            ämnena i medieteknik, och den grå kuben representerar teknik och de
-            hårda ämnena. Utöver detta är det stort fokus på problemlösning,
-            vilket är en viktig förmåga som civilingejör.
-          </Typography>
-          <StyledButton src="/about">Läs mer</StyledButton>
+            <Typography
+              paddingTop={5}
+              color="black"
+              variant="h2"
+              textAlign="justify"
+            >
+              Vad är MT?
+            </Typography>
+            <Typography color="black" textAlign="center">
+              Hej! Välkommen till sidan om Medieteknik, eller MT som vi kallar
+              det. Vår utbildning heter Medieteknik eftersom den handlar om
+              tekniken bakom de olika medierna, d.v.s. ljud, bild, video, spel,
+              m.m. Medietekniks logotyp är två kvadrater (men vi brukar kalla
+              dem kuber). Den orangea kuben representerar kreativitet och de
+              mjuka ämnena i medieteknik, och den grå kuben representerar teknik
+              och de hårda ämnena. Utöver detta är det stort fokus på
+              problemlösning, vilket är en viktig förmåga som civilingenjör.
+            </Typography>
+            <StyledButton src="/about">Läs mer</StyledButton>
+          </Grid>
         </Grid>
       </Grid>
       <Grid
@@ -266,10 +276,10 @@ const Home: NextPage = () => {
               flesta på MT minns som den bästa delen av deras studietid:
               Nolleperioden, eller Nolle-P. Nolle-P heter så eftersom de nya
               eleverna inte börjar ettan innan sista dagen på Nolle-P. Efter
-              Nolle-P finns det "oändligt" med{" "}
+              Nolle-P finns det massor av{" "}
               <a
                 href="https://studentlivet.se/orbi-associations/"
-                style={{ color: "blue" }}
+                style={{ color: "#EC6610", textDecoration: "underline" }}
               >
                 föreningar
               </a>{" "}
@@ -281,7 +291,16 @@ const Home: NextPage = () => {
       </Grid>
       <Grid md={12} display="flex" justifyContent="center">
         <WavyBackground bgColor="#13283c">
-          <Carousel carouselItems={carouselItems} />
+          <Grid
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Carousel carouselItems={carouselItems} />
+            <StyledButton src="/sektionen">Läs mer här</StyledButton>
+          </Grid>
         </WavyBackground>
       </Grid>
       <Grid
@@ -290,7 +309,7 @@ const Home: NextPage = () => {
        
       >
         <ImageWithSummary
-          imageSrc="/images/mtd.jpg"
+          imageSrc="/images/mtd2.jpg"
           direction="row-reverse"
           imgWidth={"400px"}
           imgHeight={"400px"}

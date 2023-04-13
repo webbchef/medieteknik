@@ -31,11 +31,6 @@ export default function Navigation() {
   const router = useRouter();
   const currentRoute = router.pathname;
 
-  console.log(currentRoute);
-  function openMenu() {
-    setOpen(true);
-  }
-
   function closeMenu() {
     setOpen(false);
   }
@@ -72,7 +67,11 @@ export default function Navigation() {
         { name: "OM MT", to: "/about" },
         { name: "SEKTIONEN", to: "/sektionen" },
       ].map((link, index) => (
-        <ListItem key={index} sx={isMobile ? { m: "10px" } : {}}>
+        <ListItem
+          key={index}
+          sx={isMobile ? { m: "10px" } : {}}
+          className={styles.center}
+        >
           <Link
             href={link.to}
             onClick={closeMenu}
@@ -84,7 +83,10 @@ export default function Navigation() {
           </Link>
         </ListItem>
       ))}
-      <ListItem sx={isMobile ? { m: "10px" } : { cursor: "pointer" }}>
+      <ListItem
+        className={styles.center}
+        sx={isMobile ? { m: "10px" } : { cursor: "pointer" }}
+      >
         {/* <LaunchIcon sx={{ fontSize: "14px" }} /> */}
         <a
           target="_blank"
@@ -96,7 +98,7 @@ export default function Navigation() {
         </a>
       </ListItem>
       {!isDesktop && (
-        <ListItem>
+        <ListItem className={styles.center}>
           <Link
             href="https://old.medieteknik.nu/forum_cookie"
             target="_blank"
@@ -104,7 +106,7 @@ export default function Navigation() {
             onClick={closeMenu}
             className={styles.link}
           >
-            <Button startIcon={<LoginIcon />}>
+            <Button variant="outlined" startIcon={<LoginIcon />}>
               <Typography variant="h4">LOGGA IN</Typography>
             </Button>
           </Link>
@@ -142,7 +144,7 @@ export default function Navigation() {
           <Image
             alt="MT LOGO"
             src="/images/logotyp_svart_text.png"
-            style={{ cursor: "pointer" }}
+            // style={{ cursor: "pointer" }}
             width="80px"
             height="50px"
           />
@@ -153,7 +155,7 @@ export default function Navigation() {
             target="_blank"
             rel="noopener"
           >
-            <Button startIcon={<LoginIcon />}>
+            <Button variant="outlined" startIcon={<LoginIcon />}>
               <Typography variant="h4" sx={{ fontSize: "15px" }}>
                 LOGGA IN
               </Typography>

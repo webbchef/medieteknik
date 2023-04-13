@@ -14,6 +14,7 @@ interface InputProps {
 export default function ImageWithSummary(props: InputProps) {
   return (
     <Grid
+      maxWidth="xl"
       container
       direction={props.direction ? props.direction : "row"}
       justifyContent="center"
