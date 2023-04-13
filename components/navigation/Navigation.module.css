@@ -14,6 +14,16 @@
   justify-content: center;
 }
 
+.blackText {
+  transition: transform 0.3s ease;
+  color: black !important;
+}
+
+.whiteText {
+  transition: transform 0.3s ease;
+  color: white;
+}
+
 .link::before {
   content: "";
   position: absolute;
@@ -34,5 +44,10 @@
 
 .active {
   border-bottom: 2.5px solid white;
+  line-height: 1;
+}
+
+.activeBlack {
+  border-bottom: 2.5px solid black;
   line-height: 1;
 }

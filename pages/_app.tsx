@@ -38,7 +38,7 @@ let theme = createTheme({
     // Navigation
     h4: {
       fontSize: "20px !important",
-      fontWeight: "bold !important",
+      fontWeight: "500px !important",
       color: "white !important",
     },
   },

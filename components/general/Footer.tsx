@@ -74,7 +74,11 @@ export default function Footer() {
         </Typography>
         <br></br>
 
-        <CopyText text="info@medieteknikdagen.se" color="#EC6610" />
+        <CopyText
+          text="info@medieteknik.nu"
+          color="#EC6610"
+          align={!isDesktop ? "center" : "left"}
+        />
       </Grid>
       <Grid
         item

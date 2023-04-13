@@ -5,8 +5,6 @@ import {
   Typography,
   CardMedia,
 } from "@mui/material";
-import { motion } from "framer-motion";
-import { fadeInUp } from "../../animations/constants";
 import { Styrare } from "../../utils/types";
 
 interface InputProps {
@@ -20,15 +18,12 @@ interface InputProps {
  * @returns
  */
 export default function PresentationCard(props: InputProps) {
-  const getLink = (mail: string) => {
-    return `mailto:${mail}`;
-  };
   return (
     <Card onClick={props.openInfo} sx={{ cursor: "pointer", height: "100%" }}>
       {props.user.imageName && (
         <CardMedia
           component="img"
-          image={`images//profilePictures/${props.user.imageName}.jpg`}
+          image={`/images/profilePictures/${props.user.imageName}.jpg`}
           alt={props.user.name}
         />
       )}

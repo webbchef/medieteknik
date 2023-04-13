@@ -79,7 +79,12 @@ export default function Navigation() {
             // className={styles.link}
             className={currentRoute === link.to ? styles.active : styles.link}
           >
-            <Typography variant="h4">{link.name}</Typography>
+            <Typography
+              variant="h4"
+              className={bgColor ? styles.blackText : styles.whiteText}
+            >
+              {link.name}
+            </Typography>
           </Link>
         </ListItem>
       ))}
@@ -94,7 +99,12 @@ export default function Navigation() {
           href="https://www.medieteknikdagen.se/"
           className={styles.link}
         >
-          <Typography variant="h4">MÄSSA</Typography>
+          <Typography
+            variant="h4"
+            className={bgColor ? styles.blackText : styles.whiteText}
+          >
+            MÄSSA
+          </Typography>
         </a>
       </ListItem>
       {!isDesktop && (
@@ -106,8 +116,16 @@ export default function Navigation() {
             onClick={closeMenu}
             className={styles.link}
           >
-            <Button variant="outlined" startIcon={<LoginIcon />}>
-              <Typography variant="h4">LOGGA IN</Typography>
+            <Button
+              variant="outlined"
+              startIcon={<LoginIcon sx={{ color: "black" }} />}
+            >
+              <Typography
+                variant="h4"
+                className={bgColor ? styles.blackText : styles.whiteText}
+              >
+                LOGGA IN
+              </Typography>
             </Button>
           </Link>
         </ListItem>
@@ -143,7 +161,11 @@ export default function Navigation() {
           {/* <Link href="/"> */}
           <Image
             alt="MT LOGO"
-            src="/images/logotyp_svart_text.png"
+            src={
+              bgColor
+                ? "/images/logotyp_svart_text.png"
+                : "/images/logotyp_vit_text.png"
+            }
             // style={{ cursor: "pointer" }}
             width="80px"
             height="50px"
@@ -155,8 +177,17 @@ export default function Navigation() {
             target="_blank"
             rel="noopener"
           >
-            <Button variant="outlined" startIcon={<LoginIcon />}>
-              <Typography variant="h4" sx={{ fontSize: "15px" }}>
+            <Button
+              variant="outlined"
+              startIcon={
+                <LoginIcon sx={{ color: bgColor ? "black" : "white" }} />
+              }
+            >
+              <Typography
+                variant="h4"
+                sx={{ fontSize: "15px" }}
+                className={bgColor ? styles.blackText : styles.whiteText}
+              >
                 LOGGA IN
               </Typography>
             </Button>
