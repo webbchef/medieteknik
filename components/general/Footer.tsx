@@ -12,14 +12,15 @@ export default function Footer() {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
   const events: Event[] = eventsContent;
   const links: FooterLink[] = linksContent;
-  console.log(events);
+
   return (
     <Grid
       container
-      spacing={3}
+      // spacing={3}
       sx={{
         backgroundColor: "black",
         p: 3,
+        paddingTop: "60px",
         marginTop: "10px",
         display: "flex",
         justifyContent: "center",
@@ -62,7 +63,7 @@ export default function Footer() {
         item
         xs={isMobile ? 12 : 6}
         md={4}
-        sx={!isDesktop ? { textAlign: "center" } : { textAlign: "left" }}
+        sx={!isDesktop ? { textAlign: "center", m: 3 } : { textAlign: "left" }}
       >
         <Typography variant="h4" color="white">
           Kontakt
@@ -84,7 +85,7 @@ export default function Footer() {
         item
         xs={isMobile ? 12 : 6}
         md={4}
-        sx={!isDesktop ? { textAlign: "center" } : { textAlign: "left" }}
+        sx={!isDesktop ? { textAlign: "center", m: 3 } : { textAlign: "left" }}
       >
         <Typography variant="h4" color="white">
           Studentlänkar
@@ -96,39 +97,42 @@ export default function Footer() {
         ))}
       </Grid>
       <Grid
+        item
+        xs={12}
         sx={{
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          width: "40%",
-          borderTop: "1px solid white",
+          width: "50%",
           padding: 1,
           m: 2,
         }}
       >
-        <a
-          href="https://www.flaticon.com/free-icons/work-in-progress"
-          title="work in progress icons"
-          style={{ color: "gray", fontSize: "11px", display: "inline" }}
-        >
-          Work in progress icons,&nbsp;
-        </a>
+        <Typography sx={{ textAlign: "center", borderTop: "1px solid white" }}>
+          <a
+            href="https://www.flaticon.com/free-icons/work-in-progress"
+            title="work in progress icons"
+            style={{ color: "gray", fontSize: "11px", display: "inline" }}
+          >
+            Work in progress icons,&nbsp;
+          </a>
 
-        <a
-          href="https://www.flaticon.com/free-icons/initiative"
-          title="initiative icons"
-          style={{ color: "gray", fontSize: "11px", display: "inline" }}
-        >
-          Initiative icons and&nbsp;
-        </a>
-        <a
-          href="https://www.flaticon.com/free-icons/work"
-          title="work icons"
-          style={{ color: "gray", fontSize: "11px", display: "inline" }}
-        >
-          Work icons created by Eucalyp - Flaticon
-        </a>
+          <a
+            href="https://www.flaticon.com/free-icons/initiative"
+            title="initiative icons"
+            style={{ color: "gray", fontSize: "11px", display: "inline" }}
+          >
+            Initiative icons and&nbsp;
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/work"
+            title="work icons"
+            style={{ color: "gray", fontSize: "11px", display: "inline" }}
+          >
+            Work icons created by Eucalyp - Flaticon
+          </a>
+        </Typography>
       </Grid>
     </Grid>
   );
