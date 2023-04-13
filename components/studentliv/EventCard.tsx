@@ -1,12 +1,14 @@
+import { useContext } from "react";
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import { Event } from "../../utils/types";
+import { MobileStateContext } from "../../contexts/MobileContexts";
 
 export default function EventCard(item: Event) {
   return (
-    <Card sx={{ marginTop: "-80px", width: "100%" }}>
+    <Card>
       <CardMedia
         component="img"
-        height="150"
+        height="150px"
         image={`/images/eventPictures/${item.imgPath}.jpg`}
         alt={item.title}
       />

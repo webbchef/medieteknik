@@ -28,29 +28,45 @@ export default function AlternateTimeline() {
         justifyContent: "center",
       }}
     >
-      <Timeline
-        sx={{ marginTop: "125px", alignItems: "center" }}
-        position={isMobile ? "left" : "alternate"}
-        nonce={undefined}
-        onResize={undefined}
-        onResizeCapture={undefined}
-      >
-        {events.map((item, index) => (
-          <TimelineItem key={index} sx={{ width: "100%" }}>
-            <TimelineOppositeContent>{item.month}</TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineDot />
-              {/* No connector on last item */}
-              {index + 1 !== events.length && (
-                <TimelineConnector sx={{ height: "200px" }} />
-              )}
-            </TimelineSeparator>
-            <TimelineContent>
+      {isMobile ? (
+        <Grid
+          container
+          display="flex"
+          alignItems="center"
+          flexDirection="column"
+          justifyContent="center"
+        >
+          {events.map((item, index) => (
+            <Grid item sx={{ m: "40px", width: "70%" }}>
               <EventCard {...item} />
-            </TimelineContent>
-          </TimelineItem>
-        ))}
-      </Timeline>
+            </Grid>
+          ))}
+        </Grid>
+      ) : (
+        <Timeline
+          sx={{ marginTop: "125px", alignItems: "center" }}
+          position={isMobile ? "left" : "alternate"}
+          nonce={undefined}
+          onResize={undefined}
+          onResizeCapture={undefined}
+        >
+          {events.map((item, index) => (
+            <TimelineItem key={index} sx={{ width: "100%" }}>
+              <TimelineOppositeContent>{item.month}</TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineDot />
+                {/* No connector on last item */}
+                {index + 1 !== events.length && (
+                  <TimelineConnector sx={{ height: "200px" }} />
+                )}
+              </TimelineSeparator>
+              <TimelineContent sx={{ marginTop: "-80px" }}>
+                <EventCard {...item} />
+              </TimelineContent>
+            </TimelineItem>
+          ))}
+        </Timeline>
+      )}
     </Grid>
   );
 }

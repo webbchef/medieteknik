@@ -182,7 +182,7 @@ const StudentlivPage: NextPage = () => {
         <Grid
           container
           sx={[
-            { textAlign: "center" },
+            { textAlign: "center", p: 3 },
             isDesktop && { width: "50%" },
             isIpad && { width: "70%" },
           ]}
