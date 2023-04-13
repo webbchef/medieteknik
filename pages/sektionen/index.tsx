@@ -1,6 +1,6 @@
 import Head from "next/head";
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import content from "../../content/styrare.json";
 import { Container, Grid, Stack, Button, Typography } from "@mui/material";
 import PresentationModal from "../../components/sektionen/PresentationModal";
@@ -15,8 +15,19 @@ import gruppbild from "../../public/images/gruppbild.jpg";
 import CopyText from "../../components/general/CopyText";
 import StyledButton from "../../components/general/StyledButton";
 
+{/* For the new section */ }
+import { MobileStateContext } from "../../contexts/MobileContexts";
+import externalPagesContent from "../../content/external_documents_mt.json";
+import { ExternalPagesMT } from "../../utils/types";
+import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
+
+
 const PresentationPage: NextPage = () => {
   const styrare: Styrare[] = content;
+
+  {/* For the new section */ }
+  const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
+  const externalPages: ExternalPagesMT[] = externalPagesContent;
 
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [activeUser, setActiveUser] = useState<number>(0);
@@ -77,20 +88,7 @@ const PresentationPage: NextPage = () => {
         >
           <img src="/images/axels/styrelsen-3.jpg" width="70%" />
         </Grid>
-        <Typography align="center">
-          Protokoll, stadgar och annat skoj från styrelsen hittar du{" "}
-          <a
-            href="https://drive.google.com/drive/folders/1xyIUmboYlJ3GJC0i6G_nVXaQTA34b2Iz?usp=sharing"
-            target="blank"
-            style={{ color: "#EC6610", textDecoration: "underline" }}
-          >
-            här.
-          </a>
-        </Typography>
-        <Typography align="center">
-          Allmäna frågor till sektionen skickas till:
-        </Typography>
-        <CopyText text="info@medieteknik.nu" align="center" />
+        
       </Container>
 
       {/* Styrelse-Grid*/}
@@ -118,6 +116,71 @@ const PresentationPage: NextPage = () => {
         ))}
       </Grid>
 
+      {/* Documents */}
+      <Grid
+          container
+          sx={{ justifyContent: "center", background: "#FFFFF" }}
+        >
+        <Grid
+            container
+            sx={[
+              {
+                padding: 3,
+                marginTop: -5,
+                marginBottom: 2,
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+              },
+              isIpad ? { width: "70%" } : {},
+            ]}
+          >
+            {(() => {
+              const item = externalPages[0];
+
+              return (
+                <>
+                  <Grid
+                    item
+                    xs={12}
+                    lg={4}
+                    sx={{
+                      alignItems: "center",
+                      textAlign: "center",
+                      padding: 2,
+                    }}
+                  >
+                    <Grid
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <CreateOutlinedIcon color="secondary" fontSize="large" />
+
+                      <Typography variant="h3" sx={{ fontWeight: "bold", m: 2 }}>
+                        {item.title}
+                      </Typography>
+                    </Grid>
+
+                    {item.text.split('\n').map((line, index) => (
+                      <Typography key={index} sx={{ marginBottom: 0 }}>
+                        {line}
+                      </Typography>
+                    ))}
+
+
+                    <StyledButton src={item.link} external={true}>
+                      Läs mer
+                    </StyledButton>
+                  </Grid>
+                </>
+              );
+            })()}
+        </Grid>
+      </Grid>
+      {/* End of Documents */}
       {/* Mette & #3Cant */}
 
       <WavyBackground bgColor="#13283c" textColor="#FFF">
