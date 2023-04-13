@@ -110,7 +110,7 @@ const Home: NextPage = () => {
               drag
               dragConstraints={constraintsRef3}
               style={{
-                fontFamily: "Lato",
+                fontFamily: "Lato, sans-serif !important",
                 fontSize: "45px",
                 color: "white",
               }}
