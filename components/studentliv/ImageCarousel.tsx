@@ -14,7 +14,8 @@ export default function ImageCarousel() {
     const theme = useTheme();
     const [activeStep, setActiveStep] = useState<number>(0);
     const [hover, setHover] = useState<boolean>(false);
-    const posts = useInstagramPosts(process.env.INSTAGRAM_ACCESS_TOKEN);
+    const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+    const posts = useInstagramPosts(accessToken || '');
     const maxSteps = posts.length;
 
     const handleStepChange = (step: number) => {

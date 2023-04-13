@@ -5,7 +5,8 @@ import ImageCarousel from "./ImageCarousel";
 import useInstagramPosts from "./useInstagramPosts";
 
 export default function Studentkonto() {
-    const posts = useInstagramPosts(process.env.INSTAGRAM_ACCESS_TOKEN);
+    const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN ?? '';
+    const posts = useInstagramPosts(accessToken);
 
     return (
         <WavyBackground bgColor="#13283c" textColor="#FFFFFF">
