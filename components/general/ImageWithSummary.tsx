@@ -14,22 +14,20 @@ interface InputProps {
 export default function ImageWithSummary(props: InputProps) {
   return (
     <Grid
-      maxWidth="xl"
+      maxWidth="lg"
       container
       direction={props.direction ? props.direction : "row"}
-      justifyContent="center"
-      sx={{ padding: "20px 0" }}
     >
-      <Grid xs={7} md={4} sx={{position: "relative"}}>
+      <Grid xs={7} md={4} sx={{position: "relative", borderRadius: 2, overflow: "hidden"}}>
           <Image
             layout="fill"
-            objectFit="contain"
+            objectFit="cover"
             src={props.imageSrc}
           />
        
       </Grid>
-      <Grid xs={7} md={1} />
-      <Grid xs={9} md={5}>
+      <Grid xs={9} md={1}/>
+      <Grid xs={9} md={7}>
         {props.children}
       </Grid>
     </Grid>

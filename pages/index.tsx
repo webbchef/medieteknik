@@ -50,7 +50,8 @@ const Home: NextPage = () => {
       // }}
       animate="animate"
       initial="initial"
-      style={{ overflow: "hidden", background: "white" }}
+      style={{ overflow: "hidden", background: "white" , display: "flex", flexDirection: "column", alignItems: "center"}}
+      
     >
       <Head>
         <title>Civilingenjör i Medieteknik</title>
@@ -64,9 +65,6 @@ const Home: NextPage = () => {
         />
       </video> */}
       <BackgroundImage imgSrc="/images/axels/styrelsen-6.jpg">
-        {
-          //TODO: This grid should cover entire page and contian all child grids
-        }
         <Grid
           display="flex"
           flexDirection="column"
@@ -136,25 +134,22 @@ const Home: NextPage = () => {
       </BackgroundImage>
       <Grid
         container
-        display="flex"
-        alignItems="center"
+        display={"flex"}
+        flexDirection={"column"}
         justifyContent="center"
+        alignItems={"center"}     
       >
         <Grid
           container
           maxWidth="lg"
           spacing={2}
-          // paddingLeft={{ xs: 3, lg: 15 }}
-          // paddingRight={{ xs: 3, lg: 15 }}
           sx={{ marginBottom: 4 }}
         >
           <Grid
             xs={12}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
           >
             <Typography
               paddingTop={5}
@@ -180,12 +175,11 @@ const Home: NextPage = () => {
       </Grid>
       <Grid
         container
-        padding={5}
-        alignItems={"center"}
-        paddingLeft={{ xs: 3, lg: 30 }}
-        paddingRight={{ xs: 3, lg: 30 }}
-        spacing={6}
+        display="flex"
+        maxWidth="lg"
+              
         columns={{ xs: 4, sm: 8, md: 12 }}
+        columnSpacing={{md: 5}}
       >
         {values.map((value, index) => {
           if (notSm) {
@@ -214,8 +208,8 @@ const Home: NextPage = () => {
                   sm={4}
                   md={4}
                   key={index}
-                  alignItems="center"
-                  justifyContent="center"
+                  padding={0}
+                  margin={0}
                 >
                   {/* TODO: center last item when screen is smaller*/}
                   <MtValues
@@ -232,8 +226,8 @@ const Home: NextPage = () => {
                   key={index}
                   alignItems="center"
                   justifyContent="center"
-                  paddingRight={23}
-                  paddingLeft={23}
+                  
+                  
                 >
                   {/* TODO: center last item when screen is smaller*/}
                   <MtValues
@@ -249,8 +243,6 @@ const Home: NextPage = () => {
       </Grid>
       <Grid 
         container paddingTop={9} paddingBottom={9}
-        paddingLeft={{ xs: 3, lg: 10 }}
-          paddingRight={{ xs: 3, lg: 10 }}
       >
         <ImageWithSummary
           imageSrc="/images/nollep6.jpg"
