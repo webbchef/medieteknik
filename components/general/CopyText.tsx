@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 
 interface InputProps {
   text: string;
@@ -15,7 +15,6 @@ export default function CopyText(props: InputProps) {
 
     setInterval(() => {
       setCopied(false);
-      console.log("revert");
     }, 3000);
   };
 

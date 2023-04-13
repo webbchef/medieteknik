@@ -5,8 +5,7 @@ import ImageCarousel from "./ImageCarousel";
 import useInstagramPosts from "./useInstagramPosts";
 
 export default function Studentkonto() {
-    const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN ?? '';
-    const posts = useInstagramPosts(accessToken);
+    const posts = useInstagramPosts(process.env.INSTAGRAM_ACCESS_TOKEN);
 
     return (
         <WavyBackground bgColor="#13283c" textColor="#FFFFFF">
@@ -55,7 +54,7 @@ export default function Studentkonto() {
                         alignItems: "center",
                     }}
                 >
-                    {posts && <ImageCarousel />}
+                    {posts && <ImageCarousel posts={posts} />}
                 </Grid>
             </Grid>
         </WavyBackground>

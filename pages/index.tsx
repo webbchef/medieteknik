@@ -63,7 +63,7 @@ const Home: NextPage = () => {
           type="video/mp4"
         />
       </video> */}
-      <BackgroundImage imgSrc="/images/axels/styrelsen-6.jpg">
+      <BackgroundImage imgSrc="/images/axels/styrelsen-6.webp">
         {
           //TODO: This grid should cover entire page and contian all child grids
         }

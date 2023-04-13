@@ -15,17 +15,20 @@ import gruppbild from "../../public/images/gruppbild.jpg";
 import CopyText from "../../components/general/CopyText";
 import StyledButton from "../../components/general/StyledButton";
 
-{/* For the new section */ }
+{
+  /* For the new section */
+}
 import { MobileStateContext } from "../../contexts/MobileContexts";
 import externalPagesContent from "../../content/external_documents_mt.json";
 import { ExternalPagesMT } from "../../utils/types";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 
-
 const PresentationPage: NextPage = () => {
   const styrare: Styrare[] = content;
 
-  {/* For the new section */ }
+  {
+    /* For the new section */
+  }
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
   const externalPages: ExternalPagesMT[] = externalPagesContent;
 
@@ -52,7 +55,7 @@ const PresentationPage: NextPage = () => {
 
       <BackgroundImage
         pageName="SEKTIONEN"
-        imgSrc="/images/axels/styrelsen-4.jpg"
+        imgSrc="/images/axels/styrelsen-4.webp"
       />
 
       {/* Styrelsen */}
@@ -86,9 +89,8 @@ const PresentationPage: NextPage = () => {
             marginBottom: "30px",
           }}
         >
-          <img src="/images/axels/styrelsen-3.jpg" width="70%" />
+          <img src="/images/axels/styrelsen-3.webp" width="70%" />
         </Grid>
-        
       </Container>
 
       {/* Styrelse-Grid*/}
@@ -117,67 +119,63 @@ const PresentationPage: NextPage = () => {
       </Grid>
 
       {/* Documents */}
-      <Grid
-          container
-          sx={{ justifyContent: "center", background: "#FFFFF" }}
-        >
+      <Grid container sx={{ justifyContent: "center", background: "#FFFFF" }}>
         <Grid
-            container
-            sx={[
-              {
-                padding: 3,
-                marginTop: -5,
-                marginBottom: 2,
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-              },
-              isIpad ? { width: "70%" } : {},
-            ]}
-          >
-            {(() => {
-              const item = externalPages[0];
+          container
+          sx={[
+            {
+              padding: 3,
+              marginTop: -5,
+              marginBottom: 2,
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+            },
+            isIpad ? { width: "70%" } : {},
+          ]}
+        >
+          {(() => {
+            const item = externalPages[0];
 
-              return (
-                <>
+            return (
+              <>
+                <Grid
+                  item
+                  xs={12}
+                  lg={4}
+                  sx={{
+                    alignItems: "center",
+                    textAlign: "center",
+                    padding: 2,
+                  }}
+                >
                   <Grid
-                    item
-                    xs={12}
-                    lg={4}
                     sx={{
+                      display: "flex",
+                      justifyContent: "center",
                       alignItems: "center",
-                      textAlign: "center",
-                      padding: 2,
                     }}
                   >
-                    <Grid
-                      sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <CreateOutlinedIcon color="secondary" fontSize="large" />
+                    <CreateOutlinedIcon color="secondary" fontSize="large" />
 
-                      <Typography variant="h3" sx={{ fontWeight: "bold", m: 2 }}>
-                        {item.title}
-                      </Typography>
-                    </Grid>
-
-                    {item.text.split('\n').map((line, index) => (
-                      <Typography key={index} sx={{ marginBottom: 0 }}>
-                        {line}
-                      </Typography>
-                    ))}
-
-
-                    <StyledButton src={item.link} external={true}>
-                      Läs mer
-                    </StyledButton>
+                    <Typography variant="h3" sx={{ fontWeight: "bold", m: 2 }}>
+                      {item.title}
+                    </Typography>
                   </Grid>
-                </>
-              );
-            })()}
+
+                  {item.text.split("\n").map((line, index) => (
+                    <Typography key={index} sx={{ marginBottom: 0 }}>
+                      {line}
+                    </Typography>
+                  ))}
+
+                  <StyledButton src={item.link} external={true}>
+                    Läs mer
+                  </StyledButton>
+                </Grid>
+              </>
+            );
+          })()}
         </Grid>
       </Grid>
       {/* End of Documents */}

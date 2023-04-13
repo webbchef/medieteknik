@@ -1,7 +1,6 @@
-import eventsContent from "../../content/events.json";
-import { Event } from "../../utils/types";
 import { Grid, Typography } from "@mui/material";
 import styles from "./BackgroundImage.module.css";
+import Image from "next/image";
 
 interface InputProps {
   pageName?: string;
@@ -15,19 +14,27 @@ export default function BackgroundImage(props: InputProps) {
         container
         // className="imageContainer"
         sx={{
-          opacity: 1,
+          // opacity: 1,
           height: "80vh",
-          position: "relative !important",
-          backgroundImage: `url(${props.imgSrc})`,
-          backgroundSize: "cover",
-          backgroundPosition: "50% 75%",
+          // position: "relative !important",
+          // backgroundImage: `url(${props.imgSrc})`,
+          // backgroundSize: "cover",
+          // backgroundPosition: "50% 75%",
           alignItems: "center",
           justifyContent: "center",
-          backgroundAttachment: "fixed",
-          backgroundRepeat: "no-repeat",
+          position: "relative",
+          // backgroundAttachment: "fixed",
+          // backgroundRepeat: "no-repeat",
         }}
         className={styles.container}
       >
+        <Image
+          src={props.imgSrc}
+          objectFit="cover"
+          layout="fill"
+          priority={true}
+          loading="eager"
+        />
         {props.pageName ? (
           <Typography
             variant="h1"

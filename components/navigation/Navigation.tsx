@@ -27,7 +27,6 @@ export default function Navigation() {
   const [bgColor, setBgColor] = useState<boolean>(false);
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
 
-  console.log(bgColor);
   const router = useRouter();
   const currentRoute = router.pathname;
 
