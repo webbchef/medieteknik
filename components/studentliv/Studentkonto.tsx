@@ -12,7 +12,13 @@ export default function Studentkonto() {
   const { isMobile, isIpad } = useContext(MobileStateContext);
 
   const paddingTopValue = () => {
-    if (isMobile) return "20px !important";
+    if (isMobile) return "10px !important";
+    if (isIpad) return "30px !important";
+    return "50px !important";
+  };
+
+  const paddingBottomValue = () => {
+    if (isMobile) return "10px !important";
     if (isIpad) return "30px !important";
     return "70px !important";
   };
@@ -38,7 +44,7 @@ return (
             sx={{
               display: "flex",
               paddingTop: paddingTopValue(),
-              paddingBottom: "70px",
+              paddingBottom: paddingBottomValue(),
               minHeight: "380px",
               flexDirection: "column",
               alignItems: "center",
@@ -71,7 +77,6 @@ return (
               xs={12}
               md={6}
               sx={{
-                paddingTop: paddingTopValue(),
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
