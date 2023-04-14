@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 type CarouselImageProps = {
-    key?: React.Key | undefined | null;
+    imageKey?: React.Key | undefined | null;
     src: string;
     isActive: boolean;
     smallScreen?: boolean;
@@ -32,7 +32,7 @@ const CarouselImage: React.FC<CarouselImageProps> = (props) => {
     //if small screen return this 
     if(props.smallScreen) {
         return (
-            <Box key={props.key} position="relative" width="80%"
+            <Box key={props.imageKey} position="relative" width="80%"
                 onClick={handleClick} onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
@@ -56,7 +56,7 @@ const CarouselImage: React.FC<CarouselImageProps> = (props) => {
 
     if (!props.isActive) {
         return (
-            <Box key={props.key} position="relative" width="20%"
+            <Box key={props.imageKey} position="relative" width="20%"
                 onClick={handleClick} onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
@@ -79,7 +79,7 @@ const CarouselImage: React.FC<CarouselImageProps> = (props) => {
     } else {
 
         return (
-            <Box key={props.key} position="relative" width="30%"
+            <Box key={props.imageKey} position="relative" width="30%"
                 onClick={handleClick} onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
