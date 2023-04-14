@@ -135,7 +135,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             initial={false}
             display="flex"
             justifyContent="center"
-          ><CarouselImage src={imagesToRender[activeImage]} isActive={true} smallScreen={smallScreen} handleClick={() => { }} /></Box>
+          ><CarouselImage src={images[activeImage]} isActive={true} smallScreen={smallScreen} handleClick={() => { }} /></Box>
       }
       <Typography color={"#FFF"} textAlign={"center"} pt={2} fontSize={25}>{descriptions![activeImage]}</Typography>
       <Container
