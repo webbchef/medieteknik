@@ -76,7 +76,7 @@ const PresentationPage: NextPage = () => {
           align="center"
           sx={{
             marginBottom: "40px",
-            fontSize: isDesktop ? "25px !important" : undefined,
+            // fontSize: isDesktop ? "25px !important" : undefined,
           }}
         >
           Hej! Vi är Medietekniksektionens styrelse under perioden 22/23. Vi
