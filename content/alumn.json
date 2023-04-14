@@ -1,0 +1,27 @@
+[
+    {
+      "name": "namn1",
+      "post": "test1",
+      "work": "Spotify",
+      "imageName": "elin"
+    },
+    {
+      "name": "namn2",
+      "post": "test2",
+      "work": "nånstans",
+      "imageName": "elin"
+    },
+    {
+      "name": "namn3",
+      "post": "test3",
+      "work": "nånstans3",
+      "imageName": "elin"
+    },
+    {
+      "name": "namn4",
+      "post": "CEO",
+      "work": "MT",
+      "imageName": "elin"
+    }
+  ]
+  

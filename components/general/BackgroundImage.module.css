@@ -1,0 +1,55 @@
+.container::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 80vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: -10px;
+}
+
+.shape {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 4;
+  transform: rotate(180deg);
+}
+
+.shape svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  /* height: 90px; */
+}
+
+.shape .shapeFill {
+  fill: #ffffff;
+}
+
+.mobileShape {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 4;
+  transform: rotate(180deg);
+}
+
+.mobileShape svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 30px;
+}
+
+.mobileShape .mobileShapeFill {
+  fill: #ffffff;
+}
