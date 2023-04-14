@@ -1,19 +1,17 @@
 import {
-  AccessTimeFilled,
-  ArrowBackIos,
   ArrowBackIosNew,
   ArrowForwardIos,
   Circle,
-  CircleOutlined,
-  ControlPointSharp,
+  CircleOutlined
 } from "@mui/icons-material";
-import { IconButton, Typography } from "@mui/material";
-import { alpha, Box, Container } from "@mui/system";
+import { IconButton, Typography, useMediaQuery } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
+import { Box, Container } from "@mui/system";
 import { motion, useAnimationControls } from "framer-motion";
-import Image from "next/image";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { CarouselItem } from "../../utils/types";
-import { useTheme } from '@mui/material/styles';
+import CarouselImage from "./CarouselImage";
 
 type CarouselProps = {
   carouselItems: CarouselItem[];
@@ -30,8 +28,17 @@ const Carousel: React.FC<CarouselProps> = (props) => {
   const images: string[] = props.carouselItems.map((item) => item.image);
   const titles: string[] = props.carouselItems.map((item) => item.title);
   const descriptions: string[] = props.carouselItems.map((item) => item.description);
+  const links: string[] = props.carouselItems.map((item) => item.link);
 
   const controls = useAnimationControls();
+
+  const theme = useTheme();
+  const smallScreen = useMediaQuery(theme.breakpoints.down("lg"));
+
+  const router = useRouter();
+  const redirect = (url: string) => {
+    router.push(url);
+  }
 
   const clickBack = () => {
     setButtonClicked("back");
@@ -97,28 +104,40 @@ const Carousel: React.FC<CarouselProps> = (props) => {
       <Typography color={"#FFF"} marginBottom={2} textAlign={"center"} variant="h2">
         {titles![activeImage]}
       </Typography>
-      <Box
-        width="100vw"
-        component={motion.div}
-        animate={controls}
-        initial={false}
-        display="flex"
-        gap={10}
-        justifyContent="center"
-        alignItems="center"
-        flexWrap="nowrap"
-        overflow="hidden"
-        padding="30px"
-      >
-        {imagesToRender.map((image, i) => {
-          if (i === 1) {
-            return <CarouselImage key={i} src={image} isActive={true} />;
-          }
+      {
+        !smallScreen ?
+          <Box
+            width="100vw"
+            component={motion.div}
+            animate={controls}
+            initial={false}
+            display="flex"
+            gap={10}
+            justifyContent="center"
+            alignItems="center"
+            flexWrap="nowrap"
+            overflow="hidden"
+            padding="30px"
+          >
+            {imagesToRender.map((image, i) => {
+              if (i === 1) {
+                return <CarouselImage key={i} src={image} isActive={true} handleClick={() => redirect(links[activeImage])} />;
+              }
 
-          return <CarouselImage  key={i} src={image} isActive={false} handleClick={i == 0 ? clickBack : clickForward} />;
-        })}
-      </Box>
-      <Typography color={"#FFF"}  textAlign={"center"} variant="h3">{descriptions![activeImage]}</Typography>
+              return <CarouselImage key={i} src={image} isActive={false} handleClick={i == 0 ? clickBack : clickForward} />;
+            })}
+          </Box>
+          :
+          <Box
+            width="100vw"
+            component={motion.div}
+            animate={controls}
+            initial={false}
+            display="flex"
+            justifyContent="center"
+          ><CarouselImage src={imagesToRender[activeImage]} isActive={true} smallScreen={smallScreen} handleClick={() => { }} /></Box>
+      }
+      <Typography color={"#FFF"} textAlign={"center"} pt={2} fontSize={25}>{descriptions![activeImage]}</Typography>
       <Container
         sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}
       >
@@ -157,74 +176,6 @@ const Carousel: React.FC<CarouselProps> = (props) => {
   );
 };
 
-type CarouselImageProps = {
-  key?: React.Key | undefined | null;
-  src: string;
-  isActive: boolean;
-  handleClick?: React.MouseEventHandler<HTMLDivElement> | undefined;
-};
 
-const CarouselImage: React.FC<CarouselImageProps> = (props) => {
-  
-  const [isHovered, setIsHovered] = useState(false);
-  const [ratio, setRatio] = useState(16 / 9);
-  const theme = useTheme();
-  const handleClick = props.handleClick;
-
-  
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-    
-  };
-  
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
-  if (!props.isActive) {
-    return (
-      <Box key={props.key} position="relative" width="30%" 
-        onClick={handleClick} onMouseEnter={handleMouseEnter} 
-        onMouseLeave={handleMouseLeave}
-        >
-        <Box position='absolute' display={"flex"} alignItems={'center'}  justifyContent={'center'} borderRadius={1} width='100%' height="100%" zIndex={2} sx={[
-            isHovered ? {backgroundColor: alpha('#13283c', 0.5), cursor: "pointer",visibility: "visible"} : {visibility: "hidden"}
-          ]}/>
-        <Image
-          width="100%"
-          height="56.25%"
-          style={{ borderRadius: 5}}
-          src={props.src}
-          layout="responsive"
-          alt="Image in carousel"
-          
-        />
-      </Box>
-    );
-  } else {
-
-    return (
-      <Box key={props.key} position="relative" width="50%" 
-        onClick={handleClick} onMouseEnter={handleMouseEnter} 
-        onMouseLeave={handleMouseLeave}
-      >
-        <Box position='absolute' display={"flex"} alignItems={'center'}  justifyContent={'center'} borderRadius={1} width='100%' height="100%" zIndex={2} sx={[
-            isHovered ? {backgroundColor: alpha('#13283c', 0.5), cursor: "pointer",visibility: "visible"} : {visibility: "hidden"}
-          ]}>
-            <Typography variant="h2" color={"#FFF"}>Klicka här för att läsa mer om oss</Typography>
-        </Box>
-        <Image
-          width="100%"
-          height="56.25%"
-          style={{ borderRadius: 5 }}
-          src={props.src}
-          layout="responsive"
-          alt="Image in carousel"
-        />
-      </Box>
-    );
-  }
-
-};
 
 export default Carousel;

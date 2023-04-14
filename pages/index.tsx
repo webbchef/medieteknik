@@ -1,30 +1,24 @@
-import { useContext } from "react";
 import {
-  Box,
-  Button,
-  Link,
   Typography,
   useMediaQuery,
-  useTheme,
+  useTheme
 } from "@mui/material";
-import Image from "next/image";
 import Grid from "@mui/material/Unstable_Grid2";
-import { MobileStateContext } from "../contexts/MobileContexts";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
-import type { CarouselItem, Value } from "../utils/types";
 import Head from "next/head";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { fadeInUp } from "../animations/constants";
-import gruppbild from "../public/images/gruppbild.jpg";
 import BackgroundImage from "../components/general/BackgroundImage";
-import jsonValues from "../content/values.json";
-import MtValues from "../components/home/mtValues";
-import WavyBackground from "../components/general/WavyBackground";
-import Carousel from "../components/general/Carousel";
-import carouselImages from "../content/carouselItems.json";
-import StyledButton from "../components/general/StyledButton";
 import ImageWithSummary from "../components/general/ImageWithSummary";
+import StyledButton from "../components/general/StyledButton";
+import WavyBackground from "../components/general/WavyBackground";
+import Carousel from "../components/home/Carousel";
+import MtValues from "../components/home/mtValues";
+import carouselImages from "../content/carouselItems.json";
+import jsonValues from "../content/values.json";
+import { MobileStateContext } from "../contexts/MobileContexts";
+import type { CarouselItem, Value } from "../utils/types";
 
 const Home: NextPage = () => {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
@@ -50,8 +44,8 @@ const Home: NextPage = () => {
       // }}
       animate="animate"
       initial="initial"
-      style={{ overflow: "hidden", background: "white" , display: "flex", flexDirection: "column", alignItems: "center"}}
-      
+      style={{ overflow: "hidden", background: "white" }} //, display: "flex", flexDirection: "column", alignItems: "center"   
+
     >
       <Head>
         <title>Civilingenjör i Medieteknik</title>
@@ -132,84 +126,66 @@ const Home: NextPage = () => {
           </motion.div>
         </Grid>
       </BackgroundImage>
-      <Grid
-        container
-        display={"flex"}
-        flexDirection={"column"}
-        justifyContent="center"
-        alignItems={"center"}     
+      <Grid container
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        mx={{ xs: 2, lg: 0 }}
       >
-        <Grid
-          container
-          maxWidth="lg"
-          spacing={2}
-          sx={{ marginBottom: 4 }}
-        >
+        <Grid container>
           <Grid
-            xs={12}
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
+            container
+            maxWidth="lg"
+            spacing={2}
+            sx={{ marginBottom: 4 }}
           >
-            <Typography
-              paddingTop={5}
-              color="black"
-              variant="h2"
-              textAlign="justify"
+            <Grid
+              xs={12}
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
             >
-              Vad är MT?
-            </Typography>
-            <Typography color="black" textAlign="center">
-              Hej! Välkommen till sidan om Medieteknik, eller MT som vi kallar
-              det. Vår utbildning heter Medieteknik eftersom den handlar om
-              tekniken bakom de olika medierna, d.v.s. ljud, bild, video, spel,
-              m.m. Medietekniks logotyp är två kvadrater (men vi brukar kalla
-              dem kuber). Den orangea kuben representerar kreativitet och de
-              mjuka ämnena i medieteknik, och den grå kuben representerar teknik
-              och de hårda ämnena. Utöver detta är det stort fokus på
-              problemlösning, vilket är en viktig förmåga som civilingenjör.
-            </Typography>
-            <StyledButton src="/about">Läs mer</StyledButton>
+              <Typography
+                paddingTop={5}
+                color="black"
+                variant="h2"
+                textAlign="justify"
+              >
+                Vad är MT?
+              </Typography>
+              <Typography color="black" textAlign="center">
+                Hej! Välkommen till sidan om Medieteknik, eller MT som vi kallar
+                det. Vår utbildning heter Medieteknik eftersom den handlar om
+                tekniken bakom de olika medierna, d.v.s. ljud, bild, video, spel,
+                m.m. Medietekniks logotyp är två kvadrater (men vi brukar kalla
+                dem kuber). Den orangea kuben representerar kreativitet och de
+                mjuka ämnena i medieteknik, och den grå kuben representerar teknik
+                och de hårda ämnena. Utöver detta är det stort fokus på
+                problemlösning, vilket är en viktig förmåga som civilingenjör.
+              </Typography>
+              <StyledButton src="/about">Läs mer</StyledButton>
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-      <Grid
-        container
-        display="flex"
-        maxWidth="lg"
-              
-        columns={{ xs: 4, sm: 8, md: 12 }}
-        columnSpacing={{md: 5}}
-      >
-        {values.map((value, index) => {
-          if (notSm) {
-            return (
-              <Grid
-                xs={4}
-                sm={4}
-                md={4}
-                key={index}
-                alignItems="center"
-                justifyContent="center"
-              >
-                {/* TODO: center last item when screen is smaller*/}
-                <MtValues
-                  description={value.description}
-                  title={value.title}
-                  image={value.image}
-                />
-              </Grid>
-            );
-          } else {
-            if (index !== values.length - 1) {
+        <Grid
+          container
+          display="flex"
+          maxWidth="lg"
+          justifyContent="space-around"
+          columns={{ xs: 4, sm: 12, md: 14 }}
+          columnSpacing={{ md: 5 }}
+          rowSpacing={{xs: 8}}
+        >
+          {values.map((value, index) => {
+            if (notSm) {
               return (
                 <Grid
                   xs={4}
                   sm={4}
                   md={4}
                   key={index}
-                  padding={0}
-                  margin={0}
+                  alignItems="center"
+                  justifyContent="center"
                 >
                   {/* TODO: center last item when screen is smaller*/}
                   <MtValues
@@ -220,120 +196,137 @@ const Home: NextPage = () => {
                 </Grid>
               );
             } else {
-              return (
-                <Grid
-                  sm={8}
-                  key={index}
-                  alignItems="center"
-                  justifyContent="center"
-                  
-                  
-                >
-                  {/* TODO: center last item when screen is smaller*/}
-                  <MtValues
-                    description={value.description}
-                    title={value.title}
-                    image={value.image}
-                  />
-                </Grid>
-              );
+              if (index !== values.length - 1) {
+                return (
+                  <Grid
+                    xs={4}
+                    sm={5}
+                    md={4}
+                    key={index}
+                    padding={0}
+                    margin={0}
+                  >
+                    {/* TODO: center last item when screen is smaller*/}
+                    <MtValues
+                      description={value.description}
+                      title={value.title}
+                      image={value.image}
+                    />
+                  </Grid>
+                );
+              } else {
+                return (
+                  <Grid
+                    sm={5}
+                    key={index}
+                    mt={6}
+                    justifyContent="center"
+                  >
+                    {/* TODO: center last item when screen is smaller*/}
+                    <MtValues
+                      description={value.description}
+                      title={value.title}
+                      image={value.image}
+                    />
+                  </Grid>
+                );
+              }
             }
-          }
-        })}
-      </Grid>
-      <Grid 
-        container paddingTop={9} paddingBottom={9}
-      >
-        <ImageWithSummary
-          imageSrc="/images/nollep6.jpg"
-          direction="row"
-          imgHeight="500px"
-          imgWidth="700px"
+          })}
+        </Grid>
+        <Grid
+          container
         >
-          <Grid
-          
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
+          <ImageWithSummary
+            imageSrc="/images/nollep6.jpg"
+            direction="row"
+            title="Studentliv"
           >
-            <Typography textAlign="center" variant="h2">
-              Studentliv
-            </Typography>
-            <Typography marginTop={3} textAlign="center">
-              De flesta som pluggar här flyttar hemifrån för att komma till
-              Norrköping och det kan kännas rätt läskigt att lämna allt man
-              vuxit upp med. Men oroa dig inte, det som väntar här är vad de
-              flesta på MT minns som den bästa delen av deras studietid:
-              Nolleperioden, eller Nolle-P. Nolle-P heter så eftersom de nya
-              eleverna inte börjar ettan innan sista dagen på Nolle-P. Efter
-              Nolle-P finns det massor av{" "}
-              <a
-                href="https://studentlivet.se/orbi-associations/"
-                style={{ color: "#EC6610", textDecoration: "underline" }}
-              >
-                föreningar
-              </a>{" "}
-              att engagera sig i för att främja studentlivet.
-            </Typography>
-            <StyledButton src="/studentliv">Läs mer här</StyledButton>
-          </Grid>
-        </ImageWithSummary>
+            <Grid
+
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+
+              <Typography marginTop={3} textAlign="center">
+                De flesta som pluggar här flyttar hemifrån för att komma till
+                Norrköping och det kan kännas rätt läskigt att lämna allt man
+                vuxit upp med. Men oroa dig inte, det som väntar här är vad de
+                flesta på MT minns som den bästa delen av deras studietid:
+                Nolleperioden, eller Nolle-P. Nolle-P heter så eftersom de nya
+                eleverna inte börjar ettan innan sista dagen på Nolle-P. Efter
+                Nolle-P finns det massor av{" "}
+                <a
+                  href="https://studentlivet.se/orbi-associations/"
+                  style={{ color: "#EC6610", textDecoration: "underline" }}
+                >
+                  föreningar
+                </a>{" "}
+                att engagera sig i för att främja studentlivet.
+              </Typography>
+              <StyledButton src="/studentliv">Läs mer här</StyledButton>
+            </Grid>
+          </ImageWithSummary>
+        </Grid>
       </Grid>
       <Grid md={12} display="flex" justifyContent="center">
         <WavyBackground bgColor="#13283c">
           <Grid
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+
           >
             <Carousel carouselItems={carouselItems} />
-            <StyledButton src="/sektionen">Läs mer här</StyledButton>
           </Grid>
         </WavyBackground>
       </Grid>
       <Grid
-        container paddingTop={9}
-        paddingBottom={9}
-       
+        container
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        mx={{ xs: 2, lg: 0 }}
       >
-        <ImageWithSummary
-          imageSrc="/images/mtd2.jpg"
-          direction="row-reverse"
-          imgWidth={"400px"}
-          imgHeight={"400px"}
-        >
-          <Grid
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <Typography textAlign="center" variant="h2">
-              Medieteknikdagen
-            </Typography>
-            <Typography marginTop={3} textAlign="center">
-              Medieteknikdagen är våran arbetsmarknadsdag och är ett ideellt
-              arrangemang drivet av och för studenter. Syftet är att knyta
-              kontakter mellan studenter, medietekniker ute i arbetslivet och
-              företagen inom branschen. MTD är ett tillfälle för företag och
-              studenter att inspirera, informera och integrera med varandra.
-              Såväl företag som studenter får här en chans att visa det allra
-              senaste inom medieteknik.
-            </Typography>
+        <Grid
+          container
 
-            <StyledButton
-              external={true}
-              src="https://www.medieteknikdagen.se/"
+        >
+
+          <ImageWithSummary
+            imageSrc="/images/mtd2.jpg"
+            direction="row-reverse"
+            title="Medieteknikdagen"
+          >
+            <Grid
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
             >
-              Läs mer här
-            </StyledButton>
-          </Grid>
-        </ImageWithSummary>
+              <Typography marginTop={3} textAlign="center">
+                Medieteknikdagen är våran arbetsmarknadsdag och är ett ideellt
+                arrangemang drivet av och för studenter. Syftet är att knyta
+                kontakter mellan studenter, medietekniker ute i arbetslivet och
+                företagen inom branschen. MTD är ett tillfälle för företag och
+                studenter att inspirera, informera och integrera med varandra.
+                Såväl företag som studenter får här en chans att visa det allra
+                senaste inom medieteknik.
+              </Typography>
+
+              <StyledButton
+                external={true}
+                src="https://www.medieteknikdagen.se/"
+              >
+                Läs mer här
+              </StyledButton>
+            </Grid>
+          </ImageWithSummary>
+        </Grid>
       </Grid>
     </motion.div>
   );
