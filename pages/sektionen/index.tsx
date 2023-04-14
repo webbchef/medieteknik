@@ -72,7 +72,13 @@ const PresentationPage: NextPage = () => {
           STYRELSEN
         </Typography>
 
-        <Typography align="center" sx={{ marginBottom: "40px", fontSize: isDesktop ?  "25px !important" : undefined }}>
+        <Typography
+          align="center"
+          sx={{
+            marginBottom: "40px",
+            fontSize: isDesktop ? "25px !important" : undefined,
+          }}
+        >
           Hej! Vi är Medietekniksektionens styrelse under perioden 22/23. Vi
           representerar MT-eleverna gentemot LiU, verkar för en bättre
           arbetsmiljö för oss studenter och anordnar event för MT:are. Vi
@@ -88,15 +94,21 @@ const PresentationPage: NextPage = () => {
             justifyContent: "center",
             marginBottom: "30px",
           }}
-        > 
-          <img src="/images/axels/styrelsen-3.webp" style={{ width: isMobile ? "125%" : isIpad ? "150%" : "100%" }} />
+        >
+          <img
+            src="/images/axels/styrelsen-3.webp"
+            style={{ width: isMobile ? "125%" : isIpad ? "150%" : "100%" }}
+          />
         </Grid>
       </Container>
 
       {/* Styrelse-Grid*/}
       <MobileStateContext.Provider value={{ isMobile, isIpad, isDesktop }}>
-      <Grid container maxWidth="lg" sx={{ margin: "auto", padding: isMobile ? "0" : "50px 0" }}>
-
+        <Grid
+          container
+          maxWidth="lg"
+          sx={{ margin: "auto", padding: isMobile ? "0" : "50px 0" }}
+        >
           {styrare.map((styr, index) => (
             <Grid
               item
@@ -110,12 +122,15 @@ const PresentationPage: NextPage = () => {
                 whileTap={{ scale: 0.95 }}
                 variants={fadeInUp}
               >
-                <PresentationCard user={styr} openInfo={() => handleUserClick(index)} />
+                <PresentationCard
+                  user={styr}
+                  openInfo={() => handleUserClick(index)}
+                />
               </motion.div>
             </Grid>
           ))}
         </Grid>
-      </MobileStateContext.Provider> 
+      </MobileStateContext.Provider>
 
       {/* Documents */}
       <Grid container sx={{ justifyContent: "center", background: "#FFFFF" }}>
@@ -127,13 +142,14 @@ const PresentationPage: NextPage = () => {
               marginTop: -5,
               marginBottom: 2,
               display: "flex",
-              flexDirection: "row",
+              flexDirection: "column",
               justifyContent: "center",
+              alignItems: "center",
             },
             isIpad ? { width: "70%" } : {},
           ]}
         >
-          {(() => {
+          {/* {(() => {
             const item = externalPages[0];
 
             return (
@@ -174,7 +190,41 @@ const PresentationPage: NextPage = () => {
                 </Grid>
               </>
             );
-          })()}
+          })()} */}
+          <Grid
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CreateOutlinedIcon color="secondary" fontSize="large" />
+
+            <Typography variant="h3" sx={{ fontWeight: "bold", m: 2 }}>
+              Dokument
+            </Typography>
+          </Grid>
+
+          <Typography align="center">
+            Protokoll, stadgar och annat skoj från styrelsen hittar du{" "}
+            <a
+              href="https://drive.google.com/drive/folders/1xyIUmboYlJ3GJC0i6G_nVXaQTA34b2Iz?usp=sharing"
+              target="blank"
+              style={{ color: "#EC6610", textDecoration: "underline" }}
+            >
+              här.
+            </a>
+          </Typography>
+          <Typography align="center">
+            Allmäna frågor till sektionen skickas till:
+          </Typography>
+          <CopyText text="info@medieteknik.nu" align="center" />
+          <StyledButton
+            src="https://drive.google.com/drive/folders/1xyIUmboYlJ3GJC0i6G_nVXaQTA34b2Iz?usp=sharing"
+            external={true}
+          >
+            Läs mer
+          </StyledButton>
         </Grid>
       </Grid>
       {/* End of Documents */}
@@ -182,9 +232,7 @@ const PresentationPage: NextPage = () => {
 
       <WavyBackground bgColor="#13283c" textColor="#FFF">
         <Container maxWidth="lg" id="mette">
-          <ImageWithSummary
-            imageSrc={"/images/mette.jpg"}
-          >
+          <ImageWithSummary imageSrc={"/images/mette.jpg"}>
             <Grid
               sx={{
                 display: "flex",

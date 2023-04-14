@@ -92,10 +92,7 @@ const StudentlivPage: NextPage = () => {
             </StyledButton>
           </Grid>
         </Grid> */}
-        <ImageWithSummary
-          imageSrc="/images/eventPictures/midsommar.jpg"
-          direction="row"
-        >
+        <ImageWithSummary imageSrc="/images/hus.jpg" direction="row">
           <Grid
             sx={{
               display: "flex",
