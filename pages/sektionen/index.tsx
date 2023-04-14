@@ -67,12 +67,12 @@ const PresentationPage: NextPage = () => {
         <Typography
           variant="h2"
           align="center"
-          sx={{ margin: "40px 0", color: "black" }}
+          sx={{ margin: "25px 0", color: "black" }}
         >
           STYRELSEN
         </Typography>
 
-        <Typography align="center" sx={{ marginBottom: "40px" }}>
+        <Typography align="center" sx={{ marginBottom: "40px", fontSize: isDesktop ?  "25px !important" : undefined }}>
           Hej! Vi är Medietekniksektionens styrelse under perioden 22/23. Vi
           representerar MT-eleverna gentemot LiU, verkar för en bättre
           arbetsmiljö för oss studenter och anordnar event för MT:are. Vi
@@ -88,35 +88,34 @@ const PresentationPage: NextPage = () => {
             justifyContent: "center",
             marginBottom: "30px",
           }}
-        >
-          <img src="/images/axels/styrelsen-3.webp" width="70%" />
+        > 
+          <img src="/images/axels/styrelsen-3.webp" style={{ width: isMobile ? "125%" : isIpad ? "150%" : "100%" }} />
         </Grid>
       </Container>
 
       {/* Styrelse-Grid*/}
+      <MobileStateContext.Provider value={{ isMobile, isIpad, isDesktop }}>
+      <Grid container maxWidth="lg" sx={{ margin: "auto", padding: isMobile ? "0" : "50px 0" }}>
 
-      <Grid container maxWidth="lg" sx={{ margin: "auto", padding: "50px 0" }}>
-        {styrare.map((styr, index) => (
-          <Grid
-            item
-            xs={6}
-            md={3}
-            key={index}
-            sx={{ p: "20px", height: "100%" }}
-          >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              variants={fadeInUp}
+          {styrare.map((styr, index) => (
+            <Grid
+              item
+              xs={6}
+              md={3}
+              key={index}
+              sx={{ p: "20px", height: "100%" }}
             >
-              <PresentationCard
-                user={styr}
-                openInfo={() => handleUserClick(index)}
-              />
-            </motion.div>
-          </Grid>
-        ))}
-      </Grid>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                variants={fadeInUp}
+              >
+                <PresentationCard user={styr} openInfo={() => handleUserClick(index)} />
+              </motion.div>
+            </Grid>
+          ))}
+        </Grid>
+      </MobileStateContext.Provider> 
 
       {/* Documents */}
       <Grid container sx={{ justifyContent: "center", background: "#FFFFF" }}>

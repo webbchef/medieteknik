@@ -7,12 +7,9 @@ import {
   IconButton,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { fadeInUp } from "../../animations/constants";
 import { Styrare } from "../../utils/types";
 import CloseIcon from "@mui/icons-material/Close";
-import { useState } from "react";
 import CopyText from "../general/CopyText";
-import { fontSize } from "@mui/system";
 
 /** STYLE */
 const closeButtonStyle = {
@@ -27,8 +24,10 @@ const style = {
   transform: "translate(-50%, -50%)",
   boxShadow: 24,
   p: 3,
-  maxHeight: "80vh",
+  maxHeight: { xs: "100vh", sm: "80vh" },
+  width: { xs: "100%", sm: "auto" },
   minWidth: "300px",
+  maxWidth: "90%",
   overflowY: "scroll",
 };
 
@@ -76,7 +75,6 @@ export default function PresentationModal(props: InputProps) {
             <CloseIcon color="primary" sx={{ fontSize: 40 }} />
           </IconButton>
           <CardContent sx={{ p: 0, textAlign: "center" }}>
-            {/* <motion.h1 variants={fadeInUp}>{props.user.name}</motion.h1> */}
             <Typography variant="h4" fontSize={{ sm: "20px", xs: "18px" }}>
               {props.user.responsibility}
             </Typography>
