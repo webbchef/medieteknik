@@ -33,6 +33,7 @@ export default function Navigation() {
   function closeMenu() {
     setOpen(false);
   }
+  console.log(bgColor);
 
   const changeBackground = () => {
     if (isDesktop) {
@@ -81,7 +82,15 @@ export default function Navigation() {
             onClick={closeMenu}
             legacyBehavior={false}
             // className={styles.link}
-            className={currentRoute === link.to ? styles.active : styles.link}
+            className={
+              currentRoute === link.to
+                ? bgColor
+                  ? styles.activeBlack
+                  : styles.activeWhite
+                : bgColor
+                ? styles.blackLink
+                : styles.whiteLink
+            }
           >
             <Typography
               variant="h4"
@@ -101,7 +110,7 @@ export default function Navigation() {
           target="_blank"
           rel="noreferrer"
           href="https://www.medieteknikdagen.se/"
-          className={styles.link}
+          className={bgColor ? styles.blackLink : styles.whiteLink}
         >
           <Typography
             variant="h4"
@@ -118,7 +127,7 @@ export default function Navigation() {
             target="_blank"
             rel="noopener"
             onClick={closeMenu}
-            className={styles.link}
+            className={bgColor ? styles.whiteLink : styles.blackLink}
           >
             <Button startIcon={<LoginIcon sx={{ color: "white" }} />}>
               <Typography

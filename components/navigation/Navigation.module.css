@@ -1,12 +1,22 @@
 /* Fade in */
-.link {
+.blackLink {
   position: relative;
   color: #000;
   text-decoration: none;
 }
 
-.link:hover {
+.blackLink:hover {
   color: #000;
+}
+
+.whiteLink {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+
+.whiteLink:hover {
+  color: #fff;
 }
 
 .center {
@@ -24,7 +34,7 @@
   color: white;
 }
 
-.link::before {
+.whiteLink::before {
   content: "";
   position: absolute;
   display: block;
@@ -38,11 +48,29 @@
   margin: -2px;
 }
 
-.link:hover::before {
+.blackLink::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  margin: -2px;
+}
+
+.blackLink:hover::before {
   transform: scaleX(1);
 }
 
-.active {
+.whiteLink:hover::before {
+  transform: scaleX(1);
+}
+
+.activeWhite {
   border-bottom: 2.5px solid white;
   line-height: 1;
 }
