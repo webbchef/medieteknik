@@ -9,40 +9,50 @@ interface InputProps {
   imageSrc: string;
   direction?: GridDirection;
   children: JSX.Element;
-  title?: string; 
+  title?: string;
 }
 export default function ImageWithSummary(props: InputProps) {
-
   const theme = useTheme();
   const matchesSmall = useMediaQuery(theme.breakpoints.between("xs", "md"));
 
-    return ( 
+  return (
+    <Grid
+      maxWidth="lg"
+      container
+      direction={props.direction ? props.direction : "row"}
+      py={12}
+    >
+      {matchesSmall && (
+        <Grid xs={12}>
+          <Typography textAlign="center" variant="h2">
+            {props.title}
+          </Typography>
+        </Grid>
+      )}
+
       <Grid
-        maxWidth="lg"
-        container
-        direction={props.direction ? props.direction : "row"}
-        py={12}
+        xs={12}
+        md={4}
+        my={{ md: 4 }}
+        sx={{ position: "relative", overflow: "hidden", borderRadius: 2, m: 2 }}
       >
-        
-          {matchesSmall && <Grid xs={12}><Typography textAlign="center" variant="h2">{props.title}</Typography></Grid>}
-        
-         <Grid xs={12} md={4} my={{md: 4}} sx={{position: "relative", overflow: "hidden", borderRadius: 2}}> {/*mx={{xs: 10, md: 0}}  */}
-            {matchesSmall && <Box height={"25vh"} />}
-            <Image
-              layout="fill"
-              src={props.imageSrc}
-              alt=""
-              objectFit="cover"
-            />
-        </Grid>
-        <Grid xs={0} md={1}/>
-        <Grid xs={12} md={7}>
-          {!matchesSmall && <Typography textAlign="center" variant="h2">{props.title}</Typography>}
-          {props.children}
-        </Grid>
+        {" "}
+        {/*mx={{xs: 10, md: 0}}  */}
+        {matchesSmall && <Box height={"25vh"} />}
+        <Image layout="fill" src={props.imageSrc} alt="" objectFit="cover" />
       </Grid>
-    );
-  // } 
+      <Grid xs={0} md={1} />
+      <Grid xs={12} md={7}>
+        {!matchesSmall && (
+          <Typography textAlign="center" variant="h2">
+            {props.title}
+          </Typography>
+        )}
+        {props.children}
+      </Grid>
+    </Grid>
+  );
+  // }
 
   // return(
   //   <Grid
@@ -57,7 +67,7 @@ export default function ImageWithSummary(props: InputProps) {
   //             src={props.imageSrc}
   //             alt=""
   //           />
-         
+
   //       </Grid>
   //       <Grid xs={9} md={1}/>
   //       <Grid xs={9} md={7}>
