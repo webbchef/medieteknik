@@ -94,8 +94,6 @@ const StudentlivPage: NextPage = () => {
         </Grid> */}
         <ImageWithSummary
           imageSrc="/images/eventPictures/midsommar.jpg"
-          imgWidth="700px"
-          imgHeight="700px"
           direction="row"
         >
           <Grid
