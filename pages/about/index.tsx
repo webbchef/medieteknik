@@ -182,7 +182,7 @@ const PresentationPage: NextPage = () => {
             />
           </Grid> */}
         <ImageWithSummary
-          imageSrc="/images/nollep1.jpg"
+          imageSrc="/images/utlandsstudier.jpg"
           imgWidth="700px"
           imgHeight="700px"
         >
@@ -192,7 +192,7 @@ const PresentationPage: NextPage = () => {
               flexDirection: "column",
               alignItems: "center",
               textAlign: "center",
-              m: "50px",
+              // m: "50px",
             }}
           >
             <Typography variant="h2" sx={{ margin: 1 }}>
@@ -200,11 +200,6 @@ const PresentationPage: NextPage = () => {
             </Typography>
 
             <Typography sx={{ margin: 2 }}>
-              {/* Varje år åker ca 600 studenter från Linköpings universitet till
-              ett av de 400 universiteten i över 50 länder som LiU har
-              utbytesavtal med.
-              <br></br>
-              <br></br> */}
               Att studera utomlands som student från Linköpings Universitet kan
               vara en mycket berikande upplevelse. Det ger dig möjlighet att
               uppleva en annan kultur, förbättra dina språkkunskaper och få en

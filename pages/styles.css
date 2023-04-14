@@ -1,28 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap");
 
-.shape {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  z-index: 4;
-  transform: rotate(180deg);
-}
-
-.shape svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 90px;
-}
-
-.shape .shape-fill {
-  fill: #ffffff;
-}
-
 .imageContainer::before {
   content: " ";
   position: absolute;

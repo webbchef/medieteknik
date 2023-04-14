@@ -20,23 +20,35 @@ let theme = createTheme({
   typography: {
     h1: {
       fontSize: "60px !important",
+      "@media (min-width:768px) and (max-width:1212px)": {
+        fontSize: "50px !important",
+      },
       "@media (max-width:768px)": {
         fontSize: "40px !important",
-      },
-      "@media (max-width:768px & min-width:1212px)": {
-        fontSize: "50px !important",
       },
       fontFamily: "Barlow, sans-serif !important",
       fontWeight: 700,
     },
     h2: {
       fontSize: "40px !important",
+      "@media (min-width:768px) and (max-width:1212px)": {
+        fontSize: "32px !important",
+      },
+      "@media (max-width:768px)": {
+        fontSize: "28px !important",
+      },
       fontWeight: "bold !important",
       fontFamily: "Barlow, sans-serif !important",
       margin: "20px 0",
     },
     h3: {
       fontSize: "30px !important",
+      "@media (min-width:768px) and (max-width:1212px)": {
+        fontSize: "26px !important",
+      },
+      "@media (max-width:768px)": {
+        fontSize: "23px !important",
+      },
       fontWeight: "bold !important",
       fontFamily: "Barlow, sans-serif !important",
       margin: "20px 0",
@@ -46,6 +58,15 @@ let theme = createTheme({
       fontSize: "20px !important",
       fontWeight: "500px !important",
       color: "white !important",
+    },
+    body1: {
+      fontSize: "18px !important",
+      "@media (min-width:768px) and (max-width:1212px)": {
+        fontSize: "16px !important",
+      },
+      "@media (max-width:768px)": {
+        fontSize: "14px !important",
+      },
     },
   },
   palette: {
