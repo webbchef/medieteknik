@@ -59,8 +59,8 @@ const PresentationPage: NextPage = () => {
       />
 
       {/* Styrelsen */}
-
       <Container
+        id="styret"
         maxWidth="lg"
         sx={{ width: "70vw", margin: "auto", padding: "20px 0 10px 0" }}
       >
@@ -182,11 +182,9 @@ const PresentationPage: NextPage = () => {
       {/* Mette & #3Cant */}
 
       <WavyBackground bgColor="#13283c" textColor="#FFF">
-        <Container maxWidth="lg" sx={{ p: 3 }}>
+        <Container maxWidth="lg" id="mette">
           <ImageWithSummary
             imageSrc={"/images/mette.jpg"}
-            imgWidth="700px"
-            imgHeight="500px"
           >
             <Grid
               sx={{
@@ -220,12 +218,10 @@ const PresentationPage: NextPage = () => {
           </ImageWithSummary>
         </Container>
       </WavyBackground>
-      <Container maxWidth="lg" sx={{ p: 3 }}>
+      <Container id="3cant" maxWidth="lg">
         <ImageWithSummary
           imageSrc={"/images/3cant.jpg"}
           direction="row-reverse"
-          imgWidth="700px"
-          imgHeight="500px"
         >
           <Grid
             sx={{

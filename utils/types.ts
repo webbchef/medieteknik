@@ -40,6 +40,8 @@ export type Value = {
 export type CarouselItem = {
   title: string;
   image: string;
+  description: string;
+  link: string
 };
 
 export interface FooterLink {

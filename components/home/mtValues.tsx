@@ -16,7 +16,7 @@ const MtValues: React.FC<Props> = (Props) => {
       alignItems={"center"}
       justifyContent={"center"}
     >
-      <Image width={180} height={200} src={Props.image}></Image>
+      <Image width={180} height={200} src={Props.image} alt=""></Image>
       <Typography textAlign={"center"} variant="h2">
         {Props.title}
       </Typography>

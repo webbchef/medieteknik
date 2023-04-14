@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+}
 .imageContainer::before {
   content: " ";
   position: absolute;
@@ -53,6 +57,11 @@
   transform: rotateY(-180deg);
 }
 
-/* .custom-shape-divider-top-1674383169 .shape-fill {
-  fill: #da2828;
-} */
+.image-wrapper {
+  box-sizing: content-box;
+}
+
+.image-wrapper > span{
+  border-radius: 8px;
+}
+
