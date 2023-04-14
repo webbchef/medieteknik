@@ -1,13 +1,9 @@
-import {
-  Typography,
-  useMediaQuery,
-  useTheme
-} from "@mui/material";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { fadeInUp } from "../animations/constants";
 import BackgroundImage from "../components/general/BackgroundImage";
 import ImageWithSummary from "../components/general/ImageWithSummary";
@@ -23,7 +19,17 @@ import type { CarouselItem, Value } from "../utils/types";
 const Home: NextPage = () => {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
 
+  const [cubeWidth, setCubeWidth] = useState<string>("150px");
+
+  useEffect(() => {
+    if (isMobile) {
+      setCubeWidth("70px");
+    } else {
+      setCubeWidth("150px");
+    }
+  }, [isMobile]);
   const theme = useTheme();
+  console.log(cubeWidth);
 
   const constraintsRef1 = useRef(null);
   const constraintsRef2 = useRef(null);
@@ -44,8 +50,7 @@ const Home: NextPage = () => {
       // }}
       animate="animate"
       initial="initial"
-      style={{ overflow: "hidden", background: "white" }} //, display: "flex", flexDirection: "column", alignItems: "center"   
-
+      style={{ overflow: "hidden", background: "white" }} //, display: "flex", flexDirection: "column", alignItems: "center"
     >
       <Head>
         <title>Civilingenjör i Medieteknik</title>
@@ -78,20 +83,20 @@ const Home: NextPage = () => {
                 dragConstraints={constraintsRef1}
                 style={{
                   backgroundColor: "#EC6610",
-                  width: "150px",
-                  height: "150px",
+                  width: cubeWidth,
+                  height: cubeWidth,
                 }}
               />
             </motion.div>
-            <div style={{ margin: "20px" }}></div>
+            <div style={{ margin: isMobile ? "10px" : "20px" }}></div>
             <motion.div ref={constraintsRef2}>
               <motion.div
                 drag
                 dragConstraints={constraintsRef2}
                 style={{
                   backgroundColor: "#3b484f",
-                  width: "150px",
-                  height: "150px",
+                  width: cubeWidth,
+                  height: cubeWidth,
                 }}
               />
             </motion.div>
@@ -103,7 +108,7 @@ const Home: NextPage = () => {
               dragConstraints={constraintsRef3}
               style={{
                 fontFamily: "Lato, sans-serif !important",
-                fontSize: "45px",
+                fontSize: isMobile ? "25px" : "45px",
                 color: "white",
               }}
             >
@@ -117,7 +122,7 @@ const Home: NextPage = () => {
               style={{
                 fontFamily: "Barlow, sans-serif !important",
                 fontWeight: "bold",
-                fontSize: "64px",
+                fontSize: isMobile ? "30px" : "64px",
                 color: "white",
               }}
             >
@@ -126,19 +131,15 @@ const Home: NextPage = () => {
           </motion.div>
         </Grid>
       </BackgroundImage>
-      <Grid container
+      <Grid
+        container
         display="flex"
         flexDirection="column"
         alignItems="center"
         mx={{ xs: 2, lg: 0 }}
       >
         <Grid container>
-          <Grid
-            container
-            maxWidth="lg"
-            spacing={2}
-            sx={{ marginBottom: 4 }}
-          >
+          <Grid container maxWidth="lg" spacing={2} sx={{ marginBottom: 4 }}>
             <Grid
               xs={12}
               display="flex"
@@ -156,12 +157,13 @@ const Home: NextPage = () => {
               <Typography color="black" textAlign="center">
                 Hej! Välkommen till sidan om Medieteknik, eller MT som vi kallar
                 det. Vår utbildning heter Medieteknik eftersom den handlar om
-                tekniken bakom de olika medierna, d.v.s. ljud, bild, video, spel,
-                m.m. Medietekniks logotyp är två kvadrater (men vi brukar kalla
-                dem kuber). Den orangea kuben representerar kreativitet och de
-                mjuka ämnena i medieteknik, och den grå kuben representerar teknik
-                och de hårda ämnena. Utöver detta är det stort fokus på
-                problemlösning, vilket är en viktig förmåga som civilingenjör.
+                tekniken bakom de olika medierna, d.v.s. ljud, bild, video,
+                spel, m.m. Medietekniks logotyp är två kvadrater (men vi brukar
+                kalla dem kuber). Den orangea kuben representerar kreativitet
+                och de mjuka ämnena i medieteknik, och den grå kuben
+                representerar teknik och de hårda ämnena. Utöver detta är det
+                stort fokus på problemlösning, vilket är en viktig förmåga som
+                civilingenjör.
               </Typography>
               <StyledButton src="/about">Läs mer</StyledButton>
             </Grid>
@@ -174,7 +176,7 @@ const Home: NextPage = () => {
           justifyContent="space-around"
           columns={{ xs: 4, sm: 12, md: 14 }}
           columnSpacing={{ md: 5 }}
-          rowSpacing={{xs: 8}}
+          rowSpacing={{ xs: 8 }}
         >
           {values.map((value, index) => {
             if (notSm) {
@@ -198,14 +200,7 @@ const Home: NextPage = () => {
             } else {
               if (index !== values.length - 1) {
                 return (
-                  <Grid
-                    xs={4}
-                    sm={5}
-                    md={4}
-                    key={index}
-                    padding={0}
-                    margin={0}
-                  >
+                  <Grid xs={4} sm={5} md={4} key={index} padding={0} margin={0}>
                     {/* TODO: center last item when screen is smaller*/}
                     <MtValues
                       description={value.description}
@@ -216,12 +211,7 @@ const Home: NextPage = () => {
                 );
               } else {
                 return (
-                  <Grid
-                    sm={5}
-                    key={index}
-                    mt={6}
-                    justifyContent="center"
-                  >
+                  <Grid sm={5} key={index} mt={6} justifyContent="center">
                     {/* TODO: center last item when screen is smaller*/}
                     <MtValues
                       description={value.description}
@@ -234,23 +224,19 @@ const Home: NextPage = () => {
             }
           })}
         </Grid>
-        <Grid
-          container
-        >
+        <Grid container>
           <ImageWithSummary
             imageSrc="/images/nollep6.jpg"
             direction="row"
             title="Studentliv"
           >
             <Grid
-
               sx={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
               }}
             >
-
               <Typography marginTop={3} textAlign="center">
                 De flesta som pluggar här flyttar hemifrån för att komma till
                 Norrköping och det kan kännas rätt läskigt att lämna allt man
@@ -274,12 +260,7 @@ const Home: NextPage = () => {
       </Grid>
       <Grid md={12} display="flex" justifyContent="center">
         <WavyBackground bgColor="#13283c">
-          <Grid
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-
-          >
+          <Grid display="flex" flexDirection="column" alignItems="center">
             <Carousel carouselItems={carouselItems} />
           </Grid>
         </WavyBackground>
@@ -291,11 +272,7 @@ const Home: NextPage = () => {
         alignItems="center"
         mx={{ xs: 2, lg: 0 }}
       >
-        <Grid
-          container
-
-        >
-
+        <Grid container>
           <ImageWithSummary
             imageSrc="/images/mtd2.jpg"
             direction="row-reverse"

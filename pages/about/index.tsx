@@ -71,8 +71,6 @@ const PresentationPage: NextPage = () => {
         <ImageWithSummary
           imageSrc="/images/axels/styrelsen-1.webp"
           direction="row-reverse"
-          imgWidth="700px"
-          imgHeight="700px"
         >
           <Grid
             sx={{
@@ -181,11 +179,7 @@ const PresentationPage: NextPage = () => {
               style={{ height: "90%", width: "80%", objectFit: "contain" }}
             />
           </Grid> */}
-        <ImageWithSummary
-          imageSrc="/images/utlandsstudier.jpg"
-          imgWidth="700px"
-          imgHeight="700px"
-        >
+        <ImageWithSummary imageSrc="/images/utlandsstudier.jpg">
           <Grid
             sx={{
               display: "flex",
