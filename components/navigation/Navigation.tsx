@@ -33,7 +33,6 @@ export default function Navigation() {
   function closeMenu() {
     setOpen(false);
   }
-  console.log(bgColor);
 
   const changeBackground = () => {
     if (isDesktop) {

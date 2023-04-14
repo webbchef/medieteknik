@@ -21,6 +21,7 @@ export default function ImageWithSummary(props: InputProps) {
       container
       direction={props.direction ? props.direction : "row"}
       py={12}
+      mx={2}
     >
       {matchesSmall && (
         <Grid xs={12}>
@@ -34,7 +35,7 @@ export default function ImageWithSummary(props: InputProps) {
         xs={12}
         md={4}
         my={{ md: 4 }}
-        sx={{ position: "relative", overflow: "hidden", borderRadius: 2, m: 2 }}
+        sx={{ position: "relative", overflow: "hidden", borderRadius: 2 }}
       >
         {" "}
         {/*mx={{xs: 10, md: 0}}  */}
