@@ -230,8 +230,8 @@ export default function Navigation() {
             transitionDuration={600}
             PaperProps={{
               sx: isMobile
-                ? { width: "100%", backgroundColor: "#dbdbdb" }
-                : { width: "50%", backgroundColor: "#dbdbdb" },
+                ? { width: "100%", backgroundColor: "black" }
+                : { width: "50%", backgroundColor: "black" },
             }}
           >
             <Grid
@@ -247,7 +247,7 @@ export default function Navigation() {
               <Grid item>
                 <Image
                   alt="MT LOGO"
-                  src="/images/logotyp_svart_text.png"
+                  src="/images/logotyp_vit_text.png"
                   width="110px"
                   height="70px"
                 />
