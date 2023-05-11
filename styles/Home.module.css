@@ -117,6 +117,16 @@
   margin-left: 0.5rem;
 }
 
+/* Contact form CSS */
+.form {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 40%;
+  font-size: 16px;
+}
+
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

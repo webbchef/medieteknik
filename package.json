@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -19,6 +20,7 @@
     "@mui/system": "^5.10.8",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "emailjs": "^4.0.1",
     "framer-motion": "^7.5.3",
     "hamburger-react": "^2.5.0",
     "next": "^12.3.4",

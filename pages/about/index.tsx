@@ -14,6 +14,10 @@ import SocialMediaIcons from "../../components/general/SocialMediaIcons";
 import StyledButton from "../../components/general/StyledButton";
 import ImageWithSummary from "../../components/general/ImageWithSummary";
 
+import ContactForm from "../../components/ContactForm";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
+
 // export default function PresentationPage() {
 const PresentationPage: NextPage = () => {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
@@ -27,9 +31,15 @@ const PresentationPage: NextPage = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [activeUser, setActiveUser] = useState<number>(0);
 
+  const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false);
+
   function handleUserClick(index: number) {
     setActiveUser(index);
     setModalOpen(true);
+  }
+
+  function openSnackBar() {
+    setSnackbarOpen(true);
   }
 
   return (
@@ -289,7 +299,7 @@ const PresentationPage: NextPage = () => {
                 alumniansvarig.
               </Typography>
 
-              <Button
+              {/* <Button
                 variant="contained"
                 color="secondary"
                 sx={{ marginTop: 3 }}
@@ -309,7 +319,23 @@ const PresentationPage: NextPage = () => {
                 >
                   Kontakta
                 </Typography>
-              </Button>
+              </Button> */}
+              <ContactForm openSnackBar={openSnackBar} />
+
+              <Snackbar
+                open={snackbarOpen}
+                autoHideDuration={3000}
+                onClose={() => setSnackbarOpen(false)}
+              >
+                <Alert
+                  onClose={() => setSnackbarOpen(false)}
+                  severity="success"
+                  variant="filled"
+                  sx={{ width: "100%" }}
+                >
+                  This is a success message!
+                </Alert>
+              </Snackbar>
             </Grid>
           </Grid>
 
