@@ -1,4 +1,3 @@
-import eventsContent from "../../content/events.json";
 import linksContent from "../../content/footer_links.json";
 import { Event, FooterLink } from "../../utils/types";
 import { Grid, IconButton, Typography, Link, Divider } from "@mui/material";
@@ -10,7 +9,6 @@ import CopyText from "./CopyText";
 
 export default function Footer() {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
-  const events: Event[] = eventsContent;
   const links: FooterLink[] = linksContent;
 
   return (
