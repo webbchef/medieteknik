@@ -122,7 +122,8 @@ export default function Navigation() {
       {!isDesktop && (
         <ListItem className={styles.center}>
           <Link
-            href="https://old.medieteknik.nu/forum_cookie"
+            // href="https://old.medieteknik.nu/forum_cookie"
+            href="https://portalen.medieteknik.nu/"
             target="_blank"
             rel="noopener"
             onClick={closeMenu}
@@ -182,7 +183,8 @@ export default function Navigation() {
           {/* </Link> */}
           {list()}
           <Link
-            href="https://old.medieteknik.nu/forum_cookie"
+            // href="https://old.medieteknik.nu/forum_cookie"
+            href="https://portalen.medieteknik.nu/"
             target="_blank"
             rel="noopener"
           >
