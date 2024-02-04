@@ -79,6 +79,9 @@ export default function PresentationModal(props: InputProps) {
               {props.user.responsibility}
             </Typography>
             <CopyText text={props.user.email} align="center" />
+            {props.user.email2 && (
+              <CopyText text={props.user.email2} align="center" />
+            )}
             <br></br>
 
             <Typography

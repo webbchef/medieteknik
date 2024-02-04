@@ -1,6 +1,7 @@
 export interface Styrare {
   name: string;
   email: string;
+  email2?: string;
   responsibility: string;
   imageName?: string;
   text: string;
