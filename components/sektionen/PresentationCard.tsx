@@ -32,6 +32,7 @@ export default function PresentationCard(props: InputProps) {
           component="img"
           image={`/images/profilePictures/${props.user.imageName}.jpg`}
           alt={props.user.name}
+          // justera höjd och bredd på bilden
         />
       )}
       <CardHeader title={props.user.name} align="center" />
@@ -42,6 +43,11 @@ export default function PresentationCard(props: InputProps) {
       <Typography sx={{ pt: isMobile ? 1 : 0, fontSize: isDesktop ? "16px !important" : "inherit", overflowWrap: 'break-word' }}>
         {props.user.email}
       </Typography>
+      {props.user.email2 && (
+        <Typography sx={{ pt: isMobile ? 1 : 0, fontSize: isDesktop ? "16px !important" : "inherit", overflowWrap: 'break-word' }}>
+        {props.user.email2}
+        </Typography>        
+      )}
 
 
       </CardContent>
