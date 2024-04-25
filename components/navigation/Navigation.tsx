@@ -67,6 +67,7 @@ export default function Navigation() {
           name: "HEM",
           to: "/",
         },
+        { name: "NYHETER", to: "/news" },
         { name: "STUDENTLIV", to: "/studentliv" },
         { name: "OM MT", to: "/about" },
         { name: "SEKTIONEN", to: "/sektionen" },
