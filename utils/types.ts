@@ -49,3 +49,12 @@ export interface FooterLink {
   title: string;
   path: string;
 }
+
+export interface NewsPost {
+  id: string;
+  created_time: string;
+  message?: string;
+  media_type?: 'photo' | 'video' | string;
+  media_url?: string;
+  permalink_url?: string;
+}
