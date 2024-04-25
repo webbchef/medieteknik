@@ -27,8 +27,20 @@ const useInstagramPosts = (
 
     useEffect(() => {
         const fetchPosts = async () => {
+            if (!accessToken) {
+                console.error('Access token is missing.');
+                return;
+            }
+
             try {
+                // As an access token is only valid for 60 days without a refresh, refresh it when Instagram posts are fetched
+                await fetch(`https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${accessToken}`);
                 const response = await fetch(`https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink&access_token=${accessToken}&limit=${count}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
                 const data = await response.json();
 
                 if (data.data) {

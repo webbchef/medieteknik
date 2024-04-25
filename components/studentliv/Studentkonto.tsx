@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Grid, Typography, Box } from "@mui/material";
 import WavyBackground from "../general/WavyBackground";
 import StyledButton from "../general/StyledButton";
@@ -7,9 +7,19 @@ import useInstagramPosts from "./useInstagramPosts";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 
 export default function Studentkonto() {
-  const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN ?? "";
+  const [hasMounted, setHasMounted] = useState(false);
+  const accessToken = process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN ?? "";
   const posts = useInstagramPosts(accessToken);
   const { isMobile, isIpad } = useContext(MobileStateContext);
+
+  useEffect(() => {
+    // Confirm component has mounted in the client environment
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) {
+    return null;
+  }
 
   const paddingTopValue = () => {
     if (isMobile) return "10px !important";

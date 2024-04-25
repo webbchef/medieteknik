@@ -6,7 +6,7 @@ interface InputProps {
 }
 
 export default function NewsCard(props: InputProps) {
-    const date = new Date(props.post.created_time).toLocaleDateString('en-US', {
+    const date = new Date(props.post.created_time).toLocaleDateString('sv-SE', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
@@ -37,7 +37,7 @@ export default function NewsCard(props: InputProps) {
                 <Typography variant="body2" color="text.secondary">
                     {props.post.permalink_url &&
                         <Link href={props.post.permalink_url} target="_blank" rel="noopener noreferrer" underline="none" color="inherit">
-                            {date} | View on Facebook
+                            {date} | Visa på Facebook
                         </Link>                    
                     }
                 </Typography>
