@@ -16,7 +16,7 @@ const nextConfig = {
     // This configuration tells Next.js to treat external packages as ECMAScript modules.
 
     env: {
-        INSTAGRAM_ACCESS_TOKEN: process.env.INSTAGRAM_ACCESS_TOKEN,
+        NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN: process.env.INSTAGRAM_ACCESS_TOKEN,
         FACEBOOK_PAGEID: process.env.FACEBOOK_PAGEID,
         FACEBOOK_ACCESS_TOKEN: process.env.FACEBOOK_ACCESS_TOKEN,
     },
