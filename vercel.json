@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "functions": {
+      "api/refresh-token.js": {
+        "runtime": "nodejs14.x",
+        "memory": 3008,
+        "maxDuration": 10
+      }
+    },
+    "crons": [{
+        "path": "/api/refresh-instagram-token",
+        "schedule": "0 10 * * *"
+    }]
+  }
+  
