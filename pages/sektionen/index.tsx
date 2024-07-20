@@ -233,7 +233,7 @@ const PresentationPage: NextPage = () => {
 
       <WavyBackground bgColor="#13283c" textColor="#FFF">
         <Container maxWidth="lg" id="mette">
-          <ImageWithSummary imageSrc={"/images/mette.jpg"}> 
+          <ImageWithSummary imageSrc={"/images/metteTemp.JPG"}> 
             <Grid
               sx={{
                 display: "flex",
@@ -268,7 +268,7 @@ const PresentationPage: NextPage = () => {
       </WavyBackground>
       <Container id="3cant" maxWidth="lg">
         <ImageWithSummary
-          imageSrc={"/images/3cant.jpg"}
+          imageSrc={"/images/3cantTemp.JPG"}
           direction="row-reverse"
         >
           <Grid
