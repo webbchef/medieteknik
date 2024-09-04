@@ -268,7 +268,7 @@ const PresentationPage: NextPage = () => {
       </WavyBackground>
       <Container id="3cant" maxWidth="lg">
         <ImageWithSummary
-          imageSrc={"/images/GroupPictures/3cant2425.JPG"}
+          imageSrc={"/images/GroupPictures/3cant2425.jpg"}
           direction="row-reverse"
         >
           <Grid
