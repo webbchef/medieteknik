@@ -70,7 +70,7 @@ const PresentationPage: NextPage = () => {
         {/* ----------Civilingengör i Medieteknik ------------*/}
         <ImageWithSummary
           //imageSrc="/images/axels/styrelsen-1.webp"
-          imageSrc="/images/GroupPictures/styrelse_gruppbild_temp.jpg"
+          imageSrc="/images/GroupPictures/Styrelsen2425.jpg"
           direction="row-reverse"
         >
           <Grid
