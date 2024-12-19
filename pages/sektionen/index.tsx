@@ -97,7 +97,7 @@ const PresentationPage: NextPage = () => {
         >
           <img
             //src="/images/axels/styrelsen-3.webp"
-            src="/images/GroupPictures/styrelse_gruppbild_temp.jpg"
+            src="/images/GroupPictures/Styrelsen2425.jpg"
             style={{ width: isMobile ? "125%" : isIpad ? "150%" : "100%" }}
           />
         </Grid>
