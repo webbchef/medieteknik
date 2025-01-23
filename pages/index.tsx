@@ -274,7 +274,7 @@ const Home: NextPage = () => {
       >
         <Grid container>
           <ImageWithSummary
-            imageSrc="/images/mtd.png"
+            imageSrc="/images/mtd24.jpg"
             direction="row-reverse"
             title="Medieteknikdagen"
           >
