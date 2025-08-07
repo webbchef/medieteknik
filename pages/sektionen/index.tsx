@@ -259,7 +259,7 @@ const PresentationPage: NextPage = () => {
                 oss på Instagram och Facebook för att bli uppdaterad om våra
                 kommande aktiviteter.
               </Typography>
-              <StyledButton src="https://www.facebook.com/MTMette" external={true}>
+              <StyledButton src="https://www.mette.nu/" external={true}>
                 Läs mer
               </StyledButton>
             </Grid>
