@@ -79,7 +79,7 @@ const PresentationPage: NextPage = () => {
             // fontSize: isDesktop ? "25px !important" : undefined,
           }}
         >
-          Hej! Vi är Medietekniksektionens styrelse under perioden 24/25. Vi
+          Hej! Vi är Medietekniksektionens styrelse under perioden 25/26. Vi
           representerar MT-eleverna gentemot LiU, verkar för en bättre
           arbetsmiljö för oss studenter och anordnar event för MT:are. Vi
           anordnar också föreläsningar där företag och alumner berättar om livet
@@ -97,7 +97,7 @@ const PresentationPage: NextPage = () => {
         >
           <img
             //src="/images/axels/styrelsen-3.webp"
-            src="/images/GroupPictures/Styrelsen2425.jpg"
+            src="/images/GroupPictures/Styrelsen2526.jpg"
             style={{ width: isMobile ? "125%" : isIpad ? "150%" : "100%" }}
           />
         </Grid>
@@ -268,7 +268,7 @@ const PresentationPage: NextPage = () => {
       </WavyBackground>
       <Container id="3cant" maxWidth="lg">
         <ImageWithSummary
-          imageSrc={"/images/GroupPictures/3cant2425.jpg"}
+          imageSrc={"/images/GroupPictures/3cant_2526.png"}
           direction="row-reverse"
         >
           <Grid
