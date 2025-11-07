@@ -107,8 +107,7 @@ const StudentlivPage: NextPage = () => {
             <Typography sx={{ m: 2 }}>
               Som student i Norrköping finns det flera olika boendemöjligheter.
               Studentbo i Norrköping tillhandahåller flera olika boenden med
-              gångavstång till Campus. Om du funderar på att börja plugga i
-              Norrköping kan du ställa dig i kö direkt.
+              gångavstång till Campus. Studentbo erjbuder även bostadsgaranti för dig som är nyantagen student till höstterminen, vilket leder till lite mindre stress till dig som student.
               <br />
               <br />
               Det finns även bra pendlingsmöjligheter från Linköping.
@@ -120,6 +119,12 @@ const StudentlivPage: NextPage = () => {
               external={true}
             >
               Till studentbo.se
+            </StyledButton>
+            <StyledButton
+              src="https://studentbo.se/sokande/bostadsgaranti/"
+              external={true}
+            >
+              Om bostadsgaranti
             </StyledButton>
           </Grid>
         </ImageWithSummary>
