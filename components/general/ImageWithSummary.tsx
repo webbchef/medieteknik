@@ -6,7 +6,7 @@ import { MobileStateContext } from "../../contexts/MobileContexts";
 
 interface InputProps {
   imageSrc: string;
-  children: JSX.Element;
+  children: React.ReactNode;
   title?: string;
 }
 

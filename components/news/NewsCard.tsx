@@ -23,8 +23,8 @@ export default function NewsCard(props: InputProps) {
     });
 
     return (
-        <Card variant="outline" className="border">
-            {props.post.media_url && (
+        <Card className="border">
+            {props.post.media_url && props.post.permalink_url && (
                 <Link href={props.post.permalink_url} target="_blank" rel="noopener noreferrer" className="no-underline">
                     {props.post.media_type === 'video' ? (
                         <video

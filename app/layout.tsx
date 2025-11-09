@@ -3,6 +3,7 @@ import "./styles.css";
 import { MobileStateProvider } from "../contexts/MobileContexts";
 import Navigation from "../components/navigation/Navigation";
 import Footer from "../components/general/Footer";
+import { ThemeProvider } from "@/components/provider/theme-provider"
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="sv">
+    <html lang="sv" suppressHydrationWarning>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Lato:wght@300;400;700&display=swap"
@@ -24,11 +25,18 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <MobileStateProvider>
-          <Navigation />
-          {children}
-          <Footer />
-        </MobileStateProvider>
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+          <MobileStateProvider>
+            <Navigation />
+            {children}
+            <Footer />
+          </MobileStateProvider>
+        </ThemeProvider>  
       </body>
     </html>
   );

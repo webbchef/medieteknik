@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useContext, useEffect, useRef, useState } from "react";
-import { fadeInUp } from "../animations/constants";
 import BackgroundImage from "../components/general/BackgroundImage";
 import ImageWithSummary from "../components/general/ImageWithSummary";
 import StyledButton from "../components/general/StyledButton";
@@ -44,7 +43,7 @@ export default function Home() {
       <BackgroundImage imgSrc="/images/axels/styrelsen-6.webp">
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", height: "80vh", zIndex: 100 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <motion.div ref={constraintsRef1} variants={fadeInUp}>
+            <motion.div ref={constraintsRef1}>
               <motion.div
                 drag
                 dragConstraints={constraintsRef1}
@@ -132,7 +131,6 @@ export default function Home() {
         <div style={{ width: "100%" }}>
           <ImageWithSummary
             imageSrc="/images/nollep6.jpg"
-            direction="row"
             title="Studentliv"
           >
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -168,7 +166,6 @@ export default function Home() {
         <div style={{ width: "100%" }}>
           <ImageWithSummary
             imageSrc="/images/mtd24.jpg"
-            direction="row-reverse"
             title="Medieteknikdagen"
           >
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>

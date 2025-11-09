@@ -1,5 +1,6 @@
+'use client';
+
 import React, { useContext, useEffect, useState } from "react";
-import { Grid, Typography, Box } from "@mui/material";
 import WavyBackground from "../general/WavyBackground";
 import StyledButton from "../general/StyledButton";
 import ImageCarousel from "./ImageCarousel";
@@ -21,51 +22,21 @@ export default function Studentkonto() {
     return null;
   }
 
-  const paddingTopValue = () => {
-    if (isMobile) return "10px !important";
-    if (isIpad) return "30px !important";
-    return "50px !important";
-  };
-
-  const paddingBottomValue = () => {
-    if (isMobile) return "10px !important";
-    if (isIpad) return "30px !important";
-    return "70px !important";
-  };
-
-  const contentWidth = () => {
-    if (isMobile || isIpad) return "80%";
-    return "100%";
-  };
-
-  const contentMargin = () => {
-    if (isMobile || isIpad) return "0 auto";
-    return "unset";
-  };
+  const paddingTop = isMobile ? "pt-[10px]" : isIpad ? "pt-[30px]" : "pt-[50px]";
+  const paddingBottom = isMobile ? "pb-[10px]" : isIpad ? "pb-[30px]" : "pb-[70px]";
 
   return (
     <WavyBackground bgColor="#13283c" textColor="#FFFFFF">
-      {/* <Box sx={{ width: contentWidth(), margin: contentMargin() }}> */}
-      <Grid container spacing={3} maxWidth="lg">
-        <Grid
-          item
-          xs={12}
-          md={accessToken !== "" ? 6 : 12}
-          sx={{
-            display: "flex",
-            paddingTop: paddingTopValue(),
-            paddingBottom: paddingBottomValue(),
-            minHeight: "380px",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-          }}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-screen-lg w-full">
+        <div
+          className={`flex ${paddingTop} ${paddingBottom} min-h-[380px] flex-col items-center justify-center text-center ${
+            accessToken === "" ? "md:col-span-2" : ""
+          }`}
         >
-          <Typography variant="h2" sx={{ m: 2, color: "white" }}>
+          <h2 className="text-white text-4xl font-bold m-8">
             Studentkonto
-          </Typography>
-          <Typography sx={{ m: 2, color: "white" }}>
+          </h2>
+          <p className="text-white m-8">
             Vill du få en inblick i hur det är att leva som en MT-student eller
             hur studentlivet är här i Norrköping?
             <br />
@@ -73,30 +44,20 @@ export default function Studentkonto() {
             Då ska du följa vårat instagramkonto <i>medieteknik_student</i> där
             du varje vecka får du följa med en MT-student som delar med sig av
             sin vardag!
-          </Typography>
+          </p>
           <StyledButton
             external={true}
             src="https://www.instagram.com/medieteknik_student/?hl=en"
           >
             Till kontot!
           </StyledButton>
-        </Grid>
+        </div>
         {accessToken !== "" && (
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <div className="flex justify-center items-center">
             {posts && <ImageCarousel />}
-          </Grid>
+          </div>
         )}
-      </Grid>
-      {/* </Box> */}
+      </div>
     </WavyBackground>
   );
 }

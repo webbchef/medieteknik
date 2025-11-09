@@ -41,8 +41,8 @@ export default function SektionenPage() {
       </div>
       
       <PresentationModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
+        open={modalOpen}
+        handleClose={() => setModalOpen(false)}
         user={styrare[activeUser]}
       />
     </motion.div>

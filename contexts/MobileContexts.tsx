@@ -11,7 +11,7 @@ const initialState: MobileState = {
 export const MobileStateContext = React.createContext(initialState);
 
 interface MobileStateProviderProps {
-  children: React.ReactElement;
+  children: React.ReactNode;
 }
 
 interface MobileState {
