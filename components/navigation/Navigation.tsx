@@ -8,7 +8,6 @@ import { LogIn } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import SocialMediaIcons from "../general/SocialMediaIcons";
-import styles from "./Navigation.module.css";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -58,14 +57,14 @@ export default function Navigation() {
     <ul
       className={`flex ${
         isDesktop
-          ? "flex-row w-[70%]"
+          ? "flex-row w-[70%] justify-around"
           : "flex-col w-full mt-[60px]"
       }`}
     >
       {navigationLinks.map((link, index) => (
         <li
           key={index}
-          className={`${isMobile ? "m-2.5" : ""} ${styles.center}`}
+          className={`${isMobile ? "m-2.5" : ""} flex justify-center`}
         >
           <Link
             href={link.to}
@@ -73,47 +72,50 @@ export default function Navigation() {
             className={
               currentRoute === link.to
                 ? bgColor
-                  ? styles.activeBlack
-                  : styles.activeWhite
+                  ? "nav-link-active-black"
+                  : "nav-link-active-white"
                 : bgColor
-                ? styles.blackLink
-                : styles.whiteLink
+                ? "nav-link-black"
+                : "nav-link-white"
             }
           >
-            <h4 className={bgColor ? styles.blackText : styles.whiteText}>
+            <h4 className={`transition-transform duration-300 ${
+              bgColor ? "text-black" : "text-white"
+            }`}>
               {link.name}
             </h4>
           </Link>
         </li>
       ))}
       <li
-        className={`${styles.center} ${isMobile ? "m-2.5" : "cursor-pointer"}`}
+        className={`flex justify-center ${isMobile ? "m-2.5" : "cursor-pointer"}`}
       >
         <a
           target="_blank"
           rel="noreferrer"
           href="https://www.medieteknikdagen.se/"
-          className={bgColor ? styles.blackLink : styles.whiteLink}
+          className={bgColor ? "nav-link-black" : "nav-link-white"}
         >
-          <h4 className={bgColor ? styles.blackText : styles.whiteText}>
+          <h4 className={`transition-transform duration-300 ${
+            bgColor ? "text-black" : "text-white"
+          }`}>
             MÄSSA
           </h4>
         </a>
       </li>
       {!isDesktop && (
-        <li className={styles.center}>
+        <li className="flex justify-center">
           <Link
             href="https://portalen.medieteknik.nu/"
             target="_blank"
             rel="noopener"
             onClick={closeMenu}
-            className={bgColor ? styles.whiteLink : styles.blackLink}
           >
             <Button variant="ghost" className="gap-2">
               <LogIn className="text-white" />
-              <h4 className={bgColor ? styles.blackText : styles.whiteText}>
+              <span className="text-white font-semibold">
                 LOGGA IN
-              </h4>
+              </span>
             </Button>
           </Link>
         </li>
@@ -123,12 +125,12 @@ export default function Navigation() {
 
   return (
     <div
-      className={`fixed top-0 z-999 w-full flex flex-row items-center p-2 transition-all duration-500 ${
+      className={`fixed top-0 z-[999] w-full flex flex-row items-center p-2 transition-all duration-500 ${
         bgColor ? "bg-white shadow" : ""
       }`}
     >
       {isDesktop ? (
-        <div className="w-full flex justify-between">
+        <div className="w-full flex justify-between items-center">
           <Image
             alt="MT LOGO"
             src={
@@ -138,6 +140,7 @@ export default function Navigation() {
             }
             width={80}
             height={50}
+            className="object-contain"
           />
           {list()}
           <Link
@@ -145,18 +148,28 @@ export default function Navigation() {
             target="_blank"
             rel="noopener"
           >
-            <Button variant="outline" className="gap-2">
-              <LogIn className={bgColor ? "text-black" : "text-white"} />
-              <h4 className={`text-[15px] ${bgColor ? styles.blackText : styles.whiteText}`}>
+            <Button 
+              variant="outline" 
+              className={`gap-2 ${bgColor ? 'border-black text-black hover:bg-black hover:text-white' : 'border-white text-white hover:bg-white hover:text-black'}`}
+            >
+              <LogIn className="w-4 h-4" />
+              <span className="text-sm font-semibold">
                 LOGGA IN
-              </h4>
+              </span>
             </Button>
           </Link>
         </div>
       ) : (
         <>
-          <div className="absolute right-5 top-5 z-9999 flex justify-between p-1 m-1 rounded">
-            <div className="z-99999">
+          <div className="w-full flex justify-between items-center">
+            <Image
+              alt="MT LOGO"
+              src="/images/logotyp_vit_text.png"
+              width={60}
+              height={40}
+              className="object-contain"
+            />
+            <div className="z-[9999]">
               <Hamburger toggled={isOpen} toggle={setOpen} color="#EC6610" />
             </div>
           </div>
@@ -166,16 +179,17 @@ export default function Navigation() {
               side="right"
               className={`${
                 isMobile ? "w-full" : "w-1/2"
-              } bg-black z-101 border-0`}
+              } bg-black z-[101] border-0`}
             >
-              <div className="h-full p-3 flex flex-row justify-center items-center">
+              <div className="h-full p-3 flex flex-col justify-center items-center">
                 {list()}
-                <div className="mt-8">
+                <div className="mt-8 flex flex-col items-center">
                   <Image
                     alt="MT LOGO"
                     src="/images/logotyp_vit_text.png"
                     width={110}
                     height={70}
+                    className="mb-4"
                   />
                   <SocialMediaIcons />
                 </div>

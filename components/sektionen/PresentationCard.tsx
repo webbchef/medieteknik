@@ -26,41 +26,32 @@ interface InputProps {
 export default function PresentationCard(props: InputProps) {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
 
-  const height = isMobile ? 375 : isIpad ? 500 : 400;
-
   return (
     <Card
       onClick={props.openInfo}
-      className="cursor-pointer flex flex-col justify-between"
-      style={{ height: `${height}px` }}
+      className="cursor-pointer flex flex-col bg-white hover:shadow-lg transition-shadow duration-200 h-full min-h-[480px] md:min-h-[500px] text-black"
     >
       {props.user.imageName && (
-        <img
-          src={`/images/profilePictures/${props.user.imageName}.jpg`}
-          alt={props.user.name}
-          className="w-full object-cover"
-        />
+        <div className="w-full aspect-square overflow-hidden rounded-t-xl">
+          <img
+            src={`/images/profilePictures/${props.user.imageName}.jpg`}
+            alt={props.user.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
       )}
-      <CardHeader className="text-center">
-        <CardTitle>{props.user.name}</CardTitle>
+      <CardHeader className="text-center pb-3">
+        <CardTitle className="text-lg md:text-xl text-black">{props.user.name}</CardTitle>
       </CardHeader>
-      <CardContent>
-        <p
-          className={`font-bold break-words ${isMobile ? "pb-1" : ""}`}
-        >
+      <CardContent className="flex-grow">
+        <p className="font-bold break-words text-sm md:text-base mb-2 text-black">
           {props.user.responsibility}
         </p>
-        <p
-          className={`break-words ${isMobile ? "pt-1" : ""}`}
-          style={{ fontSize: isDesktop ? "16px" : "inherit" }}
-        >
+        <p className="break-all overflow-wrap-anywhere text-xs md:text-sm text-black">
           {props.user.email}
         </p>
         {props.user.email2 && (
-          <p
-            className={`break-words ${isMobile ? "pt-1" : ""}`}
-            style={{ fontSize: isDesktop ? "16px" : "inherit" }}
-          >
+          <p className="break-all overflow-wrap-anywhere text-xs md:text-sm text-black mt-1">
             {props.user.email2}
           </p>
         )}

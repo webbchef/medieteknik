@@ -40,13 +40,15 @@ const CarouselImage: React.FC<CarouselImageProps> = (props) => {
                 >
                     <h2 className="text-white text-3xl font-bold">Klicka här för att läsa mer om oss</h2>
                 </div>
-                <Image
-                    width={800}
-                    height={450}
-                    className="rounded-lg w-full h-auto object-cover"
-                    src={props.src}
-                    alt="Image in carousel"
-                />
+                <div className="relative w-full aspect-video">
+                    <Image
+                        fill
+                        className="rounded-lg object-cover"
+                        src={props.src}
+                        alt="Image in carousel"
+                        sizes="(max-width: 768px) 80vw, 20vw"
+                    />
+                </div>
             </div>
         );
     }
@@ -66,13 +68,15 @@ const CarouselImage: React.FC<CarouselImageProps> = (props) => {
                     }`}
                 />
 
-                <Image
-                    width={800}
-                    height={450}
-                    className="rounded-lg w-full h-auto object-cover"
-                    src={props.src}
-                    alt="Image in carousel"
-                />
+                <div className="relative w-full aspect-video">
+                    <Image
+                        fill
+                        className="rounded-lg object-cover"
+                        src={props.src}
+                        alt="Image in carousel"
+                        sizes="20vw"
+                    />
+                </div>
             </div>
         );
     } else {
@@ -91,13 +95,15 @@ const CarouselImage: React.FC<CarouselImageProps> = (props) => {
                 >
                     <h3 className="text-center text-2xl font-bold text-white">Klicka här för att läsa mer om oss</h3>
                 </div>
-                <Image
-                    width={800}
-                    height={450}
-                    className="rounded-lg w-full h-auto object-cover"
-                    src={props.src}
-                    alt="Image in carousel"
-                />
+                <div className="relative w-full aspect-video">
+                    <Image
+                        fill
+                        className="rounded-lg object-cover"
+                        src={props.src}
+                        alt="Image in carousel"
+                        sizes="30vw"
+                    />
+                </div>
             </div>
         );
     }
