@@ -7,7 +7,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'Lato', 'Barlow', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -145,5 +145,134 @@ a {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Navigation Link Styles */
+@layer components {
+  .nav-link-white {
+    position: relative;
+    color: white;
+    text-decoration: none;
+  }
+
+  .nav-link-white::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2.5px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    margin: -2px;
+  }
+
+  .nav-link-white:hover::before {
+    transform: scaleX(1);
+  }
+
+  .nav-link-black {
+    position: relative;
+    color: black;
+    text-decoration: none;
+  }
+
+  .nav-link-black::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2.5px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    margin: -2px;
+  }
+
+  .nav-link-black:hover::before {
+    transform: scaleX(1);
+  }
+
+  .nav-link-active-white {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    border-bottom: 2.5px solid white;
+    line-height: 1;
+  }
+
+  .nav-link-active-black {
+    position: relative;
+    color: black;
+    text-decoration: none;
+    border-bottom: 2.5px solid black;
+    line-height: 1;
+  }
+
+  /* Wavy Background Styles */
+  .wavy-background-top {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(-180deg);
+  }
+
+  .wavy-background-top svg {
+    position: relative;
+    display: block;
+    width: calc(125% + 1.3px);
+    transform: rotateY(180deg);
+  }
+
+  .wavy-background-bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .wavy-background-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(118% + 1.3px);
+    transform: rotateY(-180deg);
+  }
+
+  /* Background Image Styles */
+  .background-image-container::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 80vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: -10px;
+  }
+
+  .background-wave-shape {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 4;
+    transform: rotate(180deg);
+  }
+
+  .background-wave-shape svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
   }
 }
