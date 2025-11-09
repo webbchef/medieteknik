@@ -8,6 +8,7 @@ import {
   useEffect,
   useState,
   useId,
+  useRef,
 } from 'react';
 
 export type AnimatedBackgroundProps = {
@@ -31,13 +32,35 @@ export function AnimatedBackground({
 }: AnimatedBackgroundProps) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const uniqueId = useId();
+  const leaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleSetActiveId = (id: string | null) => {
+    // Clear any pending timeout
+    if (leaveTimeoutRef.current) {
+      clearTimeout(leaveTimeoutRef.current);
+      leaveTimeoutRef.current = null;
+    }
+
     setActiveId(id);
 
     if (onValueChange) {
       onValueChange(id);
     }
+  };
+
+  const handleMouseLeave = () => {
+    // Clear any existing timeout
+    if (leaveTimeoutRef.current) {
+      clearTimeout(leaveTimeoutRef.current);
+    }
+
+    // Set a delay before returning to default
+    leaveTimeoutRef.current = setTimeout(() => {
+      setActiveId(defaultValue || null);
+      if (onValueChange) {
+        onValueChange(defaultValue || null);
+      }
+    }, 150); // 150ms delay
   };
 
   useEffect(() => {
@@ -46,13 +69,22 @@ export function AnimatedBackground({
     }
   }, [defaultValue]);
 
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (leaveTimeoutRef.current) {
+        clearTimeout(leaveTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return Children.map(children, (child: any, index) => {
     const id = child.props['data-id'];
 
     const interactionProps = enableHover
       ? {
           onMouseEnter: () => handleSetActiveId(id),
-          onMouseLeave: () => handleSetActiveId(null),
+          onMouseLeave: handleMouseLeave,
         }
       : {
           onClick: () => handleSetActiveId(id),

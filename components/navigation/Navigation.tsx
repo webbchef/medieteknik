@@ -10,6 +10,7 @@ import Image from "next/image";
 import SocialMediaIcons from "../general/SocialMediaIcons";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 
 /**
  * Component for menu
@@ -53,75 +54,121 @@ export default function Navigation() {
     { name: "SEKTIONEN", to: "/sektionen" },
   ];
 
-  const list = () => (
-    <ul
-      className={`flex ${
-        isDesktop
-          ? "flex-row w-[70%] justify-around"
-          : "flex-col w-full mt-[60px]"
-      }`}
-    >
-      {navigationLinks.map((link, index) => (
+  const list = () => {
+    const desktopNavItems = [
+      ...navigationLinks.map((link) => (
+        <Link
+          key={link.to}
+          href={link.to}
+          data-id={link.to}
+          onClick={closeMenu}
+          className={`px-4 py-2 transition-colors duration-300`}
+        >
+          <h4 className={`font-medium ${
+            bgColor
+              ? "text-zinc-600 hover:text-zinc-950"
+              : "text-white hover:text-white"
+          }`}>
+            {link.name}
+          </h4>
+        </Link>
+      )),
+      <a
+        key="/mässa"
+        href="https://www.medieteknikdagen.se/"
+        data-id="/mässa"
+        target="_blank"
+        rel="noreferrer"
+        className={`px-4 py-2 transition-colors duration-300`}
+      >
+        <h4 className={`font-medium ${
+          bgColor
+            ? "text-zinc-600 hover:text-zinc-950"
+            : "text-white hover:text-white"
+        }`}>
+          MÄSSA
+        </h4>
+      </a>
+    ];
+
+    const mobileNavItems = [
+      ...navigationLinks.map((link, index) => (
         <li
           key={index}
-          className={`${isMobile ? "m-2.5" : ""} flex justify-center`}
+          className="m-2.5 flex justify-center"
         >
           <Link
             href={link.to}
             onClick={closeMenu}
             className={
               currentRoute === link.to
-                ? bgColor
-                  ? "nav-link-active-black"
-                  : "nav-link-active-white"
-                : bgColor
-                ? "nav-link-black"
+                ? "nav-link-active-white"
                 : "nav-link-white"
             }
           >
-            <h4 className={`transition-transform duration-300 ${
-              bgColor ? "text-black" : "text-white"
-            }`}>
+            <h4 className="transition-transform duration-300 text-white">
               {link.name}
             </h4>
           </Link>
         </li>
-      ))}
+      )),
       <li
-        className={`flex justify-center ${isMobile ? "m-2.5" : "cursor-pointer"}`}
+        key="mässa"
+        className="m-2.5 flex justify-center"
       >
         <a
           target="_blank"
           rel="noreferrer"
           href="https://www.medieteknikdagen.se/"
-          className={bgColor ? "nav-link-black" : "nav-link-white"}
+          className="nav-link-white"
         >
-          <h4 className={`transition-transform duration-300 ${
-            bgColor ? "text-black" : "text-white"
-          }`}>
+          <h4 className="transition-transform duration-300 text-white">
             MÄSSA
           </h4>
         </a>
+      </li>,
+      <li key="login" className="flex justify-center">
+        <Link
+          href="https://portalen.medieteknik.nu/"
+          target="_blank"
+          rel="noopener"
+          onClick={closeMenu}
+        >
+          <Button variant="ghost" className="gap-2">
+            <LogIn className="text-white" />
+            <span className="text-white font-semibold">
+              LOGGA IN
+            </span>
+          </Button>
+        </Link>
       </li>
-      {!isDesktop && (
-        <li className="flex justify-center">
-          <Link
-            href="https://portalen.medieteknik.nu/"
-            target="_blank"
-            rel="noopener"
-            onClick={closeMenu}
-          >
-            <Button variant="ghost" className="gap-2">
-              <LogIn className="text-white" />
-              <span className="text-white font-semibold">
-                LOGGA IN
-              </span>
-            </Button>
-          </Link>
-        </li>
-      )}
-    </ul>
-  );
+    ];
+
+    return isDesktop ? (
+      <div className="flex flex-row w-[70%] justify-center">
+        <AnimatedBackground
+          defaultValue={currentRoute}
+          className={`rounded-lg ${
+            bgColor
+              ? "bg-zinc-100 dark:bg-zinc-800"
+              : "bg-white/10"
+          }`}
+          transition={{
+            type: "spring",
+            bounce: 0.2,
+            duration: 0.3,
+          }}
+          enableHover
+        >
+          {desktopNavItems}
+        </AnimatedBackground>
+      </div>
+    ) : (
+      <ul className="flex flex-col w-full mt-[60px]">
+        {mobileNavItems}
+      </ul>
+    );
+  };
 
   return (
     <div
