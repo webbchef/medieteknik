@@ -1,10 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-}
+/* Fonts are loaded in layout.tsx via <link> tag for better performance */
 
 .imageContainer::before {
   content: " ";

@@ -1,17 +1,10 @@
+'use client';
+
 import * as React from "react";
 import { useContext } from "react";
-import { Timeline } from "@mui/lab";
-// import ReactDOM from "react-dom/client";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
-import TimelineDot from "@mui/lab/TimelineDot";
 import eventsContent from "../../content/events.json";
 import EventCard from "./EventCard";
 import { Event } from "../../utils/types";
-import { Grid } from "@mui/material";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 
 export default function AlternateTimeline() {
@@ -19,54 +12,45 @@ export default function AlternateTimeline() {
   const events: Event[] = eventsContent;
 
   return (
-    // <p>Events</p>
-    <Grid
-      sx={{
-        display: "flex",
-        width: "100%",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <div className="flex w-full items-center justify-center">
       {isMobile ? (
-        <Grid
-          container
-          display="flex"
-          alignItems="center"
-          flexDirection="column"
-          justifyContent="center"
-        >
+        <div className="flex items-center flex-col justify-center w-full">
           {events.map((item, index) => (
-            <Grid item sx={{ m: "40px", width: "70%" }} key={index}>
+            <div className="m-10 w-[70%]" key={index}>
               <EventCard {...item} />
-            </Grid>
+            </div>
           ))}
-        </Grid>
+        </div>
       ) : (
-        <Timeline
-          sx={{ marginTop: "125px", alignItems: "center" }}
-          position={isMobile ? "left" : "alternate"}
-          nonce={undefined}
-          onResize={undefined}
-          onResizeCapture={undefined}
-        >
+        <div className="mt-[125px] flex flex-col items-center w-full max-w-6xl">
           {events.map((item, index) => (
-            <TimelineItem key={index} sx={{ width: "100%" }}>
-              <TimelineOppositeContent>{item.month}</TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot />
-                {/* No connector on last item */}
+            <div
+              key={index}
+              className={`flex w-full items-start mb-8 ${
+                index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+              }`}
+            >
+              {/* Opposite Content (Month) */}
+              <div className={`flex-1 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                <p className="text-lg font-medium">{item.month}</p>
+              </div>
+
+              {/* Timeline Separator */}
+              <div className="flex flex-col items-center">
+                <div className="w-3 h-3 rounded-full bg-primary" />
                 {index + 1 !== events.length && (
-                  <TimelineConnector sx={{ height: "200px" }} />
+                  <div className="w-0.5 h-[200px] bg-border" />
                 )}
-              </TimelineSeparator>
-              <TimelineContent sx={{ marginTop: "-80px" }}>
+              </div>
+
+              {/* Timeline Content (EventCard) */}
+              <div className={`flex-1 ${index % 2 === 0 ? 'pl-8 -mt-20' : 'pr-8 -mt-20'}`}>
                 <EventCard {...item} />
-              </TimelineContent>
-            </TimelineItem>
+              </div>
+            </div>
           ))}
-        </Timeline>
+        </div>
       )}
-    </Grid>
+    </div>
   );
 }

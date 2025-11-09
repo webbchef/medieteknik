@@ -1,79 +1,43 @@
-import { Button, Typography, useMediaQuery } from "@mui/material";
-import { Stack, GridDirection, Box, useTheme } from "@mui/system";
-import Image, { StaticImageData } from "next/image";
-import Grid from "@mui/system/Unstable_Grid/Grid";
+'use client';
+
+import Image from "next/image";
 import { useContext } from "react";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 
 interface InputProps {
   imageSrc: string;
-  direction?: GridDirection;
-  children: JSX.Element;
+  children: React.ReactNode;
   title?: string;
 }
+
 export default function ImageWithSummary(props: InputProps) {
-  const theme = useTheme();
-  const matchesSmall = useMediaQuery(theme.breakpoints.between("xs", "md"));
+  const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
+  const matchesSmall = isMobile || isIpad;
 
   return (
-    <Grid
-      maxWidth="lg"
-      container
-      direction={props.direction ? props.direction : "row"}
-      py={12}
-      mx={2}
-    >
-      {matchesSmall && (
-        <Grid xs={12}>
-          <Typography textAlign="center" variant="h2">
-            {props.title}
-          </Typography>
-        </Grid>
+    <div className="max-w-[1200px] py-12 px-4 w-full">
+      {matchesSmall && props.title && (
+        <div>
+          <h2 className="text-center text-3xl font-bold mb-4">{props.title}</h2>
+        </div>
       )}
 
-      <Grid
-        xs={12}
-        md={4}
-        my={{ md: 4 }}
-        sx={{ position: "relative", overflow: "hidden", borderRadius: 2 }}
-      >
-        {" "}
-        {/*mx={{xs: 10, md: 0}}  */}
-        {matchesSmall && <Box height={"25vh"} />}
-        <Image layout="fill" src={props.imageSrc} alt="" objectFit="cover" />
-      </Grid>
-      <Grid xs={0} md={1} />
-      <Grid xs={12} md={7}>
-        {!matchesSmall && (
-          <Typography textAlign="center" variant="h2">
-            {props.title}
-          </Typography>
-        )}
-        {props.children}
-      </Grid>
-    </Grid>
+      <div className={`flex ${matchesSmall ? 'flex-col' : 'flex-row'} gap-8 items-center`}>
+        <div className={`relative overflow-hidden rounded-lg ${matchesSmall ? 'h-[350px] w-full' : 'h-[500px] w-1/2 shrink-0'}`}>
+          <Image
+            fill
+            src={props.imageSrc}
+            alt={props.title || ""}
+            className="object-cover"
+          />
+        </div>
+        <div className={matchesSmall ? 'w-full' : 'w-1/2'}>
+          {!matchesSmall && props.title && (
+            <h2 className="text-center text-3xl font-bold mb-4">{props.title}</h2>
+          )}
+          {props.children}
+        </div>
+      </div>
+    </div>
   );
-  // }
-
-  // return(
-  //   <Grid
-  //       maxWidth="lg"
-  //       container
-  //       direction={props.direction ? props.direction : "row"}
-  //     >
-  //       <Grid xs={7} md={4} sx={{position: "relative", borderRadius: 2, overflow: "hidden"}}>
-  //           <Image
-  //             layout="fill"
-  //             objectFit="cover"
-  //             src={props.imageSrc}
-  //             alt=""
-  //           />
-
-  //       </Grid>
-  //       <Grid xs={9} md={1}/>
-  //       <Grid xs={9} md={7}>
-  //         {props.children}
-  //       </Grid>
-  //     </Grid>
-  // );
 }

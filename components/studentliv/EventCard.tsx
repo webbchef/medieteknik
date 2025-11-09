@@ -1,24 +1,24 @@
-import { useContext } from "react";
-import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import { Event } from "../../utils/types";
-import { MobileStateContext } from "../../contexts/MobileContexts";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function EventCard(item: Event) {
   return (
     <Card>
-      <CardMedia
-        component="img"
-        height="150px"
-        image={`/images/eventPictures/${item.imgPath}.jpg`}
+      <img
+        src={`/images/eventPictures/${item.imgPath}.jpg`}
         alt={item.title}
+        className="w-full h-[150px] object-cover"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {item.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {item.text}
-        </Typography>
+        <h5 className="text-xl font-semibold mb-2">{item.title}</h5>
+        <p className="text-sm text-muted-foreground">{item.text}</p>
       </CardContent>
     </Card>
   );

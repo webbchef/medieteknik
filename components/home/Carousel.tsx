@@ -1,15 +1,11 @@
-import {
-  ArrowBackIosNew,
-  ArrowForwardIos,
-  Circle,
-  CircleOutlined
-} from "@mui/icons-material";
-import { IconButton, Typography, useMediaQuery } from "@mui/material";
-import { useTheme } from '@mui/material/styles';
-import { Box, Container } from "@mui/system";
+'use client';
+
 import { motion, useAnimationControls } from "framer-motion";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight, Circle, CircleDot } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useResponsive } from "@/hooks/use-responsive";
 import { CarouselItem } from "../../utils/types";
 import CarouselImage from "./CarouselImage";
 
@@ -31,9 +27,8 @@ const Carousel: React.FC<CarouselProps> = (props) => {
   const links: string[] = props.carouselItems.map((item) => item.link);
 
   const controls = useAnimationControls();
-
-  const theme = useTheme();
-  const smallScreen = useMediaQuery(theme.breakpoints.down("lg"));
+  const { isBelow } = useResponsive();
+  const smallScreen = isBelow('lg');
 
   const router = useRouter();
   const redirect = (url: string) => {
@@ -94,30 +89,16 @@ const Carousel: React.FC<CarouselProps> = (props) => {
   }, [buttonClicked, controls, imagesToRender]);
 
   return (
-    <Box
-      display={"flex"}
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      overflow="hidden"
-    >
-      <Typography color={"#FFF"} marginBottom={2} textAlign={"center"} variant="h2">
+    <div className="flex flex-col items-center justify-center overflow-hidden">
+      <h2 className="text-white mb-8 text-center text-4xl font-bold">
         {titles![activeImage]}
-      </Typography>
+      </h2>
       {
         !smallScreen ?
-          <Box
-            width="100vw"
-            component={motion.div}
+          <motion.div
+            className="w-screen flex gap-10 justify-center items-center flex-nowrap overflow-hidden p-8"
             animate={controls}
             initial={false}
-            display="flex"
-            gap={10}
-            justifyContent="center"
-            alignItems="center"
-            flexWrap="nowrap"
-            overflow="hidden"
-            padding="30px"
           >
             {imagesToRender.map((image, i) => {
               if (i === 1) {
@@ -126,53 +107,66 @@ const Carousel: React.FC<CarouselProps> = (props) => {
 
               return <CarouselImage key={i} src={image} isActive={false} handleClick={i == 0 ? clickBack : clickForward} />;
             })}
-          </Box>
+          </motion.div>
           :
-          <Box
-            width="100vw"
-            component={motion.div}
+          <motion.div
+            className="w-screen flex justify-center"
             animate={controls}
             initial={false}
-            display="flex"
-            justifyContent="center"
-          ><CarouselImage src={images[activeImage]} isActive={true} smallScreen={smallScreen} handleClick={() => { }} /></Box>
+          >
+            <CarouselImage src={images[activeImage]} isActive={true} smallScreen={smallScreen} handleClick={() => { }} />
+          </motion.div>
       }
-      <Typography color={"#FFF"} textAlign={"center"} pt={2} fontSize={25}>{descriptions![activeImage]}</Typography>
-      <Container
-        sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}
-      >
-        <IconButton color="secondary" onClick={clickBack}>
-          <ArrowBackIosNew />
-        </IconButton>
+      <p className="text-white text-center pt-8 text-2xl">{descriptions![activeImage]}</p>
+      <div className="mt-8 flex justify-center items-center gap-2">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-secondary hover:text-secondary/80"
+          onClick={clickBack}
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </Button>
         {images.map((image, i) => {
           if (activeImage === i) {
             return (
-              <IconButton color="secondary"
+              <Button
+                key={i}
+                variant="ghost"
+                size="icon"
+                className="text-secondary hover:text-secondary/80"
                 onClick={() => {
                   setActiveImage(i);
                 }}
-                key={i}
               >
-                <Circle />
-              </IconButton>
+                <CircleDot className="h-5 w-5" />
+              </Button>
             );
           }
           return (
-            <IconButton color="secondary"
+            <Button
+              key={i}
+              variant="ghost"
+              size="icon"
+              className="text-secondary hover:text-secondary/80"
               onClick={() => {
                 setActiveImage(i);
               }}
-              key={i}
             >
-              <CircleOutlined />
-            </IconButton>
+              <Circle className="h-5 w-5" />
+            </Button>
           );
         })}
-        <IconButton color="secondary" onClick={clickForward}>
-          <ArrowForwardIos />
-        </IconButton>
-      </Container>
-    </Box>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-secondary hover:text-secondary/80"
+          onClick={clickForward}
+        >
+          <ArrowRight className="h-5 w-5" />
+        </Button>
+      </div>
+    </div>
   );
 };
 

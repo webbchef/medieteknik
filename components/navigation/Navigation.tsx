@@ -1,23 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useRouter } from "next/router";
+'use client';
 
-import {
-  ListItemText,
-  Box,
-  Typography,
-  List,
-  Grid,
-  ListItem,
-  Drawer,
-  Button,
-} from "@mui/material";
+import React, { useState, useEffect, useContext } from "react";
+import { usePathname } from "next/navigation";
 import { Sling as Hamburger } from "hamburger-react";
 import { MobileStateContext } from "../../contexts/MobileContexts";
-import LoginIcon from "@mui/icons-material/Login";
+import { LogIn } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import SocialMediaIcons from "../general/SocialMediaIcons";
-import styles from "./Navigation.module.css";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
 /**
  * Component for menu
  * @returns
@@ -27,8 +20,7 @@ export default function Navigation() {
   const [bgColor, setBgColor] = useState<boolean>(false);
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
 
-  const router = useRouter();
-  const currentRoute = router.pathname;
+  const currentRoute = usePathname();
 
   function closeMenu() {
     setOpen(false);
@@ -53,123 +45,92 @@ export default function Navigation() {
     window.addEventListener("scroll", changeBackground);
   });
 
+  const navigationLinks = [
+    { name: "HEM", to: "/" },
+    { name: "NYHETER", to: "/news" },
+    { name: "STUDENTLIV", to: "/studentliv" },
+    { name: "OM MT", to: "/about" },
+    { name: "SEKTIONEN", to: "/sektionen" },
+  ];
+
   const list = () => (
-    <List
-      sx={[
-        { display: "flex" },
+    <ul
+      className={`flex ${
         isDesktop
-          ? { flexDirection: "row", width: "70%" }
-          : { flexDirection: "column", width: "100%", marginTop: "60px" },
-      ]}
+          ? "flex-row w-[70%] justify-around"
+          : "flex-col w-full mt-[60px]"
+      }`}
     >
-      {[
-        {
-          name: "HEM",
-          to: "/",
-        },
-        { name: "NYHETER", to: "/news" },
-        { name: "STUDENTLIV", to: "/studentliv" },
-        { name: "OM MT", to: "/about" },
-        { name: "SEKTIONEN", to: "/sektionen" },
-      ].map((link, index) => (
-        <ListItem
+      {navigationLinks.map((link, index) => (
+        <li
           key={index}
-          sx={isMobile ? { m: "10px" } : {}}
-          className={styles.center}
+          className={`${isMobile ? "m-2.5" : ""} flex justify-center`}
         >
           <Link
             href={link.to}
             onClick={closeMenu}
-            legacyBehavior={false}
-            // className={styles.link}
             className={
               currentRoute === link.to
                 ? bgColor
-                  ? styles.activeBlack
-                  : styles.activeWhite
+                  ? "nav-link-active-black"
+                  : "nav-link-active-white"
                 : bgColor
-                ? styles.blackLink
-                : styles.whiteLink
+                ? "nav-link-black"
+                : "nav-link-white"
             }
           >
-            <Typography
-              variant="h4"
-              className={bgColor ? styles.blackText : styles.whiteText}
-            >
+            <h4 className={`transition-transform duration-300 ${
+              bgColor ? "text-black" : "text-white"
+            }`}>
               {link.name}
-            </Typography>
+            </h4>
           </Link>
-        </ListItem>
+        </li>
       ))}
-      <ListItem
-        className={styles.center}
-        sx={isMobile ? { m: "10px" } : { cursor: "pointer" }}
+      <li
+        className={`flex justify-center ${isMobile ? "m-2.5" : "cursor-pointer"}`}
       >
-        {/* <LaunchIcon sx={{ fontSize: "14px" }} /> */}
         <a
           target="_blank"
           rel="noreferrer"
           href="https://www.medieteknikdagen.se/"
-          className={bgColor ? styles.blackLink : styles.whiteLink}
+          className={bgColor ? "nav-link-black" : "nav-link-white"}
         >
-          <Typography
-            variant="h4"
-            className={bgColor ? styles.blackText : styles.whiteText}
-          >
+          <h4 className={`transition-transform duration-300 ${
+            bgColor ? "text-black" : "text-white"
+          }`}>
             MÄSSA
-          </Typography>
+          </h4>
         </a>
-      </ListItem>
+      </li>
       {!isDesktop && (
-        <ListItem className={styles.center}>
+        <li className="flex justify-center">
           <Link
-            // href="https://old.medieteknik.nu/forum_cookie"
             href="https://portalen.medieteknik.nu/"
             target="_blank"
             rel="noopener"
             onClick={closeMenu}
-            className={bgColor ? styles.whiteLink : styles.blackLink}
           >
-            <Button startIcon={<LoginIcon sx={{ color: "white" }} />}>
-              <Typography
-                variant="h4"
-                className={bgColor ? styles.blackText : styles.whiteText}
-              >
+            <Button variant="ghost" className="gap-2">
+              <LogIn className="text-white" />
+              <span className="text-white font-semibold">
                 LOGGA IN
-              </Typography>
+              </span>
             </Button>
           </Link>
-        </ListItem>
+        </li>
       )}
-    </List>
+    </ul>
   );
 
   return (
-    <Grid
-      sx={[
-        {
-          p: 2,
-          position: "fixed",
-          zIndex: 999,
-          top: 0,
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          transition: "0.5s",
-          alignItems: "center",
-        },
-        bgColor && { backgroundColor: "white", boxShadow: 1 },
-      ]}
+    <div
+      className={`fixed top-0 z-999 w-full flex flex-row items-center p-2 transition-all duration-500 ${
+        bgColor ? "bg-white shadow" : ""
+      }`}
     >
       {isDesktop ? (
-        <Grid
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          {/* <Link href="/"> */}
+        <div className="w-full flex justify-between items-center">
           <Image
             alt="MT LOGO"
             src={
@@ -177,89 +138,70 @@ export default function Navigation() {
                 ? "/images/logotyp_svart_text.png"
                 : "/images/logotyp_vit_text.png"
             }
-            // style={{ cursor: "pointer" }}
-            width="80px"
-            height="50px"
+            width={80}
+            height={50}
+            className="object-contain"
           />
-          {/* </Link> */}
           {list()}
           <Link
-            // href="https://old.medieteknik.nu/forum_cookie"
             href="https://portalen.medieteknik.nu/"
             target="_blank"
             rel="noopener"
           >
-            <Button
-              variant="outlined"
-              startIcon={
-                <LoginIcon sx={{ color: bgColor ? "black" : "white" }} />
-              }
+            <Button 
+              variant="outline" 
+              className={`gap-2 backdrop-blur-md transition-all duration-300 ${
+                bgColor 
+                  ? 'bg-black/5 border-black/20 text-black hover:bg-black/10 hover:border-black/30' 
+                  : 'bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50'
+              }`}
             >
-              <Typography
-                variant="h4"
-                sx={{ fontSize: "15px" }}
-                className={bgColor ? styles.blackText : styles.whiteText}
-              >
+              <LogIn className="w-4 h-4" />
+              <span className="text-sm font-semibold">
                 LOGGA IN
-              </Typography>
+              </span>
             </Button>
           </Link>
-        </Grid>
+        </div>
       ) : (
         <>
-          <Box
-            sx={{
-              position: "absolute",
-              right: "20px",
-              top: "20px",
-              zIndex: 9999,
-              display: "flex",
-              justifyContent: "space-between",
-              p: 1,
-              m: 1,
-              borderRadius: 1,
-            }}
-          >
-            <Grid sx={{ zIndex: 99999 }}>
+          <div className="w-full flex justify-between items-center">
+            <Image
+              alt="MT LOGO"
+              src="/images/logotyp_vit_text.png"
+              width={60}
+              height={40}
+              className="object-contain"
+            />
+            <div className="z-9999">
               <Hamburger toggled={isOpen} toggle={setOpen} color="#EC6610" />
-            </Grid>
-          </Box>
+            </div>
+          </div>
 
-          <Drawer
-            anchor="right"
-            sx={{ zIndex: 101 }}
-            open={isOpen}
-            onClose={closeMenu}
-            transitionDuration={600}
-            PaperProps={{
-              sx: isMobile
-                ? { width: "100%", backgroundColor: "black" }
-                : { width: "50%", backgroundColor: "black" },
-            }}
-          >
-            <Grid
-              container
-              sx={{ height: "100%", p: 3 }}
-              display="flex"
-              flexDirection="row"
-              justifyContent="center"
-              alignItems="center"
+          <Sheet open={isOpen} onOpenChange={setOpen}>
+            <SheetContent
+              side="right"
+              className={`${
+                isMobile ? "w-full" : "w-1/2"
+              } bg-black z-101 border-0`}
             >
-              {list()}
-
-              <Grid item>
-                <Image
-                  alt="MT LOGO"
-                  src="/images/logotyp_vit_text.png"
-                  width="110px"
-                  height="70px"
-                />
-                <SocialMediaIcons />
-              </Grid>
-            </Grid>
-          </Drawer>
+              <div className="h-full p-3 flex flex-col justify-center items-center">
+                {list()}
+                <div className="mt-8 flex flex-col items-center">
+                  <Image
+                    alt="MT LOGO"
+                    src="/images/logotyp_vit_text.png"
+                    width={110}
+                    height={70}
+                    className="mb-4"
+                  />
+                  <SocialMediaIcons />
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </>
       )}
-    </Grid>
+    </div>
   );
 }

@@ -1,4 +1,3 @@
-import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
@@ -10,20 +9,15 @@ type Props = {
 
 const MtValues: React.FC<Props> = (Props) => {
   return (
-    <Box
-      display={"flex"}
-      flexDirection={"column"}
-      alignItems={"center"}
-      justifyContent={"center"}
-    >
-      <Image width={180} height={200} src={Props.image} alt=""></Image>
-      <Typography textAlign={"center"} variant="h2">
+    <div className="flex flex-col items-center justify-center">
+      <Image width={180} height={200} src={Props.image} alt="" />
+      <h2 className="text-center text-3xl font-bold mt-4">
         {Props.title}
-      </Typography>
-      <Typography marginTop={2} textAlign={"center"}>
+      </h2>
+      <p className="mt-2 text-center">
         {Props.description}
-      </Typography>
-    </Box>
+      </p>
+    </div>
   );
 };
 
