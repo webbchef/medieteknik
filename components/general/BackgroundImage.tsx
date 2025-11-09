@@ -26,7 +26,7 @@ export default function BackgroundImage(props: InputProps) {
           alt={props.pageName || "Background image"}
         />
         {props.pageName ? (
-          <h1 className="text-center w-full z-[4] text-white text-5xl md:text-6xl lg:text-7xl font-bold">
+          <h1 className="text-center w-full z-4 text-white text-5xl md:text-6xl lg:text-7xl font-bold">
             {props.pageName}
           </h1>
         ) : (

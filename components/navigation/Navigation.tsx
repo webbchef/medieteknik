@@ -125,7 +125,7 @@ export default function Navigation() {
 
   return (
     <div
-      className={`fixed top-0 z-[999] w-full flex flex-row items-center p-2 transition-all duration-500 ${
+      className={`fixed top-0 z-999 w-full flex flex-row items-center p-2 transition-all duration-500 ${
         bgColor ? "bg-white shadow" : ""
       }`}
     >
@@ -150,7 +150,11 @@ export default function Navigation() {
           >
             <Button 
               variant="outline" 
-              className={`gap-2 ${bgColor ? 'border-black text-black hover:bg-black hover:text-white' : 'border-white text-white hover:bg-white hover:text-black'}`}
+              className={`gap-2 backdrop-blur-md transition-all duration-300 ${
+                bgColor 
+                  ? 'bg-black/5 border-black/20 text-black hover:bg-black/10 hover:border-black/30' 
+                  : 'bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50'
+              }`}
             >
               <LogIn className="w-4 h-4" />
               <span className="text-sm font-semibold">
@@ -169,7 +173,7 @@ export default function Navigation() {
               height={40}
               className="object-contain"
             />
-            <div className="z-[9999]">
+            <div className="z-9999">
               <Hamburger toggled={isOpen} toggle={setOpen} color="#EC6610" />
             </div>
           </div>
@@ -179,7 +183,7 @@ export default function Navigation() {
               side="right"
               className={`${
                 isMobile ? "w-full" : "w-1/2"
-              } bg-black z-[101] border-0`}
+              } bg-black z-101 border-0`}
             >
               <div className="h-full p-3 flex flex-col justify-center items-center">
                 {list()}

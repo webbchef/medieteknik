@@ -23,7 +23,7 @@ export default function ImageWithSummary(props: InputProps) {
       )}
 
       <div className={`flex ${matchesSmall ? 'flex-col' : 'flex-row'} gap-8 items-center`}>
-        <div className={`relative overflow-hidden rounded-lg ${matchesSmall ? 'h-[350px] w-full' : 'h-[500px] w-1/2 flex-shrink-0'}`}>
+        <div className={`relative overflow-hidden rounded-lg ${matchesSmall ? 'h-[350px] w-full' : 'h-[500px] w-1/2 shrink-0'}`}>
           <Image
             fill
             src={props.imageSrc}

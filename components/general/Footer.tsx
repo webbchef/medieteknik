@@ -19,9 +19,9 @@ export default function Footer() {
         <div className="w-full md:w-1/3 flex flex-col justify-start items-center md:items-start px-4 mb-8 md:mb-0">
         {/* Cubes and Logo Text */}
         <div className="flex items-start gap-4 mb-6">
-          <div className="flex gap-2">
-            <div className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] bg-[#EC6610]"></div>
-            <div className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] bg-[#546d7a]"></div>
+          <div className="flex space-x-5">
+            <div className="w-20 h-20 md:w-[100px] md:h-[100px] bg-[#EC6610]"></div>
+            <div className="w-20 h-20 md:w-[100px] md:h-[100px] bg-[#546d7a]"></div>
           </div>
         </div>
         

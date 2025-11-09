@@ -41,7 +41,7 @@ export default function SektionenPage() {
       />
 
       {/* Styrelsen */}
-      <div className="max-w-screen-lg w-[70vw] mx-auto py-5 px-0 pt-5">
+      <div className="max-w-5xl w-[70vw] mx-auto py-5 px-0 pt-5">
         <h2 className="text-3xl md:text-4xl text-center my-6 text-black">
           STYRELSEN
         </h2>
@@ -64,13 +64,14 @@ export default function SektionenPage() {
       </div>
 
       {/* Styrelse-Grid */}
-      <div className={`grid grid-cols-2 md:grid-cols-4 max-w-screen-lg mx-auto ${isMobile ? 'p-0' : 'py-12'}`}>
+      <div className={`grid grid-cols-2 md:grid-cols-4 max-w-6xl mx-auto ${isMobile ? 'p-0' : 'py-12'}`}>
         {styrare.map((styr, index) => (
-          <div key={index} className="p-5 h-full">
+          <div key={index} className="p-4 h-full">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               variants={fadeInUp}
+              className="h-full"
             >
               <PresentationCard
                 user={styr}

@@ -29,10 +29,10 @@ export default function PresentationCard(props: InputProps) {
   return (
     <Card
       onClick={props.openInfo}
-      className="cursor-pointer flex flex-col bg-white hover:shadow-lg transition-shadow duration-200 h-full min-h-[480px] md:min-h-[500px] text-black"
+      className="cursor-pointer flex flex-col bg-white hover:shadow-lg transition-shadow duration-200 h-full text-black overflow-hidden !py-0 !gap-0"
     >
       {props.user.imageName && (
-        <div className="w-full aspect-square overflow-hidden rounded-t-xl">
+        <div className="w-full aspect-square overflow-hidden">
           <img
             src={`/images/profilePictures/${props.user.imageName}.jpg`}
             alt={props.user.name}
@@ -40,11 +40,11 @@ export default function PresentationCard(props: InputProps) {
           />
         </div>
       )}
-      <CardHeader className="text-center pb-3">
+      <CardHeader className="text-center pb-3 pt-4">
         <CardTitle className="text-lg md:text-xl text-black">{props.user.name}</CardTitle>
       </CardHeader>
-      <CardContent className="flex-grow">
-        <p className="font-bold break-words text-sm md:text-base mb-2 text-black">
+      <CardContent className="grow">
+        <p className="font-bold wrap-break-word text-sm md:text-base mb-2 text-black">
           {props.user.responsibility}
         </p>
         <p className="break-all overflow-wrap-anywhere text-xs md:text-sm text-black">
