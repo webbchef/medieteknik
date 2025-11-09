@@ -4,6 +4,7 @@ import { MobileStateProvider } from "../contexts/MobileContexts";
 import Navigation from "../components/navigation/Navigation";
 import Footer from "../components/general/Footer";
 import { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Medieteknik",
@@ -29,6 +30,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </MobileStateProvider>
+        <Analytics />
       </body>
     </html>
   );
