@@ -1,5 +1,5 @@
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid2 from "@mui/material/Grid2";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
