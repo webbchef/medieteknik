@@ -1,11 +1,14 @@
-import { Typography } from "@mui/material";
+'use client';
+
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface InputProps {
   text: string;
   color?: string;
   align?: string;
 }
+
 export default function CopyText(props: InputProps) {
   const [copied, setCopied] = useState<boolean>(false);
 
@@ -13,21 +16,23 @@ export default function CopyText(props: InputProps) {
     navigator.clipboard.writeText(props.text);
     setCopied(true);
 
-    setInterval(() => {
+    setTimeout(() => {
       setCopied(false);
     }, 3000);
   };
 
   return (
-    <Typography
+    <p
       onClick={handleCopy}
-      sx={[
-        { cursor: "pointer", textDecoration: "underline" },
-        props.color ? { color: props.color } : { color: "#EC6610" },
-        props.align ? { textAlign: props.align } : { textAlign: "left" },
-      ]}
+      className={cn(
+        "cursor-pointer underline",
+        props.align === "center" && "text-center",
+        props.align === "left" && "text-left",
+        props.align === "right" && "text-right"
+      )}
+      style={{ color: props.color || "#EC6610" }}
     >
       {copied ? "Kopierad!" : props.text}
-    </Typography>
+    </p>
   );
 }

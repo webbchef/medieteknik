@@ -1,40 +1,30 @@
-import { Grid, IconButton, Typography, Link } from "@mui/material";
-import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import { useContext } from "react";
-import { MobileStateContext } from "../../contexts/MobileContexts";
+import { Facebook, Instagram } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function SocialMediaIcons() {
-  const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
-
   return (
-    <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
+    <div className="flex justify-center w-full">
       <Link
         target="_blank"
         rel="noopener"
         href="https://sv-se.facebook.com/mtsektionen/"
       >
-        <IconButton
-          color="secondary"
-          aria-label="upload picture"
-          component="label"
-        >
-          <FacebookRoundedIcon />
-        </IconButton>
+        <Button variant="ghost" size="icon" className="text-[#EC6610] hover:text-[#EC6610]/80">
+          <Facebook className="h-6 w-6" />
+          <span className="sr-only">Facebook</span>
+        </Button>
       </Link>
       <Link
         target="_blank"
         rel="noopener"
         href="https://www.instagram.com/mtsektionen/?hl=en"
       >
-        <IconButton
-          color="secondary"
-          aria-label="upload picture"
-          component="label"
-        >
-          <InstagramIcon />
-        </IconButton>
+        <Button variant="ghost" size="icon" className="text-[#EC6610] hover:text-[#EC6610]/80">
+          <Instagram className="h-6 w-6" />
+          <span className="sr-only">Instagram</span>
+        </Button>
       </Link>
-    </Grid>
+    </div>
   );
 }

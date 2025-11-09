@@ -1,4 +1,4 @@
-import { Button, Typography } from "@mui/material";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 interface InputProps {
@@ -7,26 +7,26 @@ interface InputProps {
   external?: boolean;
   color?: string;
 }
+
 export default function StyledButton(props: InputProps) {
   return (
     <Button
-      variant="contained"
-      color="secondary"
-      sx={{ m: 3 }}
-      component="a"
-      LinkComponent={Link}
-      href={props.src}
-      target={props.external ? "_blank" : ""}
-      rel={props.external ? "noreferrer" : ""}
+      variant="default"
+      className="m-3 bg-[#EC6610] hover:bg-[#EC6610]/90 px-4"
+      asChild
     >
-      <Typography
-        sx={[
-          props.color ? { color: props.color } : { color: "white" },
-          { paddingRight: 1, paddingLeft: 1, textAlign: "center" },
-        ]}
+      <Link
+        href={props.src}
+        target={props.external ? "_blank" : undefined}
+        rel={props.external ? "noreferrer" : undefined}
       >
-        {props.children}
-      </Typography>
+        <span
+          className="px-1 text-center"
+          style={{ color: props.color || "white" }}
+        >
+          {props.children}
+        </span>
+      </Link>
     </Button>
   );
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ArrowBackIosNew,
   ArrowForwardIos,
@@ -8,7 +10,7 @@ import { IconButton, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from '@mui/material/styles';
 import { Box, Container } from "@mui/system";
 import { motion, useAnimationControls } from "framer-motion";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { CarouselItem } from "../../utils/types";
 import CarouselImage from "./CarouselImage";
