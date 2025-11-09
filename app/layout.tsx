@@ -5,6 +5,7 @@ import Navigation from "../components/navigation/Navigation";
 import Footer from "../components/general/Footer";
 import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Medieteknik",
@@ -31,6 +32,7 @@ export default function RootLayout({
           <Footer />
         </MobileStateProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
