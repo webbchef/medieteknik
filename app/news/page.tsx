@@ -15,35 +15,41 @@ export default function NewsPage() {
       exit={{ opacity: 0 }}
       initial="initial"
       animate="animate"
-      style={{ overflow: "hidden", background: "white" }}
+      className="overflow-hidden bg-white"
     >
       <BackgroundImage pageName="NYHETER" imgSrc="/images/hus2.png" />
 
-      <div style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-          <h3>
-            Här läggs nyheter för Medietekniksektionen upp. Vill du marknadsföra här? Kontakta{' '}
-            <a
-              href="mailto:naringsliv@medieteknik.nu"
-              style={{ color: "#EC6610", textDecoration: "underline" }}>
-              vår näringslivsansvarig!
-            </a>
-          </h3>
-        </div>
-        {posts.map((post) => (
-          <div key={post.id} style={{ marginBottom: "2rem" }}>
-            <NewsCard post={post} />
+      <div className="flex justify-center w-full">
+        <div className="w-full max-w-4xl px-4 py-8 md:py-12">
+          <div className="text-center mb-8">
+            <h3 className="text-xl md:text-2xl">
+              Här läggs nyheter för Medietekniksektionen upp. Vill du marknadsföra här? Kontakta{' '}
+              <a
+                href="mailto:naringsliv@medieteknik.nu"
+                className="text-[#EC6610] underline"
+              >
+                vår näringslivsansvarig!
+              </a>
+            </h3>
           </div>
-        ))}
-        <div style={{ textAlign: "center", marginTop: "2rem" }}>
-          <h3>
-            Vill du se fler nyheter? Kolla in{' '}
-            <a
-              href="https://www.facebook.com/mtsektionen"
-              style={{ color: "#EC6610", textDecoration: "underline" }}>
-              vår Facebook-sida!
-            </a>
-          </h3>
+
+          {posts.map((post) => (
+            <div key={post.id} className="mb-4">
+              <NewsCard post={post} />
+            </div>
+          ))}
+
+          <div className="text-center mt-8">
+            <h3 className="text-xl md:text-2xl">
+              Vill du se fler nyheter? Kolla in{' '}
+              <a
+                href="https://www.facebook.com/mtsektionen"
+                className="text-[#EC6610] underline"
+              >
+                medieteknik på Facebook!
+              </a>
+            </h3>
+          </div>
         </div>
       </div>
     </motion.div>

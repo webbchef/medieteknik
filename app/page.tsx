@@ -38,45 +38,41 @@ export default function Home() {
     <motion.div
       animate="animate"
       initial="initial"
-      style={{ overflow: "hidden", background: "white" }}
+      className="overflow-hidden bg-white"
     >
       <BackgroundImage imgSrc="/images/axels/styrelsen-6.webp">
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", height: "80vh", zIndex: 100 }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div className="flex flex-col items-center justify-center w-full h-[80vh] z-100">
+          <div className="flex items-center justify-center">
             <motion.div ref={constraintsRef1}>
               <motion.div
                 drag
                 dragConstraints={constraintsRef1}
+                className="bg-[#EC6610]"
                 style={{
-                  backgroundColor: "#EC6610",
                   width: cubeWidth,
                   height: cubeWidth,
                 }}
               />
             </motion.div>
-            <div style={{ margin: isMobile ? "10px" : "20px" }}></div>
+            <div className={isMobile ? "mx-2.5" : "mx-5"}></div>
             <motion.div ref={constraintsRef2}>
               <motion.div
                 drag
                 dragConstraints={constraintsRef2}
+                className="bg-[#3b484f]"
                 style={{
-                  backgroundColor: "#3b484f",
                   width: cubeWidth,
                   height: cubeWidth,
                 }}
               />
             </motion.div>
           </div>
-          <div style={{ margin: "10px" }}></div>
+          <div className="my-2.5"></div>
           <motion.div ref={constraintsRef3}>
             <motion.div
               drag
               dragConstraints={constraintsRef3}
-              style={{
-                fontFamily: "Lato, sans-serif !important",
-                fontSize: isMobile ? "25px" : "45px",
-                color: "white",
-              }}
+              className={`font-['Lato',sans-serif] ${isMobile ? 'text-[25px]' : 'text-[45px]'} text-white`}
             >
               CIVILINGENJÖR
             </motion.div>
@@ -85,25 +81,20 @@ export default function Home() {
             <motion.div
               drag
               dragConstraints={constraintsRef4}
-              style={{
-                fontFamily: "Barlow, sans-serif !important",
-                fontWeight: "bold",
-                fontSize: isMobile ? "30px" : "64px",
-                color: "white",
-              }}
+              className={`font-['Barlow',sans-serif] font-bold ${isMobile ? 'text-[30px]' : 'text-[64px]'} text-white`}
             >
               MEDIETEKNIK
             </motion.div>
           </motion.div>
         </div>
       </BackgroundImage>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginLeft: "1rem", marginRight: "1rem" }}>
-        <div style={{ maxWidth: "1200px", marginBottom: "2rem", width: "100%" }}>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "1rem" }}>
-            <h2 style={{ paddingTop: "2.5rem", color: "black", textAlign: "center" }}>
+      <div className="flex flex-col items-center mx-4">
+        <div className="max-w-[1200px] mb-8 w-full">
+          <div className="flex flex-col items-center mb-4">
+            <h2 className="pt-10 text-black text-center">
               Vad är MT?
             </h2>
-            <p style={{ color: "black", textAlign: "center" }}>
+            <p className="text-black text-center">
               Hej! Välkommen till sidan om Medieteknik, eller MT som vi kallar
               det. Vår utbildning heter Medieteknik eftersom den handlar om
               tekniken bakom de olika medierna, d.v.s. ljud, bild, video,
@@ -117,9 +108,9 @@ export default function Home() {
             <StyledButton src="/about">Läs mer</StyledButton>
           </div>
         </div>
-        <div style={{ display: "flex", flexWrap: "wrap", maxWidth: "1200px", justifyContent: "space-around", gap: "2rem" }}>
+        <div className="flex flex-wrap max-w-[1200px] justify-around gap-8">
           {values.map((value, index) => (
-            <div key={index} style={{ flex: "1 1 300px", maxWidth: "400px" }}>
+            <div key={index} className="flex-[1_1_300px] max-w-[400px]">
               <MtValues
                 description={value.description}
                 title={value.title}
@@ -128,13 +119,13 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <div style={{ width: "100%" }}>
+        <div className="flex justify-center w-full">
           <ImageWithSummary
             imageSrc="/images/nollep6.jpg"
             title="Studentliv"
           >
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <p style={{ marginTop: "1.5rem", textAlign: "center" }}>
+            <div className="flex flex-col items-center">
+              <p className="mt-6 text-center text-black">
                 De flesta som pluggar här flyttar hemifrån för att komma till
                 Norrköping och det kan kännas rätt läskigt att lämna allt man
                 vuxit upp med. Men oroa dig inte, det som väntar här är vad de
@@ -144,7 +135,7 @@ export default function Home() {
                 Nolle-P finns det massor av{" "}
                 <a
                   href="https://studentlivet.se/orbi-associations/"
-                  style={{ color: "#EC6610", textDecoration: "underline" }}
+                  className="text-[#EC6610] underline"
                 >
                   föreningar
                 </a>{" "}
@@ -155,21 +146,21 @@ export default function Home() {
           </ImageWithSummary>
         </div>
       </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div className="flex justify-center">
         <WavyBackground bgColor="#13283c">
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div className="flex flex-col items-center">
             <Carousel carouselItems={carouselItems} />
           </div>
         </WavyBackground>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginLeft: "1rem", marginRight: "1rem" }}>
-        <div style={{ width: "100%" }}>
+      <div className="flex flex-col items-center mx-4">
+        <div className="flex justify-center w-full">
           <ImageWithSummary
             imageSrc="/images/mtd24.jpg"
             title="Medieteknikdagen"
           >
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <p style={{ marginTop: "1.5rem", textAlign: "center" }}>
+            <div className="flex flex-col items-center">
+              <p className="mt-6 text-center text-black">
                 Medieteknikdagen är våran arbetsmarknadsdag och är ett ideellt
                 arrangemang drivet av och för studenter. Syftet är att knyta
                 kontakter mellan studenter, medietekniker ute i arbetslivet och
