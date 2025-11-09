@@ -3,7 +3,6 @@ import "./styles.css";
 import { MobileStateProvider } from "../contexts/MobileContexts";
 import Navigation from "../components/navigation/Navigation";
 import Footer from "../components/general/Footer";
-import { ThemeProvider } from "@/components/provider/theme-provider"
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,18 +24,11 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-          <MobileStateProvider>
-            <Navigation />
-            {children}
-            <Footer />
-          </MobileStateProvider>
-        </ThemeProvider>  
+        <MobileStateProvider>
+          <Navigation />
+          {children}
+          <Footer />
+        </MobileStateProvider>
       </body>
     </html>
   );
