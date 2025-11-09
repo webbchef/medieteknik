@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import { useContext } from "react";
 import { MobileStateContext } from "../../contexts/MobileContexts";
 import Events from "../../components/studentliv/Events";
-import ImageCarousel from "../../components/studentliv/ImageCarousel";
-import Studentkonto from "../../components/studentliv/Studentkonto";
 import BackgroundImage from "../../components/general/BackgroundImage";
 import StyledButton from "../../components/general/StyledButton";
 import ImageWithSummary from "../../components/general/ImageWithSummary";
@@ -85,11 +83,6 @@ export default function StudentlivPage() {
             PS! Glöm inte matlådan ;)
           </p>
         </div>
-      </div>
-
-      {/* Student Accounts */}
-      <div className="mt-12 mb-12">
-        <Studentkonto />
       </div>
 
       {/* Sektionens Event */}
