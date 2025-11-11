@@ -28,26 +28,13 @@
     "imageName": "Oscar",
     "text": "Som SnOrdf är man ordförande för studienämnden som består av alla klassrepresentanter från MT. Studienämndens uppdrag är att se till att kurser utvärderas för att de ska bli bättre, och för att det ska hända så görs kursutvärderingar och examinatorsmöten. SnOrdfarna sitter även med i UtbildningsRådet, som består av alla SnOrdfar på tekniska fakulteten. UR har några möten per termin och där får vi massor med saftig inside information om vad som pågår på LiU. Det är väldigt najs. Utöver detta sitter vi med i Programplanegruppen och DM-nämnden där ännu mer juicy news om LiU och MT diskuteras. Vid deltagande på DM-nämndmöten blir SnOrdfen arvoderad, ka-ching rätt ner i fickan."
   },
-  {
-    "name": "Positionen är vakant",
-    "responsibility": "Vice SNORDF",
-    "email": "vicesnordf@medieteknik.nu",
-    "imageName": "temp",
-    "text": "Som SnOrdf är man ordförande för studienämnden som består av alla klassrepresentanter från MT. Studienämndens uppdrag är att se till att kurser utvärderas för att de ska bli bättre, och för att det ska hända så görs kursutvärderingar och examinatorsmöten. SnOrdfarna sitter även med i UtbildningsRådet, som består av alla SnOrdfar på tekniska fakulteten. UR har några möten per termin och där får vi massor med saftig inside information om vad som pågår på LiU. Det är väldigt najs. Utöver detta sitter vi med i Programplanegruppen och DM-nämnden där ännu mer juicy news om LiU och MT diskuteras. Vid deltagande på DM-nämndmöten blir SnOrdfen arvoderad, ka-ching rätt ner i fickan."
-  },
+ 
   {
     "name": "Mohammed Oueslati",
     "responsibility": "Webb",
     "email": "webbchef@medieteknik.nu",
     "imageName": "Mohammed",
     "text": "Som webbansvarig har jag hand om den här fina webbplatsen som du är inne och tittar på just nu. Jag ansvarar både för underhåll och vidareutveckling av den. Det innebär att jag jobbar en hel del full-stack och knackar kod i bland annat Next.js och TypeScript. Jättekul och lärorikt om man intresserar sig för webbutveckling! Utöver det agerar jag också som administratör för sektionens mejl. \n\n Så om du har problem med att logga in på forumet eller något annat som strular här på medieteknik.nu så är det mig du vill kontakta."
-  },
-  {
-    "name": "Positionen är vakant",
-    "responsibility": "Alumni och Näringsliv",
-    "email": "naringsliv@medieteknik.nu",
-    "imageName": "temp",
-    "text": "Som Alumni- och Näringslivsansvariga fungerar jag som en brygga mellan student- och arbetsliv. Jag skapar event med företag och alumner för att ge studenterna en inblick i livet efter plugget och hjälpa till att skapa kontakter för framtida anställnings-, sommarjobbs- eller exjobbsmöjligheter. Eventen kan variera mellan allt ifrån föreläsningar och studiebesök till case-kvällar och pluggstugor. Jag driver även MT:s mentorskapsprogram där vi för samman studenter och mentorer i ett ömsesidigt utbyte av erfarenheter och kunskap. Om du har några frågor som rör alumner eller näringsliv, tveka inte att höra av dig!"
   },
   {
     "name": "William Lundgren",
@@ -76,5 +63,19 @@
     "email": "tiger@medieteknik.nu",
     "imageName": "tiger",
     "text": "Tiger är MT-styrelsens maskot"
+  },
+   {
+    "name": "Positionen är vakant",
+    "responsibility": "Vice SNORDF",
+    "email": "vicesnordf@medieteknik.nu",
+    "imageName": "temp",
+    "text": "Som SnOrdf är man ordförande för studienämnden som består av alla klassrepresentanter från MT. Studienämndens uppdrag är att se till att kurser utvärderas för att de ska bli bättre, och för att det ska hända så görs kursutvärderingar och examinatorsmöten. SnOrdfarna sitter även med i UtbildningsRådet, som består av alla SnOrdfar på tekniska fakulteten. UR har några möten per termin och där får vi massor med saftig inside information om vad som pågår på LiU. Det är väldigt najs. Utöver detta sitter vi med i Programplanegruppen och DM-nämnden där ännu mer juicy news om LiU och MT diskuteras. Vid deltagande på DM-nämndmöten blir SnOrdfen arvoderad, ka-ching rätt ner i fickan."
+  },
+  {
+    "name": "Positionen är vakant",
+    "responsibility": "Alumni och Näringsliv",
+    "email": "naringsliv@medieteknik.nu",
+    "imageName": "temp",
+    "text": "Som Alumni- och Näringslivsansvariga fungerar jag som en brygga mellan student- och arbetsliv. Jag skapar event med företag och alumner för att ge studenterna en inblick i livet efter plugget och hjälpa till att skapa kontakter för framtida anställnings-, sommarjobbs- eller exjobbsmöjligheter. Eventen kan variera mellan allt ifrån föreläsningar och studiebesök till case-kvällar och pluggstugor. Jag driver även MT:s mentorskapsprogram där vi för samman studenter och mentorer i ett ömsesidigt utbyte av erfarenheter och kunskap. Om du har några frågor som rör alumner eller näringsliv, tveka inte att höra av dig!"
   }
 ]

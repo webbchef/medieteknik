@@ -39,7 +39,7 @@ export default function AboutPage() {
       {/* Civilingenjör i Medieteknik */}
       <div className="flex justify-center mb-5">
         <ImageWithSummary
-          imageSrc="/images/GroupPictures/Styrelsen2526.jpg"
+          imageSrc="/images/GroupPictures/Styrelsen25-26.png"
         >
           <div className="flex flex-col items-center text-center">
             <h2 className="text-3xl md:text-4xl font-bold my-4 text-black">Civilingenjör i Medieteknik</h2>
