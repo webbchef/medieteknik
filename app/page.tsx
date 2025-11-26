@@ -156,7 +156,7 @@ export default function Home() {
       <div className="flex flex-col items-center mx-4">
         <div className="flex justify-center w-full">
           <ImageWithSummary
-            imageSrc="/images/GroupPictures/mtd_25.jpg"
+            imageSrc="/images/mtd_25.jpg"
             title="Medieteknikdagen"
           >
             <div className="flex flex-col items-center">
