@@ -118,53 +118,54 @@ const Carousel: React.FC<CarouselProps> = (props) => {
           </motion.div>
       }
       <p className="text-white text-center pt-8 text-2xl">{descriptions![activeImage]}</p>
-      <div className="mt-8 flex justify-center items-center gap-2">
+   <div className="mt-8 flex justify-center items-center gap-6">
+      {/* Left Arrow */}
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={clickBack}
+        className="text-gray-400 hover:text-white hover:bg-black/40 rounded-full transition-all duration-200"
+      >
+        <ArrowLeft className="h-6 w-6" />
+      </Button>
+
+      {/* Dots*/}
+      {images.map((_, i) => (
         <Button
+          key={i}
           variant="ghost"
           size="icon"
-          className="text-secondary hover:text-secondary/80"
-          onClick={clickBack}
+          onClick={() => setActiveImage(i)}
+          className={`
+            relative                     /* important for z-index stacking */
+            rounded-full 
+            transition-all duration-200
+            hover:bg-black/40            /* darkens on hover */
+            after:absolute after:inset-0 after:rounded-full 
+            after:hover:bg-black/40      /* fallback for some browsers */
+            ${activeImage === i
+              ? "text-white"             /* active dot = bright white */
+              : "text-gray-500 hover:text-white"
+            }
+          `}
         >
-          <ArrowLeft className="h-5 w-5" />
+          {activeImage === i ? (
+            <CircleDot className="h-7 w-7 relative z-10" />
+          ) : (
+            <Circle className="h-5 w-5 relative z-10" />
+          )}
         </Button>
-        {images.map((image, i) => {
-          if (activeImage === i) {
-            return (
-              <Button
-                key={i}
-                variant="ghost"
-                size="icon"
-                className="text-secondary hover:text-secondary/80"
-                onClick={() => {
-                  setActiveImage(i);
-                }}
-              >
-                <CircleDot className="h-5 w-5" />
-              </Button>
-            );
-          }
-          return (
-            <Button
-              key={i}
-              variant="ghost"
-              size="icon"
-              className="text-secondary hover:text-secondary/80"
-              onClick={() => {
-                setActiveImage(i);
-              }}
-            >
-              <Circle className="h-5 w-5" />
-            </Button>
-          );
-        })}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="text-secondary hover:text-secondary/80"
-          onClick={clickForward}
-        >
-          <ArrowRight className="h-5 w-5" />
-        </Button>
+      ))}
+
+      {/* Right Arrow */}
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={clickForward}
+        className="text-gray-400 hover:text-white hover:bg-black/40 rounded-full transition-all duration-200"
+      >
+        <ArrowRight className="h-6 w-6" />
+      </Button>
       </div>
     </div>
   );
