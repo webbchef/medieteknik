@@ -23,3 +23,12 @@
 .image-wrapper > span {
   border-radius: 8px;
 }
+
+.partners-fullbleed .wavy-background-top {
+  display: none !important;
+}
+
+.partners-fullbleed > div {
+  margin-bottom: -50 !important;
+}
+

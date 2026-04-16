@@ -12,6 +12,8 @@ import carouselImages from "../content/carouselItems.json";
 import jsonValues from "../content/values.json";
 import { MobileStateContext } from "../contexts/MobileContexts";
 import type { CarouselItem, Value } from "../utils/types";
+import PartnerSection from "../components/partners/partner_section";
+import partners from "../content/partners.json";
 
 export default function Home() {
   const { isMobile, isIpad, isDesktop } = useContext(MobileStateContext);
@@ -179,6 +181,14 @@ export default function Home() {
           </ImageWithSummary>
         </div>
       </div>
+      <div className="partners-fullbleed relative left-1/2 -translate-x-1/2 w-screen flow-root">
+        <WavyBackground bgColor="#13283c" textColor="#fff">
+          <div className="mx-auto w-full max-w-[1200px] px-4">
+            <PartnerSection partners={partners} title="Samarbeten" variant="dark" />
+          </div>
+        </WavyBackground>
+      </div>
     </motion.div>
+    
   );
 }

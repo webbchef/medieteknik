@@ -15,7 +15,7 @@ export default function Footer() {
 
   return (
     <div className="bg-black w-full">
-      <div className="p-8 pt-[60px] mt-2.5 flex flex-wrap justify-around max-w-screen-xl mx-auto">
+      <div className="p-8 pt-[60px] flex flex-wrap justify-around max-w-screen-xl mx-auto">
         <div className="w-full md:w-1/3 flex flex-col justify-start items-center md:items-start px-4 mb-8 md:mb-0">
         {/* Cubes and Logo Text */}
         <div className="flex items-start gap-4 mb-6">
