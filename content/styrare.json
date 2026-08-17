@@ -1,61 +1,67 @@
 [
   {
-    "name": "Albin André",
+    "name": "Dante Skårstedt",
     "responsibility": "Ordförande",
     "email": "ordforande@medieteknik.nu",
-    "imageName": "Albin_A",
+    "imageName": "temp",
     "text": "Ordförande har det yttersta ansvaret för sektionsstyrelsens arbete och behöver därför ha insikt i vad som behöver göras och vilka uppgifter som måste prioriteras och håller i alla möten."
   },
   {
-    "name": "Gustaf Segersson",
+    "name": "Nico Mattsson",
     "responsibility": "Kassör",
     "email": "kassor@medieteknik.nu",
-    "imageName": "Gustaf",
+    "imageName": "temp",
     "text": "Som kassör har man huvudansvar för sektionens ekonomi, detta innefattar bland annat att se över sektionens ekonomiska tillgångar, gör bokslut samt ser till att budgeten följs. Man ansvarar också för alla in- och utbetalningar och därtill även bokföringen. Allting som på ett eller annat vis rör pengar är man också någorlunda delaktig i och har koll på. Tillsammans med ordförande är man också firmatecknare för sektionen, vilket innebär att man kan ingå avtal i sektionens namn."
   },
   {
-    "name": "Elias Johansson",
+    "name": "Ronja Spies",
     "responsibility": "Sekreterare och AMO",
     "email": "sekreterare@medieteknik.nu",
     "email2": "amo@medieteknik.nu",
-    "imageName": "Elias",
+    "imageName": "temp",
     "text": "Som sekreterare har man ansvar över sektionens dokument, skriver protokoll under möte och har hand om sektionens medlemssystem. \n\n Som arbetsmiljöombud jobbar man med studiesociala och arbetsmiljörelaterade frågor som påverkar studenternas studiemiljö. De studiesociala och arbetsmiljörelaterade frågorna kan handla om studieplatser, luftkonditionering, psykisk hälsa mm."
   },
   {
-    "name": "Oscar Lindman",
+    "name": "Carl Lilja",
     "responsibility": "Studienämndsordförande",
     "email": "snordf@medieteknik.nu",
-    "imageName": "Oscar",
+    "imageName": "temp",
     "text": "Som SnOrdf är man ordförande för studienämnden som består av alla klassrepresentanter från MT. Studienämndens uppdrag är att se till att kurser utvärderas för att de ska bli bättre, och för att det ska hända så görs kursutvärderingar och examinatorsmöten. SnOrdfarna sitter även med i UtbildningsRådet, som består av alla SnOrdfar på tekniska fakulteten. UR har några möten per termin och där får vi massor med saftig inside information om vad som pågår på LiU. Det är väldigt najs. Utöver detta sitter vi med i Programplanegruppen och DM-nämnden där ännu mer juicy news om LiU och MT diskuteras. Vid deltagande på DM-nämndmöten blir SnOrdfen arvoderad, ka-ching rätt ner i fickan."
   },
- 
+ {
+    "name": "Milla Macked",
+    "responsibility": "Vice SNORDF",
+    "email": "vicesnordf@medieteknik.nu",
+    "imageName": "temp",
+    "text": "Som SnOrdf är man ordförande för studienämnden som består av alla klassrepresentanter från MT. Studienämndens uppdrag är att se till att kurser utvärderas för att de ska bli bättre, och för att det ska hända så görs kursutvärderingar och examinatorsmöten. SnOrdfarna sitter även med i UtbildningsRådet, som består av alla SnOrdfar på tekniska fakulteten. UR har några möten per termin och där får vi massor med saftig inside information om vad som pågår på LiU. Det är väldigt najs. Utöver detta sitter vi med i Programplanegruppen och DM-nämnden där ännu mer juicy news om LiU och MT diskuteras. Vid deltagande på DM-nämndmöten blir SnOrdfen arvoderad, ka-ching rätt ner i fickan."
+  },
   {
-    "name": "Mohammed Oueslati",
+    "name": "Samuel Hellqvist",
     "responsibility": "Webb",
     "email": "webbchef@medieteknik.nu",
-    "imageName": "Mohammed1",
+    "imageName": "temp",
     "text": "Som webbansvarig har jag hand om den här fina webbplatsen som du är inne och tittar på just nu. Jag ansvarar både för underhåll och vidareutveckling av den. Det innebär att jag jobbar en hel del full-stack och knackar kod i bland annat Next.js och TypeScript. Jättekul och lärorikt om man intresserar sig för webbutveckling! Utöver det agerar jag också som administratör för sektionens mejl. \n\n Så om du har problem med att logga in på forumet eller något annat som strular här på medieteknik.nu så är det mig du vill kontakta."
   },
   {
-    "name": "William Lundgren",
+    "name": "Filip Karlsson",
     "responsibility": "Festerichef",
     "email": "festerichef@medieteknik.nu",
-    "imageName": "William",
+    "imageName": "temp",
     "text": "Den årliga och otroligt roliga Midsommarphesten samt Femmans fest tillsammans med de två andra festericheferna(ED & KTS) är festerichefens huvudansvar i MT-styrelsen. Som festerichef är man även med i civilingenjörernas festeri 3Cant."
   },
   {
-    "name": "Fredrik Göransson",
+    "name": "Shalom Woldeab",
     "responsibility": "Rekrytering och PR",
     "email": "rekrytering@medieteknik.nu",
     "email2": "pr@medieteknik.nu",
-    "imageName": "Fredrik",
+    "imageName": "temp",
     "text": "Jag är Styrelsens ansikte utåt när det kommer till att synas på de platser där sökande, till vårt fina program, kan tänkas vara. Mässor och gymnasier är två exempel på sådana platser. \n\n Till detta passar ganska naturligt även ”PR” in i bilden. Det handlar i stort sett om att vara Medietekniks digitala ansikte utåt åt alla tänkbara håll; studenter, icke-studenter, företag och föreningar. Jag ser till att det material som ska ut på våra plattformar hamnar där, helt enkelt."
   },
   {
-    "name": "Nils Marion",
+    "name": "Mattias Värlander",
     "responsibility": "Eventansvarig",
     "email": "eventansvarig@medieteknik.nu",
-    "imageName": "Nils",
+    "imageName": "temp",
     "text": "Det är jag som ansvarar för planering av alla våra egna event under året. Till min hjälp har jag ett eventutskott som hjälper mig att bland annat arrangera MTs mycket efterlängtade kräftskiva. Det är också jag tillsammans med GDK-sektionens eventansvarig som arrangerar MT <3 GDK-sittningen."
   },
   {
@@ -64,13 +70,6 @@
     "email": "tiger@medieteknik.nu",
     "imageName": "tiger",
     "text": "Tiger är MT-styrelsens maskot"
-  },
-   {
-    "name": "Positionen är vakant",
-    "responsibility": "Vice SNORDF",
-    "email": "vicesnordf@medieteknik.nu",
-    "imageName": "temp",
-    "text": "Som SnOrdf är man ordförande för studienämnden som består av alla klassrepresentanter från MT. Studienämndens uppdrag är att se till att kurser utvärderas för att de ska bli bättre, och för att det ska hända så görs kursutvärderingar och examinatorsmöten. SnOrdfarna sitter även med i UtbildningsRådet, som består av alla SnOrdfar på tekniska fakulteten. UR har några möten per termin och där får vi massor med saftig inside information om vad som pågår på LiU. Det är väldigt najs. Utöver detta sitter vi med i Programplanegruppen och DM-nämnden där ännu mer juicy news om LiU och MT diskuteras. Vid deltagande på DM-nämndmöten blir SnOrdfen arvoderad, ka-ching rätt ner i fickan."
   },
   {
     "name": "Positionen är vakant",

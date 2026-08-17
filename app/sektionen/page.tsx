@@ -47,7 +47,7 @@ export default function SektionenPage() {
         </h2>
 
         <p className="text-center mb-10">
-          Hej! Vi är Medietekniksektionens styrelse under perioden 25/26. Vi
+          Hej! Vi är Medietekniksektionens styrelse under perioden 26/27. Vi
           representerar MT-eleverna gentemot LiU, verkar för en bättre
           arbetsmiljö för oss studenter och anordnar event för MT:are. Vi
           anordnar också föreläsningar där företag och alumner berättar om livet
@@ -56,7 +56,7 @@ export default function SektionenPage() {
 
         <div className="flex items-center justify-center mb-8">
           <img
-            src="/images/GroupPictures/Styrelsen25-26.png"
+            //src="images/profilePictures/temp.jpg"
             alt="Styrelsen 25/26"
             className={isMobile ? 'w-[125%]' : isIpad ? 'w-[150%]' : 'w-full'}
           />
@@ -120,13 +120,13 @@ export default function SektionenPage() {
       {/* Mette & 3Cant */}
       <WavyBackground bgColor="#13283c" textColor="#FFF">
         <div className="flex justify-center">
-          <ImageWithSummary imageSrc={"/images/GroupPictures/Mette25_26.jpg"}> 
+          <ImageWithSummary imageSrc={"/images/tjugotjugosex/mette2627.jpg"}> 
             <div className="flex flex-col items-center">
               <h2 className="text-3xl md:text-4xl text-center text-inherit my-4">
                 METTE
               </h2>
               <p className="text-center text-inherit">
-                Hej! Det är vi som är Medieteknikprogrammets tjejförening Mette!
+                Hej! Det är vi som är civilingenjörsutbildningen i Medieteknik, Logistik och Elektronik och systemdesign vid Linköpings Universitet!
                 Vi är en förening för alla som identifierar sig som tjej eller
                 icke-binär och studerar Medieteknik på Linköpings Universitet,
                 campus Norrköping. Vi jobbar för att främja gemenskapen mellan
@@ -146,7 +146,7 @@ export default function SektionenPage() {
 
       <div className="flex justify-center">
         <ImageWithSummary
-          imageSrc={"/images/GroupPictures/3cant_2526.png"}
+          imageSrc={"/images/profilePictures/temp.jpg"}
         >
           <div className="flex flex-col items-center">
             <h2 className="text-3xl md:text-4xl text-center text-black my-4">
