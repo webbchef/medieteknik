@@ -42,7 +42,7 @@ export default function PartnerSection({
         <div className="flex justify-center mt-10 pb-8">
           <div className="flex flex-wrap justify-center gap-10 w-full">
             {partners.map((p, idx) => (
-              <div className="flex justify-center mt-10">
+              <div key={p.name ?? idx} className="flex justify-center mt-10">
                 <div className="flex flex-wrap justify-center gap-10 w-full">
                   {partners.map((p, idx) => (
                     <div key={p.name ?? idx} className="flex flex-col items-center">
