@@ -123,7 +123,7 @@ export default function SektionenPage() {
           <ImageWithSummary imageSrc={"/images/tjugotjugosex/mette2627.jpg"}> 
             <div className="flex flex-col items-center">
               <h2 className="text-3xl md:text-4xl text-center text-inherit my-4">
-                METTE
+                ATHENA
               </h2>
               <p className="text-center text-inherit">
                 Hej! Det är vi som är civilingenjörsutbildningen i Medieteknik, Logistik och Elektronik och systemdesign vid Linköpings Universitet!
