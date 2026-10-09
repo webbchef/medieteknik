@@ -34,7 +34,8 @@ export default function PresentationCard(props: InputProps) {
       {props.user.imageName && (
         <div className="w-full aspect-square overflow-hidden">
           <img
-            src={`/images/profilePictures/${props.user.imageName}.jpg`}
+            src={`/images/profilePictures/${props.user.imageName}.webp`}
+            
             alt={props.user.name}
             className="w-full h-full object-cover"
           />
