@@ -56,7 +56,7 @@ export default function SektionenPage() {
 
         <div className="flex items-center justify-center mb-8">
           <img
-            //src="images/profilePictures/temp.jpg"
+            src="images/styrelsen2627.jpg"
             alt="Styrelsen 25/26"
             className={isMobile ? 'w-[125%]' : isIpad ? 'w-[150%]' : 'w-full'}
           />
@@ -146,7 +146,7 @@ export default function SektionenPage() {
 
       <div className="flex justify-center">
         <ImageWithSummary
-          imageSrc={"/images/profilePictures/temp.jpg"}
+          imageSrc={"/images/3cant2627.png"}
         >
           <div className="flex flex-col items-center">
             <h2 className="text-3xl md:text-4xl text-center text-black my-4">
