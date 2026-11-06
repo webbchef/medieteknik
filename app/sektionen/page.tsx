@@ -56,8 +56,8 @@ export default function SektionenPage() {
 
         <div className="flex items-center justify-center mb-8">
           <img
-            src="images/styrelsen2627.jpg"
-            alt="Styrelsen 25/26"
+            src="images/styrelsen2627.JPG"
+            alt="Styrelsen 26/27"
             className={isMobile ? 'w-[125%]' : isIpad ? 'w-[150%]' : 'w-full'}
           />
         </div>
